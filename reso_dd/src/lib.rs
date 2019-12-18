@@ -22,6 +22,8 @@
 //! [reso]: https://ddwiki.reso.org/display/DDW17/RESO+Data+Dictionary+Wiki+v1.7
 //! [serde]: https://serde.rs/
 
+#![deny(missing_docs)]
+
 mod generated;
 pub use generated::*;
 

@@ -1,19 +1,59 @@
 use crate::case;
 use crate::dtd::*;
 use std::collections::HashSet;
+use std::fs::File;
 use std::io::Write;
+use std::path::Path;
+use std::process::Command;
+
+fn strip_trailing_whitespace(path: &Path) -> Result<(), std::io::Error> {
+    Command::new("sed")
+        .arg("-i")
+        .arg("")
+        .arg("-e")
+        .arg("s/[[:space:]]*//")
+        .arg(path)
+        .status()?;
+
+    Ok(())
+}
 
 impl Root {
-    pub fn generate(&self, writer: &mut impl Write) -> Result<(), std::io::Error> {
+    pub fn generate(
+        &self,
+        root_path: &Path,
+        writer: &mut impl Write,
+    ) -> Result<(), std::io::Error> {
         writeln!(writer, "// THIS IS A GENERATED FILE")?;
         writeln!(writer, "// If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator")?;
-        writeln!(writer, "use serde::{{Serialize, Deserialize}};")?;
 
         for resource in self.resources.iter() {
-            resource.generate(writer)?;
+            if resource.title.contains("Collection") {
+                // TODO: Handle collections.
+                continue;
+            }
+            let mod_name = resource.mod_name();
+            println!("Generating {}...", mod_name);
+            let path = root_path.join(format!("{}.rs", mod_name));
+            let mut file = File::create(&path)?;
+            resource.generate(&mut file)?;
+            writeln!(writer, "mod {};", mod_name)?;
+            writeln!(writer, "pub use {}::*;", mod_name)?;
+            strip_trailing_whitespace(&path)?;
         }
         for lookup_field in self.lookup_values.lookup_fields.iter() {
-            lookup_field.generate(writer)?;
+            if lookup_field.title.contains("[") {
+                // TODO: There are some enums that are templated.
+                continue;
+            }
+            let mod_name = lookup_field.mod_name();
+            println!("Generating {}...", mod_name);
+            let path = root_path.join(format!("{}.rs", mod_name));
+            let mut file = File::create(&path)?;
+            lookup_field.generate(&mut file)?;
+            writeln!(writer, "mod {};", mod_name)?;
+            writeln!(writer, "pub use {}::*;", mod_name)?;
+            strip_trailing_whitespace(&path)?;
         }
 
         Ok(())
@@ -25,6 +65,10 @@ impl Resource {
         self.title.replace(" Resource", "")
     }
 
+    pub fn mod_name(&self) -> String {
+        format!("struct_{}", case::snake_case(&self.struct_name()))
+    }
+
     pub fn generate(&self, writer: &mut impl Write) -> Result<(), std::io::Error> {
         if self.title.contains("Collection") {
             // TODO: Handle collections.
@@ -34,6 +78,12 @@ impl Resource {
         writeln!(
             writer,
             r##"
+            // THIS IS A GENERATED FILE
+            // If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator
+            #[allow(unused_imports)]
+            use crate::*;
+            use serde::{{Serialize, Deserialize}};
+
             /// [{title}]({url})
             #[derive(Debug, Default, Serialize, Deserialize)]
             pub struct {struct_name} {{"##,
@@ -130,6 +180,10 @@ impl LookupField {
         title.replace(" Lookups", "")
     }
 
+    pub fn mod_name(&self) -> String {
+        format!("enum_{}", case::snake_case(&self.enum_name()))
+    }
+
     pub fn multiple_items_format_mod_name(&self) -> String {
         Self::build_multiple_items_format_mod_name(&self.title)
     }
@@ -146,6 +200,15 @@ impl LookupField {
             // TODO: There are some enums that are templated.
             return Ok(());
         }
+
+        writeln!(
+            writer,
+            r#"
+            // THIS IS A GENERATED FILE
+            // If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator
+            use serde::{{Serialize, Deserialize}};
+            "#
+        )?;
 
         self.generate_enum(writer)?;
         self.generate_impl_from_string(writer)?;
@@ -337,6 +400,7 @@ impl LookupField {
                 use super::{enum_name};
                 use serde::{{Deserialize, Serializer, Deserializer}};
 
+                #[allow(dead_code)]
                 pub(crate) fn serialize<S>(
                     items: &Option<Vec<{enum_name}>>,
                     serializer: S,
@@ -354,6 +418,7 @@ impl LookupField {
                     }}
                 }}
 
+                #[allow(dead_code)]
                 pub(crate) fn deserialize<'de, D>(
                     deserializer: D,
                 ) -> Result<Option<Vec<{enum_name}>>, D::Error>
