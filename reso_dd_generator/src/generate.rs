@@ -35,7 +35,7 @@ impl Resource {
             writer,
             r##"
             /// [{title}]({url})
-            #[derive(Debug, Serialize, Deserialize)]
+            #[derive(Debug, Default, Serialize, Deserialize)]
             pub struct {struct_name} {{"##,
             title = self.title,
             url = self.url,

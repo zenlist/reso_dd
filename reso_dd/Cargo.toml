@@ -3,8 +3,17 @@ name = "reso_dd"
 version = "0.1.0"
 authors = ["Bryan Burgers <bryan@burgers.io>"]
 edition = "2018"
+license = "MIT"
+description = "Structures and Enumerations that implement the Real Estate Standards Organization (RESO) Data Dictionary"
+readme = "README.md"
+documentation = "https://docs.rs/reso_dd/"
+homepage = "https://github.com/zenlist/reso_dd"
+repository = "https://github.com/zenlist/reso_dd"
+keywords = ["reso", "real", "estate", "data", "dictionary"]
 
 [dependencies]
 chrono = { version = "0.4", features = ["serde"] }
 serde = { version = "1.0", features = ["derive"] }
+
+[dev-dependencies]
 serde_json = "1.0"

@@ -3,7 +3,7 @@
 use serde::{Deserialize, Serialize};
 
 /// [Property Resource](https://ddwiki.reso.org/display/DDW17/Property+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Property {
     /// Finished area within the structure that is at or above the surface of the ground.
     ///
@@ -4399,7 +4399,7 @@ pub struct Property {
 }
 
 /// [Member Resource](https://ddwiki.reso.org/display/DDW17/Member+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Member {
     /// The title or position of the member within their organization.
     ///
@@ -4877,7 +4877,7 @@ pub struct Member {
 }
 
 /// [Office Resource](https://ddwiki.reso.org/display/DDW17/Office+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Office {
     /// The name of the franchise to which the broker/office is contracted.
     ///
@@ -5226,7 +5226,7 @@ pub struct Office {
 }
 
 /// [Contacts Resource](https://ddwiki.reso.org/display/DDW17/Contacts+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Contacts {
     /// The wedding anniversary of the contact; month, day and year.
     ///
@@ -5797,7 +5797,7 @@ pub struct Contacts {
 }
 
 /// [ContactListings Resource](https://ddwiki.reso.org/display/DDW17/ContactListings+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct ContactListings {
     /// When True, one or more of the agent notes are unread.
     ///
@@ -5960,7 +5960,7 @@ pub struct ContactListings {
 }
 
 /// [Media Resource](https://ddwiki.reso.org/display/DDW17/Media+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Media {
     /// ID of the user, agent, member, etc., that uploaded the media this record refers to.
     ///
@@ -6189,7 +6189,7 @@ pub struct Media {
 }
 
 /// [HistoryTransactional Resource](https://ddwiki.reso.org/display/DDW17/HistoryTransactional+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct HistoryTransactional {
     /// Description of the last major change on the listing, i.e. price reduction, back on market, etc. May be used to display on a summary view of listing results to quickly identify listings that have had major changes recently.
     ///
@@ -6358,7 +6358,7 @@ pub struct HistoryTransactional {
 }
 
 /// [InternetTracking Resource](https://ddwiki.reso.org/display/DDW17/InternetTracking+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct InternetTracking {
     /// The city location of the Actor as recorded by the source.
     ///
@@ -6746,7 +6746,7 @@ pub struct InternetTracking {
 }
 
 /// [SavedSearch Resource](https://ddwiki.reso.org/display/DDW17/SavedSearch+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct SavedSearch {
     /// The class or table to which the SearchQuery criteria refers. i.e. Residential, Residential Lease, Income, Mobile, etc.
     ///
@@ -6936,7 +6936,7 @@ pub struct SavedSearch {
 }
 
 /// [OpenHouse Resource](https://ddwiki.reso.org/display/DDW17/OpenHouse+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct OpenHouse {
     /// Indicates whether or not the OpenHouse requires an appointment.
     ///
@@ -7141,7 +7141,7 @@ pub struct OpenHouse {
 }
 
 /// [Prospecting Resource](https://ddwiki.reso.org/display/DDW17/Prospecting+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Prospecting {
     /// If set to True, the given auto email is active.  False records may be disabled or waiting activation.
     ///
@@ -7349,7 +7349,7 @@ pub struct Prospecting {
 }
 
 /// [Queue Resource](https://ddwiki.reso.org/display/DDW17/Queue+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Queue {
     /// Name of the class which this queue record is referencing.
     ///
@@ -7470,7 +7470,7 @@ pub struct Queue {
 }
 
 /// [Rules Resource](https://ddwiki.reso.org/display/DDW17/Rules+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Rules {
     /// The class or table to which the Rule refers. i.e. Residential, Residential Lease, Income, Mobile, etc.
     ///
@@ -7654,7 +7654,7 @@ pub struct Rules {
 }
 
 /// [Showing Resource](https://ddwiki.reso.org/display/DDW17/Showing+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Showing {
     /// The RESO OUID's OrganizationUniqueId of the Originating record provider.  The Originating system is the system with authoritative control over the record.  For example; the name of the MLS where the listing was input.  In cases where the Originating system was not where the record was retrieved, see the Source System fields.
     ///
@@ -7922,7 +7922,7 @@ pub struct Showing {
 }
 
 /// [Teams Resource](https://ddwiki.reso.org/display/DDW17/Teams+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct Teams {
     /// Date/time the roster (Team or office) record was last modified.
     ///
@@ -8211,7 +8211,7 @@ pub struct Teams {
 }
 
 /// [TeamMembers Resource](https://ddwiki.reso.org/display/DDW17/TeamMembers+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct TeamMembers {
     /// A system unique identifier. Specifically, the foreign key relating to the Member resource's MemberKey.
     ///
@@ -8362,7 +8362,7 @@ pub struct TeamMembers {
 }
 
 /// [OUID Resource](https://ddwiki.reso.org/display/DDW17/OUID+Resource)
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Default, Serialize, Deserialize)]
 pub struct OUID {
     /// The local, well-know identifier of the member (user) who made the change.
     ///
