@@ -1,0 +1,11 @@
+[package]
+name = "reso_dd_generator"
+version = "0.1.0"
+authors = ["Bryan Burgers <bryan@burgers.io>"]
+edition = "2018"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde-xml-rs = "0.3"
+regex = "1"
+lazy_static = "1"
