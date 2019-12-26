@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [OUID Resource](https://ddwiki.reso.org/display/DDW17/OUID+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct OUID {
     /// The local, well-know identifier of the member (user) who made the change.
     ///

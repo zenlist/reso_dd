@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [ContactListings Resource](https://ddwiki.reso.org/display/DDW17/ContactListings+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct ContactListings {
     /// When True, one or more of the agent notes are unread.
     ///

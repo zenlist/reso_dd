@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [InternetTracking Resource](https://ddwiki.reso.org/display/DDW17/InternetTracking+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct InternetTracking {
     /// The city location of the Actor as recorded by the source.
     ///

@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [HistoryTransactional Resource](https://ddwiki.reso.org/display/DDW17/HistoryTransactional+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct HistoryTransactional {
     /// Description of the last major change on the listing, i.e. price reduction, back on market, etc. May be used to display on a summary view of listing results to quickly identify listings that have had major changes recently.
     ///

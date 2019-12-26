@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Prospecting Resource](https://ddwiki.reso.org/display/DDW17/Prospecting+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Prospecting {
     /// If set to True, the given auto email is active.  False records may be disabled or waiting activation.
     ///

@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Rules Resource](https://ddwiki.reso.org/display/DDW17/Rules+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Rules {
     /// The class or table to which the Rule refers. i.e. Residential, Residential Lease, Income, Mobile, etc.
     ///

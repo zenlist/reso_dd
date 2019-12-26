@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [TeamMembers Resource](https://ddwiki.reso.org/display/DDW17/TeamMembers+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct TeamMembers {
     /// A system unique identifier. Specifically, the foreign key relating to the Member resource's MemberKey.
     ///

@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [OpenHouse Resource](https://ddwiki.reso.org/display/DDW17/OpenHouse+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct OpenHouse {
     /// Indicates whether or not the OpenHouse requires an appointment.
     ///

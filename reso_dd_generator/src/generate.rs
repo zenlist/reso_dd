@@ -85,7 +85,7 @@ impl Resource {
             use serde::{{Serialize, Deserialize}};
 
             /// [{title}]({url})
-            #[derive(Debug, Default, Serialize, Deserialize)]
+            #[derive(Debug, Default, Clone, Serialize, Deserialize)]
             pub struct {struct_name} {{"##,
             title = self.title,
             url = self.url,

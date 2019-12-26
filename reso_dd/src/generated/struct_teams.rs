@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Teams Resource](https://ddwiki.reso.org/display/DDW17/Teams+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Teams {
     /// Date/time the roster (Team or office) record was last modified.
     ///

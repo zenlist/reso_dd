@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Member Resource](https://ddwiki.reso.org/display/DDW17/Member+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Member {
     /// The title or position of the member within their organization.
     ///

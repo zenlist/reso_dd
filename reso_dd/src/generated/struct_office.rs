@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Office Resource](https://ddwiki.reso.org/display/DDW17/Office+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Office {
     /// The name of the franchise to which the broker/office is contracted.
     ///

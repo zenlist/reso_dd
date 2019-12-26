@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Property Resource](https://ddwiki.reso.org/display/DDW17/Property+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Property {
     /// Finished area within the structure that is at or above the surface of the ground.
     ///

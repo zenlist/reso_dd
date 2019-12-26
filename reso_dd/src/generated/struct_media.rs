@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Media Resource](https://ddwiki.reso.org/display/DDW17/Media+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Media {
     /// ID of the user, agent, member, etc., that uploaded the media this record refers to.
     ///

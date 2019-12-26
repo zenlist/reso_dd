@@ -5,7 +5,7 @@ use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Contacts Resource](https://ddwiki.reso.org/display/DDW17/Contacts+Resource)
-#[derive(Debug, Default, Serialize, Deserialize)]
+#[derive(Debug, Default, Clone, Serialize, Deserialize)]
 pub struct Contacts {
     /// The wedding anniversary of the contact; month, day and year.
     ///
