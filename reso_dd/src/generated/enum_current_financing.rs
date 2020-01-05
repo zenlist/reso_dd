@@ -54,6 +54,161 @@ pub enum CurrentFinancing {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CurrentFinancing {
+    fn from_str(s: &str) -> CurrentFinancing {
+        match s {
+            "Assumable" => CurrentFinancing::Assumable,
+
+            "Contract" => CurrentFinancing::Contract,
+
+            "Conventional" => CurrentFinancing::Conventional,
+
+            "FHA" => CurrentFinancing::FHA,
+
+            "FHA 203(b)" => CurrentFinancing::FHA203b,
+
+            "FHA 203(k)" => CurrentFinancing::FHA203k,
+
+            "Leased Renewables" => CurrentFinancing::LeasedRenewables,
+
+            "None" => CurrentFinancing::None,
+
+            "Other" => CurrentFinancing::Other,
+
+            "Power Purchase Agreement" => CurrentFinancing::PowerPurchaseAgreement,
+
+            "Private" => CurrentFinancing::Private,
+
+            "Property-Assessed Clean Energy" => CurrentFinancing::PropertyAssessedCleanEnergy,
+
+            "Trust Deed" => CurrentFinancing::TrustDeed,
+
+            "USDA" => CurrentFinancing::USDA,
+
+            "VA" => CurrentFinancing::VA,
+
+            _ => CurrentFinancing::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CurrentFinancing {
+        match s.as_ref() {
+            "Assumable" => CurrentFinancing::Assumable,
+
+            "Contract" => CurrentFinancing::Contract,
+
+            "Conventional" => CurrentFinancing::Conventional,
+
+            "FHA" => CurrentFinancing::FHA,
+
+            "FHA 203(b)" => CurrentFinancing::FHA203b,
+
+            "FHA 203(k)" => CurrentFinancing::FHA203k,
+
+            "Leased Renewables" => CurrentFinancing::LeasedRenewables,
+
+            "None" => CurrentFinancing::None,
+
+            "Other" => CurrentFinancing::Other,
+
+            "Power Purchase Agreement" => CurrentFinancing::PowerPurchaseAgreement,
+
+            "Private" => CurrentFinancing::Private,
+
+            "Property-Assessed Clean Energy" => CurrentFinancing::PropertyAssessedCleanEnergy,
+
+            "Trust Deed" => CurrentFinancing::TrustDeed,
+
+            "USDA" => CurrentFinancing::USDA,
+
+            "VA" => CurrentFinancing::VA,
+
+            _ => CurrentFinancing::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CurrentFinancing::Assumable => "Assumable",
+
+            CurrentFinancing::Contract => "Contract",
+
+            CurrentFinancing::Conventional => "Conventional",
+
+            CurrentFinancing::FHA => "FHA",
+
+            CurrentFinancing::FHA203b => "FHA 203(b)",
+
+            CurrentFinancing::FHA203k => "FHA 203(k)",
+
+            CurrentFinancing::LeasedRenewables => "Leased Renewables",
+
+            CurrentFinancing::None => "None",
+
+            CurrentFinancing::Other => "Other",
+
+            CurrentFinancing::PowerPurchaseAgreement => "Power Purchase Agreement",
+
+            CurrentFinancing::Private => "Private",
+
+            CurrentFinancing::PropertyAssessedCleanEnergy => "Property-Assessed Clean Energy",
+
+            CurrentFinancing::TrustDeed => "Trust Deed",
+
+            CurrentFinancing::USDA => "USDA",
+
+            CurrentFinancing::VA => "VA",
+
+            CurrentFinancing::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CurrentFinancing::Assumable => "Assumable".into(),
+
+            CurrentFinancing::Contract => "Contract".into(),
+
+            CurrentFinancing::Conventional => "Conventional".into(),
+
+            CurrentFinancing::FHA => "FHA".into(),
+
+            CurrentFinancing::FHA203b => "FHA 203(b)".into(),
+
+            CurrentFinancing::FHA203k => "FHA 203(k)".into(),
+
+            CurrentFinancing::LeasedRenewables => "Leased Renewables".into(),
+
+            CurrentFinancing::None => "None".into(),
+
+            CurrentFinancing::Other => "Other".into(),
+
+            CurrentFinancing::PowerPurchaseAgreement => "Power Purchase Agreement".into(),
+
+            CurrentFinancing::Private => "Private".into(),
+
+            CurrentFinancing::PropertyAssessedCleanEnergy => {
+                "Property-Assessed Clean Energy".into()
+            }
+
+            CurrentFinancing::TrustDeed => "Trust Deed".into(),
+
+            CurrentFinancing::USDA => "USDA".into(),
+
+            CurrentFinancing::VA => "VA".into(),
+
+            CurrentFinancing::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CurrentFinancing::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CurrentFinancing {
     fn from(s: String) -> CurrentFinancing {
         match s.as_ref() {
@@ -184,45 +339,5 @@ impl<'de> Deserialize<'de> for CurrentFinancing {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_current_financing_format {
-    use super::CurrentFinancing;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CurrentFinancing>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<CurrentFinancing>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

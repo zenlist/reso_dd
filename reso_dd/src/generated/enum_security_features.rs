@@ -93,6 +93,263 @@ pub enum SecurityFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for SecurityFeatures {
+    fn from_str(s: &str) -> SecurityFeatures {
+        match s {
+            "24 Hour Security" => SecurityFeatures::_24HourSecurity,
+
+            "Building Security" => SecurityFeatures::BuildingSecurity,
+
+            "Carbon Monoxide Detector(s)" => SecurityFeatures::CarbonMonoxideDetectors,
+
+            "Closed Circuit Camera(s)" => SecurityFeatures::ClosedCircuitCameras,
+
+            "Fire Alarm" => SecurityFeatures::FireAlarm,
+
+            "Fire Escape" => SecurityFeatures::FireEscape,
+
+            "Fire Sprinkler System" => SecurityFeatures::FireSprinklerSystem,
+
+            "Firewall(s)" => SecurityFeatures::Firewalls,
+
+            "Gated Community" => SecurityFeatures::GatedCommunity,
+
+            "Gated with Guard" => SecurityFeatures::GatedwithGuard,
+
+            "Key Card Entry" => SecurityFeatures::KeyCardEntry,
+
+            "Other" => SecurityFeatures::Other,
+
+            "Panic Alarm" => SecurityFeatures::PanicAlarm,
+
+            "Prewired" => SecurityFeatures::Prewired,
+
+            "Secured Garage/Parking" => SecurityFeatures::SecuredGarageParking,
+
+            "Security Fence" => SecurityFeatures::SecurityFence,
+
+            "Security Gate" => SecurityFeatures::SecurityGate,
+
+            "Security Guard" => SecurityFeatures::SecurityGuard,
+
+            "Security Lights" => SecurityFeatures::SecurityLights,
+
+            "Security Service" => SecurityFeatures::SecurityService,
+
+            "Security System" => SecurityFeatures::SecuritySystem,
+
+            "Security System Leased" => SecurityFeatures::SecuritySystemLeased,
+
+            "Security System Owned" => SecurityFeatures::SecuritySystemOwned,
+
+            "See Remarks" => SecurityFeatures::SeeRemarks,
+
+            "Smoke Detector(s)" => SecurityFeatures::SmokeDetectors,
+
+            "Varies By Unit" => SecurityFeatures::VariesByUnit,
+
+            "Window Bars" => SecurityFeatures::WindowBars,
+
+            "Window Bars with Quick Release" => SecurityFeatures::WindowBarswithQuickRelease,
+
+            _ => SecurityFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> SecurityFeatures {
+        match s.as_ref() {
+            "24 Hour Security" => SecurityFeatures::_24HourSecurity,
+
+            "Building Security" => SecurityFeatures::BuildingSecurity,
+
+            "Carbon Monoxide Detector(s)" => SecurityFeatures::CarbonMonoxideDetectors,
+
+            "Closed Circuit Camera(s)" => SecurityFeatures::ClosedCircuitCameras,
+
+            "Fire Alarm" => SecurityFeatures::FireAlarm,
+
+            "Fire Escape" => SecurityFeatures::FireEscape,
+
+            "Fire Sprinkler System" => SecurityFeatures::FireSprinklerSystem,
+
+            "Firewall(s)" => SecurityFeatures::Firewalls,
+
+            "Gated Community" => SecurityFeatures::GatedCommunity,
+
+            "Gated with Guard" => SecurityFeatures::GatedwithGuard,
+
+            "Key Card Entry" => SecurityFeatures::KeyCardEntry,
+
+            "Other" => SecurityFeatures::Other,
+
+            "Panic Alarm" => SecurityFeatures::PanicAlarm,
+
+            "Prewired" => SecurityFeatures::Prewired,
+
+            "Secured Garage/Parking" => SecurityFeatures::SecuredGarageParking,
+
+            "Security Fence" => SecurityFeatures::SecurityFence,
+
+            "Security Gate" => SecurityFeatures::SecurityGate,
+
+            "Security Guard" => SecurityFeatures::SecurityGuard,
+
+            "Security Lights" => SecurityFeatures::SecurityLights,
+
+            "Security Service" => SecurityFeatures::SecurityService,
+
+            "Security System" => SecurityFeatures::SecuritySystem,
+
+            "Security System Leased" => SecurityFeatures::SecuritySystemLeased,
+
+            "Security System Owned" => SecurityFeatures::SecuritySystemOwned,
+
+            "See Remarks" => SecurityFeatures::SeeRemarks,
+
+            "Smoke Detector(s)" => SecurityFeatures::SmokeDetectors,
+
+            "Varies By Unit" => SecurityFeatures::VariesByUnit,
+
+            "Window Bars" => SecurityFeatures::WindowBars,
+
+            "Window Bars with Quick Release" => SecurityFeatures::WindowBarswithQuickRelease,
+
+            _ => SecurityFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            SecurityFeatures::_24HourSecurity => "24 Hour Security",
+
+            SecurityFeatures::BuildingSecurity => "Building Security",
+
+            SecurityFeatures::CarbonMonoxideDetectors => "Carbon Monoxide Detector(s)",
+
+            SecurityFeatures::ClosedCircuitCameras => "Closed Circuit Camera(s)",
+
+            SecurityFeatures::FireAlarm => "Fire Alarm",
+
+            SecurityFeatures::FireEscape => "Fire Escape",
+
+            SecurityFeatures::FireSprinklerSystem => "Fire Sprinkler System",
+
+            SecurityFeatures::Firewalls => "Firewall(s)",
+
+            SecurityFeatures::GatedCommunity => "Gated Community",
+
+            SecurityFeatures::GatedwithGuard => "Gated with Guard",
+
+            SecurityFeatures::KeyCardEntry => "Key Card Entry",
+
+            SecurityFeatures::Other => "Other",
+
+            SecurityFeatures::PanicAlarm => "Panic Alarm",
+
+            SecurityFeatures::Prewired => "Prewired",
+
+            SecurityFeatures::SecuredGarageParking => "Secured Garage/Parking",
+
+            SecurityFeatures::SecurityFence => "Security Fence",
+
+            SecurityFeatures::SecurityGate => "Security Gate",
+
+            SecurityFeatures::SecurityGuard => "Security Guard",
+
+            SecurityFeatures::SecurityLights => "Security Lights",
+
+            SecurityFeatures::SecurityService => "Security Service",
+
+            SecurityFeatures::SecuritySystem => "Security System",
+
+            SecurityFeatures::SecuritySystemLeased => "Security System Leased",
+
+            SecurityFeatures::SecuritySystemOwned => "Security System Owned",
+
+            SecurityFeatures::SeeRemarks => "See Remarks",
+
+            SecurityFeatures::SmokeDetectors => "Smoke Detector(s)",
+
+            SecurityFeatures::VariesByUnit => "Varies By Unit",
+
+            SecurityFeatures::WindowBars => "Window Bars",
+
+            SecurityFeatures::WindowBarswithQuickRelease => "Window Bars with Quick Release",
+
+            SecurityFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            SecurityFeatures::_24HourSecurity => "24 Hour Security".into(),
+
+            SecurityFeatures::BuildingSecurity => "Building Security".into(),
+
+            SecurityFeatures::CarbonMonoxideDetectors => "Carbon Monoxide Detector(s)".into(),
+
+            SecurityFeatures::ClosedCircuitCameras => "Closed Circuit Camera(s)".into(),
+
+            SecurityFeatures::FireAlarm => "Fire Alarm".into(),
+
+            SecurityFeatures::FireEscape => "Fire Escape".into(),
+
+            SecurityFeatures::FireSprinklerSystem => "Fire Sprinkler System".into(),
+
+            SecurityFeatures::Firewalls => "Firewall(s)".into(),
+
+            SecurityFeatures::GatedCommunity => "Gated Community".into(),
+
+            SecurityFeatures::GatedwithGuard => "Gated with Guard".into(),
+
+            SecurityFeatures::KeyCardEntry => "Key Card Entry".into(),
+
+            SecurityFeatures::Other => "Other".into(),
+
+            SecurityFeatures::PanicAlarm => "Panic Alarm".into(),
+
+            SecurityFeatures::Prewired => "Prewired".into(),
+
+            SecurityFeatures::SecuredGarageParking => "Secured Garage/Parking".into(),
+
+            SecurityFeatures::SecurityFence => "Security Fence".into(),
+
+            SecurityFeatures::SecurityGate => "Security Gate".into(),
+
+            SecurityFeatures::SecurityGuard => "Security Guard".into(),
+
+            SecurityFeatures::SecurityLights => "Security Lights".into(),
+
+            SecurityFeatures::SecurityService => "Security Service".into(),
+
+            SecurityFeatures::SecuritySystem => "Security System".into(),
+
+            SecurityFeatures::SecuritySystemLeased => "Security System Leased".into(),
+
+            SecurityFeatures::SecuritySystemOwned => "Security System Owned".into(),
+
+            SecurityFeatures::SeeRemarks => "See Remarks".into(),
+
+            SecurityFeatures::SmokeDetectors => "Smoke Detector(s)".into(),
+
+            SecurityFeatures::VariesByUnit => "Varies By Unit".into(),
+
+            SecurityFeatures::WindowBars => "Window Bars".into(),
+
+            SecurityFeatures::WindowBarswithQuickRelease => "Window Bars with Quick Release".into(),
+
+            SecurityFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            SecurityFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for SecurityFeatures {
     fn from(s: String) -> SecurityFeatures {
         match s.as_ref() {
@@ -301,45 +558,5 @@ impl<'de> Deserialize<'de> for SecurityFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_security_features_format {
-    use super::SecurityFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<SecurityFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<SecurityFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

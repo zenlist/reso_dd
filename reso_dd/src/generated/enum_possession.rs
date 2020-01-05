@@ -45,6 +45,135 @@ pub enum Possession {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Possession {
+    fn from_str(s: &str) -> Possession {
+        match s {
+            "Close Of Escrow" => Possession::CloseOfEscrow,
+
+            "Close Plus 1 Day" => Possession::ClosePlus1Day,
+
+            "Close Plus 2 Days" => Possession::ClosePlus2Days,
+
+            "Close Plus 3 Days" => Possession::ClosePlus3Days,
+
+            "Close Plus 3 to 5 Days" => Possession::ClosePlus3to5Days,
+
+            "Close Plus 30 Days" => Possession::ClosePlus30Days,
+
+            "Negotiable" => Possession::Negotiable,
+
+            "Other" => Possession::Other,
+
+            "Rental Agreement" => Possession::RentalAgreement,
+
+            "See Remarks" => Possession::SeeRemarks,
+
+            "Seller Rent Back" => Possession::SellerRentBack,
+
+            "Subject To Tenant Rights" => Possession::SubjectToTenantRights,
+
+            _ => Possession::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Possession {
+        match s.as_ref() {
+            "Close Of Escrow" => Possession::CloseOfEscrow,
+
+            "Close Plus 1 Day" => Possession::ClosePlus1Day,
+
+            "Close Plus 2 Days" => Possession::ClosePlus2Days,
+
+            "Close Plus 3 Days" => Possession::ClosePlus3Days,
+
+            "Close Plus 3 to 5 Days" => Possession::ClosePlus3to5Days,
+
+            "Close Plus 30 Days" => Possession::ClosePlus30Days,
+
+            "Negotiable" => Possession::Negotiable,
+
+            "Other" => Possession::Other,
+
+            "Rental Agreement" => Possession::RentalAgreement,
+
+            "See Remarks" => Possession::SeeRemarks,
+
+            "Seller Rent Back" => Possession::SellerRentBack,
+
+            "Subject To Tenant Rights" => Possession::SubjectToTenantRights,
+
+            _ => Possession::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Possession::CloseOfEscrow => "Close Of Escrow",
+
+            Possession::ClosePlus1Day => "Close Plus 1 Day",
+
+            Possession::ClosePlus2Days => "Close Plus 2 Days",
+
+            Possession::ClosePlus3Days => "Close Plus 3 Days",
+
+            Possession::ClosePlus3to5Days => "Close Plus 3 to 5 Days",
+
+            Possession::ClosePlus30Days => "Close Plus 30 Days",
+
+            Possession::Negotiable => "Negotiable",
+
+            Possession::Other => "Other",
+
+            Possession::RentalAgreement => "Rental Agreement",
+
+            Possession::SeeRemarks => "See Remarks",
+
+            Possession::SellerRentBack => "Seller Rent Back",
+
+            Possession::SubjectToTenantRights => "Subject To Tenant Rights",
+
+            Possession::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Possession::CloseOfEscrow => "Close Of Escrow".into(),
+
+            Possession::ClosePlus1Day => "Close Plus 1 Day".into(),
+
+            Possession::ClosePlus2Days => "Close Plus 2 Days".into(),
+
+            Possession::ClosePlus3Days => "Close Plus 3 Days".into(),
+
+            Possession::ClosePlus3to5Days => "Close Plus 3 to 5 Days".into(),
+
+            Possession::ClosePlus30Days => "Close Plus 30 Days".into(),
+
+            Possession::Negotiable => "Negotiable".into(),
+
+            Possession::Other => "Other".into(),
+
+            Possession::RentalAgreement => "Rental Agreement".into(),
+
+            Possession::SeeRemarks => "See Remarks".into(),
+
+            Possession::SellerRentBack => "Seller Rent Back".into(),
+
+            Possession::SubjectToTenantRights => "Subject To Tenant Rights".into(),
+
+            Possession::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Possession::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Possession {
     fn from(s: String) -> Possession {
         match s.as_ref() {
@@ -157,43 +286,5 @@ impl<'de> Deserialize<'de> for Possession {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_possession_format {
-    use super::Possession;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Possession>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Possession>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

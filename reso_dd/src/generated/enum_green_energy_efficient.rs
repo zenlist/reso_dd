@@ -45,6 +45,135 @@ pub enum GreenEnergyEfficient {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for GreenEnergyEfficient {
+    fn from_str(s: &str) -> GreenEnergyEfficient {
+        match s {
+            "Appliances" => GreenEnergyEfficient::Appliances,
+
+            "Construction" => GreenEnergyEfficient::Construction,
+
+            "Doors" => GreenEnergyEfficient::Doors,
+
+            "Exposure/Shade" => GreenEnergyEfficient::ExposureShade,
+
+            "HVAC" => GreenEnergyEfficient::HVAC,
+
+            "Incentives" => GreenEnergyEfficient::Incentives,
+
+            "Insulation" => GreenEnergyEfficient::Insulation,
+
+            "Lighting" => GreenEnergyEfficient::Lighting,
+
+            "Roof" => GreenEnergyEfficient::Roof,
+
+            "Thermostat" => GreenEnergyEfficient::Thermostat,
+
+            "Water Heater" => GreenEnergyEfficient::WaterHeater,
+
+            "Windows" => GreenEnergyEfficient::Windows,
+
+            _ => GreenEnergyEfficient::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> GreenEnergyEfficient {
+        match s.as_ref() {
+            "Appliances" => GreenEnergyEfficient::Appliances,
+
+            "Construction" => GreenEnergyEfficient::Construction,
+
+            "Doors" => GreenEnergyEfficient::Doors,
+
+            "Exposure/Shade" => GreenEnergyEfficient::ExposureShade,
+
+            "HVAC" => GreenEnergyEfficient::HVAC,
+
+            "Incentives" => GreenEnergyEfficient::Incentives,
+
+            "Insulation" => GreenEnergyEfficient::Insulation,
+
+            "Lighting" => GreenEnergyEfficient::Lighting,
+
+            "Roof" => GreenEnergyEfficient::Roof,
+
+            "Thermostat" => GreenEnergyEfficient::Thermostat,
+
+            "Water Heater" => GreenEnergyEfficient::WaterHeater,
+
+            "Windows" => GreenEnergyEfficient::Windows,
+
+            _ => GreenEnergyEfficient::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            GreenEnergyEfficient::Appliances => "Appliances",
+
+            GreenEnergyEfficient::Construction => "Construction",
+
+            GreenEnergyEfficient::Doors => "Doors",
+
+            GreenEnergyEfficient::ExposureShade => "Exposure/Shade",
+
+            GreenEnergyEfficient::HVAC => "HVAC",
+
+            GreenEnergyEfficient::Incentives => "Incentives",
+
+            GreenEnergyEfficient::Insulation => "Insulation",
+
+            GreenEnergyEfficient::Lighting => "Lighting",
+
+            GreenEnergyEfficient::Roof => "Roof",
+
+            GreenEnergyEfficient::Thermostat => "Thermostat",
+
+            GreenEnergyEfficient::WaterHeater => "Water Heater",
+
+            GreenEnergyEfficient::Windows => "Windows",
+
+            GreenEnergyEfficient::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            GreenEnergyEfficient::Appliances => "Appliances".into(),
+
+            GreenEnergyEfficient::Construction => "Construction".into(),
+
+            GreenEnergyEfficient::Doors => "Doors".into(),
+
+            GreenEnergyEfficient::ExposureShade => "Exposure/Shade".into(),
+
+            GreenEnergyEfficient::HVAC => "HVAC".into(),
+
+            GreenEnergyEfficient::Incentives => "Incentives".into(),
+
+            GreenEnergyEfficient::Insulation => "Insulation".into(),
+
+            GreenEnergyEfficient::Lighting => "Lighting".into(),
+
+            GreenEnergyEfficient::Roof => "Roof".into(),
+
+            GreenEnergyEfficient::Thermostat => "Thermostat".into(),
+
+            GreenEnergyEfficient::WaterHeater => "Water Heater".into(),
+
+            GreenEnergyEfficient::Windows => "Windows".into(),
+
+            GreenEnergyEfficient::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            GreenEnergyEfficient::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for GreenEnergyEfficient {
     fn from(s: String) -> GreenEnergyEfficient {
         match s.as_ref() {
@@ -157,45 +286,5 @@ impl<'de> Deserialize<'de> for GreenEnergyEfficient {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_green_energy_efficient_format {
-    use super::GreenEnergyEfficient;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<GreenEnergyEfficient>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<GreenEnergyEfficient>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

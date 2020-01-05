@@ -63,6 +63,183 @@ pub enum HorseAmenities {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for HorseAmenities {
+    fn from_str(s: &str) -> HorseAmenities {
+        match s {
+            "Arena" => HorseAmenities::Arena,
+
+            "Barn" => HorseAmenities::Barn,
+
+            "Boarding Facilities" => HorseAmenities::BoardingFacilities,
+
+            "Corral(s)" => HorseAmenities::Corrals,
+
+            "Hay Storage" => HorseAmenities::HayStorage,
+
+            "None" => HorseAmenities::None,
+
+            "Other" => HorseAmenities::Other,
+
+            "Paddocks" => HorseAmenities::Paddocks,
+
+            "Palpation Chute" => HorseAmenities::PalpationChute,
+
+            "Pasture" => HorseAmenities::Pasture,
+
+            "Riding Trail" => HorseAmenities::RidingTrail,
+
+            "Round Pen" => HorseAmenities::RoundPen,
+
+            "See Remarks" => HorseAmenities::SeeRemarks,
+
+            "Shaving Bin" => HorseAmenities::ShavingBin,
+
+            "Stable(s)" => HorseAmenities::Stables,
+
+            "Tack Room" => HorseAmenities::TackRoom,
+
+            "Trailer Storage" => HorseAmenities::TrailerStorage,
+
+            "Wash Rack" => HorseAmenities::WashRack,
+
+            _ => HorseAmenities::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> HorseAmenities {
+        match s.as_ref() {
+            "Arena" => HorseAmenities::Arena,
+
+            "Barn" => HorseAmenities::Barn,
+
+            "Boarding Facilities" => HorseAmenities::BoardingFacilities,
+
+            "Corral(s)" => HorseAmenities::Corrals,
+
+            "Hay Storage" => HorseAmenities::HayStorage,
+
+            "None" => HorseAmenities::None,
+
+            "Other" => HorseAmenities::Other,
+
+            "Paddocks" => HorseAmenities::Paddocks,
+
+            "Palpation Chute" => HorseAmenities::PalpationChute,
+
+            "Pasture" => HorseAmenities::Pasture,
+
+            "Riding Trail" => HorseAmenities::RidingTrail,
+
+            "Round Pen" => HorseAmenities::RoundPen,
+
+            "See Remarks" => HorseAmenities::SeeRemarks,
+
+            "Shaving Bin" => HorseAmenities::ShavingBin,
+
+            "Stable(s)" => HorseAmenities::Stables,
+
+            "Tack Room" => HorseAmenities::TackRoom,
+
+            "Trailer Storage" => HorseAmenities::TrailerStorage,
+
+            "Wash Rack" => HorseAmenities::WashRack,
+
+            _ => HorseAmenities::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            HorseAmenities::Arena => "Arena",
+
+            HorseAmenities::Barn => "Barn",
+
+            HorseAmenities::BoardingFacilities => "Boarding Facilities",
+
+            HorseAmenities::Corrals => "Corral(s)",
+
+            HorseAmenities::HayStorage => "Hay Storage",
+
+            HorseAmenities::None => "None",
+
+            HorseAmenities::Other => "Other",
+
+            HorseAmenities::Paddocks => "Paddocks",
+
+            HorseAmenities::PalpationChute => "Palpation Chute",
+
+            HorseAmenities::Pasture => "Pasture",
+
+            HorseAmenities::RidingTrail => "Riding Trail",
+
+            HorseAmenities::RoundPen => "Round Pen",
+
+            HorseAmenities::SeeRemarks => "See Remarks",
+
+            HorseAmenities::ShavingBin => "Shaving Bin",
+
+            HorseAmenities::Stables => "Stable(s)",
+
+            HorseAmenities::TackRoom => "Tack Room",
+
+            HorseAmenities::TrailerStorage => "Trailer Storage",
+
+            HorseAmenities::WashRack => "Wash Rack",
+
+            HorseAmenities::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            HorseAmenities::Arena => "Arena".into(),
+
+            HorseAmenities::Barn => "Barn".into(),
+
+            HorseAmenities::BoardingFacilities => "Boarding Facilities".into(),
+
+            HorseAmenities::Corrals => "Corral(s)".into(),
+
+            HorseAmenities::HayStorage => "Hay Storage".into(),
+
+            HorseAmenities::None => "None".into(),
+
+            HorseAmenities::Other => "Other".into(),
+
+            HorseAmenities::Paddocks => "Paddocks".into(),
+
+            HorseAmenities::PalpationChute => "Palpation Chute".into(),
+
+            HorseAmenities::Pasture => "Pasture".into(),
+
+            HorseAmenities::RidingTrail => "Riding Trail".into(),
+
+            HorseAmenities::RoundPen => "Round Pen".into(),
+
+            HorseAmenities::SeeRemarks => "See Remarks".into(),
+
+            HorseAmenities::ShavingBin => "Shaving Bin".into(),
+
+            HorseAmenities::Stables => "Stable(s)".into(),
+
+            HorseAmenities::TackRoom => "Tack Room".into(),
+
+            HorseAmenities::TrailerStorage => "Trailer Storage".into(),
+
+            HorseAmenities::WashRack => "Wash Rack".into(),
+
+            HorseAmenities::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            HorseAmenities::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for HorseAmenities {
     fn from(s: String) -> HorseAmenities {
         match s.as_ref() {
@@ -211,45 +388,5 @@ impl<'de> Deserialize<'de> for HorseAmenities {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_horse_amenities_format {
-    use super::HorseAmenities;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<HorseAmenities>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<HorseAmenities>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

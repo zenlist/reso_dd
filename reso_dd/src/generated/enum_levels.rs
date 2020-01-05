@@ -24,6 +24,79 @@ pub enum Levels {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Levels {
+    fn from_str(s: &str) -> Levels {
+        match s {
+            "Multi/Split" => Levels::MultiSplit,
+
+            "One" => Levels::One,
+
+            "One and One Half" => Levels::OneandOneHalf,
+
+            "Three Or More" => Levels::ThreeOrMore,
+
+            "Two" => Levels::Two,
+
+            _ => Levels::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Levels {
+        match s.as_ref() {
+            "Multi/Split" => Levels::MultiSplit,
+
+            "One" => Levels::One,
+
+            "One and One Half" => Levels::OneandOneHalf,
+
+            "Three Or More" => Levels::ThreeOrMore,
+
+            "Two" => Levels::Two,
+
+            _ => Levels::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Levels::MultiSplit => "Multi/Split",
+
+            Levels::One => "One",
+
+            Levels::OneandOneHalf => "One and One Half",
+
+            Levels::ThreeOrMore => "Three Or More",
+
+            Levels::Two => "Two",
+
+            Levels::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Levels::MultiSplit => "Multi/Split".into(),
+
+            Levels::One => "One".into(),
+
+            Levels::OneandOneHalf => "One and One Half".into(),
+
+            Levels::ThreeOrMore => "Three Or More".into(),
+
+            Levels::Two => "Two".into(),
+
+            Levels::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Levels::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Levels {
     fn from(s: String) -> Levels {
         match s.as_ref() {
@@ -94,43 +167,5 @@ impl<'de> Deserialize<'de> for Levels {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_levels_format {
-    use super::Levels;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Levels>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Levels>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -81,6 +81,231 @@ pub enum ShowingRequirements {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ShowingRequirements {
+    fn from_str(s: &str) -> ShowingRequirements {
+        match s {
+            "24 Hour Notice" => ShowingRequirements::_24HourNotice,
+
+            "Appointment Only" => ShowingRequirements::AppointmentOnly,
+
+            "Call Listing Agent" => ShowingRequirements::CallListingAgent,
+
+            "Call Listing Office" => ShowingRequirements::CallListingOffice,
+
+            "Call Manager" => ShowingRequirements::CallManager,
+
+            "Call Owner" => ShowingRequirements::CallOwner,
+
+            "Call Tenant" => ShowingRequirements::CallTenant,
+
+            "Combination Lock Box" => ShowingRequirements::CombinationLockBox,
+
+            "Day Sleeper" => ShowingRequirements::DaySleeper,
+
+            "Do Not Show" => ShowingRequirements::DoNotShow,
+
+            "Email Listing Agent" => ShowingRequirements::EmailListingAgent,
+
+            "Key In Office" => ShowingRequirements::KeyInOffice,
+
+            "Lockbox" => ShowingRequirements::Lockbox,
+
+            "No Lockbox" => ShowingRequirements::NoLockbox,
+
+            "No Sign" => ShowingRequirements::NoSign,
+
+            "Occupied" => ShowingRequirements::Occupied,
+
+            "Pet(s) on Premises" => ShowingRequirements::PetsonPremises,
+
+            "Restricted Hours" => ShowingRequirements::RestrictedHours,
+
+            "Security System" => ShowingRequirements::SecuritySystem,
+
+            "See Remarks" => ShowingRequirements::SeeRemarks,
+
+            "Showing Service" => ShowingRequirements::ShowingService,
+
+            "Text Listing Agent" => ShowingRequirements::TextListingAgent,
+
+            "To Be Built" => ShowingRequirements::ToBeBuilt,
+
+            "Under Construction" => ShowingRequirements::UnderConstruction,
+
+            _ => ShowingRequirements::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ShowingRequirements {
+        match s.as_ref() {
+            "24 Hour Notice" => ShowingRequirements::_24HourNotice,
+
+            "Appointment Only" => ShowingRequirements::AppointmentOnly,
+
+            "Call Listing Agent" => ShowingRequirements::CallListingAgent,
+
+            "Call Listing Office" => ShowingRequirements::CallListingOffice,
+
+            "Call Manager" => ShowingRequirements::CallManager,
+
+            "Call Owner" => ShowingRequirements::CallOwner,
+
+            "Call Tenant" => ShowingRequirements::CallTenant,
+
+            "Combination Lock Box" => ShowingRequirements::CombinationLockBox,
+
+            "Day Sleeper" => ShowingRequirements::DaySleeper,
+
+            "Do Not Show" => ShowingRequirements::DoNotShow,
+
+            "Email Listing Agent" => ShowingRequirements::EmailListingAgent,
+
+            "Key In Office" => ShowingRequirements::KeyInOffice,
+
+            "Lockbox" => ShowingRequirements::Lockbox,
+
+            "No Lockbox" => ShowingRequirements::NoLockbox,
+
+            "No Sign" => ShowingRequirements::NoSign,
+
+            "Occupied" => ShowingRequirements::Occupied,
+
+            "Pet(s) on Premises" => ShowingRequirements::PetsonPremises,
+
+            "Restricted Hours" => ShowingRequirements::RestrictedHours,
+
+            "Security System" => ShowingRequirements::SecuritySystem,
+
+            "See Remarks" => ShowingRequirements::SeeRemarks,
+
+            "Showing Service" => ShowingRequirements::ShowingService,
+
+            "Text Listing Agent" => ShowingRequirements::TextListingAgent,
+
+            "To Be Built" => ShowingRequirements::ToBeBuilt,
+
+            "Under Construction" => ShowingRequirements::UnderConstruction,
+
+            _ => ShowingRequirements::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ShowingRequirements::_24HourNotice => "24 Hour Notice",
+
+            ShowingRequirements::AppointmentOnly => "Appointment Only",
+
+            ShowingRequirements::CallListingAgent => "Call Listing Agent",
+
+            ShowingRequirements::CallListingOffice => "Call Listing Office",
+
+            ShowingRequirements::CallManager => "Call Manager",
+
+            ShowingRequirements::CallOwner => "Call Owner",
+
+            ShowingRequirements::CallTenant => "Call Tenant",
+
+            ShowingRequirements::CombinationLockBox => "Combination Lock Box",
+
+            ShowingRequirements::DaySleeper => "Day Sleeper",
+
+            ShowingRequirements::DoNotShow => "Do Not Show",
+
+            ShowingRequirements::EmailListingAgent => "Email Listing Agent",
+
+            ShowingRequirements::KeyInOffice => "Key In Office",
+
+            ShowingRequirements::Lockbox => "Lockbox",
+
+            ShowingRequirements::NoLockbox => "No Lockbox",
+
+            ShowingRequirements::NoSign => "No Sign",
+
+            ShowingRequirements::Occupied => "Occupied",
+
+            ShowingRequirements::PetsonPremises => "Pet(s) on Premises",
+
+            ShowingRequirements::RestrictedHours => "Restricted Hours",
+
+            ShowingRequirements::SecuritySystem => "Security System",
+
+            ShowingRequirements::SeeRemarks => "See Remarks",
+
+            ShowingRequirements::ShowingService => "Showing Service",
+
+            ShowingRequirements::TextListingAgent => "Text Listing Agent",
+
+            ShowingRequirements::ToBeBuilt => "To Be Built",
+
+            ShowingRequirements::UnderConstruction => "Under Construction",
+
+            ShowingRequirements::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ShowingRequirements::_24HourNotice => "24 Hour Notice".into(),
+
+            ShowingRequirements::AppointmentOnly => "Appointment Only".into(),
+
+            ShowingRequirements::CallListingAgent => "Call Listing Agent".into(),
+
+            ShowingRequirements::CallListingOffice => "Call Listing Office".into(),
+
+            ShowingRequirements::CallManager => "Call Manager".into(),
+
+            ShowingRequirements::CallOwner => "Call Owner".into(),
+
+            ShowingRequirements::CallTenant => "Call Tenant".into(),
+
+            ShowingRequirements::CombinationLockBox => "Combination Lock Box".into(),
+
+            ShowingRequirements::DaySleeper => "Day Sleeper".into(),
+
+            ShowingRequirements::DoNotShow => "Do Not Show".into(),
+
+            ShowingRequirements::EmailListingAgent => "Email Listing Agent".into(),
+
+            ShowingRequirements::KeyInOffice => "Key In Office".into(),
+
+            ShowingRequirements::Lockbox => "Lockbox".into(),
+
+            ShowingRequirements::NoLockbox => "No Lockbox".into(),
+
+            ShowingRequirements::NoSign => "No Sign".into(),
+
+            ShowingRequirements::Occupied => "Occupied".into(),
+
+            ShowingRequirements::PetsonPremises => "Pet(s) on Premises".into(),
+
+            ShowingRequirements::RestrictedHours => "Restricted Hours".into(),
+
+            ShowingRequirements::SecuritySystem => "Security System".into(),
+
+            ShowingRequirements::SeeRemarks => "See Remarks".into(),
+
+            ShowingRequirements::ShowingService => "Showing Service".into(),
+
+            ShowingRequirements::TextListingAgent => "Text Listing Agent".into(),
+
+            ShowingRequirements::ToBeBuilt => "To Be Built".into(),
+
+            ShowingRequirements::UnderConstruction => "Under Construction".into(),
+
+            ShowingRequirements::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ShowingRequirements::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ShowingRequirements {
     fn from(s: String) -> ShowingRequirements {
         match s.as_ref() {
@@ -265,45 +490,5 @@ impl<'de> Deserialize<'de> for ShowingRequirements {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_showing_requirements_format {
-    use super::ShowingRequirements;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ShowingRequirements>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ShowingRequirements>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

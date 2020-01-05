@@ -96,6 +96,271 @@ pub enum OwnerPays {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OwnerPays {
+    fn from_str(s: &str) -> OwnerPays {
+        match s {
+            "All Utilities" => OwnerPays::AllUtilities,
+
+            "Association Fees" => OwnerPays::AssociationFees,
+
+            "Cable TV" => OwnerPays::CableTV,
+
+            "Common Area Maintenance" => OwnerPays::CommonAreaMaintenance,
+
+            "Electricity" => OwnerPays::Electricity,
+
+            "Exterior Maintenance" => OwnerPays::ExteriorMaintenance,
+
+            "Gas" => OwnerPays::Gas,
+
+            "Grounds Care" => OwnerPays::GroundsCare,
+
+            "Hot Water" => OwnerPays::HotWater,
+
+            "HVAC Maintenance" => OwnerPays::HVACMaintenance,
+
+            "Insurance" => OwnerPays::Insurance,
+
+            "Janitorial Service" => OwnerPays::JanitorialService,
+
+            "Management" => OwnerPays::Management,
+
+            "None" => OwnerPays::None,
+
+            "Other" => OwnerPays::Other,
+
+            "Other Tax" => OwnerPays::OtherTax,
+
+            "Parking Fee" => OwnerPays::ParkingFee,
+
+            "Pest Control" => OwnerPays::PestControl,
+
+            "Pool Maintenance" => OwnerPays::PoolMaintenance,
+
+            "Repairs" => OwnerPays::Repairs,
+
+            "Roof Maintenance" => OwnerPays::RoofMaintenance,
+
+            "Security" => OwnerPays::Security,
+
+            "See Remarks" => OwnerPays::SeeRemarks,
+
+            "Sewer" => OwnerPays::Sewer,
+
+            "Snow Removal" => OwnerPays::SnowRemoval,
+
+            "Taxes" => OwnerPays::Taxes,
+
+            "Telephone" => OwnerPays::Telephone,
+
+            "Trash Collection" => OwnerPays::TrashCollection,
+
+            "Water" => OwnerPays::Water,
+
+            _ => OwnerPays::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OwnerPays {
+        match s.as_ref() {
+            "All Utilities" => OwnerPays::AllUtilities,
+
+            "Association Fees" => OwnerPays::AssociationFees,
+
+            "Cable TV" => OwnerPays::CableTV,
+
+            "Common Area Maintenance" => OwnerPays::CommonAreaMaintenance,
+
+            "Electricity" => OwnerPays::Electricity,
+
+            "Exterior Maintenance" => OwnerPays::ExteriorMaintenance,
+
+            "Gas" => OwnerPays::Gas,
+
+            "Grounds Care" => OwnerPays::GroundsCare,
+
+            "Hot Water" => OwnerPays::HotWater,
+
+            "HVAC Maintenance" => OwnerPays::HVACMaintenance,
+
+            "Insurance" => OwnerPays::Insurance,
+
+            "Janitorial Service" => OwnerPays::JanitorialService,
+
+            "Management" => OwnerPays::Management,
+
+            "None" => OwnerPays::None,
+
+            "Other" => OwnerPays::Other,
+
+            "Other Tax" => OwnerPays::OtherTax,
+
+            "Parking Fee" => OwnerPays::ParkingFee,
+
+            "Pest Control" => OwnerPays::PestControl,
+
+            "Pool Maintenance" => OwnerPays::PoolMaintenance,
+
+            "Repairs" => OwnerPays::Repairs,
+
+            "Roof Maintenance" => OwnerPays::RoofMaintenance,
+
+            "Security" => OwnerPays::Security,
+
+            "See Remarks" => OwnerPays::SeeRemarks,
+
+            "Sewer" => OwnerPays::Sewer,
+
+            "Snow Removal" => OwnerPays::SnowRemoval,
+
+            "Taxes" => OwnerPays::Taxes,
+
+            "Telephone" => OwnerPays::Telephone,
+
+            "Trash Collection" => OwnerPays::TrashCollection,
+
+            "Water" => OwnerPays::Water,
+
+            _ => OwnerPays::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OwnerPays::AllUtilities => "All Utilities",
+
+            OwnerPays::AssociationFees => "Association Fees",
+
+            OwnerPays::CableTV => "Cable TV",
+
+            OwnerPays::CommonAreaMaintenance => "Common Area Maintenance",
+
+            OwnerPays::Electricity => "Electricity",
+
+            OwnerPays::ExteriorMaintenance => "Exterior Maintenance",
+
+            OwnerPays::Gas => "Gas",
+
+            OwnerPays::GroundsCare => "Grounds Care",
+
+            OwnerPays::HotWater => "Hot Water",
+
+            OwnerPays::HVACMaintenance => "HVAC Maintenance",
+
+            OwnerPays::Insurance => "Insurance",
+
+            OwnerPays::JanitorialService => "Janitorial Service",
+
+            OwnerPays::Management => "Management",
+
+            OwnerPays::None => "None",
+
+            OwnerPays::Other => "Other",
+
+            OwnerPays::OtherTax => "Other Tax",
+
+            OwnerPays::ParkingFee => "Parking Fee",
+
+            OwnerPays::PestControl => "Pest Control",
+
+            OwnerPays::PoolMaintenance => "Pool Maintenance",
+
+            OwnerPays::Repairs => "Repairs",
+
+            OwnerPays::RoofMaintenance => "Roof Maintenance",
+
+            OwnerPays::Security => "Security",
+
+            OwnerPays::SeeRemarks => "See Remarks",
+
+            OwnerPays::Sewer => "Sewer",
+
+            OwnerPays::SnowRemoval => "Snow Removal",
+
+            OwnerPays::Taxes => "Taxes",
+
+            OwnerPays::Telephone => "Telephone",
+
+            OwnerPays::TrashCollection => "Trash Collection",
+
+            OwnerPays::Water => "Water",
+
+            OwnerPays::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OwnerPays::AllUtilities => "All Utilities".into(),
+
+            OwnerPays::AssociationFees => "Association Fees".into(),
+
+            OwnerPays::CableTV => "Cable TV".into(),
+
+            OwnerPays::CommonAreaMaintenance => "Common Area Maintenance".into(),
+
+            OwnerPays::Electricity => "Electricity".into(),
+
+            OwnerPays::ExteriorMaintenance => "Exterior Maintenance".into(),
+
+            OwnerPays::Gas => "Gas".into(),
+
+            OwnerPays::GroundsCare => "Grounds Care".into(),
+
+            OwnerPays::HotWater => "Hot Water".into(),
+
+            OwnerPays::HVACMaintenance => "HVAC Maintenance".into(),
+
+            OwnerPays::Insurance => "Insurance".into(),
+
+            OwnerPays::JanitorialService => "Janitorial Service".into(),
+
+            OwnerPays::Management => "Management".into(),
+
+            OwnerPays::None => "None".into(),
+
+            OwnerPays::Other => "Other".into(),
+
+            OwnerPays::OtherTax => "Other Tax".into(),
+
+            OwnerPays::ParkingFee => "Parking Fee".into(),
+
+            OwnerPays::PestControl => "Pest Control".into(),
+
+            OwnerPays::PoolMaintenance => "Pool Maintenance".into(),
+
+            OwnerPays::Repairs => "Repairs".into(),
+
+            OwnerPays::RoofMaintenance => "Roof Maintenance".into(),
+
+            OwnerPays::Security => "Security".into(),
+
+            OwnerPays::SeeRemarks => "See Remarks".into(),
+
+            OwnerPays::Sewer => "Sewer".into(),
+
+            OwnerPays::SnowRemoval => "Snow Removal".into(),
+
+            OwnerPays::Taxes => "Taxes".into(),
+
+            OwnerPays::Telephone => "Telephone".into(),
+
+            OwnerPays::TrashCollection => "Trash Collection".into(),
+
+            OwnerPays::Water => "Water".into(),
+
+            OwnerPays::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OwnerPays::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OwnerPays {
     fn from(s: String) -> OwnerPays {
         match s.as_ref() {
@@ -310,43 +575,5 @@ impl<'de> Deserialize<'de> for OwnerPays {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_owner_pays_format {
-    use super::OwnerPays;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OwnerPays>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<OwnerPays>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

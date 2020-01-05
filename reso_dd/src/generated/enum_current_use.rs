@@ -132,6 +132,367 @@ pub enum CurrentUse {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CurrentUse {
+    fn from_str(s: &str) -> CurrentUse {
+        match s {
+            "Agricultural" => CurrentUse::Agricultural,
+
+            "Automotive" => CurrentUse::Automotive,
+
+            "Cattle" => CurrentUse::Cattle,
+
+            "Commercial" => CurrentUse::Commercial,
+
+            "Dairy" => CurrentUse::Dairy,
+
+            "Farm" => CurrentUse::Farm,
+
+            "Fishery" => CurrentUse::Fishery,
+
+            "Grazing" => CurrentUse::Grazing,
+
+            "Highway/Tourist Service" => CurrentUse::HighwayTouristService,
+
+            "Horses" => CurrentUse::Horses,
+
+            "Hunting" => CurrentUse::Hunting,
+
+            "Industrial" => CurrentUse::Industrial,
+
+            "Investment" => CurrentUse::Investment,
+
+            "Livestock" => CurrentUse::Livestock,
+
+            "Manufactured Home" => CurrentUse::ManufacturedHome,
+
+            "Medical/Dental" => CurrentUse::MedicalDental,
+
+            "Mini-Storage" => CurrentUse::MiniStorage,
+
+            "Mixed Use" => CurrentUse::MixedUse,
+
+            "Multi-Family" => CurrentUse::MultiFamily,
+
+            "Nursery" => CurrentUse::Nursery,
+
+            "Office" => CurrentUse::Office,
+
+            "Orchard" => CurrentUse::Orchard,
+
+            "Other" => CurrentUse::Other,
+
+            "Pasture" => CurrentUse::Pasture,
+
+            "Place of Worship" => CurrentUse::PlaceofWorship,
+
+            "Plantable" => CurrentUse::Plantable,
+
+            "Poultry" => CurrentUse::Poultry,
+
+            "Ranch" => CurrentUse::Ranch,
+
+            "Recreational" => CurrentUse::Recreational,
+
+            "Residential" => CurrentUse::Residential,
+
+            "Retail" => CurrentUse::Retail,
+
+            "Row Crops" => CurrentUse::RowCrops,
+
+            "See Remarks" => CurrentUse::SeeRemarks,
+
+            "Single Family" => CurrentUse::SingleFamily,
+
+            "Subdivision" => CurrentUse::Subdivision,
+
+            "Timber" => CurrentUse::Timber,
+
+            "Tree Farm" => CurrentUse::TreeFarm,
+
+            "Unimproved" => CurrentUse::Unimproved,
+
+            "Vacant" => CurrentUse::Vacant,
+
+            "Vineyard" => CurrentUse::Vineyard,
+
+            "Warehouse" => CurrentUse::Warehouse,
+
+            _ => CurrentUse::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CurrentUse {
+        match s.as_ref() {
+            "Agricultural" => CurrentUse::Agricultural,
+
+            "Automotive" => CurrentUse::Automotive,
+
+            "Cattle" => CurrentUse::Cattle,
+
+            "Commercial" => CurrentUse::Commercial,
+
+            "Dairy" => CurrentUse::Dairy,
+
+            "Farm" => CurrentUse::Farm,
+
+            "Fishery" => CurrentUse::Fishery,
+
+            "Grazing" => CurrentUse::Grazing,
+
+            "Highway/Tourist Service" => CurrentUse::HighwayTouristService,
+
+            "Horses" => CurrentUse::Horses,
+
+            "Hunting" => CurrentUse::Hunting,
+
+            "Industrial" => CurrentUse::Industrial,
+
+            "Investment" => CurrentUse::Investment,
+
+            "Livestock" => CurrentUse::Livestock,
+
+            "Manufactured Home" => CurrentUse::ManufacturedHome,
+
+            "Medical/Dental" => CurrentUse::MedicalDental,
+
+            "Mini-Storage" => CurrentUse::MiniStorage,
+
+            "Mixed Use" => CurrentUse::MixedUse,
+
+            "Multi-Family" => CurrentUse::MultiFamily,
+
+            "Nursery" => CurrentUse::Nursery,
+
+            "Office" => CurrentUse::Office,
+
+            "Orchard" => CurrentUse::Orchard,
+
+            "Other" => CurrentUse::Other,
+
+            "Pasture" => CurrentUse::Pasture,
+
+            "Place of Worship" => CurrentUse::PlaceofWorship,
+
+            "Plantable" => CurrentUse::Plantable,
+
+            "Poultry" => CurrentUse::Poultry,
+
+            "Ranch" => CurrentUse::Ranch,
+
+            "Recreational" => CurrentUse::Recreational,
+
+            "Residential" => CurrentUse::Residential,
+
+            "Retail" => CurrentUse::Retail,
+
+            "Row Crops" => CurrentUse::RowCrops,
+
+            "See Remarks" => CurrentUse::SeeRemarks,
+
+            "Single Family" => CurrentUse::SingleFamily,
+
+            "Subdivision" => CurrentUse::Subdivision,
+
+            "Timber" => CurrentUse::Timber,
+
+            "Tree Farm" => CurrentUse::TreeFarm,
+
+            "Unimproved" => CurrentUse::Unimproved,
+
+            "Vacant" => CurrentUse::Vacant,
+
+            "Vineyard" => CurrentUse::Vineyard,
+
+            "Warehouse" => CurrentUse::Warehouse,
+
+            _ => CurrentUse::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CurrentUse::Agricultural => "Agricultural",
+
+            CurrentUse::Automotive => "Automotive",
+
+            CurrentUse::Cattle => "Cattle",
+
+            CurrentUse::Commercial => "Commercial",
+
+            CurrentUse::Dairy => "Dairy",
+
+            CurrentUse::Farm => "Farm",
+
+            CurrentUse::Fishery => "Fishery",
+
+            CurrentUse::Grazing => "Grazing",
+
+            CurrentUse::HighwayTouristService => "Highway/Tourist Service",
+
+            CurrentUse::Horses => "Horses",
+
+            CurrentUse::Hunting => "Hunting",
+
+            CurrentUse::Industrial => "Industrial",
+
+            CurrentUse::Investment => "Investment",
+
+            CurrentUse::Livestock => "Livestock",
+
+            CurrentUse::ManufacturedHome => "Manufactured Home",
+
+            CurrentUse::MedicalDental => "Medical/Dental",
+
+            CurrentUse::MiniStorage => "Mini-Storage",
+
+            CurrentUse::MixedUse => "Mixed Use",
+
+            CurrentUse::MultiFamily => "Multi-Family",
+
+            CurrentUse::Nursery => "Nursery",
+
+            CurrentUse::Office => "Office",
+
+            CurrentUse::Orchard => "Orchard",
+
+            CurrentUse::Other => "Other",
+
+            CurrentUse::Pasture => "Pasture",
+
+            CurrentUse::PlaceofWorship => "Place of Worship",
+
+            CurrentUse::Plantable => "Plantable",
+
+            CurrentUse::Poultry => "Poultry",
+
+            CurrentUse::Ranch => "Ranch",
+
+            CurrentUse::Recreational => "Recreational",
+
+            CurrentUse::Residential => "Residential",
+
+            CurrentUse::Retail => "Retail",
+
+            CurrentUse::RowCrops => "Row Crops",
+
+            CurrentUse::SeeRemarks => "See Remarks",
+
+            CurrentUse::SingleFamily => "Single Family",
+
+            CurrentUse::Subdivision => "Subdivision",
+
+            CurrentUse::Timber => "Timber",
+
+            CurrentUse::TreeFarm => "Tree Farm",
+
+            CurrentUse::Unimproved => "Unimproved",
+
+            CurrentUse::Vacant => "Vacant",
+
+            CurrentUse::Vineyard => "Vineyard",
+
+            CurrentUse::Warehouse => "Warehouse",
+
+            CurrentUse::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CurrentUse::Agricultural => "Agricultural".into(),
+
+            CurrentUse::Automotive => "Automotive".into(),
+
+            CurrentUse::Cattle => "Cattle".into(),
+
+            CurrentUse::Commercial => "Commercial".into(),
+
+            CurrentUse::Dairy => "Dairy".into(),
+
+            CurrentUse::Farm => "Farm".into(),
+
+            CurrentUse::Fishery => "Fishery".into(),
+
+            CurrentUse::Grazing => "Grazing".into(),
+
+            CurrentUse::HighwayTouristService => "Highway/Tourist Service".into(),
+
+            CurrentUse::Horses => "Horses".into(),
+
+            CurrentUse::Hunting => "Hunting".into(),
+
+            CurrentUse::Industrial => "Industrial".into(),
+
+            CurrentUse::Investment => "Investment".into(),
+
+            CurrentUse::Livestock => "Livestock".into(),
+
+            CurrentUse::ManufacturedHome => "Manufactured Home".into(),
+
+            CurrentUse::MedicalDental => "Medical/Dental".into(),
+
+            CurrentUse::MiniStorage => "Mini-Storage".into(),
+
+            CurrentUse::MixedUse => "Mixed Use".into(),
+
+            CurrentUse::MultiFamily => "Multi-Family".into(),
+
+            CurrentUse::Nursery => "Nursery".into(),
+
+            CurrentUse::Office => "Office".into(),
+
+            CurrentUse::Orchard => "Orchard".into(),
+
+            CurrentUse::Other => "Other".into(),
+
+            CurrentUse::Pasture => "Pasture".into(),
+
+            CurrentUse::PlaceofWorship => "Place of Worship".into(),
+
+            CurrentUse::Plantable => "Plantable".into(),
+
+            CurrentUse::Poultry => "Poultry".into(),
+
+            CurrentUse::Ranch => "Ranch".into(),
+
+            CurrentUse::Recreational => "Recreational".into(),
+
+            CurrentUse::Residential => "Residential".into(),
+
+            CurrentUse::Retail => "Retail".into(),
+
+            CurrentUse::RowCrops => "Row Crops".into(),
+
+            CurrentUse::SeeRemarks => "See Remarks".into(),
+
+            CurrentUse::SingleFamily => "Single Family".into(),
+
+            CurrentUse::Subdivision => "Subdivision".into(),
+
+            CurrentUse::Timber => "Timber".into(),
+
+            CurrentUse::TreeFarm => "Tree Farm".into(),
+
+            CurrentUse::Unimproved => "Unimproved".into(),
+
+            CurrentUse::Vacant => "Vacant".into(),
+
+            CurrentUse::Vineyard => "Vineyard".into(),
+
+            CurrentUse::Warehouse => "Warehouse".into(),
+
+            CurrentUse::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CurrentUse::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CurrentUse {
     fn from(s: String) -> CurrentUse {
         match s.as_ref() {
@@ -418,43 +779,5 @@ impl<'de> Deserialize<'de> for CurrentUse {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_current_use_format {
-    use super::CurrentUse;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CurrentUse>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<CurrentUse>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

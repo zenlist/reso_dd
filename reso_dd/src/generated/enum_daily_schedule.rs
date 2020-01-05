@@ -54,6 +54,159 @@ pub enum DailySchedule {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for DailySchedule {
+    fn from_str(s: &str) -> DailySchedule {
+        match s {
+            "Friday AM" => DailySchedule::FridayAM,
+
+            "Friday PM" => DailySchedule::FridayPM,
+
+            "Monday AM" => DailySchedule::MondayAM,
+
+            "Monday PM" => DailySchedule::MondayPM,
+
+            "None" => DailySchedule::None,
+
+            "Saturday AM" => DailySchedule::SaturdayAM,
+
+            "Saturday PM" => DailySchedule::SaturdayPM,
+
+            "Sunday AM" => DailySchedule::SundayAM,
+
+            "Sunday PM" => DailySchedule::SundayPM,
+
+            "Thursday AM" => DailySchedule::ThursdayAM,
+
+            "Thursday PM" => DailySchedule::ThursdayPM,
+
+            "Tuesday AM" => DailySchedule::TuesdayAM,
+
+            "Tuesday PM" => DailySchedule::TuesdayPM,
+
+            "Wednesday AM" => DailySchedule::WednesdayAM,
+
+            "Wednesday PM" => DailySchedule::WednesdayPM,
+
+            _ => DailySchedule::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> DailySchedule {
+        match s.as_ref() {
+            "Friday AM" => DailySchedule::FridayAM,
+
+            "Friday PM" => DailySchedule::FridayPM,
+
+            "Monday AM" => DailySchedule::MondayAM,
+
+            "Monday PM" => DailySchedule::MondayPM,
+
+            "None" => DailySchedule::None,
+
+            "Saturday AM" => DailySchedule::SaturdayAM,
+
+            "Saturday PM" => DailySchedule::SaturdayPM,
+
+            "Sunday AM" => DailySchedule::SundayAM,
+
+            "Sunday PM" => DailySchedule::SundayPM,
+
+            "Thursday AM" => DailySchedule::ThursdayAM,
+
+            "Thursday PM" => DailySchedule::ThursdayPM,
+
+            "Tuesday AM" => DailySchedule::TuesdayAM,
+
+            "Tuesday PM" => DailySchedule::TuesdayPM,
+
+            "Wednesday AM" => DailySchedule::WednesdayAM,
+
+            "Wednesday PM" => DailySchedule::WednesdayPM,
+
+            _ => DailySchedule::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            DailySchedule::FridayAM => "Friday AM",
+
+            DailySchedule::FridayPM => "Friday PM",
+
+            DailySchedule::MondayAM => "Monday AM",
+
+            DailySchedule::MondayPM => "Monday PM",
+
+            DailySchedule::None => "None",
+
+            DailySchedule::SaturdayAM => "Saturday AM",
+
+            DailySchedule::SaturdayPM => "Saturday PM",
+
+            DailySchedule::SundayAM => "Sunday AM",
+
+            DailySchedule::SundayPM => "Sunday PM",
+
+            DailySchedule::ThursdayAM => "Thursday AM",
+
+            DailySchedule::ThursdayPM => "Thursday PM",
+
+            DailySchedule::TuesdayAM => "Tuesday AM",
+
+            DailySchedule::TuesdayPM => "Tuesday PM",
+
+            DailySchedule::WednesdayAM => "Wednesday AM",
+
+            DailySchedule::WednesdayPM => "Wednesday PM",
+
+            DailySchedule::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            DailySchedule::FridayAM => "Friday AM".into(),
+
+            DailySchedule::FridayPM => "Friday PM".into(),
+
+            DailySchedule::MondayAM => "Monday AM".into(),
+
+            DailySchedule::MondayPM => "Monday PM".into(),
+
+            DailySchedule::None => "None".into(),
+
+            DailySchedule::SaturdayAM => "Saturday AM".into(),
+
+            DailySchedule::SaturdayPM => "Saturday PM".into(),
+
+            DailySchedule::SundayAM => "Sunday AM".into(),
+
+            DailySchedule::SundayPM => "Sunday PM".into(),
+
+            DailySchedule::ThursdayAM => "Thursday AM".into(),
+
+            DailySchedule::ThursdayPM => "Thursday PM".into(),
+
+            DailySchedule::TuesdayAM => "Tuesday AM".into(),
+
+            DailySchedule::TuesdayPM => "Tuesday PM".into(),
+
+            DailySchedule::WednesdayAM => "Wednesday AM".into(),
+
+            DailySchedule::WednesdayPM => "Wednesday PM".into(),
+
+            DailySchedule::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            DailySchedule::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for DailySchedule {
     fn from(s: String) -> DailySchedule {
         match s.as_ref() {
@@ -184,45 +337,5 @@ impl<'de> Deserialize<'de> for DailySchedule {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_daily_schedule_format {
-    use super::DailySchedule;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<DailySchedule>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<DailySchedule>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

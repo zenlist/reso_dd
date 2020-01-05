@@ -24,6 +24,79 @@ pub enum DeviceType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for DeviceType {
+    fn from_str(s: &str) -> DeviceType {
+        match s {
+            "Desktop" => DeviceType::Desktop,
+
+            "Mobile" => DeviceType::Mobile,
+
+            "Tablet" => DeviceType::Tablet,
+
+            "Unknown" => DeviceType::Unknown,
+
+            "Wearable" => DeviceType::Wearable,
+
+            _ => DeviceType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> DeviceType {
+        match s.as_ref() {
+            "Desktop" => DeviceType::Desktop,
+
+            "Mobile" => DeviceType::Mobile,
+
+            "Tablet" => DeviceType::Tablet,
+
+            "Unknown" => DeviceType::Unknown,
+
+            "Wearable" => DeviceType::Wearable,
+
+            _ => DeviceType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            DeviceType::Desktop => "Desktop",
+
+            DeviceType::Mobile => "Mobile",
+
+            DeviceType::Tablet => "Tablet",
+
+            DeviceType::Unknown => "Unknown",
+
+            DeviceType::Wearable => "Wearable",
+
+            DeviceType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            DeviceType::Desktop => "Desktop".into(),
+
+            DeviceType::Mobile => "Mobile".into(),
+
+            DeviceType::Tablet => "Tablet".into(),
+
+            DeviceType::Unknown => "Unknown".into(),
+
+            DeviceType::Wearable => "Wearable".into(),
+
+            DeviceType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            DeviceType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for DeviceType {
     fn from(s: String) -> DeviceType {
         match s.as_ref() {
@@ -94,43 +167,5 @@ impl<'de> Deserialize<'de> for DeviceType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_device_type_format {
-    use super::DeviceType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<DeviceType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<DeviceType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

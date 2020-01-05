@@ -33,6 +33,103 @@ pub enum YearBuiltSource {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for YearBuiltSource {
+    fn from_str(s: &str) -> YearBuiltSource {
+        match s {
+            "Appraiser" => YearBuiltSource::Appraiser,
+
+            "Assessor" => YearBuiltSource::Assessor,
+
+            "Builder" => YearBuiltSource::Builder,
+
+            "Estimated" => YearBuiltSource::Estimated,
+
+            "Other" => YearBuiltSource::Other,
+
+            "Owner" => YearBuiltSource::Owner,
+
+            "Public Records" => YearBuiltSource::PublicRecords,
+
+            "See Remarks" => YearBuiltSource::SeeRemarks,
+
+            _ => YearBuiltSource::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> YearBuiltSource {
+        match s.as_ref() {
+            "Appraiser" => YearBuiltSource::Appraiser,
+
+            "Assessor" => YearBuiltSource::Assessor,
+
+            "Builder" => YearBuiltSource::Builder,
+
+            "Estimated" => YearBuiltSource::Estimated,
+
+            "Other" => YearBuiltSource::Other,
+
+            "Owner" => YearBuiltSource::Owner,
+
+            "Public Records" => YearBuiltSource::PublicRecords,
+
+            "See Remarks" => YearBuiltSource::SeeRemarks,
+
+            _ => YearBuiltSource::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            YearBuiltSource::Appraiser => "Appraiser",
+
+            YearBuiltSource::Assessor => "Assessor",
+
+            YearBuiltSource::Builder => "Builder",
+
+            YearBuiltSource::Estimated => "Estimated",
+
+            YearBuiltSource::Other => "Other",
+
+            YearBuiltSource::Owner => "Owner",
+
+            YearBuiltSource::PublicRecords => "Public Records",
+
+            YearBuiltSource::SeeRemarks => "See Remarks",
+
+            YearBuiltSource::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            YearBuiltSource::Appraiser => "Appraiser".into(),
+
+            YearBuiltSource::Assessor => "Assessor".into(),
+
+            YearBuiltSource::Builder => "Builder".into(),
+
+            YearBuiltSource::Estimated => "Estimated".into(),
+
+            YearBuiltSource::Other => "Other".into(),
+
+            YearBuiltSource::Owner => "Owner".into(),
+
+            YearBuiltSource::PublicRecords => "Public Records".into(),
+
+            YearBuiltSource::SeeRemarks => "See Remarks".into(),
+
+            YearBuiltSource::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            YearBuiltSource::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for YearBuiltSource {
     fn from(s: String) -> YearBuiltSource {
         match s.as_ref() {
@@ -121,45 +218,5 @@ impl<'de> Deserialize<'de> for YearBuiltSource {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_year_built_source_format {
-    use super::YearBuiltSource;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<YearBuiltSource>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<YearBuiltSource>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

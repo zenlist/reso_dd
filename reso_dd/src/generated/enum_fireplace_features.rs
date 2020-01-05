@@ -141,6 +141,391 @@ pub enum FireplaceFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for FireplaceFeatures {
+    fn from_str(s: &str) -> FireplaceFeatures {
+        match s {
+            "Basement" => FireplaceFeatures::Basement,
+
+            "Bath" => FireplaceFeatures::Bath,
+
+            "Bedroom" => FireplaceFeatures::Bedroom,
+
+            "Blower Fan" => FireplaceFeatures::BlowerFan,
+
+            "Circulating" => FireplaceFeatures::Circulating,
+
+            "Decorative" => FireplaceFeatures::Decorative,
+
+            "Den" => FireplaceFeatures::Den,
+
+            "Dining Room" => FireplaceFeatures::DiningRoom,
+
+            "Double Sided" => FireplaceFeatures::DoubleSided,
+
+            "Electric" => FireplaceFeatures::Electric,
+
+            "EPA Certified Wood Stove" => FireplaceFeatures::EPACertifiedWoodStove,
+
+            "EPA Qualified Fireplace" => FireplaceFeatures::EPAQualifiedFireplace,
+
+            "Factory Built" => FireplaceFeatures::FactoryBuilt,
+
+            "Family Room" => FireplaceFeatures::FamilyRoom,
+
+            "Fire Pit" => FireplaceFeatures::FirePit,
+
+            "Free Standing" => FireplaceFeatures::FreeStanding,
+
+            "Gas" => FireplaceFeatures::Gas,
+
+            "Gas Log" => FireplaceFeatures::GasLog,
+
+            "Gas Starter" => FireplaceFeatures::GasStarter,
+
+            "Glass Doors" => FireplaceFeatures::GlassDoors,
+
+            "Great Room" => FireplaceFeatures::GreatRoom,
+
+            "Heatilator" => FireplaceFeatures::Heatilator,
+
+            "Insert" => FireplaceFeatures::Insert,
+
+            "Kitchen" => FireplaceFeatures::Kitchen,
+
+            "Library" => FireplaceFeatures::Library,
+
+            "Living Room" => FireplaceFeatures::LivingRoom,
+
+            "Masonry" => FireplaceFeatures::Masonry,
+
+            "Master Bedroom" => FireplaceFeatures::MasterBedroom,
+
+            "Metal" => FireplaceFeatures::Metal,
+
+            "None" => FireplaceFeatures::None,
+
+            "Other" => FireplaceFeatures::Other,
+
+            "Outside" => FireplaceFeatures::Outside,
+
+            "Pellet Stove" => FireplaceFeatures::PelletStove,
+
+            "Propane" => FireplaceFeatures::Propane,
+
+            "Raised Hearth" => FireplaceFeatures::RaisedHearth,
+
+            "Recreation Room" => FireplaceFeatures::RecreationRoom,
+
+            "Sealed Combustion" => FireplaceFeatures::SealedCombustion,
+
+            "See Remarks" => FireplaceFeatures::SeeRemarks,
+
+            "See Through" => FireplaceFeatures::SeeThrough,
+
+            "Stone" => FireplaceFeatures::Stone,
+
+            "Ventless" => FireplaceFeatures::Ventless,
+
+            "Wood Burning" => FireplaceFeatures::WoodBurning,
+
+            "Wood Burning Stove" => FireplaceFeatures::WoodBurningStove,
+
+            "Zero Clearance" => FireplaceFeatures::ZeroClearance,
+
+            _ => FireplaceFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> FireplaceFeatures {
+        match s.as_ref() {
+            "Basement" => FireplaceFeatures::Basement,
+
+            "Bath" => FireplaceFeatures::Bath,
+
+            "Bedroom" => FireplaceFeatures::Bedroom,
+
+            "Blower Fan" => FireplaceFeatures::BlowerFan,
+
+            "Circulating" => FireplaceFeatures::Circulating,
+
+            "Decorative" => FireplaceFeatures::Decorative,
+
+            "Den" => FireplaceFeatures::Den,
+
+            "Dining Room" => FireplaceFeatures::DiningRoom,
+
+            "Double Sided" => FireplaceFeatures::DoubleSided,
+
+            "Electric" => FireplaceFeatures::Electric,
+
+            "EPA Certified Wood Stove" => FireplaceFeatures::EPACertifiedWoodStove,
+
+            "EPA Qualified Fireplace" => FireplaceFeatures::EPAQualifiedFireplace,
+
+            "Factory Built" => FireplaceFeatures::FactoryBuilt,
+
+            "Family Room" => FireplaceFeatures::FamilyRoom,
+
+            "Fire Pit" => FireplaceFeatures::FirePit,
+
+            "Free Standing" => FireplaceFeatures::FreeStanding,
+
+            "Gas" => FireplaceFeatures::Gas,
+
+            "Gas Log" => FireplaceFeatures::GasLog,
+
+            "Gas Starter" => FireplaceFeatures::GasStarter,
+
+            "Glass Doors" => FireplaceFeatures::GlassDoors,
+
+            "Great Room" => FireplaceFeatures::GreatRoom,
+
+            "Heatilator" => FireplaceFeatures::Heatilator,
+
+            "Insert" => FireplaceFeatures::Insert,
+
+            "Kitchen" => FireplaceFeatures::Kitchen,
+
+            "Library" => FireplaceFeatures::Library,
+
+            "Living Room" => FireplaceFeatures::LivingRoom,
+
+            "Masonry" => FireplaceFeatures::Masonry,
+
+            "Master Bedroom" => FireplaceFeatures::MasterBedroom,
+
+            "Metal" => FireplaceFeatures::Metal,
+
+            "None" => FireplaceFeatures::None,
+
+            "Other" => FireplaceFeatures::Other,
+
+            "Outside" => FireplaceFeatures::Outside,
+
+            "Pellet Stove" => FireplaceFeatures::PelletStove,
+
+            "Propane" => FireplaceFeatures::Propane,
+
+            "Raised Hearth" => FireplaceFeatures::RaisedHearth,
+
+            "Recreation Room" => FireplaceFeatures::RecreationRoom,
+
+            "Sealed Combustion" => FireplaceFeatures::SealedCombustion,
+
+            "See Remarks" => FireplaceFeatures::SeeRemarks,
+
+            "See Through" => FireplaceFeatures::SeeThrough,
+
+            "Stone" => FireplaceFeatures::Stone,
+
+            "Ventless" => FireplaceFeatures::Ventless,
+
+            "Wood Burning" => FireplaceFeatures::WoodBurning,
+
+            "Wood Burning Stove" => FireplaceFeatures::WoodBurningStove,
+
+            "Zero Clearance" => FireplaceFeatures::ZeroClearance,
+
+            _ => FireplaceFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            FireplaceFeatures::Basement => "Basement",
+
+            FireplaceFeatures::Bath => "Bath",
+
+            FireplaceFeatures::Bedroom => "Bedroom",
+
+            FireplaceFeatures::BlowerFan => "Blower Fan",
+
+            FireplaceFeatures::Circulating => "Circulating",
+
+            FireplaceFeatures::Decorative => "Decorative",
+
+            FireplaceFeatures::Den => "Den",
+
+            FireplaceFeatures::DiningRoom => "Dining Room",
+
+            FireplaceFeatures::DoubleSided => "Double Sided",
+
+            FireplaceFeatures::Electric => "Electric",
+
+            FireplaceFeatures::EPACertifiedWoodStove => "EPA Certified Wood Stove",
+
+            FireplaceFeatures::EPAQualifiedFireplace => "EPA Qualified Fireplace",
+
+            FireplaceFeatures::FactoryBuilt => "Factory Built",
+
+            FireplaceFeatures::FamilyRoom => "Family Room",
+
+            FireplaceFeatures::FirePit => "Fire Pit",
+
+            FireplaceFeatures::FreeStanding => "Free Standing",
+
+            FireplaceFeatures::Gas => "Gas",
+
+            FireplaceFeatures::GasLog => "Gas Log",
+
+            FireplaceFeatures::GasStarter => "Gas Starter",
+
+            FireplaceFeatures::GlassDoors => "Glass Doors",
+
+            FireplaceFeatures::GreatRoom => "Great Room",
+
+            FireplaceFeatures::Heatilator => "Heatilator",
+
+            FireplaceFeatures::Insert => "Insert",
+
+            FireplaceFeatures::Kitchen => "Kitchen",
+
+            FireplaceFeatures::Library => "Library",
+
+            FireplaceFeatures::LivingRoom => "Living Room",
+
+            FireplaceFeatures::Masonry => "Masonry",
+
+            FireplaceFeatures::MasterBedroom => "Master Bedroom",
+
+            FireplaceFeatures::Metal => "Metal",
+
+            FireplaceFeatures::None => "None",
+
+            FireplaceFeatures::Other => "Other",
+
+            FireplaceFeatures::Outside => "Outside",
+
+            FireplaceFeatures::PelletStove => "Pellet Stove",
+
+            FireplaceFeatures::Propane => "Propane",
+
+            FireplaceFeatures::RaisedHearth => "Raised Hearth",
+
+            FireplaceFeatures::RecreationRoom => "Recreation Room",
+
+            FireplaceFeatures::SealedCombustion => "Sealed Combustion",
+
+            FireplaceFeatures::SeeRemarks => "See Remarks",
+
+            FireplaceFeatures::SeeThrough => "See Through",
+
+            FireplaceFeatures::Stone => "Stone",
+
+            FireplaceFeatures::Ventless => "Ventless",
+
+            FireplaceFeatures::WoodBurning => "Wood Burning",
+
+            FireplaceFeatures::WoodBurningStove => "Wood Burning Stove",
+
+            FireplaceFeatures::ZeroClearance => "Zero Clearance",
+
+            FireplaceFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            FireplaceFeatures::Basement => "Basement".into(),
+
+            FireplaceFeatures::Bath => "Bath".into(),
+
+            FireplaceFeatures::Bedroom => "Bedroom".into(),
+
+            FireplaceFeatures::BlowerFan => "Blower Fan".into(),
+
+            FireplaceFeatures::Circulating => "Circulating".into(),
+
+            FireplaceFeatures::Decorative => "Decorative".into(),
+
+            FireplaceFeatures::Den => "Den".into(),
+
+            FireplaceFeatures::DiningRoom => "Dining Room".into(),
+
+            FireplaceFeatures::DoubleSided => "Double Sided".into(),
+
+            FireplaceFeatures::Electric => "Electric".into(),
+
+            FireplaceFeatures::EPACertifiedWoodStove => "EPA Certified Wood Stove".into(),
+
+            FireplaceFeatures::EPAQualifiedFireplace => "EPA Qualified Fireplace".into(),
+
+            FireplaceFeatures::FactoryBuilt => "Factory Built".into(),
+
+            FireplaceFeatures::FamilyRoom => "Family Room".into(),
+
+            FireplaceFeatures::FirePit => "Fire Pit".into(),
+
+            FireplaceFeatures::FreeStanding => "Free Standing".into(),
+
+            FireplaceFeatures::Gas => "Gas".into(),
+
+            FireplaceFeatures::GasLog => "Gas Log".into(),
+
+            FireplaceFeatures::GasStarter => "Gas Starter".into(),
+
+            FireplaceFeatures::GlassDoors => "Glass Doors".into(),
+
+            FireplaceFeatures::GreatRoom => "Great Room".into(),
+
+            FireplaceFeatures::Heatilator => "Heatilator".into(),
+
+            FireplaceFeatures::Insert => "Insert".into(),
+
+            FireplaceFeatures::Kitchen => "Kitchen".into(),
+
+            FireplaceFeatures::Library => "Library".into(),
+
+            FireplaceFeatures::LivingRoom => "Living Room".into(),
+
+            FireplaceFeatures::Masonry => "Masonry".into(),
+
+            FireplaceFeatures::MasterBedroom => "Master Bedroom".into(),
+
+            FireplaceFeatures::Metal => "Metal".into(),
+
+            FireplaceFeatures::None => "None".into(),
+
+            FireplaceFeatures::Other => "Other".into(),
+
+            FireplaceFeatures::Outside => "Outside".into(),
+
+            FireplaceFeatures::PelletStove => "Pellet Stove".into(),
+
+            FireplaceFeatures::Propane => "Propane".into(),
+
+            FireplaceFeatures::RaisedHearth => "Raised Hearth".into(),
+
+            FireplaceFeatures::RecreationRoom => "Recreation Room".into(),
+
+            FireplaceFeatures::SealedCombustion => "Sealed Combustion".into(),
+
+            FireplaceFeatures::SeeRemarks => "See Remarks".into(),
+
+            FireplaceFeatures::SeeThrough => "See Through".into(),
+
+            FireplaceFeatures::Stone => "Stone".into(),
+
+            FireplaceFeatures::Ventless => "Ventless".into(),
+
+            FireplaceFeatures::WoodBurning => "Wood Burning".into(),
+
+            FireplaceFeatures::WoodBurningStove => "Wood Burning Stove".into(),
+
+            FireplaceFeatures::ZeroClearance => "Zero Clearance".into(),
+
+            FireplaceFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            FireplaceFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for FireplaceFeatures {
     fn from(s: String) -> FireplaceFeatures {
         match s.as_ref() {
@@ -445,45 +830,5 @@ impl<'de> Deserialize<'de> for FireplaceFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_fireplace_features_format {
-    use super::FireplaceFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<FireplaceFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<FireplaceFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

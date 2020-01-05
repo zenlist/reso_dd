@@ -42,6 +42,127 @@ pub enum OfficeType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OfficeType {
+    fn from_str(s: &str) -> OfficeType {
+        match s {
+            "Affiliate" => OfficeType::Affiliate,
+
+            "Appraiser" => OfficeType::Appraiser,
+
+            "Association" => OfficeType::Association,
+
+            "MLS" => OfficeType::MLS,
+
+            "MLS Only Branch" => OfficeType::MLSOnlyBranch,
+
+            "MLS Only Firm" => OfficeType::MLSOnlyFirm,
+
+            "MLS Only Office" => OfficeType::MLSOnlyOffice,
+
+            "Non Member/Vendor" => OfficeType::NonMemberVendor,
+
+            "Realtor Branch Office" => OfficeType::RealtorBranchOffice,
+
+            "Realtor Firm" => OfficeType::RealtorFirm,
+
+            "Realtor Office" => OfficeType::RealtorOffice,
+
+            _ => OfficeType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OfficeType {
+        match s.as_ref() {
+            "Affiliate" => OfficeType::Affiliate,
+
+            "Appraiser" => OfficeType::Appraiser,
+
+            "Association" => OfficeType::Association,
+
+            "MLS" => OfficeType::MLS,
+
+            "MLS Only Branch" => OfficeType::MLSOnlyBranch,
+
+            "MLS Only Firm" => OfficeType::MLSOnlyFirm,
+
+            "MLS Only Office" => OfficeType::MLSOnlyOffice,
+
+            "Non Member/Vendor" => OfficeType::NonMemberVendor,
+
+            "Realtor Branch Office" => OfficeType::RealtorBranchOffice,
+
+            "Realtor Firm" => OfficeType::RealtorFirm,
+
+            "Realtor Office" => OfficeType::RealtorOffice,
+
+            _ => OfficeType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OfficeType::Affiliate => "Affiliate",
+
+            OfficeType::Appraiser => "Appraiser",
+
+            OfficeType::Association => "Association",
+
+            OfficeType::MLS => "MLS",
+
+            OfficeType::MLSOnlyBranch => "MLS Only Branch",
+
+            OfficeType::MLSOnlyFirm => "MLS Only Firm",
+
+            OfficeType::MLSOnlyOffice => "MLS Only Office",
+
+            OfficeType::NonMemberVendor => "Non Member/Vendor",
+
+            OfficeType::RealtorBranchOffice => "Realtor Branch Office",
+
+            OfficeType::RealtorFirm => "Realtor Firm",
+
+            OfficeType::RealtorOffice => "Realtor Office",
+
+            OfficeType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OfficeType::Affiliate => "Affiliate".into(),
+
+            OfficeType::Appraiser => "Appraiser".into(),
+
+            OfficeType::Association => "Association".into(),
+
+            OfficeType::MLS => "MLS".into(),
+
+            OfficeType::MLSOnlyBranch => "MLS Only Branch".into(),
+
+            OfficeType::MLSOnlyFirm => "MLS Only Firm".into(),
+
+            OfficeType::MLSOnlyOffice => "MLS Only Office".into(),
+
+            OfficeType::NonMemberVendor => "Non Member/Vendor".into(),
+
+            OfficeType::RealtorBranchOffice => "Realtor Branch Office".into(),
+
+            OfficeType::RealtorFirm => "Realtor Firm".into(),
+
+            OfficeType::RealtorOffice => "Realtor Office".into(),
+
+            OfficeType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OfficeType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OfficeType {
     fn from(s: String) -> OfficeType {
         match s.as_ref() {
@@ -148,43 +269,5 @@ impl<'de> Deserialize<'de> for OfficeType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_office_type_format {
-    use super::OfficeType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OfficeType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<OfficeType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

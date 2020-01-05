@@ -90,6 +90,415 @@ pub enum MemberDesignation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for MemberDesignation {
+    fn from_str(s: &str) -> MemberDesignation {
+        match s {
+            "Accredited Buyer's Representative / ABR" => {
+                MemberDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => MemberDesignation::AccreditedLandConsultantALC,
+
+            "At Home With Diversity / AHWD" => MemberDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                MemberDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                MemberDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                MemberDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => MemberDesignation::CertifiedPropertyManagerCPM,
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                MemberDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                MemberDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                MemberDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => MemberDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => MemberDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                MemberDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => MemberDesignation::GraduateREALTORInstituteGRI,
+
+            "Military Relocation Professional / MRP" => {
+                MemberDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => MemberDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                MemberDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => MemberDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                MemberDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                MemberDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                MemberDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                MemberDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                MemberDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                MemberDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                MemberDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                MemberDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                MemberDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => MemberDesignation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> MemberDesignation {
+        match s.as_ref() {
+            "Accredited Buyer's Representative / ABR" => {
+                MemberDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => MemberDesignation::AccreditedLandConsultantALC,
+
+            "At Home With Diversity / AHWD" => MemberDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                MemberDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                MemberDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                MemberDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => MemberDesignation::CertifiedPropertyManagerCPM,
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                MemberDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                MemberDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                MemberDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => MemberDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => MemberDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                MemberDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => MemberDesignation::GraduateREALTORInstituteGRI,
+
+            "Military Relocation Professional / MRP" => {
+                MemberDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => MemberDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                MemberDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => MemberDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                MemberDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                MemberDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                MemberDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                MemberDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                MemberDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                MemberDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                MemberDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                MemberDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                MemberDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => MemberDesignation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            MemberDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR"
+            }
+
+            MemberDesignation::AccreditedLandConsultantALC => "Accredited Land Consultant / ALC",
+
+            MemberDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD",
+
+            MemberDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM"
+            }
+
+            MemberDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE"
+            }
+
+            MemberDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS"
+            }
+
+            MemberDesignation::CertifiedPropertyManagerCPM => "Certified Property Manager / CPM",
+
+            MemberDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB"
+            }
+
+            MemberDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS"
+            }
+
+            MemberDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS"
+            }
+
+            MemberDesignation::CounselorofRealEstateCRE => "Counselor of Real Estate / CRE",
+
+            MemberDesignation::EPRO => "e-PRO",
+
+            MemberDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA"
+            }
+
+            MemberDesignation::GraduateREALTORInstituteGRI => "Graduate, REALTOR Institute / GRI",
+
+            MemberDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP"
+            }
+
+            MemberDesignation::NARsGreenDesignationGREEN => "NAR's Green Designation / GREEN",
+
+            MemberDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN"
+            }
+
+            MemberDesignation::PricingStrategyAdvisorPSA => "Pricing Strategy Advisor / PSA",
+
+            MemberDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE"
+            }
+
+            MemberDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE"
+            }
+
+            MemberDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA"
+            }
+
+            MemberDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS"
+            }
+
+            MemberDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS"
+            }
+
+            MemberDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES"
+            }
+
+            MemberDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR"
+            }
+
+            MemberDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR"
+            }
+
+            MemberDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC"
+            }
+
+            MemberDesignation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            MemberDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR".into()
+            }
+
+            MemberDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC".into()
+            }
+
+            MemberDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD".into(),
+
+            MemberDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM".into()
+            }
+
+            MemberDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE".into()
+            }
+
+            MemberDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS".into()
+            }
+
+            MemberDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM".into()
+            }
+
+            MemberDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB".into()
+            }
+
+            MemberDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS".into()
+            }
+
+            MemberDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS".into()
+            }
+
+            MemberDesignation::CounselorofRealEstateCRE => "Counselor of Real Estate / CRE".into(),
+
+            MemberDesignation::EPRO => "e-PRO".into(),
+
+            MemberDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA".into()
+            }
+
+            MemberDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI".into()
+            }
+
+            MemberDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP".into()
+            }
+
+            MemberDesignation::NARsGreenDesignationGREEN => {
+                "NAR's Green Designation / GREEN".into()
+            }
+
+            MemberDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN".into()
+            }
+
+            MemberDesignation::PricingStrategyAdvisorPSA => "Pricing Strategy Advisor / PSA".into(),
+
+            MemberDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE".into()
+            }
+
+            MemberDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE".into()
+            }
+
+            MemberDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA".into()
+            }
+
+            MemberDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS".into()
+            }
+
+            MemberDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS".into()
+            }
+
+            MemberDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES".into()
+            }
+
+            MemberDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR".into()
+            }
+
+            MemberDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR".into()
+            }
+
+            MemberDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC".into()
+            }
+
+            MemberDesignation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            MemberDesignation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for MemberDesignation {
     fn from(s: String) -> MemberDesignation {
         match s.as_ref() {
@@ -406,45 +815,5 @@ impl<'de> Deserialize<'de> for MemberDesignation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_member_designation_format {
-    use super::MemberDesignation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<MemberDesignation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<MemberDesignation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

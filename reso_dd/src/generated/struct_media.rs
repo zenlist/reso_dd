@@ -1,7 +1,6 @@
 // THIS IS A GENERATED FILE
 // If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator
 #[allow(unused_imports)]
-use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Media Resource](https://ddwiki.reso.org/display/DDW17/Media+Resource)

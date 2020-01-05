@@ -114,6 +114,361 @@ pub enum AccessibilityFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for AccessibilityFeatures {
+    fn from_str(s: &str) -> AccessibilityFeatures {
+        match s {
+            "Accessible Approach with Ramp" => AccessibilityFeatures::AccessibleApproachwithRamp,
+
+            "Accessible Bedroom" => AccessibilityFeatures::AccessibleBedroom,
+
+            "Accessible Central Living Area" => AccessibilityFeatures::AccessibleCentralLivingArea,
+
+            "Accessible Closets" => AccessibilityFeatures::AccessibleClosets,
+
+            "Accessible Common Area" => AccessibilityFeatures::AccessibleCommonArea,
+
+            "Accessible Doors" => AccessibilityFeatures::AccessibleDoors,
+
+            "Accessible Electrical and Environmental Controls" => {
+                AccessibilityFeatures::AccessibleElectricalandEnvironmentalControls
+            }
+
+            "Accessible Elevator Installed" => AccessibilityFeatures::AccessibleElevatorInstalled,
+
+            "Accessible Entrance" => AccessibilityFeatures::AccessibleEntrance,
+
+            "Accessible for Hearing-Impairment" => {
+                AccessibilityFeatures::AccessibleforHearingImpairment
+            }
+
+            "Accessible Full Bath" => AccessibilityFeatures::AccessibleFullBath,
+
+            "Accessible Hallway(s)" => AccessibilityFeatures::AccessibleHallways,
+
+            "Accessible Kitchen" => AccessibilityFeatures::AccessibleKitchen,
+
+            "Accessible Kitchen Appliances" => AccessibilityFeatures::AccessibleKitchenAppliances,
+
+            "Accessible Stairway" => AccessibilityFeatures::AccessibleStairway,
+
+            "Accessible Washer/Dryer" => AccessibilityFeatures::AccessibleWasherDryer,
+
+            "Adaptable Bathroom Walls" => AccessibilityFeatures::AdaptableBathroomWalls,
+
+            "Adaptable For Elevator" => AccessibilityFeatures::AdaptableForElevator,
+
+            "Ceiling Track" => AccessibilityFeatures::CeilingTrack,
+
+            "Central Living Area" => AccessibilityFeatures::CentralLivingArea,
+
+            "Common Area" => AccessibilityFeatures::CommonArea,
+
+            "Customized Wheelchair Accessible" => {
+                AccessibilityFeatures::CustomizedWheelchairAccessible
+            }
+
+            "Electronic Environmental Controls" => {
+                AccessibilityFeatures::ElectronicEnvironmentalControls
+            }
+
+            "Enhanced Accessible" => AccessibilityFeatures::EnhancedAccessible,
+
+            "Exterior Wheelchair Lift" => AccessibilityFeatures::ExteriorWheelchairLift,
+
+            "Grip-Accessible Features" => AccessibilityFeatures::GripAccessibleFeatures,
+
+            "Reinforced Floors" => AccessibilityFeatures::ReinforcedFloors,
+
+            "Safe Emergency Egress from Home" => AccessibilityFeatures::SafeEmergencyEgressfromHome,
+
+            "Smart Technology" => AccessibilityFeatures::SmartTechnology,
+
+            "Stair Lift" => AccessibilityFeatures::StairLift,
+
+            "Standby Generator" => AccessibilityFeatures::StandbyGenerator,
+
+            "Therapeutic Whirlpool" => AccessibilityFeatures::TherapeuticWhirlpool,
+
+            "Visitable" => AccessibilityFeatures::Visitable,
+
+            "Visitor Bathroom" => AccessibilityFeatures::VisitorBathroom,
+
+            "Walker-Accessible Stairs" => AccessibilityFeatures::WalkerAccessibleStairs,
+
+            _ => AccessibilityFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> AccessibilityFeatures {
+        match s.as_ref() {
+            "Accessible Approach with Ramp" => AccessibilityFeatures::AccessibleApproachwithRamp,
+
+            "Accessible Bedroom" => AccessibilityFeatures::AccessibleBedroom,
+
+            "Accessible Central Living Area" => AccessibilityFeatures::AccessibleCentralLivingArea,
+
+            "Accessible Closets" => AccessibilityFeatures::AccessibleClosets,
+
+            "Accessible Common Area" => AccessibilityFeatures::AccessibleCommonArea,
+
+            "Accessible Doors" => AccessibilityFeatures::AccessibleDoors,
+
+            "Accessible Electrical and Environmental Controls" => {
+                AccessibilityFeatures::AccessibleElectricalandEnvironmentalControls
+            }
+
+            "Accessible Elevator Installed" => AccessibilityFeatures::AccessibleElevatorInstalled,
+
+            "Accessible Entrance" => AccessibilityFeatures::AccessibleEntrance,
+
+            "Accessible for Hearing-Impairment" => {
+                AccessibilityFeatures::AccessibleforHearingImpairment
+            }
+
+            "Accessible Full Bath" => AccessibilityFeatures::AccessibleFullBath,
+
+            "Accessible Hallway(s)" => AccessibilityFeatures::AccessibleHallways,
+
+            "Accessible Kitchen" => AccessibilityFeatures::AccessibleKitchen,
+
+            "Accessible Kitchen Appliances" => AccessibilityFeatures::AccessibleKitchenAppliances,
+
+            "Accessible Stairway" => AccessibilityFeatures::AccessibleStairway,
+
+            "Accessible Washer/Dryer" => AccessibilityFeatures::AccessibleWasherDryer,
+
+            "Adaptable Bathroom Walls" => AccessibilityFeatures::AdaptableBathroomWalls,
+
+            "Adaptable For Elevator" => AccessibilityFeatures::AdaptableForElevator,
+
+            "Ceiling Track" => AccessibilityFeatures::CeilingTrack,
+
+            "Central Living Area" => AccessibilityFeatures::CentralLivingArea,
+
+            "Common Area" => AccessibilityFeatures::CommonArea,
+
+            "Customized Wheelchair Accessible" => {
+                AccessibilityFeatures::CustomizedWheelchairAccessible
+            }
+
+            "Electronic Environmental Controls" => {
+                AccessibilityFeatures::ElectronicEnvironmentalControls
+            }
+
+            "Enhanced Accessible" => AccessibilityFeatures::EnhancedAccessible,
+
+            "Exterior Wheelchair Lift" => AccessibilityFeatures::ExteriorWheelchairLift,
+
+            "Grip-Accessible Features" => AccessibilityFeatures::GripAccessibleFeatures,
+
+            "Reinforced Floors" => AccessibilityFeatures::ReinforcedFloors,
+
+            "Safe Emergency Egress from Home" => AccessibilityFeatures::SafeEmergencyEgressfromHome,
+
+            "Smart Technology" => AccessibilityFeatures::SmartTechnology,
+
+            "Stair Lift" => AccessibilityFeatures::StairLift,
+
+            "Standby Generator" => AccessibilityFeatures::StandbyGenerator,
+
+            "Therapeutic Whirlpool" => AccessibilityFeatures::TherapeuticWhirlpool,
+
+            "Visitable" => AccessibilityFeatures::Visitable,
+
+            "Visitor Bathroom" => AccessibilityFeatures::VisitorBathroom,
+
+            "Walker-Accessible Stairs" => AccessibilityFeatures::WalkerAccessibleStairs,
+
+            _ => AccessibilityFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            AccessibilityFeatures::AccessibleApproachwithRamp => "Accessible Approach with Ramp",
+
+            AccessibilityFeatures::AccessibleBedroom => "Accessible Bedroom",
+
+            AccessibilityFeatures::AccessibleCentralLivingArea => "Accessible Central Living Area",
+
+            AccessibilityFeatures::AccessibleClosets => "Accessible Closets",
+
+            AccessibilityFeatures::AccessibleCommonArea => "Accessible Common Area",
+
+            AccessibilityFeatures::AccessibleDoors => "Accessible Doors",
+
+            AccessibilityFeatures::AccessibleElectricalandEnvironmentalControls => {
+                "Accessible Electrical and Environmental Controls"
+            }
+
+            AccessibilityFeatures::AccessibleElevatorInstalled => "Accessible Elevator Installed",
+
+            AccessibilityFeatures::AccessibleEntrance => "Accessible Entrance",
+
+            AccessibilityFeatures::AccessibleforHearingImpairment => {
+                "Accessible for Hearing-Impairment"
+            }
+
+            AccessibilityFeatures::AccessibleFullBath => "Accessible Full Bath",
+
+            AccessibilityFeatures::AccessibleHallways => "Accessible Hallway(s)",
+
+            AccessibilityFeatures::AccessibleKitchen => "Accessible Kitchen",
+
+            AccessibilityFeatures::AccessibleKitchenAppliances => "Accessible Kitchen Appliances",
+
+            AccessibilityFeatures::AccessibleStairway => "Accessible Stairway",
+
+            AccessibilityFeatures::AccessibleWasherDryer => "Accessible Washer/Dryer",
+
+            AccessibilityFeatures::AdaptableBathroomWalls => "Adaptable Bathroom Walls",
+
+            AccessibilityFeatures::AdaptableForElevator => "Adaptable For Elevator",
+
+            AccessibilityFeatures::CeilingTrack => "Ceiling Track",
+
+            AccessibilityFeatures::CentralLivingArea => "Central Living Area",
+
+            AccessibilityFeatures::CommonArea => "Common Area",
+
+            AccessibilityFeatures::CustomizedWheelchairAccessible => {
+                "Customized Wheelchair Accessible"
+            }
+
+            AccessibilityFeatures::ElectronicEnvironmentalControls => {
+                "Electronic Environmental Controls"
+            }
+
+            AccessibilityFeatures::EnhancedAccessible => "Enhanced Accessible",
+
+            AccessibilityFeatures::ExteriorWheelchairLift => "Exterior Wheelchair Lift",
+
+            AccessibilityFeatures::GripAccessibleFeatures => "Grip-Accessible Features",
+
+            AccessibilityFeatures::ReinforcedFloors => "Reinforced Floors",
+
+            AccessibilityFeatures::SafeEmergencyEgressfromHome => "Safe Emergency Egress from Home",
+
+            AccessibilityFeatures::SmartTechnology => "Smart Technology",
+
+            AccessibilityFeatures::StairLift => "Stair Lift",
+
+            AccessibilityFeatures::StandbyGenerator => "Standby Generator",
+
+            AccessibilityFeatures::TherapeuticWhirlpool => "Therapeutic Whirlpool",
+
+            AccessibilityFeatures::Visitable => "Visitable",
+
+            AccessibilityFeatures::VisitorBathroom => "Visitor Bathroom",
+
+            AccessibilityFeatures::WalkerAccessibleStairs => "Walker-Accessible Stairs",
+
+            AccessibilityFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            AccessibilityFeatures::AccessibleApproachwithRamp => {
+                "Accessible Approach with Ramp".into()
+            }
+
+            AccessibilityFeatures::AccessibleBedroom => "Accessible Bedroom".into(),
+
+            AccessibilityFeatures::AccessibleCentralLivingArea => {
+                "Accessible Central Living Area".into()
+            }
+
+            AccessibilityFeatures::AccessibleClosets => "Accessible Closets".into(),
+
+            AccessibilityFeatures::AccessibleCommonArea => "Accessible Common Area".into(),
+
+            AccessibilityFeatures::AccessibleDoors => "Accessible Doors".into(),
+
+            AccessibilityFeatures::AccessibleElectricalandEnvironmentalControls => {
+                "Accessible Electrical and Environmental Controls".into()
+            }
+
+            AccessibilityFeatures::AccessibleElevatorInstalled => {
+                "Accessible Elevator Installed".into()
+            }
+
+            AccessibilityFeatures::AccessibleEntrance => "Accessible Entrance".into(),
+
+            AccessibilityFeatures::AccessibleforHearingImpairment => {
+                "Accessible for Hearing-Impairment".into()
+            }
+
+            AccessibilityFeatures::AccessibleFullBath => "Accessible Full Bath".into(),
+
+            AccessibilityFeatures::AccessibleHallways => "Accessible Hallway(s)".into(),
+
+            AccessibilityFeatures::AccessibleKitchen => "Accessible Kitchen".into(),
+
+            AccessibilityFeatures::AccessibleKitchenAppliances => {
+                "Accessible Kitchen Appliances".into()
+            }
+
+            AccessibilityFeatures::AccessibleStairway => "Accessible Stairway".into(),
+
+            AccessibilityFeatures::AccessibleWasherDryer => "Accessible Washer/Dryer".into(),
+
+            AccessibilityFeatures::AdaptableBathroomWalls => "Adaptable Bathroom Walls".into(),
+
+            AccessibilityFeatures::AdaptableForElevator => "Adaptable For Elevator".into(),
+
+            AccessibilityFeatures::CeilingTrack => "Ceiling Track".into(),
+
+            AccessibilityFeatures::CentralLivingArea => "Central Living Area".into(),
+
+            AccessibilityFeatures::CommonArea => "Common Area".into(),
+
+            AccessibilityFeatures::CustomizedWheelchairAccessible => {
+                "Customized Wheelchair Accessible".into()
+            }
+
+            AccessibilityFeatures::ElectronicEnvironmentalControls => {
+                "Electronic Environmental Controls".into()
+            }
+
+            AccessibilityFeatures::EnhancedAccessible => "Enhanced Accessible".into(),
+
+            AccessibilityFeatures::ExteriorWheelchairLift => "Exterior Wheelchair Lift".into(),
+
+            AccessibilityFeatures::GripAccessibleFeatures => "Grip-Accessible Features".into(),
+
+            AccessibilityFeatures::ReinforcedFloors => "Reinforced Floors".into(),
+
+            AccessibilityFeatures::SafeEmergencyEgressfromHome => {
+                "Safe Emergency Egress from Home".into()
+            }
+
+            AccessibilityFeatures::SmartTechnology => "Smart Technology".into(),
+
+            AccessibilityFeatures::StairLift => "Stair Lift".into(),
+
+            AccessibilityFeatures::StandbyGenerator => "Standby Generator".into(),
+
+            AccessibilityFeatures::TherapeuticWhirlpool => "Therapeutic Whirlpool".into(),
+
+            AccessibilityFeatures::Visitable => "Visitable".into(),
+
+            AccessibilityFeatures::VisitorBathroom => "Visitor Bathroom".into(),
+
+            AccessibilityFeatures::WalkerAccessibleStairs => "Walker-Accessible Stairs".into(),
+
+            AccessibilityFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            AccessibilityFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for AccessibilityFeatures {
     fn from(s: String) -> AccessibilityFeatures {
         match s.as_ref() {
@@ -388,45 +743,5 @@ impl<'de> Deserialize<'de> for AccessibilityFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_accessibility_features_format {
-    use super::AccessibilityFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<AccessibilityFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<AccessibilityFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

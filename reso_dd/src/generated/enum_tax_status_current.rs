@@ -18,6 +18,63 @@ pub enum TaxStatusCurrent {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for TaxStatusCurrent {
+    fn from_str(s: &str) -> TaxStatusCurrent {
+        match s {
+            "Personal" => TaxStatusCurrent::Personal,
+
+            "Personal And Real" => TaxStatusCurrent::PersonalAndReal,
+
+            "Real" => TaxStatusCurrent::Real,
+
+            _ => TaxStatusCurrent::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> TaxStatusCurrent {
+        match s.as_ref() {
+            "Personal" => TaxStatusCurrent::Personal,
+
+            "Personal And Real" => TaxStatusCurrent::PersonalAndReal,
+
+            "Real" => TaxStatusCurrent::Real,
+
+            _ => TaxStatusCurrent::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            TaxStatusCurrent::Personal => "Personal",
+
+            TaxStatusCurrent::PersonalAndReal => "Personal And Real",
+
+            TaxStatusCurrent::Real => "Real",
+
+            TaxStatusCurrent::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            TaxStatusCurrent::Personal => "Personal".into(),
+
+            TaxStatusCurrent::PersonalAndReal => "Personal And Real".into(),
+
+            TaxStatusCurrent::Real => "Real".into(),
+
+            TaxStatusCurrent::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            TaxStatusCurrent::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for TaxStatusCurrent {
     fn from(s: String) -> TaxStatusCurrent {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for TaxStatusCurrent {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_tax_status_current_format {
-    use super::TaxStatusCurrent;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<TaxStatusCurrent>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<TaxStatusCurrent>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

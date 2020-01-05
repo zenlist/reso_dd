@@ -42,6 +42,127 @@ pub enum RoadSurfaceType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for RoadSurfaceType {
+    fn from_str(s: &str) -> RoadSurfaceType {
+        match s {
+            "Alley Paved" => RoadSurfaceType::AlleyPaved,
+
+            "Asphalt" => RoadSurfaceType::Asphalt,
+
+            "Chip And Seal" => RoadSurfaceType::ChipAndSeal,
+
+            "Concrete" => RoadSurfaceType::Concrete,
+
+            "Dirt" => RoadSurfaceType::Dirt,
+
+            "Gravel" => RoadSurfaceType::Gravel,
+
+            "None" => RoadSurfaceType::None,
+
+            "Other" => RoadSurfaceType::Other,
+
+            "Paved" => RoadSurfaceType::Paved,
+
+            "See Remarks" => RoadSurfaceType::SeeRemarks,
+
+            "Unimproved" => RoadSurfaceType::Unimproved,
+
+            _ => RoadSurfaceType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> RoadSurfaceType {
+        match s.as_ref() {
+            "Alley Paved" => RoadSurfaceType::AlleyPaved,
+
+            "Asphalt" => RoadSurfaceType::Asphalt,
+
+            "Chip And Seal" => RoadSurfaceType::ChipAndSeal,
+
+            "Concrete" => RoadSurfaceType::Concrete,
+
+            "Dirt" => RoadSurfaceType::Dirt,
+
+            "Gravel" => RoadSurfaceType::Gravel,
+
+            "None" => RoadSurfaceType::None,
+
+            "Other" => RoadSurfaceType::Other,
+
+            "Paved" => RoadSurfaceType::Paved,
+
+            "See Remarks" => RoadSurfaceType::SeeRemarks,
+
+            "Unimproved" => RoadSurfaceType::Unimproved,
+
+            _ => RoadSurfaceType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            RoadSurfaceType::AlleyPaved => "Alley Paved",
+
+            RoadSurfaceType::Asphalt => "Asphalt",
+
+            RoadSurfaceType::ChipAndSeal => "Chip And Seal",
+
+            RoadSurfaceType::Concrete => "Concrete",
+
+            RoadSurfaceType::Dirt => "Dirt",
+
+            RoadSurfaceType::Gravel => "Gravel",
+
+            RoadSurfaceType::None => "None",
+
+            RoadSurfaceType::Other => "Other",
+
+            RoadSurfaceType::Paved => "Paved",
+
+            RoadSurfaceType::SeeRemarks => "See Remarks",
+
+            RoadSurfaceType::Unimproved => "Unimproved",
+
+            RoadSurfaceType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            RoadSurfaceType::AlleyPaved => "Alley Paved".into(),
+
+            RoadSurfaceType::Asphalt => "Asphalt".into(),
+
+            RoadSurfaceType::ChipAndSeal => "Chip And Seal".into(),
+
+            RoadSurfaceType::Concrete => "Concrete".into(),
+
+            RoadSurfaceType::Dirt => "Dirt".into(),
+
+            RoadSurfaceType::Gravel => "Gravel".into(),
+
+            RoadSurfaceType::None => "None".into(),
+
+            RoadSurfaceType::Other => "Other".into(),
+
+            RoadSurfaceType::Paved => "Paved".into(),
+
+            RoadSurfaceType::SeeRemarks => "See Remarks".into(),
+
+            RoadSurfaceType::Unimproved => "Unimproved".into(),
+
+            RoadSurfaceType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            RoadSurfaceType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for RoadSurfaceType {
     fn from(s: String) -> RoadSurfaceType {
         match s.as_ref() {
@@ -148,45 +269,5 @@ impl<'de> Deserialize<'de> for RoadSurfaceType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_road_surface_type_format {
-    use super::RoadSurfaceType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<RoadSurfaceType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<RoadSurfaceType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

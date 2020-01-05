@@ -168,6 +168,485 @@ pub enum ConstructionMaterials {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ConstructionMaterials {
+    fn from_str(s: &str) -> ConstructionMaterials {
+        match s {
+            "Adobe" => ConstructionMaterials::Adobe,
+
+            "Aluminum Siding" => ConstructionMaterials::AluminumSiding,
+
+            "Asbestos" => ConstructionMaterials::Asbestos,
+
+            "Asphalt" => ConstructionMaterials::Asphalt,
+
+            "Attic/Crawl Hatchway(s) Insulated" => {
+                ConstructionMaterials::AtticCrawlHatchwaysInsulated
+            }
+
+            "Batts Insulation" => ConstructionMaterials::BattsInsulation,
+
+            "Block" => ConstructionMaterials::Block,
+
+            "Blown-In Insulation" => ConstructionMaterials::BlownInInsulation,
+
+            "Board & Batten Siding" => ConstructionMaterials::BoardBattenSiding,
+
+            "Brick" => ConstructionMaterials::Brick,
+
+            "Brick Veneer" => ConstructionMaterials::BrickVeneer,
+
+            "Cedar" => ConstructionMaterials::Cedar,
+
+            "Cement Siding" => ConstructionMaterials::CementSiding,
+
+            "Clapboard" => ConstructionMaterials::Clapboard,
+
+            "Concrete" => ConstructionMaterials::Concrete,
+
+            "Ducts Professionally Air-Sealed" => {
+                ConstructionMaterials::DuctsProfessionallyAirSealed
+            }
+
+            "Exterior Duct-Work is Insulated" => ConstructionMaterials::ExteriorDuctWorkisInsulated,
+
+            "Fiber Cement" => ConstructionMaterials::FiberCement,
+
+            "Fiberglass Siding" => ConstructionMaterials::FiberglassSiding,
+
+            "Foam Insulation" => ConstructionMaterials::FoamInsulation,
+
+            "Frame" => ConstructionMaterials::Frame,
+
+            "Glass" => ConstructionMaterials::Glass,
+
+            "HardiPlank Type" => ConstructionMaterials::HardiPlankType,
+
+            "ICAT Recessed Lighting" => ConstructionMaterials::ICATRecessedLighting,
+
+            "ICFs (Insulated Concrete Forms)" => ConstructionMaterials::ICFsInsulatedConcreteForms,
+
+            "Lap Siding" => ConstructionMaterials::LapSiding,
+
+            "Log" => ConstructionMaterials::Log,
+
+            "Log Siding" => ConstructionMaterials::LogSiding,
+
+            "Low VOC Insulation" => ConstructionMaterials::LowVOCInsulation,
+
+            "Masonite" => ConstructionMaterials::Masonite,
+
+            "Metal Siding" => ConstructionMaterials::MetalSiding,
+
+            "Natural Building" => ConstructionMaterials::NaturalBuilding,
+
+            "Other" => ConstructionMaterials::Other,
+
+            "Plaster" => ConstructionMaterials::Plaster,
+
+            "Radiant Barrier" => ConstructionMaterials::RadiantBarrier,
+
+            "Rammed Earth" => ConstructionMaterials::RammedEarth,
+
+            "Recycled/Bio-Based Insulation" => ConstructionMaterials::RecycledBioBasedInsulation,
+
+            "Redwood Siding" => ConstructionMaterials::RedwoodSiding,
+
+            "See Remarks" => ConstructionMaterials::SeeRemarks,
+
+            "Shake Siding" => ConstructionMaterials::ShakeSiding,
+
+            "Shingle Siding" => ConstructionMaterials::ShingleSiding,
+
+            "Slump Block" => ConstructionMaterials::SlumpBlock,
+
+            "Spray Foam Insulation" => ConstructionMaterials::SprayFoamInsulation,
+
+            "Steel Siding" => ConstructionMaterials::SteelSiding,
+
+            "Stone" => ConstructionMaterials::Stone,
+
+            "Stone Veneer" => ConstructionMaterials::StoneVeneer,
+
+            "Straw" => ConstructionMaterials::Straw,
+
+            "Stucco" => ConstructionMaterials::Stucco,
+
+            "Synthetic Stucco" => ConstructionMaterials::SyntheticStucco,
+
+            "Unknown" => ConstructionMaterials::Unknown,
+
+            "Vertical Siding" => ConstructionMaterials::VerticalSiding,
+
+            "Vinyl Siding" => ConstructionMaterials::VinylSiding,
+
+            "Wood Siding" => ConstructionMaterials::WoodSiding,
+
+            _ => ConstructionMaterials::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ConstructionMaterials {
+        match s.as_ref() {
+            "Adobe" => ConstructionMaterials::Adobe,
+
+            "Aluminum Siding" => ConstructionMaterials::AluminumSiding,
+
+            "Asbestos" => ConstructionMaterials::Asbestos,
+
+            "Asphalt" => ConstructionMaterials::Asphalt,
+
+            "Attic/Crawl Hatchway(s) Insulated" => {
+                ConstructionMaterials::AtticCrawlHatchwaysInsulated
+            }
+
+            "Batts Insulation" => ConstructionMaterials::BattsInsulation,
+
+            "Block" => ConstructionMaterials::Block,
+
+            "Blown-In Insulation" => ConstructionMaterials::BlownInInsulation,
+
+            "Board & Batten Siding" => ConstructionMaterials::BoardBattenSiding,
+
+            "Brick" => ConstructionMaterials::Brick,
+
+            "Brick Veneer" => ConstructionMaterials::BrickVeneer,
+
+            "Cedar" => ConstructionMaterials::Cedar,
+
+            "Cement Siding" => ConstructionMaterials::CementSiding,
+
+            "Clapboard" => ConstructionMaterials::Clapboard,
+
+            "Concrete" => ConstructionMaterials::Concrete,
+
+            "Ducts Professionally Air-Sealed" => {
+                ConstructionMaterials::DuctsProfessionallyAirSealed
+            }
+
+            "Exterior Duct-Work is Insulated" => ConstructionMaterials::ExteriorDuctWorkisInsulated,
+
+            "Fiber Cement" => ConstructionMaterials::FiberCement,
+
+            "Fiberglass Siding" => ConstructionMaterials::FiberglassSiding,
+
+            "Foam Insulation" => ConstructionMaterials::FoamInsulation,
+
+            "Frame" => ConstructionMaterials::Frame,
+
+            "Glass" => ConstructionMaterials::Glass,
+
+            "HardiPlank Type" => ConstructionMaterials::HardiPlankType,
+
+            "ICAT Recessed Lighting" => ConstructionMaterials::ICATRecessedLighting,
+
+            "ICFs (Insulated Concrete Forms)" => ConstructionMaterials::ICFsInsulatedConcreteForms,
+
+            "Lap Siding" => ConstructionMaterials::LapSiding,
+
+            "Log" => ConstructionMaterials::Log,
+
+            "Log Siding" => ConstructionMaterials::LogSiding,
+
+            "Low VOC Insulation" => ConstructionMaterials::LowVOCInsulation,
+
+            "Masonite" => ConstructionMaterials::Masonite,
+
+            "Metal Siding" => ConstructionMaterials::MetalSiding,
+
+            "Natural Building" => ConstructionMaterials::NaturalBuilding,
+
+            "Other" => ConstructionMaterials::Other,
+
+            "Plaster" => ConstructionMaterials::Plaster,
+
+            "Radiant Barrier" => ConstructionMaterials::RadiantBarrier,
+
+            "Rammed Earth" => ConstructionMaterials::RammedEarth,
+
+            "Recycled/Bio-Based Insulation" => ConstructionMaterials::RecycledBioBasedInsulation,
+
+            "Redwood Siding" => ConstructionMaterials::RedwoodSiding,
+
+            "See Remarks" => ConstructionMaterials::SeeRemarks,
+
+            "Shake Siding" => ConstructionMaterials::ShakeSiding,
+
+            "Shingle Siding" => ConstructionMaterials::ShingleSiding,
+
+            "Slump Block" => ConstructionMaterials::SlumpBlock,
+
+            "Spray Foam Insulation" => ConstructionMaterials::SprayFoamInsulation,
+
+            "Steel Siding" => ConstructionMaterials::SteelSiding,
+
+            "Stone" => ConstructionMaterials::Stone,
+
+            "Stone Veneer" => ConstructionMaterials::StoneVeneer,
+
+            "Straw" => ConstructionMaterials::Straw,
+
+            "Stucco" => ConstructionMaterials::Stucco,
+
+            "Synthetic Stucco" => ConstructionMaterials::SyntheticStucco,
+
+            "Unknown" => ConstructionMaterials::Unknown,
+
+            "Vertical Siding" => ConstructionMaterials::VerticalSiding,
+
+            "Vinyl Siding" => ConstructionMaterials::VinylSiding,
+
+            "Wood Siding" => ConstructionMaterials::WoodSiding,
+
+            _ => ConstructionMaterials::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ConstructionMaterials::Adobe => "Adobe",
+
+            ConstructionMaterials::AluminumSiding => "Aluminum Siding",
+
+            ConstructionMaterials::Asbestos => "Asbestos",
+
+            ConstructionMaterials::Asphalt => "Asphalt",
+
+            ConstructionMaterials::AtticCrawlHatchwaysInsulated => {
+                "Attic/Crawl Hatchway(s) Insulated"
+            }
+
+            ConstructionMaterials::BattsInsulation => "Batts Insulation",
+
+            ConstructionMaterials::Block => "Block",
+
+            ConstructionMaterials::BlownInInsulation => "Blown-In Insulation",
+
+            ConstructionMaterials::BoardBattenSiding => "Board & Batten Siding",
+
+            ConstructionMaterials::Brick => "Brick",
+
+            ConstructionMaterials::BrickVeneer => "Brick Veneer",
+
+            ConstructionMaterials::Cedar => "Cedar",
+
+            ConstructionMaterials::CementSiding => "Cement Siding",
+
+            ConstructionMaterials::Clapboard => "Clapboard",
+
+            ConstructionMaterials::Concrete => "Concrete",
+
+            ConstructionMaterials::DuctsProfessionallyAirSealed => {
+                "Ducts Professionally Air-Sealed"
+            }
+
+            ConstructionMaterials::ExteriorDuctWorkisInsulated => "Exterior Duct-Work is Insulated",
+
+            ConstructionMaterials::FiberCement => "Fiber Cement",
+
+            ConstructionMaterials::FiberglassSiding => "Fiberglass Siding",
+
+            ConstructionMaterials::FoamInsulation => "Foam Insulation",
+
+            ConstructionMaterials::Frame => "Frame",
+
+            ConstructionMaterials::Glass => "Glass",
+
+            ConstructionMaterials::HardiPlankType => "HardiPlank Type",
+
+            ConstructionMaterials::ICATRecessedLighting => "ICAT Recessed Lighting",
+
+            ConstructionMaterials::ICFsInsulatedConcreteForms => "ICFs (Insulated Concrete Forms)",
+
+            ConstructionMaterials::LapSiding => "Lap Siding",
+
+            ConstructionMaterials::Log => "Log",
+
+            ConstructionMaterials::LogSiding => "Log Siding",
+
+            ConstructionMaterials::LowVOCInsulation => "Low VOC Insulation",
+
+            ConstructionMaterials::Masonite => "Masonite",
+
+            ConstructionMaterials::MetalSiding => "Metal Siding",
+
+            ConstructionMaterials::NaturalBuilding => "Natural Building",
+
+            ConstructionMaterials::Other => "Other",
+
+            ConstructionMaterials::Plaster => "Plaster",
+
+            ConstructionMaterials::RadiantBarrier => "Radiant Barrier",
+
+            ConstructionMaterials::RammedEarth => "Rammed Earth",
+
+            ConstructionMaterials::RecycledBioBasedInsulation => "Recycled/Bio-Based Insulation",
+
+            ConstructionMaterials::RedwoodSiding => "Redwood Siding",
+
+            ConstructionMaterials::SeeRemarks => "See Remarks",
+
+            ConstructionMaterials::ShakeSiding => "Shake Siding",
+
+            ConstructionMaterials::ShingleSiding => "Shingle Siding",
+
+            ConstructionMaterials::SlumpBlock => "Slump Block",
+
+            ConstructionMaterials::SprayFoamInsulation => "Spray Foam Insulation",
+
+            ConstructionMaterials::SteelSiding => "Steel Siding",
+
+            ConstructionMaterials::Stone => "Stone",
+
+            ConstructionMaterials::StoneVeneer => "Stone Veneer",
+
+            ConstructionMaterials::Straw => "Straw",
+
+            ConstructionMaterials::Stucco => "Stucco",
+
+            ConstructionMaterials::SyntheticStucco => "Synthetic Stucco",
+
+            ConstructionMaterials::Unknown => "Unknown",
+
+            ConstructionMaterials::VerticalSiding => "Vertical Siding",
+
+            ConstructionMaterials::VinylSiding => "Vinyl Siding",
+
+            ConstructionMaterials::WoodSiding => "Wood Siding",
+
+            ConstructionMaterials::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ConstructionMaterials::Adobe => "Adobe".into(),
+
+            ConstructionMaterials::AluminumSiding => "Aluminum Siding".into(),
+
+            ConstructionMaterials::Asbestos => "Asbestos".into(),
+
+            ConstructionMaterials::Asphalt => "Asphalt".into(),
+
+            ConstructionMaterials::AtticCrawlHatchwaysInsulated => {
+                "Attic/Crawl Hatchway(s) Insulated".into()
+            }
+
+            ConstructionMaterials::BattsInsulation => "Batts Insulation".into(),
+
+            ConstructionMaterials::Block => "Block".into(),
+
+            ConstructionMaterials::BlownInInsulation => "Blown-In Insulation".into(),
+
+            ConstructionMaterials::BoardBattenSiding => "Board & Batten Siding".into(),
+
+            ConstructionMaterials::Brick => "Brick".into(),
+
+            ConstructionMaterials::BrickVeneer => "Brick Veneer".into(),
+
+            ConstructionMaterials::Cedar => "Cedar".into(),
+
+            ConstructionMaterials::CementSiding => "Cement Siding".into(),
+
+            ConstructionMaterials::Clapboard => "Clapboard".into(),
+
+            ConstructionMaterials::Concrete => "Concrete".into(),
+
+            ConstructionMaterials::DuctsProfessionallyAirSealed => {
+                "Ducts Professionally Air-Sealed".into()
+            }
+
+            ConstructionMaterials::ExteriorDuctWorkisInsulated => {
+                "Exterior Duct-Work is Insulated".into()
+            }
+
+            ConstructionMaterials::FiberCement => "Fiber Cement".into(),
+
+            ConstructionMaterials::FiberglassSiding => "Fiberglass Siding".into(),
+
+            ConstructionMaterials::FoamInsulation => "Foam Insulation".into(),
+
+            ConstructionMaterials::Frame => "Frame".into(),
+
+            ConstructionMaterials::Glass => "Glass".into(),
+
+            ConstructionMaterials::HardiPlankType => "HardiPlank Type".into(),
+
+            ConstructionMaterials::ICATRecessedLighting => "ICAT Recessed Lighting".into(),
+
+            ConstructionMaterials::ICFsInsulatedConcreteForms => {
+                "ICFs (Insulated Concrete Forms)".into()
+            }
+
+            ConstructionMaterials::LapSiding => "Lap Siding".into(),
+
+            ConstructionMaterials::Log => "Log".into(),
+
+            ConstructionMaterials::LogSiding => "Log Siding".into(),
+
+            ConstructionMaterials::LowVOCInsulation => "Low VOC Insulation".into(),
+
+            ConstructionMaterials::Masonite => "Masonite".into(),
+
+            ConstructionMaterials::MetalSiding => "Metal Siding".into(),
+
+            ConstructionMaterials::NaturalBuilding => "Natural Building".into(),
+
+            ConstructionMaterials::Other => "Other".into(),
+
+            ConstructionMaterials::Plaster => "Plaster".into(),
+
+            ConstructionMaterials::RadiantBarrier => "Radiant Barrier".into(),
+
+            ConstructionMaterials::RammedEarth => "Rammed Earth".into(),
+
+            ConstructionMaterials::RecycledBioBasedInsulation => {
+                "Recycled/Bio-Based Insulation".into()
+            }
+
+            ConstructionMaterials::RedwoodSiding => "Redwood Siding".into(),
+
+            ConstructionMaterials::SeeRemarks => "See Remarks".into(),
+
+            ConstructionMaterials::ShakeSiding => "Shake Siding".into(),
+
+            ConstructionMaterials::ShingleSiding => "Shingle Siding".into(),
+
+            ConstructionMaterials::SlumpBlock => "Slump Block".into(),
+
+            ConstructionMaterials::SprayFoamInsulation => "Spray Foam Insulation".into(),
+
+            ConstructionMaterials::SteelSiding => "Steel Siding".into(),
+
+            ConstructionMaterials::Stone => "Stone".into(),
+
+            ConstructionMaterials::StoneVeneer => "Stone Veneer".into(),
+
+            ConstructionMaterials::Straw => "Straw".into(),
+
+            ConstructionMaterials::Stucco => "Stucco".into(),
+
+            ConstructionMaterials::SyntheticStucco => "Synthetic Stucco".into(),
+
+            ConstructionMaterials::Unknown => "Unknown".into(),
+
+            ConstructionMaterials::VerticalSiding => "Vertical Siding".into(),
+
+            ConstructionMaterials::VinylSiding => "Vinyl Siding".into(),
+
+            ConstructionMaterials::WoodSiding => "Wood Siding".into(),
+
+            ConstructionMaterials::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ConstructionMaterials::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ConstructionMaterials {
     fn from(s: String) -> ConstructionMaterials {
         match s.as_ref() {
@@ -538,45 +1017,5 @@ impl<'de> Deserialize<'de> for ConstructionMaterials {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_construction_materials_format {
-    use super::ConstructionMaterials;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ConstructionMaterials>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ConstructionMaterials>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

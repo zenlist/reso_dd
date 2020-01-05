@@ -48,6 +48,143 @@ pub enum BuyerFinancing {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for BuyerFinancing {
+    fn from_str(s: &str) -> BuyerFinancing {
+        match s {
+            "Assumed" => BuyerFinancing::Assumed,
+
+            "Cash" => BuyerFinancing::Cash,
+
+            "Contract" => BuyerFinancing::Contract,
+
+            "Conventional" => BuyerFinancing::Conventional,
+
+            "FHA" => BuyerFinancing::FHA,
+
+            "FHA 203(b)" => BuyerFinancing::FHA203b,
+
+            "FHA 203(k)" => BuyerFinancing::FHA203k,
+
+            "Other" => BuyerFinancing::Other,
+
+            "Private" => BuyerFinancing::Private,
+
+            "Seller Financing" => BuyerFinancing::SellerFinancing,
+
+            "Trust Deed" => BuyerFinancing::TrustDeed,
+
+            "USDA" => BuyerFinancing::USDA,
+
+            "VA" => BuyerFinancing::VA,
+
+            _ => BuyerFinancing::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> BuyerFinancing {
+        match s.as_ref() {
+            "Assumed" => BuyerFinancing::Assumed,
+
+            "Cash" => BuyerFinancing::Cash,
+
+            "Contract" => BuyerFinancing::Contract,
+
+            "Conventional" => BuyerFinancing::Conventional,
+
+            "FHA" => BuyerFinancing::FHA,
+
+            "FHA 203(b)" => BuyerFinancing::FHA203b,
+
+            "FHA 203(k)" => BuyerFinancing::FHA203k,
+
+            "Other" => BuyerFinancing::Other,
+
+            "Private" => BuyerFinancing::Private,
+
+            "Seller Financing" => BuyerFinancing::SellerFinancing,
+
+            "Trust Deed" => BuyerFinancing::TrustDeed,
+
+            "USDA" => BuyerFinancing::USDA,
+
+            "VA" => BuyerFinancing::VA,
+
+            _ => BuyerFinancing::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            BuyerFinancing::Assumed => "Assumed",
+
+            BuyerFinancing::Cash => "Cash",
+
+            BuyerFinancing::Contract => "Contract",
+
+            BuyerFinancing::Conventional => "Conventional",
+
+            BuyerFinancing::FHA => "FHA",
+
+            BuyerFinancing::FHA203b => "FHA 203(b)",
+
+            BuyerFinancing::FHA203k => "FHA 203(k)",
+
+            BuyerFinancing::Other => "Other",
+
+            BuyerFinancing::Private => "Private",
+
+            BuyerFinancing::SellerFinancing => "Seller Financing",
+
+            BuyerFinancing::TrustDeed => "Trust Deed",
+
+            BuyerFinancing::USDA => "USDA",
+
+            BuyerFinancing::VA => "VA",
+
+            BuyerFinancing::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            BuyerFinancing::Assumed => "Assumed".into(),
+
+            BuyerFinancing::Cash => "Cash".into(),
+
+            BuyerFinancing::Contract => "Contract".into(),
+
+            BuyerFinancing::Conventional => "Conventional".into(),
+
+            BuyerFinancing::FHA => "FHA".into(),
+
+            BuyerFinancing::FHA203b => "FHA 203(b)".into(),
+
+            BuyerFinancing::FHA203k => "FHA 203(k)".into(),
+
+            BuyerFinancing::Other => "Other".into(),
+
+            BuyerFinancing::Private => "Private".into(),
+
+            BuyerFinancing::SellerFinancing => "Seller Financing".into(),
+
+            BuyerFinancing::TrustDeed => "Trust Deed".into(),
+
+            BuyerFinancing::USDA => "USDA".into(),
+
+            BuyerFinancing::VA => "VA".into(),
+
+            BuyerFinancing::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            BuyerFinancing::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for BuyerFinancing {
     fn from(s: String) -> BuyerFinancing {
         match s.as_ref() {
@@ -166,45 +303,5 @@ impl<'de> Deserialize<'de> for BuyerFinancing {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_buyer_financing_format {
-    use super::BuyerFinancing;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<BuyerFinancing>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<BuyerFinancing>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

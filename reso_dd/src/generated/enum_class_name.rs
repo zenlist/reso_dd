@@ -60,6 +60,175 @@ pub enum ClassName {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ClassName {
+    fn from_str(s: &str) -> ClassName {
+        match s {
+            "Business Opportunity" => ClassName::BusinessOpportunity,
+
+            "Commercial Lease" => ClassName::CommercialLease,
+
+            "Commercial Sale" => ClassName::CommercialSale,
+
+            "Contacts" => ClassName::Contacts,
+
+            "Cross Property" => ClassName::CrossProperty,
+
+            "Farm" => ClassName::Farm,
+
+            "History Transactional" => ClassName::HistoryTransactional,
+
+            "Land" => ClassName::Land,
+
+            "Manufactured In Park" => ClassName::ManufacturedInPark,
+
+            "Media" => ClassName::Media,
+
+            "Member" => ClassName::Member,
+
+            "Office" => ClassName::Office,
+
+            "Open House" => ClassName::OpenHouse,
+
+            "Residential" => ClassName::Residential,
+
+            "Residential Income" => ClassName::ResidentialIncome,
+
+            "Residential Lease" => ClassName::ResidentialLease,
+
+            "Saved Search" => ClassName::SavedSearch,
+
+            _ => ClassName::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ClassName {
+        match s.as_ref() {
+            "Business Opportunity" => ClassName::BusinessOpportunity,
+
+            "Commercial Lease" => ClassName::CommercialLease,
+
+            "Commercial Sale" => ClassName::CommercialSale,
+
+            "Contacts" => ClassName::Contacts,
+
+            "Cross Property" => ClassName::CrossProperty,
+
+            "Farm" => ClassName::Farm,
+
+            "History Transactional" => ClassName::HistoryTransactional,
+
+            "Land" => ClassName::Land,
+
+            "Manufactured In Park" => ClassName::ManufacturedInPark,
+
+            "Media" => ClassName::Media,
+
+            "Member" => ClassName::Member,
+
+            "Office" => ClassName::Office,
+
+            "Open House" => ClassName::OpenHouse,
+
+            "Residential" => ClassName::Residential,
+
+            "Residential Income" => ClassName::ResidentialIncome,
+
+            "Residential Lease" => ClassName::ResidentialLease,
+
+            "Saved Search" => ClassName::SavedSearch,
+
+            _ => ClassName::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ClassName::BusinessOpportunity => "Business Opportunity",
+
+            ClassName::CommercialLease => "Commercial Lease",
+
+            ClassName::CommercialSale => "Commercial Sale",
+
+            ClassName::Contacts => "Contacts",
+
+            ClassName::CrossProperty => "Cross Property",
+
+            ClassName::Farm => "Farm",
+
+            ClassName::HistoryTransactional => "History Transactional",
+
+            ClassName::Land => "Land",
+
+            ClassName::ManufacturedInPark => "Manufactured In Park",
+
+            ClassName::Media => "Media",
+
+            ClassName::Member => "Member",
+
+            ClassName::Office => "Office",
+
+            ClassName::OpenHouse => "Open House",
+
+            ClassName::Residential => "Residential",
+
+            ClassName::ResidentialIncome => "Residential Income",
+
+            ClassName::ResidentialLease => "Residential Lease",
+
+            ClassName::SavedSearch => "Saved Search",
+
+            ClassName::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ClassName::BusinessOpportunity => "Business Opportunity".into(),
+
+            ClassName::CommercialLease => "Commercial Lease".into(),
+
+            ClassName::CommercialSale => "Commercial Sale".into(),
+
+            ClassName::Contacts => "Contacts".into(),
+
+            ClassName::CrossProperty => "Cross Property".into(),
+
+            ClassName::Farm => "Farm".into(),
+
+            ClassName::HistoryTransactional => "History Transactional".into(),
+
+            ClassName::Land => "Land".into(),
+
+            ClassName::ManufacturedInPark => "Manufactured In Park".into(),
+
+            ClassName::Media => "Media".into(),
+
+            ClassName::Member => "Member".into(),
+
+            ClassName::Office => "Office".into(),
+
+            ClassName::OpenHouse => "Open House".into(),
+
+            ClassName::Residential => "Residential".into(),
+
+            ClassName::ResidentialIncome => "Residential Income".into(),
+
+            ClassName::ResidentialLease => "Residential Lease".into(),
+
+            ClassName::SavedSearch => "Saved Search".into(),
+
+            ClassName::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ClassName::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ClassName {
     fn from(s: String) -> ClassName {
         match s.as_ref() {
@@ -202,43 +371,5 @@ impl<'de> Deserialize<'de> for ClassName {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_class_name_format {
-    use super::ClassName;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ClassName>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<ClassName>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

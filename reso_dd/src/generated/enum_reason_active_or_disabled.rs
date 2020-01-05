@@ -57,6 +57,169 @@ pub enum ReasonActiveOrDisabled {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ReasonActiveOrDisabled {
+    fn from_str(s: &str) -> ReasonActiveOrDisabled {
+        match s {
+            "Agent Disabled" => ReasonActiveOrDisabled::AgentDisabled,
+
+            "Client Disabled" => ReasonActiveOrDisabled::ClientDisabled,
+
+            "Concierge Notification" => ReasonActiveOrDisabled::ConciergeNotification,
+
+            "Final Ignored Warning" => ReasonActiveOrDisabled::FinalIgnoredWarning,
+
+            "Ignored" => ReasonActiveOrDisabled::Ignored,
+
+            "Initial Ignored Warning" => ReasonActiveOrDisabled::InitialIgnoredWarning,
+
+            "Invalid" => ReasonActiveOrDisabled::Invalid,
+
+            "No Listings Found" => ReasonActiveOrDisabled::NoListingsFound,
+
+            "No Listings Found Warning" => ReasonActiveOrDisabled::NoListingsFoundWarning,
+
+            "No One To Send To" => ReasonActiveOrDisabled::NoOneToSendTo,
+
+            "Over Limit" => ReasonActiveOrDisabled::OverLimit,
+
+            "Re-Activated" => ReasonActiveOrDisabled::ReActivated,
+
+            "Revised" => ReasonActiveOrDisabled::Revised,
+
+            "Search Failing" => ReasonActiveOrDisabled::SearchFailing,
+
+            "Welcome Email Ignored" => ReasonActiveOrDisabled::WelcomeEmailIgnored,
+
+            "Welcome Email Ignored Warning" => ReasonActiveOrDisabled::WelcomeEmailIgnoredWarning,
+
+            _ => ReasonActiveOrDisabled::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ReasonActiveOrDisabled {
+        match s.as_ref() {
+            "Agent Disabled" => ReasonActiveOrDisabled::AgentDisabled,
+
+            "Client Disabled" => ReasonActiveOrDisabled::ClientDisabled,
+
+            "Concierge Notification" => ReasonActiveOrDisabled::ConciergeNotification,
+
+            "Final Ignored Warning" => ReasonActiveOrDisabled::FinalIgnoredWarning,
+
+            "Ignored" => ReasonActiveOrDisabled::Ignored,
+
+            "Initial Ignored Warning" => ReasonActiveOrDisabled::InitialIgnoredWarning,
+
+            "Invalid" => ReasonActiveOrDisabled::Invalid,
+
+            "No Listings Found" => ReasonActiveOrDisabled::NoListingsFound,
+
+            "No Listings Found Warning" => ReasonActiveOrDisabled::NoListingsFoundWarning,
+
+            "No One To Send To" => ReasonActiveOrDisabled::NoOneToSendTo,
+
+            "Over Limit" => ReasonActiveOrDisabled::OverLimit,
+
+            "Re-Activated" => ReasonActiveOrDisabled::ReActivated,
+
+            "Revised" => ReasonActiveOrDisabled::Revised,
+
+            "Search Failing" => ReasonActiveOrDisabled::SearchFailing,
+
+            "Welcome Email Ignored" => ReasonActiveOrDisabled::WelcomeEmailIgnored,
+
+            "Welcome Email Ignored Warning" => ReasonActiveOrDisabled::WelcomeEmailIgnoredWarning,
+
+            _ => ReasonActiveOrDisabled::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ReasonActiveOrDisabled::AgentDisabled => "Agent Disabled",
+
+            ReasonActiveOrDisabled::ClientDisabled => "Client Disabled",
+
+            ReasonActiveOrDisabled::ConciergeNotification => "Concierge Notification",
+
+            ReasonActiveOrDisabled::FinalIgnoredWarning => "Final Ignored Warning",
+
+            ReasonActiveOrDisabled::Ignored => "Ignored",
+
+            ReasonActiveOrDisabled::InitialIgnoredWarning => "Initial Ignored Warning",
+
+            ReasonActiveOrDisabled::Invalid => "Invalid",
+
+            ReasonActiveOrDisabled::NoListingsFound => "No Listings Found",
+
+            ReasonActiveOrDisabled::NoListingsFoundWarning => "No Listings Found Warning",
+
+            ReasonActiveOrDisabled::NoOneToSendTo => "No One To Send To",
+
+            ReasonActiveOrDisabled::OverLimit => "Over Limit",
+
+            ReasonActiveOrDisabled::ReActivated => "Re-Activated",
+
+            ReasonActiveOrDisabled::Revised => "Revised",
+
+            ReasonActiveOrDisabled::SearchFailing => "Search Failing",
+
+            ReasonActiveOrDisabled::WelcomeEmailIgnored => "Welcome Email Ignored",
+
+            ReasonActiveOrDisabled::WelcomeEmailIgnoredWarning => "Welcome Email Ignored Warning",
+
+            ReasonActiveOrDisabled::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ReasonActiveOrDisabled::AgentDisabled => "Agent Disabled".into(),
+
+            ReasonActiveOrDisabled::ClientDisabled => "Client Disabled".into(),
+
+            ReasonActiveOrDisabled::ConciergeNotification => "Concierge Notification".into(),
+
+            ReasonActiveOrDisabled::FinalIgnoredWarning => "Final Ignored Warning".into(),
+
+            ReasonActiveOrDisabled::Ignored => "Ignored".into(),
+
+            ReasonActiveOrDisabled::InitialIgnoredWarning => "Initial Ignored Warning".into(),
+
+            ReasonActiveOrDisabled::Invalid => "Invalid".into(),
+
+            ReasonActiveOrDisabled::NoListingsFound => "No Listings Found".into(),
+
+            ReasonActiveOrDisabled::NoListingsFoundWarning => "No Listings Found Warning".into(),
+
+            ReasonActiveOrDisabled::NoOneToSendTo => "No One To Send To".into(),
+
+            ReasonActiveOrDisabled::OverLimit => "Over Limit".into(),
+
+            ReasonActiveOrDisabled::ReActivated => "Re-Activated".into(),
+
+            ReasonActiveOrDisabled::Revised => "Revised".into(),
+
+            ReasonActiveOrDisabled::SearchFailing => "Search Failing".into(),
+
+            ReasonActiveOrDisabled::WelcomeEmailIgnored => "Welcome Email Ignored".into(),
+
+            ReasonActiveOrDisabled::WelcomeEmailIgnoredWarning => {
+                "Welcome Email Ignored Warning".into()
+            }
+
+            ReasonActiveOrDisabled::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ReasonActiveOrDisabled::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ReasonActiveOrDisabled {
     fn from(s: String) -> ReasonActiveOrDisabled {
         match s.as_ref() {
@@ -193,45 +356,5 @@ impl<'de> Deserialize<'de> for ReasonActiveOrDisabled {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_reason_active_or_disabled_format {
-    use super::ReasonActiveOrDisabled;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ReasonActiveOrDisabled>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ReasonActiveOrDisabled>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -87,6 +87,247 @@ pub enum ListingTerms {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ListingTerms {
+    fn from_str(s: &str) -> ListingTerms {
+        match s {
+            "1031 Exchange" => ListingTerms::_1031Exchange,
+
+            "All Inclusive Trust Deed" => ListingTerms::AllInclusiveTrustDeed,
+
+            "Assumable" => ListingTerms::Assumable,
+
+            "Cash" => ListingTerms::Cash,
+
+            "Contract" => ListingTerms::Contract,
+
+            "Conventional" => ListingTerms::Conventional,
+
+            "Existing Bonds" => ListingTerms::ExistingBonds,
+
+            "FHA" => ListingTerms::FHA,
+
+            "Land Use Fee" => ListingTerms::LandUseFee,
+
+            "Lease Back" => ListingTerms::LeaseBack,
+
+            "Lease Option" => ListingTerms::LeaseOption,
+
+            "Lease Purchase" => ListingTerms::LeasePurchase,
+
+            "Lien Release" => ListingTerms::LienRelease,
+
+            "Owner May Carry" => ListingTerms::OwnerMayCarry,
+
+            "Owner Pay Points" => ListingTerms::OwnerPayPoints,
+
+            "Owner Will Carry" => ListingTerms::OwnerWillCarry,
+
+            "Private Financing Available" => ListingTerms::PrivateFinancingAvailable,
+
+            "Relocation Property" => ListingTerms::RelocationProperty,
+
+            "Seller Equity Share" => ListingTerms::SellerEquityShare,
+
+            "Special Funding" => ListingTerms::SpecialFunding,
+
+            "Submit" => ListingTerms::Submit,
+
+            "Trade" => ListingTerms::Trade,
+
+            "Trust Conveyance" => ListingTerms::TrustConveyance,
+
+            "Trust Deed" => ListingTerms::TrustDeed,
+
+            "USDA Loan" => ListingTerms::USDALoan,
+
+            "VA Loan" => ListingTerms::VALoan,
+
+            _ => ListingTerms::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ListingTerms {
+        match s.as_ref() {
+            "1031 Exchange" => ListingTerms::_1031Exchange,
+
+            "All Inclusive Trust Deed" => ListingTerms::AllInclusiveTrustDeed,
+
+            "Assumable" => ListingTerms::Assumable,
+
+            "Cash" => ListingTerms::Cash,
+
+            "Contract" => ListingTerms::Contract,
+
+            "Conventional" => ListingTerms::Conventional,
+
+            "Existing Bonds" => ListingTerms::ExistingBonds,
+
+            "FHA" => ListingTerms::FHA,
+
+            "Land Use Fee" => ListingTerms::LandUseFee,
+
+            "Lease Back" => ListingTerms::LeaseBack,
+
+            "Lease Option" => ListingTerms::LeaseOption,
+
+            "Lease Purchase" => ListingTerms::LeasePurchase,
+
+            "Lien Release" => ListingTerms::LienRelease,
+
+            "Owner May Carry" => ListingTerms::OwnerMayCarry,
+
+            "Owner Pay Points" => ListingTerms::OwnerPayPoints,
+
+            "Owner Will Carry" => ListingTerms::OwnerWillCarry,
+
+            "Private Financing Available" => ListingTerms::PrivateFinancingAvailable,
+
+            "Relocation Property" => ListingTerms::RelocationProperty,
+
+            "Seller Equity Share" => ListingTerms::SellerEquityShare,
+
+            "Special Funding" => ListingTerms::SpecialFunding,
+
+            "Submit" => ListingTerms::Submit,
+
+            "Trade" => ListingTerms::Trade,
+
+            "Trust Conveyance" => ListingTerms::TrustConveyance,
+
+            "Trust Deed" => ListingTerms::TrustDeed,
+
+            "USDA Loan" => ListingTerms::USDALoan,
+
+            "VA Loan" => ListingTerms::VALoan,
+
+            _ => ListingTerms::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ListingTerms::_1031Exchange => "1031 Exchange",
+
+            ListingTerms::AllInclusiveTrustDeed => "All Inclusive Trust Deed",
+
+            ListingTerms::Assumable => "Assumable",
+
+            ListingTerms::Cash => "Cash",
+
+            ListingTerms::Contract => "Contract",
+
+            ListingTerms::Conventional => "Conventional",
+
+            ListingTerms::ExistingBonds => "Existing Bonds",
+
+            ListingTerms::FHA => "FHA",
+
+            ListingTerms::LandUseFee => "Land Use Fee",
+
+            ListingTerms::LeaseBack => "Lease Back",
+
+            ListingTerms::LeaseOption => "Lease Option",
+
+            ListingTerms::LeasePurchase => "Lease Purchase",
+
+            ListingTerms::LienRelease => "Lien Release",
+
+            ListingTerms::OwnerMayCarry => "Owner May Carry",
+
+            ListingTerms::OwnerPayPoints => "Owner Pay Points",
+
+            ListingTerms::OwnerWillCarry => "Owner Will Carry",
+
+            ListingTerms::PrivateFinancingAvailable => "Private Financing Available",
+
+            ListingTerms::RelocationProperty => "Relocation Property",
+
+            ListingTerms::SellerEquityShare => "Seller Equity Share",
+
+            ListingTerms::SpecialFunding => "Special Funding",
+
+            ListingTerms::Submit => "Submit",
+
+            ListingTerms::Trade => "Trade",
+
+            ListingTerms::TrustConveyance => "Trust Conveyance",
+
+            ListingTerms::TrustDeed => "Trust Deed",
+
+            ListingTerms::USDALoan => "USDA Loan",
+
+            ListingTerms::VALoan => "VA Loan",
+
+            ListingTerms::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ListingTerms::_1031Exchange => "1031 Exchange".into(),
+
+            ListingTerms::AllInclusiveTrustDeed => "All Inclusive Trust Deed".into(),
+
+            ListingTerms::Assumable => "Assumable".into(),
+
+            ListingTerms::Cash => "Cash".into(),
+
+            ListingTerms::Contract => "Contract".into(),
+
+            ListingTerms::Conventional => "Conventional".into(),
+
+            ListingTerms::ExistingBonds => "Existing Bonds".into(),
+
+            ListingTerms::FHA => "FHA".into(),
+
+            ListingTerms::LandUseFee => "Land Use Fee".into(),
+
+            ListingTerms::LeaseBack => "Lease Back".into(),
+
+            ListingTerms::LeaseOption => "Lease Option".into(),
+
+            ListingTerms::LeasePurchase => "Lease Purchase".into(),
+
+            ListingTerms::LienRelease => "Lien Release".into(),
+
+            ListingTerms::OwnerMayCarry => "Owner May Carry".into(),
+
+            ListingTerms::OwnerPayPoints => "Owner Pay Points".into(),
+
+            ListingTerms::OwnerWillCarry => "Owner Will Carry".into(),
+
+            ListingTerms::PrivateFinancingAvailable => "Private Financing Available".into(),
+
+            ListingTerms::RelocationProperty => "Relocation Property".into(),
+
+            ListingTerms::SellerEquityShare => "Seller Equity Share".into(),
+
+            ListingTerms::SpecialFunding => "Special Funding".into(),
+
+            ListingTerms::Submit => "Submit".into(),
+
+            ListingTerms::Trade => "Trade".into(),
+
+            ListingTerms::TrustConveyance => "Trust Conveyance".into(),
+
+            ListingTerms::TrustDeed => "Trust Deed".into(),
+
+            ListingTerms::USDALoan => "USDA Loan".into(),
+
+            ListingTerms::VALoan => "VA Loan".into(),
+
+            ListingTerms::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ListingTerms::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ListingTerms {
     fn from(s: String) -> ListingTerms {
         match s.as_ref() {
@@ -283,45 +524,5 @@ impl<'de> Deserialize<'de> for ListingTerms {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_listing_terms_format {
-    use super::ListingTerms;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ListingTerms>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ListingTerms>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -51,6 +51,151 @@ pub enum MemberOtherPhoneType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for MemberOtherPhoneType {
+    fn from_str(s: &str) -> MemberOtherPhoneType {
+        match s {
+            "Direct" => MemberOtherPhoneType::Direct,
+
+            "Fax" => MemberOtherPhoneType::Fax,
+
+            "First" => MemberOtherPhoneType::First,
+
+            "Home" => MemberOtherPhoneType::Home,
+
+            "Mobile" => MemberOtherPhoneType::Mobile,
+
+            "Modem" => MemberOtherPhoneType::Modem,
+
+            "Office" => MemberOtherPhoneType::Office,
+
+            "Pager" => MemberOtherPhoneType::Pager,
+
+            "Preferred" => MemberOtherPhoneType::Preferred,
+
+            "Second" => MemberOtherPhoneType::Second,
+
+            "SMS" => MemberOtherPhoneType::SMS,
+
+            "Third" => MemberOtherPhoneType::Third,
+
+            "Toll Free" => MemberOtherPhoneType::TollFree,
+
+            "Voicemail" => MemberOtherPhoneType::Voicemail,
+
+            _ => MemberOtherPhoneType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> MemberOtherPhoneType {
+        match s.as_ref() {
+            "Direct" => MemberOtherPhoneType::Direct,
+
+            "Fax" => MemberOtherPhoneType::Fax,
+
+            "First" => MemberOtherPhoneType::First,
+
+            "Home" => MemberOtherPhoneType::Home,
+
+            "Mobile" => MemberOtherPhoneType::Mobile,
+
+            "Modem" => MemberOtherPhoneType::Modem,
+
+            "Office" => MemberOtherPhoneType::Office,
+
+            "Pager" => MemberOtherPhoneType::Pager,
+
+            "Preferred" => MemberOtherPhoneType::Preferred,
+
+            "Second" => MemberOtherPhoneType::Second,
+
+            "SMS" => MemberOtherPhoneType::SMS,
+
+            "Third" => MemberOtherPhoneType::Third,
+
+            "Toll Free" => MemberOtherPhoneType::TollFree,
+
+            "Voicemail" => MemberOtherPhoneType::Voicemail,
+
+            _ => MemberOtherPhoneType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            MemberOtherPhoneType::Direct => "Direct",
+
+            MemberOtherPhoneType::Fax => "Fax",
+
+            MemberOtherPhoneType::First => "First",
+
+            MemberOtherPhoneType::Home => "Home",
+
+            MemberOtherPhoneType::Mobile => "Mobile",
+
+            MemberOtherPhoneType::Modem => "Modem",
+
+            MemberOtherPhoneType::Office => "Office",
+
+            MemberOtherPhoneType::Pager => "Pager",
+
+            MemberOtherPhoneType::Preferred => "Preferred",
+
+            MemberOtherPhoneType::Second => "Second",
+
+            MemberOtherPhoneType::SMS => "SMS",
+
+            MemberOtherPhoneType::Third => "Third",
+
+            MemberOtherPhoneType::TollFree => "Toll Free",
+
+            MemberOtherPhoneType::Voicemail => "Voicemail",
+
+            MemberOtherPhoneType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            MemberOtherPhoneType::Direct => "Direct".into(),
+
+            MemberOtherPhoneType::Fax => "Fax".into(),
+
+            MemberOtherPhoneType::First => "First".into(),
+
+            MemberOtherPhoneType::Home => "Home".into(),
+
+            MemberOtherPhoneType::Mobile => "Mobile".into(),
+
+            MemberOtherPhoneType::Modem => "Modem".into(),
+
+            MemberOtherPhoneType::Office => "Office".into(),
+
+            MemberOtherPhoneType::Pager => "Pager".into(),
+
+            MemberOtherPhoneType::Preferred => "Preferred".into(),
+
+            MemberOtherPhoneType::Second => "Second".into(),
+
+            MemberOtherPhoneType::SMS => "SMS".into(),
+
+            MemberOtherPhoneType::Third => "Third".into(),
+
+            MemberOtherPhoneType::TollFree => "Toll Free".into(),
+
+            MemberOtherPhoneType::Voicemail => "Voicemail".into(),
+
+            MemberOtherPhoneType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            MemberOtherPhoneType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for MemberOtherPhoneType {
     fn from(s: String) -> MemberOtherPhoneType {
         match s.as_ref() {
@@ -175,45 +320,5 @@ impl<'de> Deserialize<'de> for MemberOtherPhoneType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_member_other_phone_type_format {
-    use super::MemberOtherPhoneType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<MemberOtherPhoneType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<MemberOtherPhoneType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

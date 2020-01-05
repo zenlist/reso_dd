@@ -24,6 +24,79 @@ pub enum DoorFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for DoorFeatures {
+    fn from_str(s: &str) -> DoorFeatures {
+        match s {
+            "ENERGY STAR Qualified Doors" => DoorFeatures::ENERGYSTARQualifiedDoors,
+
+            "French Doors" => DoorFeatures::FrenchDoors,
+
+            "Mirrored Closet Door(s)" => DoorFeatures::MirroredClosetDoors,
+
+            "Sliding Doors" => DoorFeatures::SlidingDoors,
+
+            "Storm Door(s)" => DoorFeatures::StormDoors,
+
+            _ => DoorFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> DoorFeatures {
+        match s.as_ref() {
+            "ENERGY STAR Qualified Doors" => DoorFeatures::ENERGYSTARQualifiedDoors,
+
+            "French Doors" => DoorFeatures::FrenchDoors,
+
+            "Mirrored Closet Door(s)" => DoorFeatures::MirroredClosetDoors,
+
+            "Sliding Doors" => DoorFeatures::SlidingDoors,
+
+            "Storm Door(s)" => DoorFeatures::StormDoors,
+
+            _ => DoorFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            DoorFeatures::ENERGYSTARQualifiedDoors => "ENERGY STAR Qualified Doors",
+
+            DoorFeatures::FrenchDoors => "French Doors",
+
+            DoorFeatures::MirroredClosetDoors => "Mirrored Closet Door(s)",
+
+            DoorFeatures::SlidingDoors => "Sliding Doors",
+
+            DoorFeatures::StormDoors => "Storm Door(s)",
+
+            DoorFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            DoorFeatures::ENERGYSTARQualifiedDoors => "ENERGY STAR Qualified Doors".into(),
+
+            DoorFeatures::FrenchDoors => "French Doors".into(),
+
+            DoorFeatures::MirroredClosetDoors => "Mirrored Closet Door(s)".into(),
+
+            DoorFeatures::SlidingDoors => "Sliding Doors".into(),
+
+            DoorFeatures::StormDoors => "Storm Door(s)".into(),
+
+            DoorFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            DoorFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for DoorFeatures {
     fn from(s: String) -> DoorFeatures {
         match s.as_ref() {
@@ -94,45 +167,5 @@ impl<'de> Deserialize<'de> for DoorFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_door_features_format {
-    use super::DoorFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<DoorFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<DoorFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -63,6 +63,183 @@ pub enum WaterfrontFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for WaterfrontFeatures {
+    fn from_str(s: &str) -> WaterfrontFeatures {
+        match s {
+            "Beach Access" => WaterfrontFeatures::BeachAccess,
+
+            "Beach Front" => WaterfrontFeatures::BeachFront,
+
+            "Canal Access" => WaterfrontFeatures::CanalAccess,
+
+            "Canal Front" => WaterfrontFeatures::CanalFront,
+
+            "Creek" => WaterfrontFeatures::Creek,
+
+            "Lagoon" => WaterfrontFeatures::Lagoon,
+
+            "Lake" => WaterfrontFeatures::Lake,
+
+            "Lake Front" => WaterfrontFeatures::LakeFront,
+
+            "Lake Privileges" => WaterfrontFeatures::LakePrivileges,
+
+            "Navigable Water" => WaterfrontFeatures::NavigableWater,
+
+            "Ocean Access" => WaterfrontFeatures::OceanAccess,
+
+            "Ocean Front" => WaterfrontFeatures::OceanFront,
+
+            "Pond" => WaterfrontFeatures::Pond,
+
+            "River Access" => WaterfrontFeatures::RiverAccess,
+
+            "River Front" => WaterfrontFeatures::RiverFront,
+
+            "Seawall" => WaterfrontFeatures::Seawall,
+
+            "Stream" => WaterfrontFeatures::Stream,
+
+            "Waterfront" => WaterfrontFeatures::Waterfront,
+
+            _ => WaterfrontFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> WaterfrontFeatures {
+        match s.as_ref() {
+            "Beach Access" => WaterfrontFeatures::BeachAccess,
+
+            "Beach Front" => WaterfrontFeatures::BeachFront,
+
+            "Canal Access" => WaterfrontFeatures::CanalAccess,
+
+            "Canal Front" => WaterfrontFeatures::CanalFront,
+
+            "Creek" => WaterfrontFeatures::Creek,
+
+            "Lagoon" => WaterfrontFeatures::Lagoon,
+
+            "Lake" => WaterfrontFeatures::Lake,
+
+            "Lake Front" => WaterfrontFeatures::LakeFront,
+
+            "Lake Privileges" => WaterfrontFeatures::LakePrivileges,
+
+            "Navigable Water" => WaterfrontFeatures::NavigableWater,
+
+            "Ocean Access" => WaterfrontFeatures::OceanAccess,
+
+            "Ocean Front" => WaterfrontFeatures::OceanFront,
+
+            "Pond" => WaterfrontFeatures::Pond,
+
+            "River Access" => WaterfrontFeatures::RiverAccess,
+
+            "River Front" => WaterfrontFeatures::RiverFront,
+
+            "Seawall" => WaterfrontFeatures::Seawall,
+
+            "Stream" => WaterfrontFeatures::Stream,
+
+            "Waterfront" => WaterfrontFeatures::Waterfront,
+
+            _ => WaterfrontFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            WaterfrontFeatures::BeachAccess => "Beach Access",
+
+            WaterfrontFeatures::BeachFront => "Beach Front",
+
+            WaterfrontFeatures::CanalAccess => "Canal Access",
+
+            WaterfrontFeatures::CanalFront => "Canal Front",
+
+            WaterfrontFeatures::Creek => "Creek",
+
+            WaterfrontFeatures::Lagoon => "Lagoon",
+
+            WaterfrontFeatures::Lake => "Lake",
+
+            WaterfrontFeatures::LakeFront => "Lake Front",
+
+            WaterfrontFeatures::LakePrivileges => "Lake Privileges",
+
+            WaterfrontFeatures::NavigableWater => "Navigable Water",
+
+            WaterfrontFeatures::OceanAccess => "Ocean Access",
+
+            WaterfrontFeatures::OceanFront => "Ocean Front",
+
+            WaterfrontFeatures::Pond => "Pond",
+
+            WaterfrontFeatures::RiverAccess => "River Access",
+
+            WaterfrontFeatures::RiverFront => "River Front",
+
+            WaterfrontFeatures::Seawall => "Seawall",
+
+            WaterfrontFeatures::Stream => "Stream",
+
+            WaterfrontFeatures::Waterfront => "Waterfront",
+
+            WaterfrontFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            WaterfrontFeatures::BeachAccess => "Beach Access".into(),
+
+            WaterfrontFeatures::BeachFront => "Beach Front".into(),
+
+            WaterfrontFeatures::CanalAccess => "Canal Access".into(),
+
+            WaterfrontFeatures::CanalFront => "Canal Front".into(),
+
+            WaterfrontFeatures::Creek => "Creek".into(),
+
+            WaterfrontFeatures::Lagoon => "Lagoon".into(),
+
+            WaterfrontFeatures::Lake => "Lake".into(),
+
+            WaterfrontFeatures::LakeFront => "Lake Front".into(),
+
+            WaterfrontFeatures::LakePrivileges => "Lake Privileges".into(),
+
+            WaterfrontFeatures::NavigableWater => "Navigable Water".into(),
+
+            WaterfrontFeatures::OceanAccess => "Ocean Access".into(),
+
+            WaterfrontFeatures::OceanFront => "Ocean Front".into(),
+
+            WaterfrontFeatures::Pond => "Pond".into(),
+
+            WaterfrontFeatures::RiverAccess => "River Access".into(),
+
+            WaterfrontFeatures::RiverFront => "River Front".into(),
+
+            WaterfrontFeatures::Seawall => "Seawall".into(),
+
+            WaterfrontFeatures::Stream => "Stream".into(),
+
+            WaterfrontFeatures::Waterfront => "Waterfront".into(),
+
+            WaterfrontFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            WaterfrontFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for WaterfrontFeatures {
     fn from(s: String) -> WaterfrontFeatures {
         match s.as_ref() {
@@ -211,45 +388,5 @@ impl<'de> Deserialize<'de> for WaterfrontFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_waterfront_features_format {
-    use super::WaterfrontFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<WaterfrontFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<WaterfrontFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

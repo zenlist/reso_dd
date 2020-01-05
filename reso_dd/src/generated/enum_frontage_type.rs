@@ -36,6 +36,111 @@ pub enum FrontageType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for FrontageType {
+    fn from_str(s: &str) -> FrontageType {
+        match s {
+            "Bay/Harbor" => FrontageType::BayHarbor,
+
+            "Golf Course" => FrontageType::GolfCourse,
+
+            "Lagoon/Estuary" => FrontageType::LagoonEstuary,
+
+            "Lakefront" => FrontageType::Lakefront,
+
+            "Oceanfront" => FrontageType::Oceanfront,
+
+            "Other" => FrontageType::Other,
+
+            "River" => FrontageType::River,
+
+            "See Remarks" => FrontageType::SeeRemarks,
+
+            "Waterfront" => FrontageType::Waterfront,
+
+            _ => FrontageType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> FrontageType {
+        match s.as_ref() {
+            "Bay/Harbor" => FrontageType::BayHarbor,
+
+            "Golf Course" => FrontageType::GolfCourse,
+
+            "Lagoon/Estuary" => FrontageType::LagoonEstuary,
+
+            "Lakefront" => FrontageType::Lakefront,
+
+            "Oceanfront" => FrontageType::Oceanfront,
+
+            "Other" => FrontageType::Other,
+
+            "River" => FrontageType::River,
+
+            "See Remarks" => FrontageType::SeeRemarks,
+
+            "Waterfront" => FrontageType::Waterfront,
+
+            _ => FrontageType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            FrontageType::BayHarbor => "Bay/Harbor",
+
+            FrontageType::GolfCourse => "Golf Course",
+
+            FrontageType::LagoonEstuary => "Lagoon/Estuary",
+
+            FrontageType::Lakefront => "Lakefront",
+
+            FrontageType::Oceanfront => "Oceanfront",
+
+            FrontageType::Other => "Other",
+
+            FrontageType::River => "River",
+
+            FrontageType::SeeRemarks => "See Remarks",
+
+            FrontageType::Waterfront => "Waterfront",
+
+            FrontageType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            FrontageType::BayHarbor => "Bay/Harbor".into(),
+
+            FrontageType::GolfCourse => "Golf Course".into(),
+
+            FrontageType::LagoonEstuary => "Lagoon/Estuary".into(),
+
+            FrontageType::Lakefront => "Lakefront".into(),
+
+            FrontageType::Oceanfront => "Oceanfront".into(),
+
+            FrontageType::Other => "Other".into(),
+
+            FrontageType::River => "River".into(),
+
+            FrontageType::SeeRemarks => "See Remarks".into(),
+
+            FrontageType::Waterfront => "Waterfront".into(),
+
+            FrontageType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            FrontageType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for FrontageType {
     fn from(s: String) -> FrontageType {
         match s.as_ref() {
@@ -130,45 +235,5 @@ impl<'de> Deserialize<'de> for FrontageType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_frontage_type_format {
-    use super::FrontageType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<FrontageType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<FrontageType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

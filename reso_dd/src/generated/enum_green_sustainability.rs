@@ -30,6 +30,97 @@ pub enum GreenSustainability {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for GreenSustainability {
+    fn from_str(s: &str) -> GreenSustainability {
+        match s {
+            "Conserving Methods" => GreenSustainability::ConservingMethods,
+
+            "Onsite Recycling Center" => GreenSustainability::OnsiteRecyclingCenter,
+
+            "Recyclable Materials" => GreenSustainability::RecyclableMaterials,
+
+            "Recycled Materials" => GreenSustainability::RecycledMaterials,
+
+            "Regionally-Sourced Materials" => GreenSustainability::RegionallySourcedMaterials,
+
+            "Renewable Materials" => GreenSustainability::RenewableMaterials,
+
+            "Salvaged Materials" => GreenSustainability::SalvagedMaterials,
+
+            _ => GreenSustainability::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> GreenSustainability {
+        match s.as_ref() {
+            "Conserving Methods" => GreenSustainability::ConservingMethods,
+
+            "Onsite Recycling Center" => GreenSustainability::OnsiteRecyclingCenter,
+
+            "Recyclable Materials" => GreenSustainability::RecyclableMaterials,
+
+            "Recycled Materials" => GreenSustainability::RecycledMaterials,
+
+            "Regionally-Sourced Materials" => GreenSustainability::RegionallySourcedMaterials,
+
+            "Renewable Materials" => GreenSustainability::RenewableMaterials,
+
+            "Salvaged Materials" => GreenSustainability::SalvagedMaterials,
+
+            _ => GreenSustainability::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            GreenSustainability::ConservingMethods => "Conserving Methods",
+
+            GreenSustainability::OnsiteRecyclingCenter => "Onsite Recycling Center",
+
+            GreenSustainability::RecyclableMaterials => "Recyclable Materials",
+
+            GreenSustainability::RecycledMaterials => "Recycled Materials",
+
+            GreenSustainability::RegionallySourcedMaterials => "Regionally-Sourced Materials",
+
+            GreenSustainability::RenewableMaterials => "Renewable Materials",
+
+            GreenSustainability::SalvagedMaterials => "Salvaged Materials",
+
+            GreenSustainability::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            GreenSustainability::ConservingMethods => "Conserving Methods".into(),
+
+            GreenSustainability::OnsiteRecyclingCenter => "Onsite Recycling Center".into(),
+
+            GreenSustainability::RecyclableMaterials => "Recyclable Materials".into(),
+
+            GreenSustainability::RecycledMaterials => "Recycled Materials".into(),
+
+            GreenSustainability::RegionallySourcedMaterials => {
+                "Regionally-Sourced Materials".into()
+            }
+
+            GreenSustainability::RenewableMaterials => "Renewable Materials".into(),
+
+            GreenSustainability::SalvagedMaterials => "Salvaged Materials".into(),
+
+            GreenSustainability::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            GreenSustainability::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for GreenSustainability {
     fn from(s: String) -> GreenSustainability {
         match s.as_ref() {
@@ -112,45 +203,5 @@ impl<'de> Deserialize<'de> for GreenSustainability {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_green_sustainability_format {
-    use super::GreenSustainability;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<GreenSustainability>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<GreenSustainability>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

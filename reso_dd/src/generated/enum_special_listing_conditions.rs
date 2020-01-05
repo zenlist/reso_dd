@@ -39,6 +39,119 @@ pub enum SpecialListingConditions {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for SpecialListingConditions {
+    fn from_str(s: &str) -> SpecialListingConditions {
+        match s {
+            "Auction" => SpecialListingConditions::Auction,
+
+            "Bankruptcy Property" => SpecialListingConditions::BankruptcyProperty,
+
+            "HUD Owned" => SpecialListingConditions::HUDOwned,
+
+            "In Foreclosure" => SpecialListingConditions::InForeclosure,
+
+            "Notice Of Default" => SpecialListingConditions::NoticeOfDefault,
+
+            "Probate Listing" => SpecialListingConditions::ProbateListing,
+
+            "Real Estate Owned" => SpecialListingConditions::RealEstateOwned,
+
+            "Short Sale" => SpecialListingConditions::ShortSale,
+
+            "Standard" => SpecialListingConditions::Standard,
+
+            "Third Party Approval" => SpecialListingConditions::ThirdPartyApproval,
+
+            _ => SpecialListingConditions::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> SpecialListingConditions {
+        match s.as_ref() {
+            "Auction" => SpecialListingConditions::Auction,
+
+            "Bankruptcy Property" => SpecialListingConditions::BankruptcyProperty,
+
+            "HUD Owned" => SpecialListingConditions::HUDOwned,
+
+            "In Foreclosure" => SpecialListingConditions::InForeclosure,
+
+            "Notice Of Default" => SpecialListingConditions::NoticeOfDefault,
+
+            "Probate Listing" => SpecialListingConditions::ProbateListing,
+
+            "Real Estate Owned" => SpecialListingConditions::RealEstateOwned,
+
+            "Short Sale" => SpecialListingConditions::ShortSale,
+
+            "Standard" => SpecialListingConditions::Standard,
+
+            "Third Party Approval" => SpecialListingConditions::ThirdPartyApproval,
+
+            _ => SpecialListingConditions::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            SpecialListingConditions::Auction => "Auction",
+
+            SpecialListingConditions::BankruptcyProperty => "Bankruptcy Property",
+
+            SpecialListingConditions::HUDOwned => "HUD Owned",
+
+            SpecialListingConditions::InForeclosure => "In Foreclosure",
+
+            SpecialListingConditions::NoticeOfDefault => "Notice Of Default",
+
+            SpecialListingConditions::ProbateListing => "Probate Listing",
+
+            SpecialListingConditions::RealEstateOwned => "Real Estate Owned",
+
+            SpecialListingConditions::ShortSale => "Short Sale",
+
+            SpecialListingConditions::Standard => "Standard",
+
+            SpecialListingConditions::ThirdPartyApproval => "Third Party Approval",
+
+            SpecialListingConditions::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            SpecialListingConditions::Auction => "Auction".into(),
+
+            SpecialListingConditions::BankruptcyProperty => "Bankruptcy Property".into(),
+
+            SpecialListingConditions::HUDOwned => "HUD Owned".into(),
+
+            SpecialListingConditions::InForeclosure => "In Foreclosure".into(),
+
+            SpecialListingConditions::NoticeOfDefault => "Notice Of Default".into(),
+
+            SpecialListingConditions::ProbateListing => "Probate Listing".into(),
+
+            SpecialListingConditions::RealEstateOwned => "Real Estate Owned".into(),
+
+            SpecialListingConditions::ShortSale => "Short Sale".into(),
+
+            SpecialListingConditions::Standard => "Standard".into(),
+
+            SpecialListingConditions::ThirdPartyApproval => "Third Party Approval".into(),
+
+            SpecialListingConditions::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            SpecialListingConditions::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for SpecialListingConditions {
     fn from(s: String) -> SpecialListingConditions {
         match s.as_ref() {
@@ -139,45 +252,5 @@ impl<'de> Deserialize<'de> for SpecialListingConditions {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_special_listing_conditions_format {
-    use super::SpecialListingConditions;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<SpecialListingConditions>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<SpecialListingConditions>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

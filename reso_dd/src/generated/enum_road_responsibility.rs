@@ -18,6 +18,63 @@ pub enum RoadResponsibility {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for RoadResponsibility {
+    fn from_str(s: &str) -> RoadResponsibility {
+        match s {
+            "Private Maintained Road" => RoadResponsibility::PrivateMaintainedRoad,
+
+            "Public Maintained Road" => RoadResponsibility::PublicMaintainedRoad,
+
+            "Road Maintenance Agreement" => RoadResponsibility::RoadMaintenanceAgreement,
+
+            _ => RoadResponsibility::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> RoadResponsibility {
+        match s.as_ref() {
+            "Private Maintained Road" => RoadResponsibility::PrivateMaintainedRoad,
+
+            "Public Maintained Road" => RoadResponsibility::PublicMaintainedRoad,
+
+            "Road Maintenance Agreement" => RoadResponsibility::RoadMaintenanceAgreement,
+
+            _ => RoadResponsibility::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            RoadResponsibility::PrivateMaintainedRoad => "Private Maintained Road",
+
+            RoadResponsibility::PublicMaintainedRoad => "Public Maintained Road",
+
+            RoadResponsibility::RoadMaintenanceAgreement => "Road Maintenance Agreement",
+
+            RoadResponsibility::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            RoadResponsibility::PrivateMaintainedRoad => "Private Maintained Road".into(),
+
+            RoadResponsibility::PublicMaintainedRoad => "Public Maintained Road".into(),
+
+            RoadResponsibility::RoadMaintenanceAgreement => "Road Maintenance Agreement".into(),
+
+            RoadResponsibility::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            RoadResponsibility::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for RoadResponsibility {
     fn from(s: String) -> RoadResponsibility {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for RoadResponsibility {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_road_responsibility_format {
-    use super::RoadResponsibility;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<RoadResponsibility>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<RoadResponsibility>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

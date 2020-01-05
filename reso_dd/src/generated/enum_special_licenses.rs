@@ -48,6 +48,143 @@ pub enum SpecialLicenses {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for SpecialLicenses {
+    fn from_str(s: &str) -> SpecialLicenses {
+        match s {
+            "Beer/Wine" => SpecialLicenses::BeerWine,
+
+            "Class H" => SpecialLicenses::ClassH,
+
+            "Entertainment" => SpecialLicenses::Entertainment,
+
+            "Franchise" => SpecialLicenses::Franchise,
+
+            "Gambling" => SpecialLicenses::Gambling,
+
+            "Liquor" => SpecialLicenses::Liquor,
+
+            "Liquor 5 Years Or Less" => SpecialLicenses::Liquor5YearsOrLess,
+
+            "Liquor 5 Years Or More" => SpecialLicenses::Liquor5YearsOrMore,
+
+            "Liquor-Off Sale" => SpecialLicenses::LiquorOffSale,
+
+            "Liquor-On Sale" => SpecialLicenses::LiquorOnSale,
+
+            "None" => SpecialLicenses::None,
+
+            "Other" => SpecialLicenses::Other,
+
+            "Professional" => SpecialLicenses::Professional,
+
+            _ => SpecialLicenses::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> SpecialLicenses {
+        match s.as_ref() {
+            "Beer/Wine" => SpecialLicenses::BeerWine,
+
+            "Class H" => SpecialLicenses::ClassH,
+
+            "Entertainment" => SpecialLicenses::Entertainment,
+
+            "Franchise" => SpecialLicenses::Franchise,
+
+            "Gambling" => SpecialLicenses::Gambling,
+
+            "Liquor" => SpecialLicenses::Liquor,
+
+            "Liquor 5 Years Or Less" => SpecialLicenses::Liquor5YearsOrLess,
+
+            "Liquor 5 Years Or More" => SpecialLicenses::Liquor5YearsOrMore,
+
+            "Liquor-Off Sale" => SpecialLicenses::LiquorOffSale,
+
+            "Liquor-On Sale" => SpecialLicenses::LiquorOnSale,
+
+            "None" => SpecialLicenses::None,
+
+            "Other" => SpecialLicenses::Other,
+
+            "Professional" => SpecialLicenses::Professional,
+
+            _ => SpecialLicenses::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            SpecialLicenses::BeerWine => "Beer/Wine",
+
+            SpecialLicenses::ClassH => "Class H",
+
+            SpecialLicenses::Entertainment => "Entertainment",
+
+            SpecialLicenses::Franchise => "Franchise",
+
+            SpecialLicenses::Gambling => "Gambling",
+
+            SpecialLicenses::Liquor => "Liquor",
+
+            SpecialLicenses::Liquor5YearsOrLess => "Liquor 5 Years Or Less",
+
+            SpecialLicenses::Liquor5YearsOrMore => "Liquor 5 Years Or More",
+
+            SpecialLicenses::LiquorOffSale => "Liquor-Off Sale",
+
+            SpecialLicenses::LiquorOnSale => "Liquor-On Sale",
+
+            SpecialLicenses::None => "None",
+
+            SpecialLicenses::Other => "Other",
+
+            SpecialLicenses::Professional => "Professional",
+
+            SpecialLicenses::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            SpecialLicenses::BeerWine => "Beer/Wine".into(),
+
+            SpecialLicenses::ClassH => "Class H".into(),
+
+            SpecialLicenses::Entertainment => "Entertainment".into(),
+
+            SpecialLicenses::Franchise => "Franchise".into(),
+
+            SpecialLicenses::Gambling => "Gambling".into(),
+
+            SpecialLicenses::Liquor => "Liquor".into(),
+
+            SpecialLicenses::Liquor5YearsOrLess => "Liquor 5 Years Or Less".into(),
+
+            SpecialLicenses::Liquor5YearsOrMore => "Liquor 5 Years Or More".into(),
+
+            SpecialLicenses::LiquorOffSale => "Liquor-Off Sale".into(),
+
+            SpecialLicenses::LiquorOnSale => "Liquor-On Sale".into(),
+
+            SpecialLicenses::None => "None".into(),
+
+            SpecialLicenses::Other => "Other".into(),
+
+            SpecialLicenses::Professional => "Professional".into(),
+
+            SpecialLicenses::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            SpecialLicenses::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for SpecialLicenses {
     fn from(s: String) -> SpecialLicenses {
         match s.as_ref() {
@@ -166,45 +303,5 @@ impl<'de> Deserialize<'de> for SpecialLicenses {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_special_licenses_format {
-    use super::SpecialLicenses;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<SpecialLicenses>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<SpecialLicenses>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -72,6 +72,207 @@ pub enum Basement {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Basement {
+    fn from_str(s: &str) -> Basement {
+        match s {
+            "Apartment" => Basement::Apartment,
+
+            "Bath/Stubbed" => Basement::BathStubbed,
+
+            "Block" => Basement::Block,
+
+            "Concrete" => Basement::Concrete,
+
+            "Crawl Space" => Basement::CrawlSpace,
+
+            "Daylight" => Basement::Daylight,
+
+            "Dirt Floor" => Basement::DirtFloor,
+
+            "Exterior Entry" => Basement::ExteriorEntry,
+
+            "Finished" => Basement::Finished,
+
+            "French Drain" => Basement::FrenchDrain,
+
+            "Full" => Basement::Full,
+
+            "Interior Entry" => Basement::InteriorEntry,
+
+            "None" => Basement::None,
+
+            "Other" => Basement::Other,
+
+            "Partial" => Basement::Partial,
+
+            "Partially Finished" => Basement::PartiallyFinished,
+
+            "Storage Space" => Basement::StorageSpace,
+
+            "Sump Pump" => Basement::SumpPump,
+
+            "Unfinished" => Basement::Unfinished,
+
+            "Walk-Out Access" => Basement::WalkOutAccess,
+
+            "Walk-Up Access" => Basement::WalkUpAccess,
+
+            _ => Basement::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Basement {
+        match s.as_ref() {
+            "Apartment" => Basement::Apartment,
+
+            "Bath/Stubbed" => Basement::BathStubbed,
+
+            "Block" => Basement::Block,
+
+            "Concrete" => Basement::Concrete,
+
+            "Crawl Space" => Basement::CrawlSpace,
+
+            "Daylight" => Basement::Daylight,
+
+            "Dirt Floor" => Basement::DirtFloor,
+
+            "Exterior Entry" => Basement::ExteriorEntry,
+
+            "Finished" => Basement::Finished,
+
+            "French Drain" => Basement::FrenchDrain,
+
+            "Full" => Basement::Full,
+
+            "Interior Entry" => Basement::InteriorEntry,
+
+            "None" => Basement::None,
+
+            "Other" => Basement::Other,
+
+            "Partial" => Basement::Partial,
+
+            "Partially Finished" => Basement::PartiallyFinished,
+
+            "Storage Space" => Basement::StorageSpace,
+
+            "Sump Pump" => Basement::SumpPump,
+
+            "Unfinished" => Basement::Unfinished,
+
+            "Walk-Out Access" => Basement::WalkOutAccess,
+
+            "Walk-Up Access" => Basement::WalkUpAccess,
+
+            _ => Basement::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Basement::Apartment => "Apartment",
+
+            Basement::BathStubbed => "Bath/Stubbed",
+
+            Basement::Block => "Block",
+
+            Basement::Concrete => "Concrete",
+
+            Basement::CrawlSpace => "Crawl Space",
+
+            Basement::Daylight => "Daylight",
+
+            Basement::DirtFloor => "Dirt Floor",
+
+            Basement::ExteriorEntry => "Exterior Entry",
+
+            Basement::Finished => "Finished",
+
+            Basement::FrenchDrain => "French Drain",
+
+            Basement::Full => "Full",
+
+            Basement::InteriorEntry => "Interior Entry",
+
+            Basement::None => "None",
+
+            Basement::Other => "Other",
+
+            Basement::Partial => "Partial",
+
+            Basement::PartiallyFinished => "Partially Finished",
+
+            Basement::StorageSpace => "Storage Space",
+
+            Basement::SumpPump => "Sump Pump",
+
+            Basement::Unfinished => "Unfinished",
+
+            Basement::WalkOutAccess => "Walk-Out Access",
+
+            Basement::WalkUpAccess => "Walk-Up Access",
+
+            Basement::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Basement::Apartment => "Apartment".into(),
+
+            Basement::BathStubbed => "Bath/Stubbed".into(),
+
+            Basement::Block => "Block".into(),
+
+            Basement::Concrete => "Concrete".into(),
+
+            Basement::CrawlSpace => "Crawl Space".into(),
+
+            Basement::Daylight => "Daylight".into(),
+
+            Basement::DirtFloor => "Dirt Floor".into(),
+
+            Basement::ExteriorEntry => "Exterior Entry".into(),
+
+            Basement::Finished => "Finished".into(),
+
+            Basement::FrenchDrain => "French Drain".into(),
+
+            Basement::Full => "Full".into(),
+
+            Basement::InteriorEntry => "Interior Entry".into(),
+
+            Basement::None => "None".into(),
+
+            Basement::Other => "Other".into(),
+
+            Basement::Partial => "Partial".into(),
+
+            Basement::PartiallyFinished => "Partially Finished".into(),
+
+            Basement::StorageSpace => "Storage Space".into(),
+
+            Basement::SumpPump => "Sump Pump".into(),
+
+            Basement::Unfinished => "Unfinished".into(),
+
+            Basement::WalkOutAccess => "Walk-Out Access".into(),
+
+            Basement::WalkUpAccess => "Walk-Up Access".into(),
+
+            Basement::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Basement::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Basement {
     fn from(s: String) -> Basement {
         match s.as_ref() {
@@ -238,43 +439,5 @@ impl<'de> Deserialize<'de> for Basement {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_basement_format {
-    use super::Basement;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Basement>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Basement>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

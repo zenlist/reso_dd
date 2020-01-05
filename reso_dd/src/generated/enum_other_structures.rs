@@ -108,6 +108,303 @@ pub enum OtherStructures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OtherStructures {
+    fn from_str(s: &str) -> OtherStructures {
+        match s {
+            "Airplane Hangar" => OtherStructures::AirplaneHangar,
+
+            "Arena" => OtherStructures::Arena,
+
+            "Barn(s)" => OtherStructures::Barns,
+
+            "Boat House" => OtherStructures::BoatHouse,
+
+            "Cabana" => OtherStructures::Cabana,
+
+            "Cave(s)" => OtherStructures::Caves,
+
+            "Corral(s)" => OtherStructures::Corrals,
+
+            "Covered Arena" => OtherStructures::CoveredArena,
+
+            "Garage(s)" => OtherStructures::Garages,
+
+            "Gazebo" => OtherStructures::Gazebo,
+
+            "Grain Storage" => OtherStructures::GrainStorage,
+
+            "Greenhouse" => OtherStructures::Greenhouse,
+
+            "Guest House" => OtherStructures::GuestHouse,
+
+            "Kennel/Dog Run" => OtherStructures::KennelDogRun,
+
+            "Mobile Home" => OtherStructures::MobileHome,
+
+            "None" => OtherStructures::None,
+
+            "Other" => OtherStructures::Other,
+
+            "Outbuilding" => OtherStructures::Outbuilding,
+
+            "Outdoor Kitchen" => OtherStructures::OutdoorKitchen,
+
+            "Packing Shed" => OtherStructures::PackingShed,
+
+            "Pergola" => OtherStructures::Pergola,
+
+            "Pool House" => OtherStructures::PoolHouse,
+
+            "Poultry Coop" => OtherStructures::PoultryCoop,
+
+            "Residence" => OtherStructures::Residence,
+
+            "RV/Boat Storage" => OtherStructures::RVBoatStorage,
+
+            "Second Garage" => OtherStructures::SecondGarage,
+
+            "Second Residence" => OtherStructures::SecondResidence,
+
+            "See Remarks" => OtherStructures::SeeRemarks,
+
+            "Shed(s)" => OtherStructures::Sheds,
+
+            "Stable(s)" => OtherStructures::Stables,
+
+            "Storage" => OtherStructures::Storage,
+
+            "Tennis Court(s)" => OtherStructures::TennisCourts,
+
+            "Workshop" => OtherStructures::Workshop,
+
+            _ => OtherStructures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OtherStructures {
+        match s.as_ref() {
+            "Airplane Hangar" => OtherStructures::AirplaneHangar,
+
+            "Arena" => OtherStructures::Arena,
+
+            "Barn(s)" => OtherStructures::Barns,
+
+            "Boat House" => OtherStructures::BoatHouse,
+
+            "Cabana" => OtherStructures::Cabana,
+
+            "Cave(s)" => OtherStructures::Caves,
+
+            "Corral(s)" => OtherStructures::Corrals,
+
+            "Covered Arena" => OtherStructures::CoveredArena,
+
+            "Garage(s)" => OtherStructures::Garages,
+
+            "Gazebo" => OtherStructures::Gazebo,
+
+            "Grain Storage" => OtherStructures::GrainStorage,
+
+            "Greenhouse" => OtherStructures::Greenhouse,
+
+            "Guest House" => OtherStructures::GuestHouse,
+
+            "Kennel/Dog Run" => OtherStructures::KennelDogRun,
+
+            "Mobile Home" => OtherStructures::MobileHome,
+
+            "None" => OtherStructures::None,
+
+            "Other" => OtherStructures::Other,
+
+            "Outbuilding" => OtherStructures::Outbuilding,
+
+            "Outdoor Kitchen" => OtherStructures::OutdoorKitchen,
+
+            "Packing Shed" => OtherStructures::PackingShed,
+
+            "Pergola" => OtherStructures::Pergola,
+
+            "Pool House" => OtherStructures::PoolHouse,
+
+            "Poultry Coop" => OtherStructures::PoultryCoop,
+
+            "Residence" => OtherStructures::Residence,
+
+            "RV/Boat Storage" => OtherStructures::RVBoatStorage,
+
+            "Second Garage" => OtherStructures::SecondGarage,
+
+            "Second Residence" => OtherStructures::SecondResidence,
+
+            "See Remarks" => OtherStructures::SeeRemarks,
+
+            "Shed(s)" => OtherStructures::Sheds,
+
+            "Stable(s)" => OtherStructures::Stables,
+
+            "Storage" => OtherStructures::Storage,
+
+            "Tennis Court(s)" => OtherStructures::TennisCourts,
+
+            "Workshop" => OtherStructures::Workshop,
+
+            _ => OtherStructures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OtherStructures::AirplaneHangar => "Airplane Hangar",
+
+            OtherStructures::Arena => "Arena",
+
+            OtherStructures::Barns => "Barn(s)",
+
+            OtherStructures::BoatHouse => "Boat House",
+
+            OtherStructures::Cabana => "Cabana",
+
+            OtherStructures::Caves => "Cave(s)",
+
+            OtherStructures::Corrals => "Corral(s)",
+
+            OtherStructures::CoveredArena => "Covered Arena",
+
+            OtherStructures::Garages => "Garage(s)",
+
+            OtherStructures::Gazebo => "Gazebo",
+
+            OtherStructures::GrainStorage => "Grain Storage",
+
+            OtherStructures::Greenhouse => "Greenhouse",
+
+            OtherStructures::GuestHouse => "Guest House",
+
+            OtherStructures::KennelDogRun => "Kennel/Dog Run",
+
+            OtherStructures::MobileHome => "Mobile Home",
+
+            OtherStructures::None => "None",
+
+            OtherStructures::Other => "Other",
+
+            OtherStructures::Outbuilding => "Outbuilding",
+
+            OtherStructures::OutdoorKitchen => "Outdoor Kitchen",
+
+            OtherStructures::PackingShed => "Packing Shed",
+
+            OtherStructures::Pergola => "Pergola",
+
+            OtherStructures::PoolHouse => "Pool House",
+
+            OtherStructures::PoultryCoop => "Poultry Coop",
+
+            OtherStructures::Residence => "Residence",
+
+            OtherStructures::RVBoatStorage => "RV/Boat Storage",
+
+            OtherStructures::SecondGarage => "Second Garage",
+
+            OtherStructures::SecondResidence => "Second Residence",
+
+            OtherStructures::SeeRemarks => "See Remarks",
+
+            OtherStructures::Sheds => "Shed(s)",
+
+            OtherStructures::Stables => "Stable(s)",
+
+            OtherStructures::Storage => "Storage",
+
+            OtherStructures::TennisCourts => "Tennis Court(s)",
+
+            OtherStructures::Workshop => "Workshop",
+
+            OtherStructures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OtherStructures::AirplaneHangar => "Airplane Hangar".into(),
+
+            OtherStructures::Arena => "Arena".into(),
+
+            OtherStructures::Barns => "Barn(s)".into(),
+
+            OtherStructures::BoatHouse => "Boat House".into(),
+
+            OtherStructures::Cabana => "Cabana".into(),
+
+            OtherStructures::Caves => "Cave(s)".into(),
+
+            OtherStructures::Corrals => "Corral(s)".into(),
+
+            OtherStructures::CoveredArena => "Covered Arena".into(),
+
+            OtherStructures::Garages => "Garage(s)".into(),
+
+            OtherStructures::Gazebo => "Gazebo".into(),
+
+            OtherStructures::GrainStorage => "Grain Storage".into(),
+
+            OtherStructures::Greenhouse => "Greenhouse".into(),
+
+            OtherStructures::GuestHouse => "Guest House".into(),
+
+            OtherStructures::KennelDogRun => "Kennel/Dog Run".into(),
+
+            OtherStructures::MobileHome => "Mobile Home".into(),
+
+            OtherStructures::None => "None".into(),
+
+            OtherStructures::Other => "Other".into(),
+
+            OtherStructures::Outbuilding => "Outbuilding".into(),
+
+            OtherStructures::OutdoorKitchen => "Outdoor Kitchen".into(),
+
+            OtherStructures::PackingShed => "Packing Shed".into(),
+
+            OtherStructures::Pergola => "Pergola".into(),
+
+            OtherStructures::PoolHouse => "Pool House".into(),
+
+            OtherStructures::PoultryCoop => "Poultry Coop".into(),
+
+            OtherStructures::Residence => "Residence".into(),
+
+            OtherStructures::RVBoatStorage => "RV/Boat Storage".into(),
+
+            OtherStructures::SecondGarage => "Second Garage".into(),
+
+            OtherStructures::SecondResidence => "Second Residence".into(),
+
+            OtherStructures::SeeRemarks => "See Remarks".into(),
+
+            OtherStructures::Sheds => "Shed(s)".into(),
+
+            OtherStructures::Stables => "Stable(s)".into(),
+
+            OtherStructures::Storage => "Storage".into(),
+
+            OtherStructures::TennisCourts => "Tennis Court(s)".into(),
+
+            OtherStructures::Workshop => "Workshop".into(),
+
+            OtherStructures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OtherStructures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OtherStructures {
     fn from(s: String) -> OtherStructures {
         match s.as_ref() {
@@ -346,45 +643,5 @@ impl<'de> Deserialize<'de> for OtherStructures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_other_structures_format {
-    use super::OtherStructures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OtherStructures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OtherStructures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

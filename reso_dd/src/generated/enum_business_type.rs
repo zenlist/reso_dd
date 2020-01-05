@@ -336,6 +336,911 @@ pub enum BusinessType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for BusinessType {
+    fn from_str(s: &str) -> BusinessType {
+        match s {
+            "Accounting" => BusinessType::Accounting,
+
+            "Administrative and Support" => BusinessType::AdministrativeandSupport,
+
+            "Advertising" => BusinessType::Advertising,
+
+            "Agriculture" => BusinessType::Agriculture,
+
+            "Animal Grooming" => BusinessType::AnimalGrooming,
+
+            "Appliances" => BusinessType::Appliances,
+
+            "Aquarium Supplies" => BusinessType::AquariumSupplies,
+
+            "Arts and Entertainment" => BusinessType::ArtsandEntertainment,
+
+            "Athletic" => BusinessType::Athletic,
+
+            "Auto Body" => BusinessType::AutoBody,
+
+            "Auto Dealer" => BusinessType::AutoDealer,
+
+            "Auto Glass" => BusinessType::AutoGlass,
+
+            "Auto Parts" => BusinessType::AutoParts,
+
+            "Auto Rent/Lease" => BusinessType::AutoRentLease,
+
+            "Auto Repair-Specialty" => BusinessType::AutoRepairSpecialty,
+
+            "Auto Service" => BusinessType::AutoService,
+
+            "Auto Stereo/Alarm" => BusinessType::AutoStereoAlarm,
+
+            "Auto Tires" => BusinessType::AutoTires,
+
+            "Auto Wrecking" => BusinessType::AutoWrecking,
+
+            "Bakery" => BusinessType::Bakery,
+
+            "Bar/Tavern/Lounge" => BusinessType::BarTavernLounge,
+
+            "Barber/Beauty" => BusinessType::BarberBeauty,
+
+            "Bed & Breakfast" => BusinessType::BedBreakfast,
+
+            "Books/Cards/Stationary" => BusinessType::BooksCardsStationary,
+
+            "Butcher" => BusinessType::Butcher,
+
+            "Cabinets" => BusinessType::Cabinets,
+
+            "Candy/Cookie" => BusinessType::CandyCookie,
+
+            "Car Wash" => BusinessType::CarWash,
+
+            "Carpet/Tile" => BusinessType::CarpetTile,
+
+            "Child Care" => BusinessType::ChildCare,
+
+            "Church" => BusinessType::Church,
+
+            "Clothing" => BusinessType::Clothing,
+
+            "Commercial" => BusinessType::Commercial,
+
+            "Computer" => BusinessType::Computer,
+
+            "Construction/Contractor" => BusinessType::ConstructionContractor,
+
+            "Convalescent" => BusinessType::Convalescent,
+
+            "Convenience Store" => BusinessType::ConvenienceStore,
+
+            "Dance Studio" => BusinessType::DanceStudio,
+
+            "Decorator" => BusinessType::Decorator,
+
+            "Deli/Catering" => BusinessType::DeliCatering,
+
+            "Dental" => BusinessType::Dental,
+
+            "Distribution" => BusinessType::Distribution,
+
+            "Doughnut" => BusinessType::Doughnut,
+
+            "Drugstore" => BusinessType::Drugstore,
+
+            "Dry Cleaner" => BusinessType::DryCleaner,
+
+            "Education/School" => BusinessType::EducationSchool,
+
+            "Electronics" => BusinessType::Electronics,
+
+            "Employment" => BusinessType::Employment,
+
+            "Farm" => BusinessType::Farm,
+
+            "Fast Food" => BusinessType::FastFood,
+
+            "Financial" => BusinessType::Financial,
+
+            "Fitness" => BusinessType::Fitness,
+
+            "Florist/Nursery" => BusinessType::FloristNursery,
+
+            "Food & Beverage" => BusinessType::FoodBeverage,
+
+            "Forest Reserve" => BusinessType::ForestReserve,
+
+            "Franchise" => BusinessType::Franchise,
+
+            "Furniture" => BusinessType::Furniture,
+
+            "Gas Station" => BusinessType::GasStation,
+
+            "Gift Shop" => BusinessType::GiftShop,
+
+            "Grocery" => BusinessType::Grocery,
+
+            "Hardware" => BusinessType::Hardware,
+
+            "Health Food" => BusinessType::HealthFood,
+
+            "Health Services" => BusinessType::HealthServices,
+
+            "Hobby" => BusinessType::Hobby,
+
+            "Home Cleaner" => BusinessType::HomeCleaner,
+
+            "Hospitality" => BusinessType::Hospitality,
+
+            "Hotel/Motel" => BusinessType::HotelMotel,
+
+            "Ice Cream/Frozen Yogurt" => BusinessType::IceCreamFrozenYogurt,
+
+            "Industrial" => BusinessType::Industrial,
+
+            "Jewelry" => BusinessType::Jewelry,
+
+            "Landscaping" => BusinessType::Landscaping,
+
+            "Laundromat" => BusinessType::Laundromat,
+
+            "Liquor Store" => BusinessType::LiquorStore,
+
+            "Locksmith" => BusinessType::Locksmith,
+
+            "Manufacturing" => BusinessType::Manufacturing,
+
+            "Medical" => BusinessType::Medical,
+
+            "Mixed" => BusinessType::Mixed,
+
+            "Mobile/Trailer Park" => BusinessType::MobileTrailerPark,
+
+            "Music" => BusinessType::Music,
+
+            "Nursing Home" => BusinessType::NursingHome,
+
+            "Office Supply" => BusinessType::OfficeSupply,
+
+            "Other" => BusinessType::Other,
+
+            "Paints" => BusinessType::Paints,
+
+            "Parking" => BusinessType::Parking,
+
+            "Pet Store" => BusinessType::PetStore,
+
+            "Photographer" => BusinessType::Photographer,
+
+            "Pizza" => BusinessType::Pizza,
+
+            "Printing" => BusinessType::Printing,
+
+            "Professional Service" => BusinessType::ProfessionalService,
+
+            "Professional/Office" => BusinessType::ProfessionalOffice,
+
+            "Real Estate" => BusinessType::RealEstate,
+
+            "Recreation" => BusinessType::Recreation,
+
+            "Rental" => BusinessType::Rental,
+
+            "Residential" => BusinessType::Residential,
+
+            "Restaurant" => BusinessType::Restaurant,
+
+            "Retail" => BusinessType::Retail,
+
+            "Saddlery/Harness" => BusinessType::SaddleryHarness,
+
+            "Sporting Goods" => BusinessType::SportingGoods,
+
+            "Storage" => BusinessType::Storage,
+
+            "Toys" => BusinessType::Toys,
+
+            "Transportation" => BusinessType::Transportation,
+
+            "Travel" => BusinessType::Travel,
+
+            "Upholstery" => BusinessType::Upholstery,
+
+            "Utility" => BusinessType::Utility,
+
+            "Variety" => BusinessType::Variety,
+
+            "Video" => BusinessType::Video,
+
+            "Wallpaper" => BusinessType::Wallpaper,
+
+            "Warehouse" => BusinessType::Warehouse,
+
+            "Wholesale" => BusinessType::Wholesale,
+
+            _ => BusinessType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> BusinessType {
+        match s.as_ref() {
+            "Accounting" => BusinessType::Accounting,
+
+            "Administrative and Support" => BusinessType::AdministrativeandSupport,
+
+            "Advertising" => BusinessType::Advertising,
+
+            "Agriculture" => BusinessType::Agriculture,
+
+            "Animal Grooming" => BusinessType::AnimalGrooming,
+
+            "Appliances" => BusinessType::Appliances,
+
+            "Aquarium Supplies" => BusinessType::AquariumSupplies,
+
+            "Arts and Entertainment" => BusinessType::ArtsandEntertainment,
+
+            "Athletic" => BusinessType::Athletic,
+
+            "Auto Body" => BusinessType::AutoBody,
+
+            "Auto Dealer" => BusinessType::AutoDealer,
+
+            "Auto Glass" => BusinessType::AutoGlass,
+
+            "Auto Parts" => BusinessType::AutoParts,
+
+            "Auto Rent/Lease" => BusinessType::AutoRentLease,
+
+            "Auto Repair-Specialty" => BusinessType::AutoRepairSpecialty,
+
+            "Auto Service" => BusinessType::AutoService,
+
+            "Auto Stereo/Alarm" => BusinessType::AutoStereoAlarm,
+
+            "Auto Tires" => BusinessType::AutoTires,
+
+            "Auto Wrecking" => BusinessType::AutoWrecking,
+
+            "Bakery" => BusinessType::Bakery,
+
+            "Bar/Tavern/Lounge" => BusinessType::BarTavernLounge,
+
+            "Barber/Beauty" => BusinessType::BarberBeauty,
+
+            "Bed & Breakfast" => BusinessType::BedBreakfast,
+
+            "Books/Cards/Stationary" => BusinessType::BooksCardsStationary,
+
+            "Butcher" => BusinessType::Butcher,
+
+            "Cabinets" => BusinessType::Cabinets,
+
+            "Candy/Cookie" => BusinessType::CandyCookie,
+
+            "Car Wash" => BusinessType::CarWash,
+
+            "Carpet/Tile" => BusinessType::CarpetTile,
+
+            "Child Care" => BusinessType::ChildCare,
+
+            "Church" => BusinessType::Church,
+
+            "Clothing" => BusinessType::Clothing,
+
+            "Commercial" => BusinessType::Commercial,
+
+            "Computer" => BusinessType::Computer,
+
+            "Construction/Contractor" => BusinessType::ConstructionContractor,
+
+            "Convalescent" => BusinessType::Convalescent,
+
+            "Convenience Store" => BusinessType::ConvenienceStore,
+
+            "Dance Studio" => BusinessType::DanceStudio,
+
+            "Decorator" => BusinessType::Decorator,
+
+            "Deli/Catering" => BusinessType::DeliCatering,
+
+            "Dental" => BusinessType::Dental,
+
+            "Distribution" => BusinessType::Distribution,
+
+            "Doughnut" => BusinessType::Doughnut,
+
+            "Drugstore" => BusinessType::Drugstore,
+
+            "Dry Cleaner" => BusinessType::DryCleaner,
+
+            "Education/School" => BusinessType::EducationSchool,
+
+            "Electronics" => BusinessType::Electronics,
+
+            "Employment" => BusinessType::Employment,
+
+            "Farm" => BusinessType::Farm,
+
+            "Fast Food" => BusinessType::FastFood,
+
+            "Financial" => BusinessType::Financial,
+
+            "Fitness" => BusinessType::Fitness,
+
+            "Florist/Nursery" => BusinessType::FloristNursery,
+
+            "Food & Beverage" => BusinessType::FoodBeverage,
+
+            "Forest Reserve" => BusinessType::ForestReserve,
+
+            "Franchise" => BusinessType::Franchise,
+
+            "Furniture" => BusinessType::Furniture,
+
+            "Gas Station" => BusinessType::GasStation,
+
+            "Gift Shop" => BusinessType::GiftShop,
+
+            "Grocery" => BusinessType::Grocery,
+
+            "Hardware" => BusinessType::Hardware,
+
+            "Health Food" => BusinessType::HealthFood,
+
+            "Health Services" => BusinessType::HealthServices,
+
+            "Hobby" => BusinessType::Hobby,
+
+            "Home Cleaner" => BusinessType::HomeCleaner,
+
+            "Hospitality" => BusinessType::Hospitality,
+
+            "Hotel/Motel" => BusinessType::HotelMotel,
+
+            "Ice Cream/Frozen Yogurt" => BusinessType::IceCreamFrozenYogurt,
+
+            "Industrial" => BusinessType::Industrial,
+
+            "Jewelry" => BusinessType::Jewelry,
+
+            "Landscaping" => BusinessType::Landscaping,
+
+            "Laundromat" => BusinessType::Laundromat,
+
+            "Liquor Store" => BusinessType::LiquorStore,
+
+            "Locksmith" => BusinessType::Locksmith,
+
+            "Manufacturing" => BusinessType::Manufacturing,
+
+            "Medical" => BusinessType::Medical,
+
+            "Mixed" => BusinessType::Mixed,
+
+            "Mobile/Trailer Park" => BusinessType::MobileTrailerPark,
+
+            "Music" => BusinessType::Music,
+
+            "Nursing Home" => BusinessType::NursingHome,
+
+            "Office Supply" => BusinessType::OfficeSupply,
+
+            "Other" => BusinessType::Other,
+
+            "Paints" => BusinessType::Paints,
+
+            "Parking" => BusinessType::Parking,
+
+            "Pet Store" => BusinessType::PetStore,
+
+            "Photographer" => BusinessType::Photographer,
+
+            "Pizza" => BusinessType::Pizza,
+
+            "Printing" => BusinessType::Printing,
+
+            "Professional Service" => BusinessType::ProfessionalService,
+
+            "Professional/Office" => BusinessType::ProfessionalOffice,
+
+            "Real Estate" => BusinessType::RealEstate,
+
+            "Recreation" => BusinessType::Recreation,
+
+            "Rental" => BusinessType::Rental,
+
+            "Residential" => BusinessType::Residential,
+
+            "Restaurant" => BusinessType::Restaurant,
+
+            "Retail" => BusinessType::Retail,
+
+            "Saddlery/Harness" => BusinessType::SaddleryHarness,
+
+            "Sporting Goods" => BusinessType::SportingGoods,
+
+            "Storage" => BusinessType::Storage,
+
+            "Toys" => BusinessType::Toys,
+
+            "Transportation" => BusinessType::Transportation,
+
+            "Travel" => BusinessType::Travel,
+
+            "Upholstery" => BusinessType::Upholstery,
+
+            "Utility" => BusinessType::Utility,
+
+            "Variety" => BusinessType::Variety,
+
+            "Video" => BusinessType::Video,
+
+            "Wallpaper" => BusinessType::Wallpaper,
+
+            "Warehouse" => BusinessType::Warehouse,
+
+            "Wholesale" => BusinessType::Wholesale,
+
+            _ => BusinessType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            BusinessType::Accounting => "Accounting",
+
+            BusinessType::AdministrativeandSupport => "Administrative and Support",
+
+            BusinessType::Advertising => "Advertising",
+
+            BusinessType::Agriculture => "Agriculture",
+
+            BusinessType::AnimalGrooming => "Animal Grooming",
+
+            BusinessType::Appliances => "Appliances",
+
+            BusinessType::AquariumSupplies => "Aquarium Supplies",
+
+            BusinessType::ArtsandEntertainment => "Arts and Entertainment",
+
+            BusinessType::Athletic => "Athletic",
+
+            BusinessType::AutoBody => "Auto Body",
+
+            BusinessType::AutoDealer => "Auto Dealer",
+
+            BusinessType::AutoGlass => "Auto Glass",
+
+            BusinessType::AutoParts => "Auto Parts",
+
+            BusinessType::AutoRentLease => "Auto Rent/Lease",
+
+            BusinessType::AutoRepairSpecialty => "Auto Repair-Specialty",
+
+            BusinessType::AutoService => "Auto Service",
+
+            BusinessType::AutoStereoAlarm => "Auto Stereo/Alarm",
+
+            BusinessType::AutoTires => "Auto Tires",
+
+            BusinessType::AutoWrecking => "Auto Wrecking",
+
+            BusinessType::Bakery => "Bakery",
+
+            BusinessType::BarTavernLounge => "Bar/Tavern/Lounge",
+
+            BusinessType::BarberBeauty => "Barber/Beauty",
+
+            BusinessType::BedBreakfast => "Bed & Breakfast",
+
+            BusinessType::BooksCardsStationary => "Books/Cards/Stationary",
+
+            BusinessType::Butcher => "Butcher",
+
+            BusinessType::Cabinets => "Cabinets",
+
+            BusinessType::CandyCookie => "Candy/Cookie",
+
+            BusinessType::CarWash => "Car Wash",
+
+            BusinessType::CarpetTile => "Carpet/Tile",
+
+            BusinessType::ChildCare => "Child Care",
+
+            BusinessType::Church => "Church",
+
+            BusinessType::Clothing => "Clothing",
+
+            BusinessType::Commercial => "Commercial",
+
+            BusinessType::Computer => "Computer",
+
+            BusinessType::ConstructionContractor => "Construction/Contractor",
+
+            BusinessType::Convalescent => "Convalescent",
+
+            BusinessType::ConvenienceStore => "Convenience Store",
+
+            BusinessType::DanceStudio => "Dance Studio",
+
+            BusinessType::Decorator => "Decorator",
+
+            BusinessType::DeliCatering => "Deli/Catering",
+
+            BusinessType::Dental => "Dental",
+
+            BusinessType::Distribution => "Distribution",
+
+            BusinessType::Doughnut => "Doughnut",
+
+            BusinessType::Drugstore => "Drugstore",
+
+            BusinessType::DryCleaner => "Dry Cleaner",
+
+            BusinessType::EducationSchool => "Education/School",
+
+            BusinessType::Electronics => "Electronics",
+
+            BusinessType::Employment => "Employment",
+
+            BusinessType::Farm => "Farm",
+
+            BusinessType::FastFood => "Fast Food",
+
+            BusinessType::Financial => "Financial",
+
+            BusinessType::Fitness => "Fitness",
+
+            BusinessType::FloristNursery => "Florist/Nursery",
+
+            BusinessType::FoodBeverage => "Food & Beverage",
+
+            BusinessType::ForestReserve => "Forest Reserve",
+
+            BusinessType::Franchise => "Franchise",
+
+            BusinessType::Furniture => "Furniture",
+
+            BusinessType::GasStation => "Gas Station",
+
+            BusinessType::GiftShop => "Gift Shop",
+
+            BusinessType::Grocery => "Grocery",
+
+            BusinessType::Hardware => "Hardware",
+
+            BusinessType::HealthFood => "Health Food",
+
+            BusinessType::HealthServices => "Health Services",
+
+            BusinessType::Hobby => "Hobby",
+
+            BusinessType::HomeCleaner => "Home Cleaner",
+
+            BusinessType::Hospitality => "Hospitality",
+
+            BusinessType::HotelMotel => "Hotel/Motel",
+
+            BusinessType::IceCreamFrozenYogurt => "Ice Cream/Frozen Yogurt",
+
+            BusinessType::Industrial => "Industrial",
+
+            BusinessType::Jewelry => "Jewelry",
+
+            BusinessType::Landscaping => "Landscaping",
+
+            BusinessType::Laundromat => "Laundromat",
+
+            BusinessType::LiquorStore => "Liquor Store",
+
+            BusinessType::Locksmith => "Locksmith",
+
+            BusinessType::Manufacturing => "Manufacturing",
+
+            BusinessType::Medical => "Medical",
+
+            BusinessType::Mixed => "Mixed",
+
+            BusinessType::MobileTrailerPark => "Mobile/Trailer Park",
+
+            BusinessType::Music => "Music",
+
+            BusinessType::NursingHome => "Nursing Home",
+
+            BusinessType::OfficeSupply => "Office Supply",
+
+            BusinessType::Other => "Other",
+
+            BusinessType::Paints => "Paints",
+
+            BusinessType::Parking => "Parking",
+
+            BusinessType::PetStore => "Pet Store",
+
+            BusinessType::Photographer => "Photographer",
+
+            BusinessType::Pizza => "Pizza",
+
+            BusinessType::Printing => "Printing",
+
+            BusinessType::ProfessionalService => "Professional Service",
+
+            BusinessType::ProfessionalOffice => "Professional/Office",
+
+            BusinessType::RealEstate => "Real Estate",
+
+            BusinessType::Recreation => "Recreation",
+
+            BusinessType::Rental => "Rental",
+
+            BusinessType::Residential => "Residential",
+
+            BusinessType::Restaurant => "Restaurant",
+
+            BusinessType::Retail => "Retail",
+
+            BusinessType::SaddleryHarness => "Saddlery/Harness",
+
+            BusinessType::SportingGoods => "Sporting Goods",
+
+            BusinessType::Storage => "Storage",
+
+            BusinessType::Toys => "Toys",
+
+            BusinessType::Transportation => "Transportation",
+
+            BusinessType::Travel => "Travel",
+
+            BusinessType::Upholstery => "Upholstery",
+
+            BusinessType::Utility => "Utility",
+
+            BusinessType::Variety => "Variety",
+
+            BusinessType::Video => "Video",
+
+            BusinessType::Wallpaper => "Wallpaper",
+
+            BusinessType::Warehouse => "Warehouse",
+
+            BusinessType::Wholesale => "Wholesale",
+
+            BusinessType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            BusinessType::Accounting => "Accounting".into(),
+
+            BusinessType::AdministrativeandSupport => "Administrative and Support".into(),
+
+            BusinessType::Advertising => "Advertising".into(),
+
+            BusinessType::Agriculture => "Agriculture".into(),
+
+            BusinessType::AnimalGrooming => "Animal Grooming".into(),
+
+            BusinessType::Appliances => "Appliances".into(),
+
+            BusinessType::AquariumSupplies => "Aquarium Supplies".into(),
+
+            BusinessType::ArtsandEntertainment => "Arts and Entertainment".into(),
+
+            BusinessType::Athletic => "Athletic".into(),
+
+            BusinessType::AutoBody => "Auto Body".into(),
+
+            BusinessType::AutoDealer => "Auto Dealer".into(),
+
+            BusinessType::AutoGlass => "Auto Glass".into(),
+
+            BusinessType::AutoParts => "Auto Parts".into(),
+
+            BusinessType::AutoRentLease => "Auto Rent/Lease".into(),
+
+            BusinessType::AutoRepairSpecialty => "Auto Repair-Specialty".into(),
+
+            BusinessType::AutoService => "Auto Service".into(),
+
+            BusinessType::AutoStereoAlarm => "Auto Stereo/Alarm".into(),
+
+            BusinessType::AutoTires => "Auto Tires".into(),
+
+            BusinessType::AutoWrecking => "Auto Wrecking".into(),
+
+            BusinessType::Bakery => "Bakery".into(),
+
+            BusinessType::BarTavernLounge => "Bar/Tavern/Lounge".into(),
+
+            BusinessType::BarberBeauty => "Barber/Beauty".into(),
+
+            BusinessType::BedBreakfast => "Bed & Breakfast".into(),
+
+            BusinessType::BooksCardsStationary => "Books/Cards/Stationary".into(),
+
+            BusinessType::Butcher => "Butcher".into(),
+
+            BusinessType::Cabinets => "Cabinets".into(),
+
+            BusinessType::CandyCookie => "Candy/Cookie".into(),
+
+            BusinessType::CarWash => "Car Wash".into(),
+
+            BusinessType::CarpetTile => "Carpet/Tile".into(),
+
+            BusinessType::ChildCare => "Child Care".into(),
+
+            BusinessType::Church => "Church".into(),
+
+            BusinessType::Clothing => "Clothing".into(),
+
+            BusinessType::Commercial => "Commercial".into(),
+
+            BusinessType::Computer => "Computer".into(),
+
+            BusinessType::ConstructionContractor => "Construction/Contractor".into(),
+
+            BusinessType::Convalescent => "Convalescent".into(),
+
+            BusinessType::ConvenienceStore => "Convenience Store".into(),
+
+            BusinessType::DanceStudio => "Dance Studio".into(),
+
+            BusinessType::Decorator => "Decorator".into(),
+
+            BusinessType::DeliCatering => "Deli/Catering".into(),
+
+            BusinessType::Dental => "Dental".into(),
+
+            BusinessType::Distribution => "Distribution".into(),
+
+            BusinessType::Doughnut => "Doughnut".into(),
+
+            BusinessType::Drugstore => "Drugstore".into(),
+
+            BusinessType::DryCleaner => "Dry Cleaner".into(),
+
+            BusinessType::EducationSchool => "Education/School".into(),
+
+            BusinessType::Electronics => "Electronics".into(),
+
+            BusinessType::Employment => "Employment".into(),
+
+            BusinessType::Farm => "Farm".into(),
+
+            BusinessType::FastFood => "Fast Food".into(),
+
+            BusinessType::Financial => "Financial".into(),
+
+            BusinessType::Fitness => "Fitness".into(),
+
+            BusinessType::FloristNursery => "Florist/Nursery".into(),
+
+            BusinessType::FoodBeverage => "Food & Beverage".into(),
+
+            BusinessType::ForestReserve => "Forest Reserve".into(),
+
+            BusinessType::Franchise => "Franchise".into(),
+
+            BusinessType::Furniture => "Furniture".into(),
+
+            BusinessType::GasStation => "Gas Station".into(),
+
+            BusinessType::GiftShop => "Gift Shop".into(),
+
+            BusinessType::Grocery => "Grocery".into(),
+
+            BusinessType::Hardware => "Hardware".into(),
+
+            BusinessType::HealthFood => "Health Food".into(),
+
+            BusinessType::HealthServices => "Health Services".into(),
+
+            BusinessType::Hobby => "Hobby".into(),
+
+            BusinessType::HomeCleaner => "Home Cleaner".into(),
+
+            BusinessType::Hospitality => "Hospitality".into(),
+
+            BusinessType::HotelMotel => "Hotel/Motel".into(),
+
+            BusinessType::IceCreamFrozenYogurt => "Ice Cream/Frozen Yogurt".into(),
+
+            BusinessType::Industrial => "Industrial".into(),
+
+            BusinessType::Jewelry => "Jewelry".into(),
+
+            BusinessType::Landscaping => "Landscaping".into(),
+
+            BusinessType::Laundromat => "Laundromat".into(),
+
+            BusinessType::LiquorStore => "Liquor Store".into(),
+
+            BusinessType::Locksmith => "Locksmith".into(),
+
+            BusinessType::Manufacturing => "Manufacturing".into(),
+
+            BusinessType::Medical => "Medical".into(),
+
+            BusinessType::Mixed => "Mixed".into(),
+
+            BusinessType::MobileTrailerPark => "Mobile/Trailer Park".into(),
+
+            BusinessType::Music => "Music".into(),
+
+            BusinessType::NursingHome => "Nursing Home".into(),
+
+            BusinessType::OfficeSupply => "Office Supply".into(),
+
+            BusinessType::Other => "Other".into(),
+
+            BusinessType::Paints => "Paints".into(),
+
+            BusinessType::Parking => "Parking".into(),
+
+            BusinessType::PetStore => "Pet Store".into(),
+
+            BusinessType::Photographer => "Photographer".into(),
+
+            BusinessType::Pizza => "Pizza".into(),
+
+            BusinessType::Printing => "Printing".into(),
+
+            BusinessType::ProfessionalService => "Professional Service".into(),
+
+            BusinessType::ProfessionalOffice => "Professional/Office".into(),
+
+            BusinessType::RealEstate => "Real Estate".into(),
+
+            BusinessType::Recreation => "Recreation".into(),
+
+            BusinessType::Rental => "Rental".into(),
+
+            BusinessType::Residential => "Residential".into(),
+
+            BusinessType::Restaurant => "Restaurant".into(),
+
+            BusinessType::Retail => "Retail".into(),
+
+            BusinessType::SaddleryHarness => "Saddlery/Harness".into(),
+
+            BusinessType::SportingGoods => "Sporting Goods".into(),
+
+            BusinessType::Storage => "Storage".into(),
+
+            BusinessType::Toys => "Toys".into(),
+
+            BusinessType::Transportation => "Transportation".into(),
+
+            BusinessType::Travel => "Travel".into(),
+
+            BusinessType::Upholstery => "Upholstery".into(),
+
+            BusinessType::Utility => "Utility".into(),
+
+            BusinessType::Variety => "Variety".into(),
+
+            BusinessType::Video => "Video".into(),
+
+            BusinessType::Wallpaper => "Wallpaper".into(),
+
+            BusinessType::Warehouse => "Warehouse".into(),
+
+            BusinessType::Wholesale => "Wholesale".into(),
+
+            BusinessType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            BusinessType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for BusinessType {
     fn from(s: String) -> BusinessType {
         match s.as_ref() {
@@ -1030,45 +1935,5 @@ impl<'de> Deserialize<'de> for BusinessType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_business_type_format {
-    use super::BusinessType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<BusinessType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<BusinessType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

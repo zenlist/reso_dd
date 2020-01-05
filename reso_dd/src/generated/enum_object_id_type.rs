@@ -42,6 +42,127 @@ pub enum ObjectIdType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ObjectIdType {
+    fn from_str(s: &str) -> ObjectIdType {
+        match s {
+            "ListingId" => ObjectIdType::ListingId,
+
+            "ListingKey" => ObjectIdType::ListingKey,
+
+            "ListingKeyNumeric" => ObjectIdType::ListingKeyNumeric,
+
+            "OpenHouseId" => ObjectIdType::OpenHouseId,
+
+            "OpenHouseKey" => ObjectIdType::OpenHouseKey,
+
+            "OpenHouseKeyNumeric" => ObjectIdType::OpenHouseKeyNumeric,
+
+            "ParcelNumber" => ObjectIdType::ParcelNumber,
+
+            "PUID" => ObjectIdType::PUID,
+
+            "SavedSearchKey" => ObjectIdType::SavedSearchKey,
+
+            "SavedSearchKeyNumeric" => ObjectIdType::SavedSearchKeyNumeric,
+
+            "Unique" => ObjectIdType::Unique,
+
+            _ => ObjectIdType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ObjectIdType {
+        match s.as_ref() {
+            "ListingId" => ObjectIdType::ListingId,
+
+            "ListingKey" => ObjectIdType::ListingKey,
+
+            "ListingKeyNumeric" => ObjectIdType::ListingKeyNumeric,
+
+            "OpenHouseId" => ObjectIdType::OpenHouseId,
+
+            "OpenHouseKey" => ObjectIdType::OpenHouseKey,
+
+            "OpenHouseKeyNumeric" => ObjectIdType::OpenHouseKeyNumeric,
+
+            "ParcelNumber" => ObjectIdType::ParcelNumber,
+
+            "PUID" => ObjectIdType::PUID,
+
+            "SavedSearchKey" => ObjectIdType::SavedSearchKey,
+
+            "SavedSearchKeyNumeric" => ObjectIdType::SavedSearchKeyNumeric,
+
+            "Unique" => ObjectIdType::Unique,
+
+            _ => ObjectIdType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ObjectIdType::ListingId => "ListingId",
+
+            ObjectIdType::ListingKey => "ListingKey",
+
+            ObjectIdType::ListingKeyNumeric => "ListingKeyNumeric",
+
+            ObjectIdType::OpenHouseId => "OpenHouseId",
+
+            ObjectIdType::OpenHouseKey => "OpenHouseKey",
+
+            ObjectIdType::OpenHouseKeyNumeric => "OpenHouseKeyNumeric",
+
+            ObjectIdType::ParcelNumber => "ParcelNumber",
+
+            ObjectIdType::PUID => "PUID",
+
+            ObjectIdType::SavedSearchKey => "SavedSearchKey",
+
+            ObjectIdType::SavedSearchKeyNumeric => "SavedSearchKeyNumeric",
+
+            ObjectIdType::Unique => "Unique",
+
+            ObjectIdType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ObjectIdType::ListingId => "ListingId".into(),
+
+            ObjectIdType::ListingKey => "ListingKey".into(),
+
+            ObjectIdType::ListingKeyNumeric => "ListingKeyNumeric".into(),
+
+            ObjectIdType::OpenHouseId => "OpenHouseId".into(),
+
+            ObjectIdType::OpenHouseKey => "OpenHouseKey".into(),
+
+            ObjectIdType::OpenHouseKeyNumeric => "OpenHouseKeyNumeric".into(),
+
+            ObjectIdType::ParcelNumber => "ParcelNumber".into(),
+
+            ObjectIdType::PUID => "PUID".into(),
+
+            ObjectIdType::SavedSearchKey => "SavedSearchKey".into(),
+
+            ObjectIdType::SavedSearchKeyNumeric => "SavedSearchKeyNumeric".into(),
+
+            ObjectIdType::Unique => "Unique".into(),
+
+            ObjectIdType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ObjectIdType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ObjectIdType {
     fn from(s: String) -> ObjectIdType {
         match s.as_ref() {
@@ -148,45 +269,5 @@ impl<'de> Deserialize<'de> for ObjectIdType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_object_id_type_format {
-    use super::ObjectIdType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ObjectIdType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ObjectIdType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

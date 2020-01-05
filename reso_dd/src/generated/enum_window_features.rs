@@ -72,6 +72,207 @@ pub enum WindowFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for WindowFeatures {
+    fn from_str(s: &str) -> WindowFeatures {
+        match s {
+            "Aluminum Frames" => WindowFeatures::AluminumFrames,
+
+            "Bay Window(s)" => WindowFeatures::BayWindows,
+
+            "Blinds" => WindowFeatures::Blinds,
+
+            "Display Window(s)" => WindowFeatures::DisplayWindows,
+
+            "Double Pane Windows" => WindowFeatures::DoublePaneWindows,
+
+            "Drapes" => WindowFeatures::Drapes,
+
+            "ENERGY STAR Qualified Windows" => WindowFeatures::ENERGYSTARQualifiedWindows,
+
+            "Garden Window(s)" => WindowFeatures::GardenWindows,
+
+            "Insulated Windows" => WindowFeatures::InsulatedWindows,
+
+            "Low Emissivity Windows" => WindowFeatures::LowEmissivityWindows,
+
+            "Plantation Shutters" => WindowFeatures::PlantationShutters,
+
+            "Screens" => WindowFeatures::Screens,
+
+            "Shutters" => WindowFeatures::Shutters,
+
+            "Skylight(s)" => WindowFeatures::Skylights,
+
+            "Solar Screens" => WindowFeatures::SolarScreens,
+
+            "Storm Window(s)" => WindowFeatures::StormWindows,
+
+            "Tinted Windows" => WindowFeatures::TintedWindows,
+
+            "Triple Pane Windows" => WindowFeatures::TriplePaneWindows,
+
+            "Window Coverings" => WindowFeatures::WindowCoverings,
+
+            "Window Treatments" => WindowFeatures::WindowTreatments,
+
+            "Wood Frames" => WindowFeatures::WoodFrames,
+
+            _ => WindowFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> WindowFeatures {
+        match s.as_ref() {
+            "Aluminum Frames" => WindowFeatures::AluminumFrames,
+
+            "Bay Window(s)" => WindowFeatures::BayWindows,
+
+            "Blinds" => WindowFeatures::Blinds,
+
+            "Display Window(s)" => WindowFeatures::DisplayWindows,
+
+            "Double Pane Windows" => WindowFeatures::DoublePaneWindows,
+
+            "Drapes" => WindowFeatures::Drapes,
+
+            "ENERGY STAR Qualified Windows" => WindowFeatures::ENERGYSTARQualifiedWindows,
+
+            "Garden Window(s)" => WindowFeatures::GardenWindows,
+
+            "Insulated Windows" => WindowFeatures::InsulatedWindows,
+
+            "Low Emissivity Windows" => WindowFeatures::LowEmissivityWindows,
+
+            "Plantation Shutters" => WindowFeatures::PlantationShutters,
+
+            "Screens" => WindowFeatures::Screens,
+
+            "Shutters" => WindowFeatures::Shutters,
+
+            "Skylight(s)" => WindowFeatures::Skylights,
+
+            "Solar Screens" => WindowFeatures::SolarScreens,
+
+            "Storm Window(s)" => WindowFeatures::StormWindows,
+
+            "Tinted Windows" => WindowFeatures::TintedWindows,
+
+            "Triple Pane Windows" => WindowFeatures::TriplePaneWindows,
+
+            "Window Coverings" => WindowFeatures::WindowCoverings,
+
+            "Window Treatments" => WindowFeatures::WindowTreatments,
+
+            "Wood Frames" => WindowFeatures::WoodFrames,
+
+            _ => WindowFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            WindowFeatures::AluminumFrames => "Aluminum Frames",
+
+            WindowFeatures::BayWindows => "Bay Window(s)",
+
+            WindowFeatures::Blinds => "Blinds",
+
+            WindowFeatures::DisplayWindows => "Display Window(s)",
+
+            WindowFeatures::DoublePaneWindows => "Double Pane Windows",
+
+            WindowFeatures::Drapes => "Drapes",
+
+            WindowFeatures::ENERGYSTARQualifiedWindows => "ENERGY STAR Qualified Windows",
+
+            WindowFeatures::GardenWindows => "Garden Window(s)",
+
+            WindowFeatures::InsulatedWindows => "Insulated Windows",
+
+            WindowFeatures::LowEmissivityWindows => "Low Emissivity Windows",
+
+            WindowFeatures::PlantationShutters => "Plantation Shutters",
+
+            WindowFeatures::Screens => "Screens",
+
+            WindowFeatures::Shutters => "Shutters",
+
+            WindowFeatures::Skylights => "Skylight(s)",
+
+            WindowFeatures::SolarScreens => "Solar Screens",
+
+            WindowFeatures::StormWindows => "Storm Window(s)",
+
+            WindowFeatures::TintedWindows => "Tinted Windows",
+
+            WindowFeatures::TriplePaneWindows => "Triple Pane Windows",
+
+            WindowFeatures::WindowCoverings => "Window Coverings",
+
+            WindowFeatures::WindowTreatments => "Window Treatments",
+
+            WindowFeatures::WoodFrames => "Wood Frames",
+
+            WindowFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            WindowFeatures::AluminumFrames => "Aluminum Frames".into(),
+
+            WindowFeatures::BayWindows => "Bay Window(s)".into(),
+
+            WindowFeatures::Blinds => "Blinds".into(),
+
+            WindowFeatures::DisplayWindows => "Display Window(s)".into(),
+
+            WindowFeatures::DoublePaneWindows => "Double Pane Windows".into(),
+
+            WindowFeatures::Drapes => "Drapes".into(),
+
+            WindowFeatures::ENERGYSTARQualifiedWindows => "ENERGY STAR Qualified Windows".into(),
+
+            WindowFeatures::GardenWindows => "Garden Window(s)".into(),
+
+            WindowFeatures::InsulatedWindows => "Insulated Windows".into(),
+
+            WindowFeatures::LowEmissivityWindows => "Low Emissivity Windows".into(),
+
+            WindowFeatures::PlantationShutters => "Plantation Shutters".into(),
+
+            WindowFeatures::Screens => "Screens".into(),
+
+            WindowFeatures::Shutters => "Shutters".into(),
+
+            WindowFeatures::Skylights => "Skylight(s)".into(),
+
+            WindowFeatures::SolarScreens => "Solar Screens".into(),
+
+            WindowFeatures::StormWindows => "Storm Window(s)".into(),
+
+            WindowFeatures::TintedWindows => "Tinted Windows".into(),
+
+            WindowFeatures::TriplePaneWindows => "Triple Pane Windows".into(),
+
+            WindowFeatures::WindowCoverings => "Window Coverings".into(),
+
+            WindowFeatures::WindowTreatments => "Window Treatments".into(),
+
+            WindowFeatures::WoodFrames => "Wood Frames".into(),
+
+            WindowFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            WindowFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for WindowFeatures {
     fn from(s: String) -> WindowFeatures {
         match s.as_ref() {
@@ -238,45 +439,5 @@ impl<'de> Deserialize<'de> for WindowFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_window_features_format {
-    use super::WindowFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<WindowFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<WindowFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

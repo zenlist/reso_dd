@@ -45,6 +45,135 @@ pub enum ChangeType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ChangeType {
+    fn from_str(s: &str) -> ChangeType {
+        match s {
+            "Active" => ChangeType::Active,
+
+            "Active Under Contract" => ChangeType::ActiveUnderContract,
+
+            "Back On Market" => ChangeType::BackOnMarket,
+
+            "Canceled" => ChangeType::Canceled,
+
+            "Closed" => ChangeType::Closed,
+
+            "Deleted" => ChangeType::Deleted,
+
+            "Expired" => ChangeType::Expired,
+
+            "Hold" => ChangeType::Hold,
+
+            "New Listing" => ChangeType::NewListing,
+
+            "Pending" => ChangeType::Pending,
+
+            "Price Change" => ChangeType::PriceChange,
+
+            "Withdrawn" => ChangeType::Withdrawn,
+
+            _ => ChangeType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ChangeType {
+        match s.as_ref() {
+            "Active" => ChangeType::Active,
+
+            "Active Under Contract" => ChangeType::ActiveUnderContract,
+
+            "Back On Market" => ChangeType::BackOnMarket,
+
+            "Canceled" => ChangeType::Canceled,
+
+            "Closed" => ChangeType::Closed,
+
+            "Deleted" => ChangeType::Deleted,
+
+            "Expired" => ChangeType::Expired,
+
+            "Hold" => ChangeType::Hold,
+
+            "New Listing" => ChangeType::NewListing,
+
+            "Pending" => ChangeType::Pending,
+
+            "Price Change" => ChangeType::PriceChange,
+
+            "Withdrawn" => ChangeType::Withdrawn,
+
+            _ => ChangeType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ChangeType::Active => "Active",
+
+            ChangeType::ActiveUnderContract => "Active Under Contract",
+
+            ChangeType::BackOnMarket => "Back On Market",
+
+            ChangeType::Canceled => "Canceled",
+
+            ChangeType::Closed => "Closed",
+
+            ChangeType::Deleted => "Deleted",
+
+            ChangeType::Expired => "Expired",
+
+            ChangeType::Hold => "Hold",
+
+            ChangeType::NewListing => "New Listing",
+
+            ChangeType::Pending => "Pending",
+
+            ChangeType::PriceChange => "Price Change",
+
+            ChangeType::Withdrawn => "Withdrawn",
+
+            ChangeType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ChangeType::Active => "Active".into(),
+
+            ChangeType::ActiveUnderContract => "Active Under Contract".into(),
+
+            ChangeType::BackOnMarket => "Back On Market".into(),
+
+            ChangeType::Canceled => "Canceled".into(),
+
+            ChangeType::Closed => "Closed".into(),
+
+            ChangeType::Deleted => "Deleted".into(),
+
+            ChangeType::Expired => "Expired".into(),
+
+            ChangeType::Hold => "Hold".into(),
+
+            ChangeType::NewListing => "New Listing".into(),
+
+            ChangeType::Pending => "Pending".into(),
+
+            ChangeType::PriceChange => "Price Change".into(),
+
+            ChangeType::Withdrawn => "Withdrawn".into(),
+
+            ChangeType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ChangeType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ChangeType {
     fn from(s: String) -> ChangeType {
         match s.as_ref() {
@@ -157,43 +286,5 @@ impl<'de> Deserialize<'de> for ChangeType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_change_type_format {
-    use super::ChangeType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ChangeType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<ChangeType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

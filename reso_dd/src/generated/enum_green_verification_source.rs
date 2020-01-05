@@ -39,6 +39,119 @@ pub enum GreenVerificationSource {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for GreenVerificationSource {
+    fn from_str(s: &str) -> GreenVerificationSource {
+        match s {
+            "Administrator" => GreenVerificationSource::Administrator,
+
+            "Assessor" => GreenVerificationSource::Assessor,
+
+            "Builder" => GreenVerificationSource::Builder,
+
+            "Contractor or Installer" => GreenVerificationSource::ContractororInstaller,
+
+            "Other" => GreenVerificationSource::Other,
+
+            "Owner" => GreenVerificationSource::Owner,
+
+            "Program Sponsor" => GreenVerificationSource::ProgramSponsor,
+
+            "Program Verifier" => GreenVerificationSource::ProgramVerifier,
+
+            "Public Records" => GreenVerificationSource::PublicRecords,
+
+            "See Remarks" => GreenVerificationSource::SeeRemarks,
+
+            _ => GreenVerificationSource::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> GreenVerificationSource {
+        match s.as_ref() {
+            "Administrator" => GreenVerificationSource::Administrator,
+
+            "Assessor" => GreenVerificationSource::Assessor,
+
+            "Builder" => GreenVerificationSource::Builder,
+
+            "Contractor or Installer" => GreenVerificationSource::ContractororInstaller,
+
+            "Other" => GreenVerificationSource::Other,
+
+            "Owner" => GreenVerificationSource::Owner,
+
+            "Program Sponsor" => GreenVerificationSource::ProgramSponsor,
+
+            "Program Verifier" => GreenVerificationSource::ProgramVerifier,
+
+            "Public Records" => GreenVerificationSource::PublicRecords,
+
+            "See Remarks" => GreenVerificationSource::SeeRemarks,
+
+            _ => GreenVerificationSource::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            GreenVerificationSource::Administrator => "Administrator",
+
+            GreenVerificationSource::Assessor => "Assessor",
+
+            GreenVerificationSource::Builder => "Builder",
+
+            GreenVerificationSource::ContractororInstaller => "Contractor or Installer",
+
+            GreenVerificationSource::Other => "Other",
+
+            GreenVerificationSource::Owner => "Owner",
+
+            GreenVerificationSource::ProgramSponsor => "Program Sponsor",
+
+            GreenVerificationSource::ProgramVerifier => "Program Verifier",
+
+            GreenVerificationSource::PublicRecords => "Public Records",
+
+            GreenVerificationSource::SeeRemarks => "See Remarks",
+
+            GreenVerificationSource::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            GreenVerificationSource::Administrator => "Administrator".into(),
+
+            GreenVerificationSource::Assessor => "Assessor".into(),
+
+            GreenVerificationSource::Builder => "Builder".into(),
+
+            GreenVerificationSource::ContractororInstaller => "Contractor or Installer".into(),
+
+            GreenVerificationSource::Other => "Other".into(),
+
+            GreenVerificationSource::Owner => "Owner".into(),
+
+            GreenVerificationSource::ProgramSponsor => "Program Sponsor".into(),
+
+            GreenVerificationSource::ProgramVerifier => "Program Verifier".into(),
+
+            GreenVerificationSource::PublicRecords => "Public Records".into(),
+
+            GreenVerificationSource::SeeRemarks => "See Remarks".into(),
+
+            GreenVerificationSource::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            GreenVerificationSource::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for GreenVerificationSource {
     fn from(s: String) -> GreenVerificationSource {
         match s.as_ref() {
@@ -139,45 +252,5 @@ impl<'de> Deserialize<'de> for GreenVerificationSource {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_green_verification_source_format {
-    use super::GreenVerificationSource;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<GreenVerificationSource>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<GreenVerificationSource>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

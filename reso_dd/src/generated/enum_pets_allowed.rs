@@ -33,6 +33,103 @@ pub enum PetsAllowed {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PetsAllowed {
+    fn from_str(s: &str) -> PetsAllowed {
+        match s {
+            "Breed Restrictions" => PetsAllowed::BreedRestrictions,
+
+            "Call" => PetsAllowed::Call,
+
+            "Cats OK" => PetsAllowed::CatsOK,
+
+            "Dogs OK" => PetsAllowed::DogsOK,
+
+            "No" => PetsAllowed::No,
+
+            "Number Limit" => PetsAllowed::NumberLimit,
+
+            "Size Limit" => PetsAllowed::SizeLimit,
+
+            "Yes" => PetsAllowed::Yes,
+
+            _ => PetsAllowed::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PetsAllowed {
+        match s.as_ref() {
+            "Breed Restrictions" => PetsAllowed::BreedRestrictions,
+
+            "Call" => PetsAllowed::Call,
+
+            "Cats OK" => PetsAllowed::CatsOK,
+
+            "Dogs OK" => PetsAllowed::DogsOK,
+
+            "No" => PetsAllowed::No,
+
+            "Number Limit" => PetsAllowed::NumberLimit,
+
+            "Size Limit" => PetsAllowed::SizeLimit,
+
+            "Yes" => PetsAllowed::Yes,
+
+            _ => PetsAllowed::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PetsAllowed::BreedRestrictions => "Breed Restrictions",
+
+            PetsAllowed::Call => "Call",
+
+            PetsAllowed::CatsOK => "Cats OK",
+
+            PetsAllowed::DogsOK => "Dogs OK",
+
+            PetsAllowed::No => "No",
+
+            PetsAllowed::NumberLimit => "Number Limit",
+
+            PetsAllowed::SizeLimit => "Size Limit",
+
+            PetsAllowed::Yes => "Yes",
+
+            PetsAllowed::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PetsAllowed::BreedRestrictions => "Breed Restrictions".into(),
+
+            PetsAllowed::Call => "Call".into(),
+
+            PetsAllowed::CatsOK => "Cats OK".into(),
+
+            PetsAllowed::DogsOK => "Dogs OK".into(),
+
+            PetsAllowed::No => "No".into(),
+
+            PetsAllowed::NumberLimit => "Number Limit".into(),
+
+            PetsAllowed::SizeLimit => "Size Limit".into(),
+
+            PetsAllowed::Yes => "Yes".into(),
+
+            PetsAllowed::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PetsAllowed::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PetsAllowed {
     fn from(s: String) -> PetsAllowed {
         match s.as_ref() {
@@ -121,43 +218,5 @@ impl<'de> Deserialize<'de> for PetsAllowed {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_pets_allowed_format {
-    use super::PetsAllowed;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PetsAllowed>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<PetsAllowed>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

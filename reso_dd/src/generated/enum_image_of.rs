@@ -240,6 +240,655 @@ pub enum ImageOf {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ImageOf {
+    fn from_str(s: &str) -> ImageOf {
+        match s {
+            "Aerial View" => ImageOf::AerialView,
+
+            "Atrium" => ImageOf::Atrium,
+
+            "Attic" => ImageOf::Attic,
+
+            "Back of Structure" => ImageOf::BackofStructure,
+
+            "Balcony" => ImageOf::Balcony,
+
+            "Bar" => ImageOf::Bar,
+
+            "Barn" => ImageOf::Barn,
+
+            "Basement" => ImageOf::Basement,
+
+            "Bathroom" => ImageOf::Bathroom,
+
+            "Bedroom" => ImageOf::Bedroom,
+
+            "Bonus Room" => ImageOf::BonusRoom,
+
+            "Breakfast Area" => ImageOf::BreakfastArea,
+
+            "Closet" => ImageOf::Closet,
+
+            "Community" => ImageOf::Community,
+
+            "Courtyard" => ImageOf::Courtyard,
+
+            "Deck" => ImageOf::Deck,
+
+            "Den" => ImageOf::Den,
+
+            "Dining Area" => ImageOf::DiningArea,
+
+            "Dining Room" => ImageOf::DiningRoom,
+
+            "Dock" => ImageOf::Dock,
+
+            "Entry" => ImageOf::Entry,
+
+            "Exercise Room" => ImageOf::ExerciseRoom,
+
+            "Family Room" => ImageOf::FamilyRoom,
+
+            "Fence" => ImageOf::Fence,
+
+            "Fireplace" => ImageOf::Fireplace,
+
+            "Floor Plan" => ImageOf::FloorPlan,
+
+            "Front of Structure" => ImageOf::FrontofStructure,
+
+            "Game Room" => ImageOf::GameRoom,
+
+            "Garage" => ImageOf::Garage,
+
+            "Garden" => ImageOf::Garden,
+
+            "Golf Course" => ImageOf::GolfCourse,
+
+            "Great Room" => ImageOf::GreatRoom,
+
+            "Guest Quarters" => ImageOf::GuestQuarters,
+
+            "Gym" => ImageOf::Gym,
+
+            "Hobby Room" => ImageOf::HobbyRoom,
+
+            "Inlaw" => ImageOf::Inlaw,
+
+            "Kitchen" => ImageOf::Kitchen,
+
+            "Lake" => ImageOf::Lake,
+
+            "Laundry" => ImageOf::Laundry,
+
+            "Library" => ImageOf::Library,
+
+            "Living Room" => ImageOf::LivingRoom,
+
+            "Loading Dock" => ImageOf::LoadingDock,
+
+            "Lobby" => ImageOf::Lobby,
+
+            "Loft" => ImageOf::Loft,
+
+            "Lot" => ImageOf::Lot,
+
+            "Master Bathroom" => ImageOf::MasterBathroom,
+
+            "Master Bedroom" => ImageOf::MasterBedroom,
+
+            "Media Room" => ImageOf::MediaRoom,
+
+            "Mud Room" => ImageOf::MudRoom,
+
+            "Nursery" => ImageOf::Nursery,
+
+            "Office" => ImageOf::Office,
+
+            "Other" => ImageOf::Other,
+
+            "Out Buildings" => ImageOf::OutBuildings,
+
+            "Pantry" => ImageOf::Pantry,
+
+            "Parking" => ImageOf::Parking,
+
+            "Patio" => ImageOf::Patio,
+
+            "Pier" => ImageOf::Pier,
+
+            "Plat Map" => ImageOf::PlatMap,
+
+            "Pond" => ImageOf::Pond,
+
+            "Pool" => ImageOf::Pool,
+
+            "Reception" => ImageOf::Reception,
+
+            "Recreation Room" => ImageOf::RecreationRoom,
+
+            "Sauna" => ImageOf::Sauna,
+
+            "Showroom" => ImageOf::Showroom,
+
+            "Side of Structure" => ImageOf::SideofStructure,
+
+            "Sitting Room" => ImageOf::SittingRoom,
+
+            "Spa" => ImageOf::Spa,
+
+            "Stable" => ImageOf::Stable,
+
+            "Storage" => ImageOf::Storage,
+
+            "Studio" => ImageOf::Studio,
+
+            "Study" => ImageOf::Study,
+
+            "Sun Room" => ImageOf::SunRoom,
+
+            "View" => ImageOf::View,
+
+            "Waterfront" => ImageOf::Waterfront,
+
+            "Wine Cellar" => ImageOf::WineCellar,
+
+            "Workshop" => ImageOf::Workshop,
+
+            "Yard" => ImageOf::Yard,
+
+            _ => ImageOf::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ImageOf {
+        match s.as_ref() {
+            "Aerial View" => ImageOf::AerialView,
+
+            "Atrium" => ImageOf::Atrium,
+
+            "Attic" => ImageOf::Attic,
+
+            "Back of Structure" => ImageOf::BackofStructure,
+
+            "Balcony" => ImageOf::Balcony,
+
+            "Bar" => ImageOf::Bar,
+
+            "Barn" => ImageOf::Barn,
+
+            "Basement" => ImageOf::Basement,
+
+            "Bathroom" => ImageOf::Bathroom,
+
+            "Bedroom" => ImageOf::Bedroom,
+
+            "Bonus Room" => ImageOf::BonusRoom,
+
+            "Breakfast Area" => ImageOf::BreakfastArea,
+
+            "Closet" => ImageOf::Closet,
+
+            "Community" => ImageOf::Community,
+
+            "Courtyard" => ImageOf::Courtyard,
+
+            "Deck" => ImageOf::Deck,
+
+            "Den" => ImageOf::Den,
+
+            "Dining Area" => ImageOf::DiningArea,
+
+            "Dining Room" => ImageOf::DiningRoom,
+
+            "Dock" => ImageOf::Dock,
+
+            "Entry" => ImageOf::Entry,
+
+            "Exercise Room" => ImageOf::ExerciseRoom,
+
+            "Family Room" => ImageOf::FamilyRoom,
+
+            "Fence" => ImageOf::Fence,
+
+            "Fireplace" => ImageOf::Fireplace,
+
+            "Floor Plan" => ImageOf::FloorPlan,
+
+            "Front of Structure" => ImageOf::FrontofStructure,
+
+            "Game Room" => ImageOf::GameRoom,
+
+            "Garage" => ImageOf::Garage,
+
+            "Garden" => ImageOf::Garden,
+
+            "Golf Course" => ImageOf::GolfCourse,
+
+            "Great Room" => ImageOf::GreatRoom,
+
+            "Guest Quarters" => ImageOf::GuestQuarters,
+
+            "Gym" => ImageOf::Gym,
+
+            "Hobby Room" => ImageOf::HobbyRoom,
+
+            "Inlaw" => ImageOf::Inlaw,
+
+            "Kitchen" => ImageOf::Kitchen,
+
+            "Lake" => ImageOf::Lake,
+
+            "Laundry" => ImageOf::Laundry,
+
+            "Library" => ImageOf::Library,
+
+            "Living Room" => ImageOf::LivingRoom,
+
+            "Loading Dock" => ImageOf::LoadingDock,
+
+            "Lobby" => ImageOf::Lobby,
+
+            "Loft" => ImageOf::Loft,
+
+            "Lot" => ImageOf::Lot,
+
+            "Master Bathroom" => ImageOf::MasterBathroom,
+
+            "Master Bedroom" => ImageOf::MasterBedroom,
+
+            "Media Room" => ImageOf::MediaRoom,
+
+            "Mud Room" => ImageOf::MudRoom,
+
+            "Nursery" => ImageOf::Nursery,
+
+            "Office" => ImageOf::Office,
+
+            "Other" => ImageOf::Other,
+
+            "Out Buildings" => ImageOf::OutBuildings,
+
+            "Pantry" => ImageOf::Pantry,
+
+            "Parking" => ImageOf::Parking,
+
+            "Patio" => ImageOf::Patio,
+
+            "Pier" => ImageOf::Pier,
+
+            "Plat Map" => ImageOf::PlatMap,
+
+            "Pond" => ImageOf::Pond,
+
+            "Pool" => ImageOf::Pool,
+
+            "Reception" => ImageOf::Reception,
+
+            "Recreation Room" => ImageOf::RecreationRoom,
+
+            "Sauna" => ImageOf::Sauna,
+
+            "Showroom" => ImageOf::Showroom,
+
+            "Side of Structure" => ImageOf::SideofStructure,
+
+            "Sitting Room" => ImageOf::SittingRoom,
+
+            "Spa" => ImageOf::Spa,
+
+            "Stable" => ImageOf::Stable,
+
+            "Storage" => ImageOf::Storage,
+
+            "Studio" => ImageOf::Studio,
+
+            "Study" => ImageOf::Study,
+
+            "Sun Room" => ImageOf::SunRoom,
+
+            "View" => ImageOf::View,
+
+            "Waterfront" => ImageOf::Waterfront,
+
+            "Wine Cellar" => ImageOf::WineCellar,
+
+            "Workshop" => ImageOf::Workshop,
+
+            "Yard" => ImageOf::Yard,
+
+            _ => ImageOf::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ImageOf::AerialView => "Aerial View",
+
+            ImageOf::Atrium => "Atrium",
+
+            ImageOf::Attic => "Attic",
+
+            ImageOf::BackofStructure => "Back of Structure",
+
+            ImageOf::Balcony => "Balcony",
+
+            ImageOf::Bar => "Bar",
+
+            ImageOf::Barn => "Barn",
+
+            ImageOf::Basement => "Basement",
+
+            ImageOf::Bathroom => "Bathroom",
+
+            ImageOf::Bedroom => "Bedroom",
+
+            ImageOf::BonusRoom => "Bonus Room",
+
+            ImageOf::BreakfastArea => "Breakfast Area",
+
+            ImageOf::Closet => "Closet",
+
+            ImageOf::Community => "Community",
+
+            ImageOf::Courtyard => "Courtyard",
+
+            ImageOf::Deck => "Deck",
+
+            ImageOf::Den => "Den",
+
+            ImageOf::DiningArea => "Dining Area",
+
+            ImageOf::DiningRoom => "Dining Room",
+
+            ImageOf::Dock => "Dock",
+
+            ImageOf::Entry => "Entry",
+
+            ImageOf::ExerciseRoom => "Exercise Room",
+
+            ImageOf::FamilyRoom => "Family Room",
+
+            ImageOf::Fence => "Fence",
+
+            ImageOf::Fireplace => "Fireplace",
+
+            ImageOf::FloorPlan => "Floor Plan",
+
+            ImageOf::FrontofStructure => "Front of Structure",
+
+            ImageOf::GameRoom => "Game Room",
+
+            ImageOf::Garage => "Garage",
+
+            ImageOf::Garden => "Garden",
+
+            ImageOf::GolfCourse => "Golf Course",
+
+            ImageOf::GreatRoom => "Great Room",
+
+            ImageOf::GuestQuarters => "Guest Quarters",
+
+            ImageOf::Gym => "Gym",
+
+            ImageOf::HobbyRoom => "Hobby Room",
+
+            ImageOf::Inlaw => "Inlaw",
+
+            ImageOf::Kitchen => "Kitchen",
+
+            ImageOf::Lake => "Lake",
+
+            ImageOf::Laundry => "Laundry",
+
+            ImageOf::Library => "Library",
+
+            ImageOf::LivingRoom => "Living Room",
+
+            ImageOf::LoadingDock => "Loading Dock",
+
+            ImageOf::Lobby => "Lobby",
+
+            ImageOf::Loft => "Loft",
+
+            ImageOf::Lot => "Lot",
+
+            ImageOf::MasterBathroom => "Master Bathroom",
+
+            ImageOf::MasterBedroom => "Master Bedroom",
+
+            ImageOf::MediaRoom => "Media Room",
+
+            ImageOf::MudRoom => "Mud Room",
+
+            ImageOf::Nursery => "Nursery",
+
+            ImageOf::Office => "Office",
+
+            ImageOf::Other => "Other",
+
+            ImageOf::OutBuildings => "Out Buildings",
+
+            ImageOf::Pantry => "Pantry",
+
+            ImageOf::Parking => "Parking",
+
+            ImageOf::Patio => "Patio",
+
+            ImageOf::Pier => "Pier",
+
+            ImageOf::PlatMap => "Plat Map",
+
+            ImageOf::Pond => "Pond",
+
+            ImageOf::Pool => "Pool",
+
+            ImageOf::Reception => "Reception",
+
+            ImageOf::RecreationRoom => "Recreation Room",
+
+            ImageOf::Sauna => "Sauna",
+
+            ImageOf::Showroom => "Showroom",
+
+            ImageOf::SideofStructure => "Side of Structure",
+
+            ImageOf::SittingRoom => "Sitting Room",
+
+            ImageOf::Spa => "Spa",
+
+            ImageOf::Stable => "Stable",
+
+            ImageOf::Storage => "Storage",
+
+            ImageOf::Studio => "Studio",
+
+            ImageOf::Study => "Study",
+
+            ImageOf::SunRoom => "Sun Room",
+
+            ImageOf::View => "View",
+
+            ImageOf::Waterfront => "Waterfront",
+
+            ImageOf::WineCellar => "Wine Cellar",
+
+            ImageOf::Workshop => "Workshop",
+
+            ImageOf::Yard => "Yard",
+
+            ImageOf::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ImageOf::AerialView => "Aerial View".into(),
+
+            ImageOf::Atrium => "Atrium".into(),
+
+            ImageOf::Attic => "Attic".into(),
+
+            ImageOf::BackofStructure => "Back of Structure".into(),
+
+            ImageOf::Balcony => "Balcony".into(),
+
+            ImageOf::Bar => "Bar".into(),
+
+            ImageOf::Barn => "Barn".into(),
+
+            ImageOf::Basement => "Basement".into(),
+
+            ImageOf::Bathroom => "Bathroom".into(),
+
+            ImageOf::Bedroom => "Bedroom".into(),
+
+            ImageOf::BonusRoom => "Bonus Room".into(),
+
+            ImageOf::BreakfastArea => "Breakfast Area".into(),
+
+            ImageOf::Closet => "Closet".into(),
+
+            ImageOf::Community => "Community".into(),
+
+            ImageOf::Courtyard => "Courtyard".into(),
+
+            ImageOf::Deck => "Deck".into(),
+
+            ImageOf::Den => "Den".into(),
+
+            ImageOf::DiningArea => "Dining Area".into(),
+
+            ImageOf::DiningRoom => "Dining Room".into(),
+
+            ImageOf::Dock => "Dock".into(),
+
+            ImageOf::Entry => "Entry".into(),
+
+            ImageOf::ExerciseRoom => "Exercise Room".into(),
+
+            ImageOf::FamilyRoom => "Family Room".into(),
+
+            ImageOf::Fence => "Fence".into(),
+
+            ImageOf::Fireplace => "Fireplace".into(),
+
+            ImageOf::FloorPlan => "Floor Plan".into(),
+
+            ImageOf::FrontofStructure => "Front of Structure".into(),
+
+            ImageOf::GameRoom => "Game Room".into(),
+
+            ImageOf::Garage => "Garage".into(),
+
+            ImageOf::Garden => "Garden".into(),
+
+            ImageOf::GolfCourse => "Golf Course".into(),
+
+            ImageOf::GreatRoom => "Great Room".into(),
+
+            ImageOf::GuestQuarters => "Guest Quarters".into(),
+
+            ImageOf::Gym => "Gym".into(),
+
+            ImageOf::HobbyRoom => "Hobby Room".into(),
+
+            ImageOf::Inlaw => "Inlaw".into(),
+
+            ImageOf::Kitchen => "Kitchen".into(),
+
+            ImageOf::Lake => "Lake".into(),
+
+            ImageOf::Laundry => "Laundry".into(),
+
+            ImageOf::Library => "Library".into(),
+
+            ImageOf::LivingRoom => "Living Room".into(),
+
+            ImageOf::LoadingDock => "Loading Dock".into(),
+
+            ImageOf::Lobby => "Lobby".into(),
+
+            ImageOf::Loft => "Loft".into(),
+
+            ImageOf::Lot => "Lot".into(),
+
+            ImageOf::MasterBathroom => "Master Bathroom".into(),
+
+            ImageOf::MasterBedroom => "Master Bedroom".into(),
+
+            ImageOf::MediaRoom => "Media Room".into(),
+
+            ImageOf::MudRoom => "Mud Room".into(),
+
+            ImageOf::Nursery => "Nursery".into(),
+
+            ImageOf::Office => "Office".into(),
+
+            ImageOf::Other => "Other".into(),
+
+            ImageOf::OutBuildings => "Out Buildings".into(),
+
+            ImageOf::Pantry => "Pantry".into(),
+
+            ImageOf::Parking => "Parking".into(),
+
+            ImageOf::Patio => "Patio".into(),
+
+            ImageOf::Pier => "Pier".into(),
+
+            ImageOf::PlatMap => "Plat Map".into(),
+
+            ImageOf::Pond => "Pond".into(),
+
+            ImageOf::Pool => "Pool".into(),
+
+            ImageOf::Reception => "Reception".into(),
+
+            ImageOf::RecreationRoom => "Recreation Room".into(),
+
+            ImageOf::Sauna => "Sauna".into(),
+
+            ImageOf::Showroom => "Showroom".into(),
+
+            ImageOf::SideofStructure => "Side of Structure".into(),
+
+            ImageOf::SittingRoom => "Sitting Room".into(),
+
+            ImageOf::Spa => "Spa".into(),
+
+            ImageOf::Stable => "Stable".into(),
+
+            ImageOf::Storage => "Storage".into(),
+
+            ImageOf::Studio => "Studio".into(),
+
+            ImageOf::Study => "Study".into(),
+
+            ImageOf::SunRoom => "Sun Room".into(),
+
+            ImageOf::View => "View".into(),
+
+            ImageOf::Waterfront => "Waterfront".into(),
+
+            ImageOf::WineCellar => "Wine Cellar".into(),
+
+            ImageOf::Workshop => "Workshop".into(),
+
+            ImageOf::Yard => "Yard".into(),
+
+            ImageOf::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ImageOf::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ImageOf {
     fn from(s: String) -> ImageOf {
         match s.as_ref() {
@@ -742,43 +1391,5 @@ impl<'de> Deserialize<'de> for ImageOf {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_image_of_format {
-    use super::ImageOf;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ImageOf>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<ImageOf>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

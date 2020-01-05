@@ -57,6 +57,167 @@ pub enum PatioAndPorchFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PatioAndPorchFeatures {
+    fn from_str(s: &str) -> PatioAndPorchFeatures {
+        match s {
+            "Awning(s)" => PatioAndPorchFeatures::Awnings,
+
+            "Covered" => PatioAndPorchFeatures::Covered,
+
+            "Deck" => PatioAndPorchFeatures::Deck,
+
+            "Enclosed" => PatioAndPorchFeatures::Enclosed,
+
+            "Front Porch" => PatioAndPorchFeatures::FrontPorch,
+
+            "Glass Enclosed" => PatioAndPorchFeatures::GlassEnclosed,
+
+            "None" => PatioAndPorchFeatures::None,
+
+            "Other" => PatioAndPorchFeatures::Other,
+
+            "Patio" => PatioAndPorchFeatures::Patio,
+
+            "Porch" => PatioAndPorchFeatures::Porch,
+
+            "Rear Porch" => PatioAndPorchFeatures::RearPorch,
+
+            "Screened" => PatioAndPorchFeatures::Screened,
+
+            "See Remarks" => PatioAndPorchFeatures::SeeRemarks,
+
+            "Side Porch" => PatioAndPorchFeatures::SidePorch,
+
+            "Terrace" => PatioAndPorchFeatures::Terrace,
+
+            "Wrap Around" => PatioAndPorchFeatures::WrapAround,
+
+            _ => PatioAndPorchFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PatioAndPorchFeatures {
+        match s.as_ref() {
+            "Awning(s)" => PatioAndPorchFeatures::Awnings,
+
+            "Covered" => PatioAndPorchFeatures::Covered,
+
+            "Deck" => PatioAndPorchFeatures::Deck,
+
+            "Enclosed" => PatioAndPorchFeatures::Enclosed,
+
+            "Front Porch" => PatioAndPorchFeatures::FrontPorch,
+
+            "Glass Enclosed" => PatioAndPorchFeatures::GlassEnclosed,
+
+            "None" => PatioAndPorchFeatures::None,
+
+            "Other" => PatioAndPorchFeatures::Other,
+
+            "Patio" => PatioAndPorchFeatures::Patio,
+
+            "Porch" => PatioAndPorchFeatures::Porch,
+
+            "Rear Porch" => PatioAndPorchFeatures::RearPorch,
+
+            "Screened" => PatioAndPorchFeatures::Screened,
+
+            "See Remarks" => PatioAndPorchFeatures::SeeRemarks,
+
+            "Side Porch" => PatioAndPorchFeatures::SidePorch,
+
+            "Terrace" => PatioAndPorchFeatures::Terrace,
+
+            "Wrap Around" => PatioAndPorchFeatures::WrapAround,
+
+            _ => PatioAndPorchFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PatioAndPorchFeatures::Awnings => "Awning(s)",
+
+            PatioAndPorchFeatures::Covered => "Covered",
+
+            PatioAndPorchFeatures::Deck => "Deck",
+
+            PatioAndPorchFeatures::Enclosed => "Enclosed",
+
+            PatioAndPorchFeatures::FrontPorch => "Front Porch",
+
+            PatioAndPorchFeatures::GlassEnclosed => "Glass Enclosed",
+
+            PatioAndPorchFeatures::None => "None",
+
+            PatioAndPorchFeatures::Other => "Other",
+
+            PatioAndPorchFeatures::Patio => "Patio",
+
+            PatioAndPorchFeatures::Porch => "Porch",
+
+            PatioAndPorchFeatures::RearPorch => "Rear Porch",
+
+            PatioAndPorchFeatures::Screened => "Screened",
+
+            PatioAndPorchFeatures::SeeRemarks => "See Remarks",
+
+            PatioAndPorchFeatures::SidePorch => "Side Porch",
+
+            PatioAndPorchFeatures::Terrace => "Terrace",
+
+            PatioAndPorchFeatures::WrapAround => "Wrap Around",
+
+            PatioAndPorchFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PatioAndPorchFeatures::Awnings => "Awning(s)".into(),
+
+            PatioAndPorchFeatures::Covered => "Covered".into(),
+
+            PatioAndPorchFeatures::Deck => "Deck".into(),
+
+            PatioAndPorchFeatures::Enclosed => "Enclosed".into(),
+
+            PatioAndPorchFeatures::FrontPorch => "Front Porch".into(),
+
+            PatioAndPorchFeatures::GlassEnclosed => "Glass Enclosed".into(),
+
+            PatioAndPorchFeatures::None => "None".into(),
+
+            PatioAndPorchFeatures::Other => "Other".into(),
+
+            PatioAndPorchFeatures::Patio => "Patio".into(),
+
+            PatioAndPorchFeatures::Porch => "Porch".into(),
+
+            PatioAndPorchFeatures::RearPorch => "Rear Porch".into(),
+
+            PatioAndPorchFeatures::Screened => "Screened".into(),
+
+            PatioAndPorchFeatures::SeeRemarks => "See Remarks".into(),
+
+            PatioAndPorchFeatures::SidePorch => "Side Porch".into(),
+
+            PatioAndPorchFeatures::Terrace => "Terrace".into(),
+
+            PatioAndPorchFeatures::WrapAround => "Wrap Around".into(),
+
+            PatioAndPorchFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PatioAndPorchFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PatioAndPorchFeatures {
     fn from(s: String) -> PatioAndPorchFeatures {
         match s.as_ref() {
@@ -193,45 +354,5 @@ impl<'de> Deserialize<'de> for PatioAndPorchFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_patio_and_porch_features_format {
-    use super::PatioAndPorchFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PatioAndPorchFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<PatioAndPorchFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

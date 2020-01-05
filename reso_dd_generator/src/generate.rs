@@ -1,5 +1,7 @@
 use crate::case;
 use crate::dtd::*;
+use lazy_static::lazy_static;
+use regex::{Captures, Regex};
 use std::collections::HashSet;
 use std::fs::File;
 use std::io::Write;
@@ -33,12 +35,13 @@ impl Root {
                 continue;
             }
             let mod_name = resource.mod_name();
+            let struct_name = resource.struct_name();
             println!("Generating {}...", mod_name);
             let path = root_path.join(format!("{}.rs", mod_name));
             let mut file = File::create(&path)?;
             resource.generate(&mut file)?;
             writeln!(writer, "mod {};", mod_name)?;
-            writeln!(writer, "pub use {}::*;", mod_name)?;
+            writeln!(writer, "pub use {}::{};", mod_name, struct_name)?;
             strip_trailing_whitespace(&path)?;
         }
         for lookup_field in self.lookup_values.lookup_fields.iter() {
@@ -47,12 +50,13 @@ impl Root {
                 continue;
             }
             let mod_name = lookup_field.mod_name();
+            let enum_name = lookup_field.enum_name();
             println!("Generating {}...", mod_name);
             let path = root_path.join(format!("{}.rs", mod_name));
             let mut file = File::create(&path)?;
             lookup_field.generate(&mut file)?;
             writeln!(writer, "mod {};", mod_name)?;
-            writeln!(writer, "pub use {}::*;", mod_name)?;
+            writeln!(writer, "pub use {}::{};", mod_name, enum_name)?;
             strip_trailing_whitespace(&path)?;
         }
 
@@ -81,7 +85,6 @@ impl Resource {
             // THIS IS A GENERATED FILE
             // If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator
             #[allow(unused_imports)]
-            use crate::*;
             use serde::{{Serialize, Deserialize}};
 
             /// [{title}]({url})
@@ -114,11 +117,14 @@ impl Field {
 
     pub fn data_type(&self) -> String {
         if self.is_single_enum() {
-            return format!("Option<{}>", LookupField::build_enum_name(&self.lookup));
+            return format!(
+                "Option<crate::{}>",
+                LookupField::build_enum_name(&self.lookup)
+            );
         }
         if self.is_multi_enum() {
             return format!(
-                "Option<Vec<{}>>",
+                "Option<Vec<crate::{}>>",
                 LookupField::build_enum_name(&self.lookup)
             );
         }
@@ -142,10 +148,7 @@ impl Field {
         }
 
         let extra_serde = if self.is_multi_enum() {
-            format!(
-                r##"#[serde(default, with = "{serde_module}")]"##,
-                serde_module = LookupField::build_multiple_items_format_mod_name(&self.lookup)
-            )
+            format!(r##"#[serde(default, with = "crate::comma_delimited")]"##,)
         } else {
             "".into()
         };
@@ -184,17 +187,6 @@ impl LookupField {
         format!("enum_{}", case::snake_case(&self.enum_name()))
     }
 
-    pub fn multiple_items_format_mod_name(&self) -> String {
-        Self::build_multiple_items_format_mod_name(&self.title)
-    }
-
-    pub fn build_multiple_items_format_mod_name(title: &str) -> String {
-        format!(
-            "option_vec_{}_format",
-            case::snake_case(&Self::build_enum_name(title))
-        )
-    }
-
     pub fn generate(&self, writer: &mut impl Write) -> Result<(), std::io::Error> {
         if self.title.contains("[") {
             // TODO: There are some enums that are templated.
@@ -211,11 +203,12 @@ impl LookupField {
         )?;
 
         self.generate_enum(writer)?;
+        self.generate_impl_reso_enumeration(writer)?;
         self.generate_impl_from_string(writer)?;
         self.generate_impl_from_str(writer)?;
         self.generate_impl_into_str(writer)?;
         self.generate_impl_serde(writer)?;
-        self.generate_mod_opt_vec_item(writer)?;
+        // self.generate_mod_opt_vec_item(writer)?;
 
         Ok(())
     }
@@ -367,6 +360,176 @@ impl LookupField {
         Ok(())
     }
 
+    fn generate_impl_reso_enumeration(
+        &self,
+        writer: &mut impl Write,
+    ) -> Result<(), std::io::Error> {
+        let enum_name = self.enum_name();
+        writeln!(
+            writer,
+            r#"
+            impl crate::ResoEnumeration for {enum_name} {{
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            fn from_str(s: &str) -> {enum_name} {{
+                    match s {{
+            "#,
+            enum_name = enum_name,
+        )?;
+        // There's one situation where an element shows up twice. Ugh.
+        let mut seen = HashSet::new();
+        for value in self.values.iter() {
+            if seen.insert(value.lookup_value.clone()) {
+                write!(
+                    writer,
+                    r#"
+                    "{string_value}" => {enum_name}::{enum_value},
+                    "#,
+                    enum_name = enum_name,
+                    string_value = value.lookup_value,
+                    enum_value = value.enum_name()
+                )?;
+            }
+        }
+        writeln!(
+            writer,
+            r#"
+                    _ => {enum_name}::OpenEnumeration(s.into()),
+                }}
+            }}
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            fn from_string(s: String) -> {enum_name} {{
+                    match s.as_ref() {{
+            "#,
+            enum_name = enum_name,
+        )?;
+        // There's one situation where an element shows up twice. Ugh.
+        let mut seen = HashSet::new();
+        for value in self.values.iter() {
+            if seen.insert(value.lookup_value.clone()) {
+                write!(
+                    writer,
+                    r#"
+                    "{string_value}" => {enum_name}::{enum_value},
+                    "#,
+                    enum_name = enum_name,
+                    string_value = value.lookup_value,
+                    enum_value = value.enum_name()
+                )?;
+            }
+        }
+        writeln!(
+            writer,
+            r#"
+                    _ => {enum_name}::OpenEnumeration(s),
+                }}
+            }}
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            fn to_str(&self) -> &str {{
+                match self {{
+            "#,
+        )?;
+        // There's one situation where an element shows up twice. Ugh.
+        let mut seen = HashSet::new();
+        for value in self.values.iter() {
+            if seen.insert(value.lookup_value.clone()) {
+                write!(
+                    writer,
+                    r#"
+                    {enum_name}::{enum_value} => "{string_value}",
+                    "#,
+                    enum_name = enum_name,
+                    string_value = value.lookup_value,
+                    enum_value = value.enum_name()
+                )?;
+            }
+        }
+        writeln!(
+            writer,
+            r#"
+                    {enum_name}::OpenEnumeration(ref s) => s,
+                }}
+            }}
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            fn into_string(self) -> String {{
+                match self {{
+            "#,
+        )?;
+        // There's one situation where an element shows up twice. Ugh.
+        let mut seen = HashSet::new();
+        for value in self.values.iter() {
+            if seen.insert(value.lookup_value.clone()) {
+                write!(
+                    writer,
+                    r#"
+                    {enum_name}::{enum_value} => "{string_value}".into(),
+                    "#,
+                    enum_name = enum_name,
+                    string_value = value.lookup_value,
+                    enum_value = value.enum_name()
+                )?;
+            }
+        }
+        writeln!(
+            writer,
+            r#"
+                    {enum_name}::OpenEnumeration(s) => s,
+                }}
+            }}
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            fn fallback_value(&self) -> Option<&str> {{
+                match self {{
+            "#,
+        )?;
+        writeln!(
+            writer,
+            r#"
+                    {enum_name}::OpenEnumeration(ref s) => Some(s),
+                    _ => None,
+                }}
+            }}
+            "#,
+            enum_name = enum_name,
+        )?;
+
+        writeln!(
+            writer,
+            r#"
+            }}
+            "#,
+        )?;
+        Ok(())
+    }
+
     fn generate_impl_serde(&self, writer: &mut impl Write) -> Result<(), std::io::Error> {
         writeln!(
             writer,
@@ -391,57 +554,15 @@ impl LookupField {
             enum_name = self.enum_name()
         )
     }
-
-    fn generate_mod_opt_vec_item(&self, writer: &mut impl Write) -> Result<(), std::io::Error> {
-        writeln!(
-            writer,
-            r#"
-            pub(crate) mod {multiple_items_format_mod_name} {{
-                use super::{enum_name};
-                use serde::{{Deserialize, Serializer, Deserializer}};
-
-                #[allow(dead_code)]
-                pub(crate) fn serialize<S>(
-                    items: &Option<Vec<{enum_name}>>,
-                    serializer: S,
-                ) -> Result<S::Ok, S::Error>
-                where S: Serializer,
-                {{
-                    match items {{
-                        None => return serializer.serialize_none(),
-                        Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-                        Some(ref vec) => {{
-                            let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                            let joined = items.join(",");
-                            serializer.serialize_str(&joined)
-                        }}
-                    }}
-                }}
-
-                #[allow(dead_code)]
-                pub(crate) fn deserialize<'de, D>(
-                    deserializer: D,
-                ) -> Result<Option<Vec<{enum_name}>>, D::Error>
-                where D: Deserializer<'de>,
-                {{
-                    let s = String::deserialize(deserializer)?;
-                    if s == "" {{
-                        return Ok(Some(vec![]));
-                    }}
-
-                    let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-                    Ok(Some(items))
-                }}
-            }}
-            "#,
-            enum_name = self.enum_name(),
-            multiple_items_format_mod_name = self.multiple_items_format_mod_name(),
-        )
-    }
 }
 
 impl LookupValue {
     pub fn enum_name(&self) -> String {
+        lazy_static! {
+            static ref RE: Regex = Regex::new(r"[-/\s&'().,]").unwrap();
+            static ref UPPERCASE: Regex = Regex::new(r"^.").unwrap();
+        }
+
         if self.lookup_value == "%" {
             return "Percent".into();
         }
@@ -455,7 +576,11 @@ impl LookupValue {
             return "OpenLessThan8HoursDay".into();
         }
 
-        let result = case::pascal_case(&self.lookup_value);
+        let result = RE.replace_all(&self.lookup_value, "");
+        let result = result.replace("+", "Plus");
+        let result = UPPERCASE.replace(&result, |caps: &Captures| caps[0].to_uppercase());
+        let result = result.into_owned();
+
         if result.chars().nth(0).unwrap().is_alphabetic() {
             result
         } else {

@@ -579,6 +579,1559 @@ pub enum Languages {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Languages {
+    fn from_str(s: &str) -> Languages {
+        match s {
+            "Abkhazian" => Languages::Abkhazian,
+
+            "Afar" => Languages::Afar,
+
+            "Afrikaans" => Languages::Afrikaans,
+
+            "Albanian" => Languages::Albanian,
+
+            "American Sign Language" => Languages::AmericanSignLanguage,
+
+            "Amharic" => Languages::Amharic,
+
+            "Arabic" => Languages::Arabic,
+
+            "Aramaic" => Languages::Aramaic,
+
+            "Armenian" => Languages::Armenian,
+
+            "Assamese" => Languages::Assamese,
+
+            "Assyrian Neo-Aramaic" => Languages::AssyrianNeoAramaic,
+
+            "Avestan" => Languages::Avestan,
+
+            "Aymara" => Languages::Aymara,
+
+            "Azerbaijani" => Languages::Azerbaijani,
+
+            "Bambara" => Languages::Bambara,
+
+            "Bashkir" => Languages::Bashkir,
+
+            "Basque" => Languages::Basque,
+
+            "Bengali" => Languages::Bengali,
+
+            "Bihari" => Languages::Bihari,
+
+            "Bikol" => Languages::Bikol,
+
+            "Bislama" => Languages::Bislama,
+
+            "Bosnian" => Languages::Bosnian,
+
+            "Brazilian Portuguese" => Languages::BrazilianPortuguese,
+
+            "Bulgarian" => Languages::Bulgarian,
+
+            "Burmese" => Languages::Burmese,
+
+            "Byelorussian" => Languages::Byelorussian,
+
+            "Cambodian" => Languages::Cambodian,
+
+            "Cantonese" => Languages::Cantonese,
+
+            "Cape Verdean Creole" => Languages::CapeVerdeanCreole,
+
+            "Catalan" => Languages::Catalan,
+
+            "Cebuano" => Languages::Cebuano,
+
+            "Chamorro" => Languages::Chamorro,
+
+            "Chechen" => Languages::Chechen,
+
+            "Chinese" => Languages::Chinese,
+
+            "Chuukese" => Languages::Chuukese,
+
+            "Chuvash" => Languages::Chuvash,
+
+            "Cornish" => Languages::Cornish,
+
+            "Corsican" => Languages::Corsican,
+
+            "Croatian" => Languages::Croatian,
+
+            "Czech" => Languages::Czech,
+
+            "Danish" => Languages::Danish,
+
+            "Dari (Afghan Persian)" => Languages::DariAfghanPersian,
+
+            "Dioula" => Languages::Dioula,
+
+            "Dutch" => Languages::Dutch,
+
+            "Dzongkha" => Languages::Dzongkha,
+
+            "English" => Languages::English,
+
+            "Esperanto" => Languages::Esperanto,
+
+            "Estonian" => Languages::Estonian,
+
+            "Faroese" => Languages::Faroese,
+
+            "Farsi" => Languages::Farsi,
+
+            "Fiji" => Languages::Fiji,
+
+            "Finnish" => Languages::Finnish,
+
+            "Flemish" => Languages::Flemish,
+
+            "French" => Languages::French,
+
+            "Frisian" => Languages::Frisian,
+
+            "Galician" => Languages::Galician,
+
+            "Georgian" => Languages::Georgian,
+
+            "German" => Languages::German,
+
+            "Greek" => Languages::Greek,
+
+            "Greenlandic" => Languages::Greenlandic,
+
+            "Guarani" => Languages::Guarani,
+
+            "Gujarati" => Languages::Gujarati,
+
+            "Haitian Creole" => Languages::HaitianCreole,
+
+            "Hausa" => Languages::Hausa,
+
+            "Hebrew" => Languages::Hebrew,
+
+            "Herero" => Languages::Herero,
+
+            "Hiligaynon" => Languages::Hiligaynon,
+
+            "Hindi" => Languages::Hindi,
+
+            "Hiri Motu" => Languages::HiriMotu,
+
+            "Hmong" => Languages::Hmong,
+
+            "Hungarian" => Languages::Hungarian,
+
+            "Iban" => Languages::Iban,
+
+            "Icelandic" => Languages::Icelandic,
+
+            "Igbo" => Languages::Igbo,
+
+            "Ilocano" => Languages::Ilocano,
+
+            "Indonesian" => Languages::Indonesian,
+
+            "Interlingua" => Languages::Interlingua,
+
+            "Inuktitut" => Languages::Inuktitut,
+
+            "Inupiak" => Languages::Inupiak,
+
+            "Irish (Gaelic)" => Languages::IrishGaelic,
+
+            "Italian" => Languages::Italian,
+
+            "Japanese" => Languages::Japanese,
+
+            "Javanese" => Languages::Javanese,
+
+            "K'iche'" => Languages::Kiche,
+
+            "Kannada" => Languages::Kannada,
+
+            "Kashmiri" => Languages::Kashmiri,
+
+            "Kazakh" => Languages::Kazakh,
+
+            "Kichwa" => Languages::Kichwa,
+
+            "Kikuyu" => Languages::Kikuyu,
+
+            "Kinyarwanda" => Languages::Kinyarwanda,
+
+            "Kirghiz" => Languages::Kirghiz,
+
+            "Kirundi" => Languages::Kirundi,
+
+            "Komi" => Languages::Komi,
+
+            "Korean" => Languages::Korean,
+
+            "Kpelle" => Languages::Kpelle,
+
+            "Kru" => Languages::Kru,
+
+            "Kurdish" => Languages::Kurdish,
+
+            "Lao" => Languages::Lao,
+
+            "Latin" => Languages::Latin,
+
+            "Latvian" => Languages::Latvian,
+
+            "Lingala" => Languages::Lingala,
+
+            "Lithuanian" => Languages::Lithuanian,
+
+            "Luxemburgish" => Languages::Luxemburgish,
+
+            "Macedonian" => Languages::Macedonian,
+
+            "Malagasy" => Languages::Malagasy,
+
+            "Malay" => Languages::Malay,
+
+            "Malayalam" => Languages::Malayalam,
+
+            "Maltese" => Languages::Maltese,
+
+            "Mandarin" => Languages::Mandarin,
+
+            "Maninka" => Languages::Maninka,
+
+            "Manx Gaelic" => Languages::ManxGaelic,
+
+            "Maori" => Languages::Maori,
+
+            "Marathi" => Languages::Marathi,
+
+            "Marshallese" => Languages::Marshallese,
+
+            "Moldovan" => Languages::Moldovan,
+
+            "Mongolian" => Languages::Mongolian,
+
+            "Nauru" => Languages::Nauru,
+
+            "Navajo" => Languages::Navajo,
+
+            "Ndebele" => Languages::Ndebele,
+
+            "Ndonga" => Languages::Ndonga,
+
+            "Nepali" => Languages::Nepali,
+
+            "Norwegian" => Languages::Norwegian,
+
+            "Norwegian (Nynorsk)" => Languages::NorwegianNynorsk,
+
+            "Nyanja" => Languages::Nyanja,
+
+            "Occitan" => Languages::Occitan,
+
+            "Oriya" => Languages::Oriya,
+
+            "Oromo" => Languages::Oromo,
+
+            "Ossetian" => Languages::Ossetian,
+
+            "Pali" => Languages::Pali,
+
+            "Pangasinan" => Languages::Pangasinan,
+
+            "Papiamento" => Languages::Papiamento,
+
+            "Pashto" => Languages::Pashto,
+
+            "Polish" => Languages::Polish,
+
+            "Portuguese" => Languages::Portuguese,
+
+            "Punjabi" => Languages::Punjabi,
+
+            "Quechua" => Languages::Quechua,
+
+            "Romanian" => Languages::Romanian,
+
+            "Romany" => Languages::Romany,
+
+            "Russian" => Languages::Russian,
+
+            "Sami" => Languages::Sami,
+
+            "Samoan" => Languages::Samoan,
+
+            "Sangho" => Languages::Sangho,
+
+            "Sanskrit" => Languages::Sanskrit,
+
+            "Sardinian" => Languages::Sardinian,
+
+            "Scots Gaelic" => Languages::ScotsGaelic,
+
+            "Serbian" => Languages::Serbian,
+
+            "Serbo-Croatian" => Languages::SerboCroatian,
+
+            "Sesotho" => Languages::Sesotho,
+
+            "Setswana" => Languages::Setswana,
+
+            "Shan" => Languages::Shan,
+
+            "Shona" => Languages::Shona,
+
+            "Sindhi" => Languages::Sindhi,
+
+            "Sinhalese" => Languages::Sinhalese,
+
+            "Siswati" => Languages::Siswati,
+
+            "Slovak" => Languages::Slovak,
+
+            "Slovenian" => Languages::Slovenian,
+
+            "Somali" => Languages::Somali,
+
+            "Southern Ndebele" => Languages::SouthernNdebele,
+
+            "Spanish" => Languages::Spanish,
+
+            "Sundanese" => Languages::Sundanese,
+
+            "Swahili" => Languages::Swahili,
+
+            "Swedish" => Languages::Swedish,
+
+            "Syriac" => Languages::Syriac,
+
+            "Tagalog" => Languages::Tagalog,
+
+            "Tahitian" => Languages::Tahitian,
+
+            "Tajik" => Languages::Tajik,
+
+            "Tamil" => Languages::Tamil,
+
+            "Tatar" => Languages::Tatar,
+
+            "Telugu" => Languages::Telugu,
+
+            "Thai" => Languages::Thai,
+
+            "Tibetan" => Languages::Tibetan,
+
+            "Tigrinya" => Languages::Tigrinya,
+
+            "Tongan" => Languages::Tongan,
+
+            "Tsonga" => Languages::Tsonga,
+
+            "Turkish" => Languages::Turkish,
+
+            "Turkmen" => Languages::Turkmen,
+
+            "Twi" => Languages::Twi,
+
+            "Uigur" => Languages::Uigur,
+
+            "Ukrainian" => Languages::Ukrainian,
+
+            "Urdu" => Languages::Urdu,
+
+            "Uzbek" => Languages::Uzbek,
+
+            "Vietnamese" => Languages::Vietnamese,
+
+            "Volapuk" => Languages::Volapuk,
+
+            "Welsh" => Languages::Welsh,
+
+            "Wolof" => Languages::Wolof,
+
+            "Xhosa" => Languages::Xhosa,
+
+            "Yiddish" => Languages::Yiddish,
+
+            "Yoruba" => Languages::Yoruba,
+
+            "Zhuang" => Languages::Zhuang,
+
+            "Zulu" => Languages::Zulu,
+
+            _ => Languages::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Languages {
+        match s.as_ref() {
+            "Abkhazian" => Languages::Abkhazian,
+
+            "Afar" => Languages::Afar,
+
+            "Afrikaans" => Languages::Afrikaans,
+
+            "Albanian" => Languages::Albanian,
+
+            "American Sign Language" => Languages::AmericanSignLanguage,
+
+            "Amharic" => Languages::Amharic,
+
+            "Arabic" => Languages::Arabic,
+
+            "Aramaic" => Languages::Aramaic,
+
+            "Armenian" => Languages::Armenian,
+
+            "Assamese" => Languages::Assamese,
+
+            "Assyrian Neo-Aramaic" => Languages::AssyrianNeoAramaic,
+
+            "Avestan" => Languages::Avestan,
+
+            "Aymara" => Languages::Aymara,
+
+            "Azerbaijani" => Languages::Azerbaijani,
+
+            "Bambara" => Languages::Bambara,
+
+            "Bashkir" => Languages::Bashkir,
+
+            "Basque" => Languages::Basque,
+
+            "Bengali" => Languages::Bengali,
+
+            "Bihari" => Languages::Bihari,
+
+            "Bikol" => Languages::Bikol,
+
+            "Bislama" => Languages::Bislama,
+
+            "Bosnian" => Languages::Bosnian,
+
+            "Brazilian Portuguese" => Languages::BrazilianPortuguese,
+
+            "Bulgarian" => Languages::Bulgarian,
+
+            "Burmese" => Languages::Burmese,
+
+            "Byelorussian" => Languages::Byelorussian,
+
+            "Cambodian" => Languages::Cambodian,
+
+            "Cantonese" => Languages::Cantonese,
+
+            "Cape Verdean Creole" => Languages::CapeVerdeanCreole,
+
+            "Catalan" => Languages::Catalan,
+
+            "Cebuano" => Languages::Cebuano,
+
+            "Chamorro" => Languages::Chamorro,
+
+            "Chechen" => Languages::Chechen,
+
+            "Chinese" => Languages::Chinese,
+
+            "Chuukese" => Languages::Chuukese,
+
+            "Chuvash" => Languages::Chuvash,
+
+            "Cornish" => Languages::Cornish,
+
+            "Corsican" => Languages::Corsican,
+
+            "Croatian" => Languages::Croatian,
+
+            "Czech" => Languages::Czech,
+
+            "Danish" => Languages::Danish,
+
+            "Dari (Afghan Persian)" => Languages::DariAfghanPersian,
+
+            "Dioula" => Languages::Dioula,
+
+            "Dutch" => Languages::Dutch,
+
+            "Dzongkha" => Languages::Dzongkha,
+
+            "English" => Languages::English,
+
+            "Esperanto" => Languages::Esperanto,
+
+            "Estonian" => Languages::Estonian,
+
+            "Faroese" => Languages::Faroese,
+
+            "Farsi" => Languages::Farsi,
+
+            "Fiji" => Languages::Fiji,
+
+            "Finnish" => Languages::Finnish,
+
+            "Flemish" => Languages::Flemish,
+
+            "French" => Languages::French,
+
+            "Frisian" => Languages::Frisian,
+
+            "Galician" => Languages::Galician,
+
+            "Georgian" => Languages::Georgian,
+
+            "German" => Languages::German,
+
+            "Greek" => Languages::Greek,
+
+            "Greenlandic" => Languages::Greenlandic,
+
+            "Guarani" => Languages::Guarani,
+
+            "Gujarati" => Languages::Gujarati,
+
+            "Haitian Creole" => Languages::HaitianCreole,
+
+            "Hausa" => Languages::Hausa,
+
+            "Hebrew" => Languages::Hebrew,
+
+            "Herero" => Languages::Herero,
+
+            "Hiligaynon" => Languages::Hiligaynon,
+
+            "Hindi" => Languages::Hindi,
+
+            "Hiri Motu" => Languages::HiriMotu,
+
+            "Hmong" => Languages::Hmong,
+
+            "Hungarian" => Languages::Hungarian,
+
+            "Iban" => Languages::Iban,
+
+            "Icelandic" => Languages::Icelandic,
+
+            "Igbo" => Languages::Igbo,
+
+            "Ilocano" => Languages::Ilocano,
+
+            "Indonesian" => Languages::Indonesian,
+
+            "Interlingua" => Languages::Interlingua,
+
+            "Inuktitut" => Languages::Inuktitut,
+
+            "Inupiak" => Languages::Inupiak,
+
+            "Irish (Gaelic)" => Languages::IrishGaelic,
+
+            "Italian" => Languages::Italian,
+
+            "Japanese" => Languages::Japanese,
+
+            "Javanese" => Languages::Javanese,
+
+            "K'iche'" => Languages::Kiche,
+
+            "Kannada" => Languages::Kannada,
+
+            "Kashmiri" => Languages::Kashmiri,
+
+            "Kazakh" => Languages::Kazakh,
+
+            "Kichwa" => Languages::Kichwa,
+
+            "Kikuyu" => Languages::Kikuyu,
+
+            "Kinyarwanda" => Languages::Kinyarwanda,
+
+            "Kirghiz" => Languages::Kirghiz,
+
+            "Kirundi" => Languages::Kirundi,
+
+            "Komi" => Languages::Komi,
+
+            "Korean" => Languages::Korean,
+
+            "Kpelle" => Languages::Kpelle,
+
+            "Kru" => Languages::Kru,
+
+            "Kurdish" => Languages::Kurdish,
+
+            "Lao" => Languages::Lao,
+
+            "Latin" => Languages::Latin,
+
+            "Latvian" => Languages::Latvian,
+
+            "Lingala" => Languages::Lingala,
+
+            "Lithuanian" => Languages::Lithuanian,
+
+            "Luxemburgish" => Languages::Luxemburgish,
+
+            "Macedonian" => Languages::Macedonian,
+
+            "Malagasy" => Languages::Malagasy,
+
+            "Malay" => Languages::Malay,
+
+            "Malayalam" => Languages::Malayalam,
+
+            "Maltese" => Languages::Maltese,
+
+            "Mandarin" => Languages::Mandarin,
+
+            "Maninka" => Languages::Maninka,
+
+            "Manx Gaelic" => Languages::ManxGaelic,
+
+            "Maori" => Languages::Maori,
+
+            "Marathi" => Languages::Marathi,
+
+            "Marshallese" => Languages::Marshallese,
+
+            "Moldovan" => Languages::Moldovan,
+
+            "Mongolian" => Languages::Mongolian,
+
+            "Nauru" => Languages::Nauru,
+
+            "Navajo" => Languages::Navajo,
+
+            "Ndebele" => Languages::Ndebele,
+
+            "Ndonga" => Languages::Ndonga,
+
+            "Nepali" => Languages::Nepali,
+
+            "Norwegian" => Languages::Norwegian,
+
+            "Norwegian (Nynorsk)" => Languages::NorwegianNynorsk,
+
+            "Nyanja" => Languages::Nyanja,
+
+            "Occitan" => Languages::Occitan,
+
+            "Oriya" => Languages::Oriya,
+
+            "Oromo" => Languages::Oromo,
+
+            "Ossetian" => Languages::Ossetian,
+
+            "Pali" => Languages::Pali,
+
+            "Pangasinan" => Languages::Pangasinan,
+
+            "Papiamento" => Languages::Papiamento,
+
+            "Pashto" => Languages::Pashto,
+
+            "Polish" => Languages::Polish,
+
+            "Portuguese" => Languages::Portuguese,
+
+            "Punjabi" => Languages::Punjabi,
+
+            "Quechua" => Languages::Quechua,
+
+            "Romanian" => Languages::Romanian,
+
+            "Romany" => Languages::Romany,
+
+            "Russian" => Languages::Russian,
+
+            "Sami" => Languages::Sami,
+
+            "Samoan" => Languages::Samoan,
+
+            "Sangho" => Languages::Sangho,
+
+            "Sanskrit" => Languages::Sanskrit,
+
+            "Sardinian" => Languages::Sardinian,
+
+            "Scots Gaelic" => Languages::ScotsGaelic,
+
+            "Serbian" => Languages::Serbian,
+
+            "Serbo-Croatian" => Languages::SerboCroatian,
+
+            "Sesotho" => Languages::Sesotho,
+
+            "Setswana" => Languages::Setswana,
+
+            "Shan" => Languages::Shan,
+
+            "Shona" => Languages::Shona,
+
+            "Sindhi" => Languages::Sindhi,
+
+            "Sinhalese" => Languages::Sinhalese,
+
+            "Siswati" => Languages::Siswati,
+
+            "Slovak" => Languages::Slovak,
+
+            "Slovenian" => Languages::Slovenian,
+
+            "Somali" => Languages::Somali,
+
+            "Southern Ndebele" => Languages::SouthernNdebele,
+
+            "Spanish" => Languages::Spanish,
+
+            "Sundanese" => Languages::Sundanese,
+
+            "Swahili" => Languages::Swahili,
+
+            "Swedish" => Languages::Swedish,
+
+            "Syriac" => Languages::Syriac,
+
+            "Tagalog" => Languages::Tagalog,
+
+            "Tahitian" => Languages::Tahitian,
+
+            "Tajik" => Languages::Tajik,
+
+            "Tamil" => Languages::Tamil,
+
+            "Tatar" => Languages::Tatar,
+
+            "Telugu" => Languages::Telugu,
+
+            "Thai" => Languages::Thai,
+
+            "Tibetan" => Languages::Tibetan,
+
+            "Tigrinya" => Languages::Tigrinya,
+
+            "Tongan" => Languages::Tongan,
+
+            "Tsonga" => Languages::Tsonga,
+
+            "Turkish" => Languages::Turkish,
+
+            "Turkmen" => Languages::Turkmen,
+
+            "Twi" => Languages::Twi,
+
+            "Uigur" => Languages::Uigur,
+
+            "Ukrainian" => Languages::Ukrainian,
+
+            "Urdu" => Languages::Urdu,
+
+            "Uzbek" => Languages::Uzbek,
+
+            "Vietnamese" => Languages::Vietnamese,
+
+            "Volapuk" => Languages::Volapuk,
+
+            "Welsh" => Languages::Welsh,
+
+            "Wolof" => Languages::Wolof,
+
+            "Xhosa" => Languages::Xhosa,
+
+            "Yiddish" => Languages::Yiddish,
+
+            "Yoruba" => Languages::Yoruba,
+
+            "Zhuang" => Languages::Zhuang,
+
+            "Zulu" => Languages::Zulu,
+
+            _ => Languages::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Languages::Abkhazian => "Abkhazian",
+
+            Languages::Afar => "Afar",
+
+            Languages::Afrikaans => "Afrikaans",
+
+            Languages::Albanian => "Albanian",
+
+            Languages::AmericanSignLanguage => "American Sign Language",
+
+            Languages::Amharic => "Amharic",
+
+            Languages::Arabic => "Arabic",
+
+            Languages::Aramaic => "Aramaic",
+
+            Languages::Armenian => "Armenian",
+
+            Languages::Assamese => "Assamese",
+
+            Languages::AssyrianNeoAramaic => "Assyrian Neo-Aramaic",
+
+            Languages::Avestan => "Avestan",
+
+            Languages::Aymara => "Aymara",
+
+            Languages::Azerbaijani => "Azerbaijani",
+
+            Languages::Bambara => "Bambara",
+
+            Languages::Bashkir => "Bashkir",
+
+            Languages::Basque => "Basque",
+
+            Languages::Bengali => "Bengali",
+
+            Languages::Bihari => "Bihari",
+
+            Languages::Bikol => "Bikol",
+
+            Languages::Bislama => "Bislama",
+
+            Languages::Bosnian => "Bosnian",
+
+            Languages::BrazilianPortuguese => "Brazilian Portuguese",
+
+            Languages::Bulgarian => "Bulgarian",
+
+            Languages::Burmese => "Burmese",
+
+            Languages::Byelorussian => "Byelorussian",
+
+            Languages::Cambodian => "Cambodian",
+
+            Languages::Cantonese => "Cantonese",
+
+            Languages::CapeVerdeanCreole => "Cape Verdean Creole",
+
+            Languages::Catalan => "Catalan",
+
+            Languages::Cebuano => "Cebuano",
+
+            Languages::Chamorro => "Chamorro",
+
+            Languages::Chechen => "Chechen",
+
+            Languages::Chinese => "Chinese",
+
+            Languages::Chuukese => "Chuukese",
+
+            Languages::Chuvash => "Chuvash",
+
+            Languages::Cornish => "Cornish",
+
+            Languages::Corsican => "Corsican",
+
+            Languages::Croatian => "Croatian",
+
+            Languages::Czech => "Czech",
+
+            Languages::Danish => "Danish",
+
+            Languages::DariAfghanPersian => "Dari (Afghan Persian)",
+
+            Languages::Dioula => "Dioula",
+
+            Languages::Dutch => "Dutch",
+
+            Languages::Dzongkha => "Dzongkha",
+
+            Languages::English => "English",
+
+            Languages::Esperanto => "Esperanto",
+
+            Languages::Estonian => "Estonian",
+
+            Languages::Faroese => "Faroese",
+
+            Languages::Farsi => "Farsi",
+
+            Languages::Fiji => "Fiji",
+
+            Languages::Finnish => "Finnish",
+
+            Languages::Flemish => "Flemish",
+
+            Languages::French => "French",
+
+            Languages::Frisian => "Frisian",
+
+            Languages::Galician => "Galician",
+
+            Languages::Georgian => "Georgian",
+
+            Languages::German => "German",
+
+            Languages::Greek => "Greek",
+
+            Languages::Greenlandic => "Greenlandic",
+
+            Languages::Guarani => "Guarani",
+
+            Languages::Gujarati => "Gujarati",
+
+            Languages::HaitianCreole => "Haitian Creole",
+
+            Languages::Hausa => "Hausa",
+
+            Languages::Hebrew => "Hebrew",
+
+            Languages::Herero => "Herero",
+
+            Languages::Hiligaynon => "Hiligaynon",
+
+            Languages::Hindi => "Hindi",
+
+            Languages::HiriMotu => "Hiri Motu",
+
+            Languages::Hmong => "Hmong",
+
+            Languages::Hungarian => "Hungarian",
+
+            Languages::Iban => "Iban",
+
+            Languages::Icelandic => "Icelandic",
+
+            Languages::Igbo => "Igbo",
+
+            Languages::Ilocano => "Ilocano",
+
+            Languages::Indonesian => "Indonesian",
+
+            Languages::Interlingua => "Interlingua",
+
+            Languages::Inuktitut => "Inuktitut",
+
+            Languages::Inupiak => "Inupiak",
+
+            Languages::IrishGaelic => "Irish (Gaelic)",
+
+            Languages::Italian => "Italian",
+
+            Languages::Japanese => "Japanese",
+
+            Languages::Javanese => "Javanese",
+
+            Languages::Kiche => "K'iche'",
+
+            Languages::Kannada => "Kannada",
+
+            Languages::Kashmiri => "Kashmiri",
+
+            Languages::Kazakh => "Kazakh",
+
+            Languages::Kichwa => "Kichwa",
+
+            Languages::Kikuyu => "Kikuyu",
+
+            Languages::Kinyarwanda => "Kinyarwanda",
+
+            Languages::Kirghiz => "Kirghiz",
+
+            Languages::Kirundi => "Kirundi",
+
+            Languages::Komi => "Komi",
+
+            Languages::Korean => "Korean",
+
+            Languages::Kpelle => "Kpelle",
+
+            Languages::Kru => "Kru",
+
+            Languages::Kurdish => "Kurdish",
+
+            Languages::Lao => "Lao",
+
+            Languages::Latin => "Latin",
+
+            Languages::Latvian => "Latvian",
+
+            Languages::Lingala => "Lingala",
+
+            Languages::Lithuanian => "Lithuanian",
+
+            Languages::Luxemburgish => "Luxemburgish",
+
+            Languages::Macedonian => "Macedonian",
+
+            Languages::Malagasy => "Malagasy",
+
+            Languages::Malay => "Malay",
+
+            Languages::Malayalam => "Malayalam",
+
+            Languages::Maltese => "Maltese",
+
+            Languages::Mandarin => "Mandarin",
+
+            Languages::Maninka => "Maninka",
+
+            Languages::ManxGaelic => "Manx Gaelic",
+
+            Languages::Maori => "Maori",
+
+            Languages::Marathi => "Marathi",
+
+            Languages::Marshallese => "Marshallese",
+
+            Languages::Moldovan => "Moldovan",
+
+            Languages::Mongolian => "Mongolian",
+
+            Languages::Nauru => "Nauru",
+
+            Languages::Navajo => "Navajo",
+
+            Languages::Ndebele => "Ndebele",
+
+            Languages::Ndonga => "Ndonga",
+
+            Languages::Nepali => "Nepali",
+
+            Languages::Norwegian => "Norwegian",
+
+            Languages::NorwegianNynorsk => "Norwegian (Nynorsk)",
+
+            Languages::Nyanja => "Nyanja",
+
+            Languages::Occitan => "Occitan",
+
+            Languages::Oriya => "Oriya",
+
+            Languages::Oromo => "Oromo",
+
+            Languages::Ossetian => "Ossetian",
+
+            Languages::Pali => "Pali",
+
+            Languages::Pangasinan => "Pangasinan",
+
+            Languages::Papiamento => "Papiamento",
+
+            Languages::Pashto => "Pashto",
+
+            Languages::Polish => "Polish",
+
+            Languages::Portuguese => "Portuguese",
+
+            Languages::Punjabi => "Punjabi",
+
+            Languages::Quechua => "Quechua",
+
+            Languages::Romanian => "Romanian",
+
+            Languages::Romany => "Romany",
+
+            Languages::Russian => "Russian",
+
+            Languages::Sami => "Sami",
+
+            Languages::Samoan => "Samoan",
+
+            Languages::Sangho => "Sangho",
+
+            Languages::Sanskrit => "Sanskrit",
+
+            Languages::Sardinian => "Sardinian",
+
+            Languages::ScotsGaelic => "Scots Gaelic",
+
+            Languages::Serbian => "Serbian",
+
+            Languages::SerboCroatian => "Serbo-Croatian",
+
+            Languages::Sesotho => "Sesotho",
+
+            Languages::Setswana => "Setswana",
+
+            Languages::Shan => "Shan",
+
+            Languages::Shona => "Shona",
+
+            Languages::Sindhi => "Sindhi",
+
+            Languages::Sinhalese => "Sinhalese",
+
+            Languages::Siswati => "Siswati",
+
+            Languages::Slovak => "Slovak",
+
+            Languages::Slovenian => "Slovenian",
+
+            Languages::Somali => "Somali",
+
+            Languages::SouthernNdebele => "Southern Ndebele",
+
+            Languages::Spanish => "Spanish",
+
+            Languages::Sundanese => "Sundanese",
+
+            Languages::Swahili => "Swahili",
+
+            Languages::Swedish => "Swedish",
+
+            Languages::Syriac => "Syriac",
+
+            Languages::Tagalog => "Tagalog",
+
+            Languages::Tahitian => "Tahitian",
+
+            Languages::Tajik => "Tajik",
+
+            Languages::Tamil => "Tamil",
+
+            Languages::Tatar => "Tatar",
+
+            Languages::Telugu => "Telugu",
+
+            Languages::Thai => "Thai",
+
+            Languages::Tibetan => "Tibetan",
+
+            Languages::Tigrinya => "Tigrinya",
+
+            Languages::Tongan => "Tongan",
+
+            Languages::Tsonga => "Tsonga",
+
+            Languages::Turkish => "Turkish",
+
+            Languages::Turkmen => "Turkmen",
+
+            Languages::Twi => "Twi",
+
+            Languages::Uigur => "Uigur",
+
+            Languages::Ukrainian => "Ukrainian",
+
+            Languages::Urdu => "Urdu",
+
+            Languages::Uzbek => "Uzbek",
+
+            Languages::Vietnamese => "Vietnamese",
+
+            Languages::Volapuk => "Volapuk",
+
+            Languages::Welsh => "Welsh",
+
+            Languages::Wolof => "Wolof",
+
+            Languages::Xhosa => "Xhosa",
+
+            Languages::Yiddish => "Yiddish",
+
+            Languages::Yoruba => "Yoruba",
+
+            Languages::Zhuang => "Zhuang",
+
+            Languages::Zulu => "Zulu",
+
+            Languages::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Languages::Abkhazian => "Abkhazian".into(),
+
+            Languages::Afar => "Afar".into(),
+
+            Languages::Afrikaans => "Afrikaans".into(),
+
+            Languages::Albanian => "Albanian".into(),
+
+            Languages::AmericanSignLanguage => "American Sign Language".into(),
+
+            Languages::Amharic => "Amharic".into(),
+
+            Languages::Arabic => "Arabic".into(),
+
+            Languages::Aramaic => "Aramaic".into(),
+
+            Languages::Armenian => "Armenian".into(),
+
+            Languages::Assamese => "Assamese".into(),
+
+            Languages::AssyrianNeoAramaic => "Assyrian Neo-Aramaic".into(),
+
+            Languages::Avestan => "Avestan".into(),
+
+            Languages::Aymara => "Aymara".into(),
+
+            Languages::Azerbaijani => "Azerbaijani".into(),
+
+            Languages::Bambara => "Bambara".into(),
+
+            Languages::Bashkir => "Bashkir".into(),
+
+            Languages::Basque => "Basque".into(),
+
+            Languages::Bengali => "Bengali".into(),
+
+            Languages::Bihari => "Bihari".into(),
+
+            Languages::Bikol => "Bikol".into(),
+
+            Languages::Bislama => "Bislama".into(),
+
+            Languages::Bosnian => "Bosnian".into(),
+
+            Languages::BrazilianPortuguese => "Brazilian Portuguese".into(),
+
+            Languages::Bulgarian => "Bulgarian".into(),
+
+            Languages::Burmese => "Burmese".into(),
+
+            Languages::Byelorussian => "Byelorussian".into(),
+
+            Languages::Cambodian => "Cambodian".into(),
+
+            Languages::Cantonese => "Cantonese".into(),
+
+            Languages::CapeVerdeanCreole => "Cape Verdean Creole".into(),
+
+            Languages::Catalan => "Catalan".into(),
+
+            Languages::Cebuano => "Cebuano".into(),
+
+            Languages::Chamorro => "Chamorro".into(),
+
+            Languages::Chechen => "Chechen".into(),
+
+            Languages::Chinese => "Chinese".into(),
+
+            Languages::Chuukese => "Chuukese".into(),
+
+            Languages::Chuvash => "Chuvash".into(),
+
+            Languages::Cornish => "Cornish".into(),
+
+            Languages::Corsican => "Corsican".into(),
+
+            Languages::Croatian => "Croatian".into(),
+
+            Languages::Czech => "Czech".into(),
+
+            Languages::Danish => "Danish".into(),
+
+            Languages::DariAfghanPersian => "Dari (Afghan Persian)".into(),
+
+            Languages::Dioula => "Dioula".into(),
+
+            Languages::Dutch => "Dutch".into(),
+
+            Languages::Dzongkha => "Dzongkha".into(),
+
+            Languages::English => "English".into(),
+
+            Languages::Esperanto => "Esperanto".into(),
+
+            Languages::Estonian => "Estonian".into(),
+
+            Languages::Faroese => "Faroese".into(),
+
+            Languages::Farsi => "Farsi".into(),
+
+            Languages::Fiji => "Fiji".into(),
+
+            Languages::Finnish => "Finnish".into(),
+
+            Languages::Flemish => "Flemish".into(),
+
+            Languages::French => "French".into(),
+
+            Languages::Frisian => "Frisian".into(),
+
+            Languages::Galician => "Galician".into(),
+
+            Languages::Georgian => "Georgian".into(),
+
+            Languages::German => "German".into(),
+
+            Languages::Greek => "Greek".into(),
+
+            Languages::Greenlandic => "Greenlandic".into(),
+
+            Languages::Guarani => "Guarani".into(),
+
+            Languages::Gujarati => "Gujarati".into(),
+
+            Languages::HaitianCreole => "Haitian Creole".into(),
+
+            Languages::Hausa => "Hausa".into(),
+
+            Languages::Hebrew => "Hebrew".into(),
+
+            Languages::Herero => "Herero".into(),
+
+            Languages::Hiligaynon => "Hiligaynon".into(),
+
+            Languages::Hindi => "Hindi".into(),
+
+            Languages::HiriMotu => "Hiri Motu".into(),
+
+            Languages::Hmong => "Hmong".into(),
+
+            Languages::Hungarian => "Hungarian".into(),
+
+            Languages::Iban => "Iban".into(),
+
+            Languages::Icelandic => "Icelandic".into(),
+
+            Languages::Igbo => "Igbo".into(),
+
+            Languages::Ilocano => "Ilocano".into(),
+
+            Languages::Indonesian => "Indonesian".into(),
+
+            Languages::Interlingua => "Interlingua".into(),
+
+            Languages::Inuktitut => "Inuktitut".into(),
+
+            Languages::Inupiak => "Inupiak".into(),
+
+            Languages::IrishGaelic => "Irish (Gaelic)".into(),
+
+            Languages::Italian => "Italian".into(),
+
+            Languages::Japanese => "Japanese".into(),
+
+            Languages::Javanese => "Javanese".into(),
+
+            Languages::Kiche => "K'iche'".into(),
+
+            Languages::Kannada => "Kannada".into(),
+
+            Languages::Kashmiri => "Kashmiri".into(),
+
+            Languages::Kazakh => "Kazakh".into(),
+
+            Languages::Kichwa => "Kichwa".into(),
+
+            Languages::Kikuyu => "Kikuyu".into(),
+
+            Languages::Kinyarwanda => "Kinyarwanda".into(),
+
+            Languages::Kirghiz => "Kirghiz".into(),
+
+            Languages::Kirundi => "Kirundi".into(),
+
+            Languages::Komi => "Komi".into(),
+
+            Languages::Korean => "Korean".into(),
+
+            Languages::Kpelle => "Kpelle".into(),
+
+            Languages::Kru => "Kru".into(),
+
+            Languages::Kurdish => "Kurdish".into(),
+
+            Languages::Lao => "Lao".into(),
+
+            Languages::Latin => "Latin".into(),
+
+            Languages::Latvian => "Latvian".into(),
+
+            Languages::Lingala => "Lingala".into(),
+
+            Languages::Lithuanian => "Lithuanian".into(),
+
+            Languages::Luxemburgish => "Luxemburgish".into(),
+
+            Languages::Macedonian => "Macedonian".into(),
+
+            Languages::Malagasy => "Malagasy".into(),
+
+            Languages::Malay => "Malay".into(),
+
+            Languages::Malayalam => "Malayalam".into(),
+
+            Languages::Maltese => "Maltese".into(),
+
+            Languages::Mandarin => "Mandarin".into(),
+
+            Languages::Maninka => "Maninka".into(),
+
+            Languages::ManxGaelic => "Manx Gaelic".into(),
+
+            Languages::Maori => "Maori".into(),
+
+            Languages::Marathi => "Marathi".into(),
+
+            Languages::Marshallese => "Marshallese".into(),
+
+            Languages::Moldovan => "Moldovan".into(),
+
+            Languages::Mongolian => "Mongolian".into(),
+
+            Languages::Nauru => "Nauru".into(),
+
+            Languages::Navajo => "Navajo".into(),
+
+            Languages::Ndebele => "Ndebele".into(),
+
+            Languages::Ndonga => "Ndonga".into(),
+
+            Languages::Nepali => "Nepali".into(),
+
+            Languages::Norwegian => "Norwegian".into(),
+
+            Languages::NorwegianNynorsk => "Norwegian (Nynorsk)".into(),
+
+            Languages::Nyanja => "Nyanja".into(),
+
+            Languages::Occitan => "Occitan".into(),
+
+            Languages::Oriya => "Oriya".into(),
+
+            Languages::Oromo => "Oromo".into(),
+
+            Languages::Ossetian => "Ossetian".into(),
+
+            Languages::Pali => "Pali".into(),
+
+            Languages::Pangasinan => "Pangasinan".into(),
+
+            Languages::Papiamento => "Papiamento".into(),
+
+            Languages::Pashto => "Pashto".into(),
+
+            Languages::Polish => "Polish".into(),
+
+            Languages::Portuguese => "Portuguese".into(),
+
+            Languages::Punjabi => "Punjabi".into(),
+
+            Languages::Quechua => "Quechua".into(),
+
+            Languages::Romanian => "Romanian".into(),
+
+            Languages::Romany => "Romany".into(),
+
+            Languages::Russian => "Russian".into(),
+
+            Languages::Sami => "Sami".into(),
+
+            Languages::Samoan => "Samoan".into(),
+
+            Languages::Sangho => "Sangho".into(),
+
+            Languages::Sanskrit => "Sanskrit".into(),
+
+            Languages::Sardinian => "Sardinian".into(),
+
+            Languages::ScotsGaelic => "Scots Gaelic".into(),
+
+            Languages::Serbian => "Serbian".into(),
+
+            Languages::SerboCroatian => "Serbo-Croatian".into(),
+
+            Languages::Sesotho => "Sesotho".into(),
+
+            Languages::Setswana => "Setswana".into(),
+
+            Languages::Shan => "Shan".into(),
+
+            Languages::Shona => "Shona".into(),
+
+            Languages::Sindhi => "Sindhi".into(),
+
+            Languages::Sinhalese => "Sinhalese".into(),
+
+            Languages::Siswati => "Siswati".into(),
+
+            Languages::Slovak => "Slovak".into(),
+
+            Languages::Slovenian => "Slovenian".into(),
+
+            Languages::Somali => "Somali".into(),
+
+            Languages::SouthernNdebele => "Southern Ndebele".into(),
+
+            Languages::Spanish => "Spanish".into(),
+
+            Languages::Sundanese => "Sundanese".into(),
+
+            Languages::Swahili => "Swahili".into(),
+
+            Languages::Swedish => "Swedish".into(),
+
+            Languages::Syriac => "Syriac".into(),
+
+            Languages::Tagalog => "Tagalog".into(),
+
+            Languages::Tahitian => "Tahitian".into(),
+
+            Languages::Tajik => "Tajik".into(),
+
+            Languages::Tamil => "Tamil".into(),
+
+            Languages::Tatar => "Tatar".into(),
+
+            Languages::Telugu => "Telugu".into(),
+
+            Languages::Thai => "Thai".into(),
+
+            Languages::Tibetan => "Tibetan".into(),
+
+            Languages::Tigrinya => "Tigrinya".into(),
+
+            Languages::Tongan => "Tongan".into(),
+
+            Languages::Tsonga => "Tsonga".into(),
+
+            Languages::Turkish => "Turkish".into(),
+
+            Languages::Turkmen => "Turkmen".into(),
+
+            Languages::Twi => "Twi".into(),
+
+            Languages::Uigur => "Uigur".into(),
+
+            Languages::Ukrainian => "Ukrainian".into(),
+
+            Languages::Urdu => "Urdu".into(),
+
+            Languages::Uzbek => "Uzbek".into(),
+
+            Languages::Vietnamese => "Vietnamese".into(),
+
+            Languages::Volapuk => "Volapuk".into(),
+
+            Languages::Welsh => "Welsh".into(),
+
+            Languages::Wolof => "Wolof".into(),
+
+            Languages::Xhosa => "Xhosa".into(),
+
+            Languages::Yiddish => "Yiddish".into(),
+
+            Languages::Yoruba => "Yoruba".into(),
+
+            Languages::Zhuang => "Zhuang".into(),
+
+            Languages::Zulu => "Zulu".into(),
+
+            Languages::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Languages::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Languages {
     fn from(s: String) -> Languages {
         match s.as_ref() {
@@ -1759,43 +3312,5 @@ impl<'de> Deserialize<'de> for Languages {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_languages_format {
-    use super::Languages;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Languages>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Languages>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

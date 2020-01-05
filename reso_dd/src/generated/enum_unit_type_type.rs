@@ -39,6 +39,119 @@ pub enum UnitTypeType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for UnitTypeType {
+    fn from_str(s: &str) -> UnitTypeType {
+        match s {
+            "1 Bedroom" => UnitTypeType::_1Bedroom,
+
+            "2 Bedroom" => UnitTypeType::_2Bedroom,
+
+            "3 Bedroom" => UnitTypeType::_3Bedroom,
+
+            "4 Bedroom Or More" => UnitTypeType::_4BedroomOrMore,
+
+            "Apartments" => UnitTypeType::Apartments,
+
+            "Efficiency" => UnitTypeType::Efficiency,
+
+            "Loft" => UnitTypeType::Loft,
+
+            "Manager's Unit" => UnitTypeType::ManagersUnit,
+
+            "Penthouse" => UnitTypeType::Penthouse,
+
+            "Studio" => UnitTypeType::Studio,
+
+            _ => UnitTypeType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> UnitTypeType {
+        match s.as_ref() {
+            "1 Bedroom" => UnitTypeType::_1Bedroom,
+
+            "2 Bedroom" => UnitTypeType::_2Bedroom,
+
+            "3 Bedroom" => UnitTypeType::_3Bedroom,
+
+            "4 Bedroom Or More" => UnitTypeType::_4BedroomOrMore,
+
+            "Apartments" => UnitTypeType::Apartments,
+
+            "Efficiency" => UnitTypeType::Efficiency,
+
+            "Loft" => UnitTypeType::Loft,
+
+            "Manager's Unit" => UnitTypeType::ManagersUnit,
+
+            "Penthouse" => UnitTypeType::Penthouse,
+
+            "Studio" => UnitTypeType::Studio,
+
+            _ => UnitTypeType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            UnitTypeType::_1Bedroom => "1 Bedroom",
+
+            UnitTypeType::_2Bedroom => "2 Bedroom",
+
+            UnitTypeType::_3Bedroom => "3 Bedroom",
+
+            UnitTypeType::_4BedroomOrMore => "4 Bedroom Or More",
+
+            UnitTypeType::Apartments => "Apartments",
+
+            UnitTypeType::Efficiency => "Efficiency",
+
+            UnitTypeType::Loft => "Loft",
+
+            UnitTypeType::ManagersUnit => "Manager's Unit",
+
+            UnitTypeType::Penthouse => "Penthouse",
+
+            UnitTypeType::Studio => "Studio",
+
+            UnitTypeType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            UnitTypeType::_1Bedroom => "1 Bedroom".into(),
+
+            UnitTypeType::_2Bedroom => "2 Bedroom".into(),
+
+            UnitTypeType::_3Bedroom => "3 Bedroom".into(),
+
+            UnitTypeType::_4BedroomOrMore => "4 Bedroom Or More".into(),
+
+            UnitTypeType::Apartments => "Apartments".into(),
+
+            UnitTypeType::Efficiency => "Efficiency".into(),
+
+            UnitTypeType::Loft => "Loft".into(),
+
+            UnitTypeType::ManagersUnit => "Manager's Unit".into(),
+
+            UnitTypeType::Penthouse => "Penthouse".into(),
+
+            UnitTypeType::Studio => "Studio".into(),
+
+            UnitTypeType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            UnitTypeType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for UnitTypeType {
     fn from(s: String) -> UnitTypeType {
         match s.as_ref() {
@@ -139,45 +252,5 @@ impl<'de> Deserialize<'de> for UnitTypeType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_unit_type_type_format {
-    use super::UnitTypeType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<UnitTypeType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<UnitTypeType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -117,6 +117,331 @@ pub enum Flooring {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Flooring {
+    fn from_str(s: &str) -> Flooring {
+        match s {
+            "Adobe" => Flooring::Adobe,
+
+            "Bamboo" => Flooring::Bamboo,
+
+            "Brick" => Flooring::Brick,
+
+            "Carpet" => Flooring::Carpet,
+
+            "Ceramic Tile" => Flooring::CeramicTile,
+
+            "Clay" => Flooring::Clay,
+
+            "Combination" => Flooring::Combination,
+
+            "Concrete" => Flooring::Concrete,
+
+            "Cork" => Flooring::Cork,
+
+            "CRI Green Label Plus Certified Carpet" => Flooring::CRIGreenLabelPlusCertifiedCarpet,
+
+            "Dirt" => Flooring::Dirt,
+
+            "FloorScore(r) Certified Flooring" => Flooring::FloorScorerCertifiedFlooring,
+
+            "FSC or SFI Certified Source Hardwood" => Flooring::FSCorSFICertifiedSourceHardwood,
+
+            "Granite" => Flooring::Granite,
+
+            "Hardwood" => Flooring::Hardwood,
+
+            "Laminate" => Flooring::Laminate,
+
+            "Linoleum" => Flooring::Linoleum,
+
+            "Marble" => Flooring::Marble,
+
+            "None" => Flooring::None,
+
+            "Other" => Flooring::Other,
+
+            "Painted/Stained" => Flooring::PaintedStained,
+
+            "Parquet" => Flooring::Parquet,
+
+            "Pavers" => Flooring::Pavers,
+
+            "Reclaimed Wood" => Flooring::ReclaimedWood,
+
+            "See Remarks" => Flooring::SeeRemarks,
+
+            "Simulated Wood" => Flooring::SimulatedWood,
+
+            "Slate" => Flooring::Slate,
+
+            "Softwood" => Flooring::Softwood,
+
+            "Stamped" => Flooring::Stamped,
+
+            "Stone" => Flooring::Stone,
+
+            "Sustainable" => Flooring::Sustainable,
+
+            "Terrazzo" => Flooring::Terrazzo,
+
+            "Tile" => Flooring::Tile,
+
+            "Varies" => Flooring::Varies,
+
+            "Vinyl" => Flooring::Vinyl,
+
+            "Wood" => Flooring::Wood,
+
+            _ => Flooring::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Flooring {
+        match s.as_ref() {
+            "Adobe" => Flooring::Adobe,
+
+            "Bamboo" => Flooring::Bamboo,
+
+            "Brick" => Flooring::Brick,
+
+            "Carpet" => Flooring::Carpet,
+
+            "Ceramic Tile" => Flooring::CeramicTile,
+
+            "Clay" => Flooring::Clay,
+
+            "Combination" => Flooring::Combination,
+
+            "Concrete" => Flooring::Concrete,
+
+            "Cork" => Flooring::Cork,
+
+            "CRI Green Label Plus Certified Carpet" => Flooring::CRIGreenLabelPlusCertifiedCarpet,
+
+            "Dirt" => Flooring::Dirt,
+
+            "FloorScore(r) Certified Flooring" => Flooring::FloorScorerCertifiedFlooring,
+
+            "FSC or SFI Certified Source Hardwood" => Flooring::FSCorSFICertifiedSourceHardwood,
+
+            "Granite" => Flooring::Granite,
+
+            "Hardwood" => Flooring::Hardwood,
+
+            "Laminate" => Flooring::Laminate,
+
+            "Linoleum" => Flooring::Linoleum,
+
+            "Marble" => Flooring::Marble,
+
+            "None" => Flooring::None,
+
+            "Other" => Flooring::Other,
+
+            "Painted/Stained" => Flooring::PaintedStained,
+
+            "Parquet" => Flooring::Parquet,
+
+            "Pavers" => Flooring::Pavers,
+
+            "Reclaimed Wood" => Flooring::ReclaimedWood,
+
+            "See Remarks" => Flooring::SeeRemarks,
+
+            "Simulated Wood" => Flooring::SimulatedWood,
+
+            "Slate" => Flooring::Slate,
+
+            "Softwood" => Flooring::Softwood,
+
+            "Stamped" => Flooring::Stamped,
+
+            "Stone" => Flooring::Stone,
+
+            "Sustainable" => Flooring::Sustainable,
+
+            "Terrazzo" => Flooring::Terrazzo,
+
+            "Tile" => Flooring::Tile,
+
+            "Varies" => Flooring::Varies,
+
+            "Vinyl" => Flooring::Vinyl,
+
+            "Wood" => Flooring::Wood,
+
+            _ => Flooring::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Flooring::Adobe => "Adobe",
+
+            Flooring::Bamboo => "Bamboo",
+
+            Flooring::Brick => "Brick",
+
+            Flooring::Carpet => "Carpet",
+
+            Flooring::CeramicTile => "Ceramic Tile",
+
+            Flooring::Clay => "Clay",
+
+            Flooring::Combination => "Combination",
+
+            Flooring::Concrete => "Concrete",
+
+            Flooring::Cork => "Cork",
+
+            Flooring::CRIGreenLabelPlusCertifiedCarpet => "CRI Green Label Plus Certified Carpet",
+
+            Flooring::Dirt => "Dirt",
+
+            Flooring::FloorScorerCertifiedFlooring => "FloorScore(r) Certified Flooring",
+
+            Flooring::FSCorSFICertifiedSourceHardwood => "FSC or SFI Certified Source Hardwood",
+
+            Flooring::Granite => "Granite",
+
+            Flooring::Hardwood => "Hardwood",
+
+            Flooring::Laminate => "Laminate",
+
+            Flooring::Linoleum => "Linoleum",
+
+            Flooring::Marble => "Marble",
+
+            Flooring::None => "None",
+
+            Flooring::Other => "Other",
+
+            Flooring::PaintedStained => "Painted/Stained",
+
+            Flooring::Parquet => "Parquet",
+
+            Flooring::Pavers => "Pavers",
+
+            Flooring::ReclaimedWood => "Reclaimed Wood",
+
+            Flooring::SeeRemarks => "See Remarks",
+
+            Flooring::SimulatedWood => "Simulated Wood",
+
+            Flooring::Slate => "Slate",
+
+            Flooring::Softwood => "Softwood",
+
+            Flooring::Stamped => "Stamped",
+
+            Flooring::Stone => "Stone",
+
+            Flooring::Sustainable => "Sustainable",
+
+            Flooring::Terrazzo => "Terrazzo",
+
+            Flooring::Tile => "Tile",
+
+            Flooring::Varies => "Varies",
+
+            Flooring::Vinyl => "Vinyl",
+
+            Flooring::Wood => "Wood",
+
+            Flooring::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Flooring::Adobe => "Adobe".into(),
+
+            Flooring::Bamboo => "Bamboo".into(),
+
+            Flooring::Brick => "Brick".into(),
+
+            Flooring::Carpet => "Carpet".into(),
+
+            Flooring::CeramicTile => "Ceramic Tile".into(),
+
+            Flooring::Clay => "Clay".into(),
+
+            Flooring::Combination => "Combination".into(),
+
+            Flooring::Concrete => "Concrete".into(),
+
+            Flooring::Cork => "Cork".into(),
+
+            Flooring::CRIGreenLabelPlusCertifiedCarpet => {
+                "CRI Green Label Plus Certified Carpet".into()
+            }
+
+            Flooring::Dirt => "Dirt".into(),
+
+            Flooring::FloorScorerCertifiedFlooring => "FloorScore(r) Certified Flooring".into(),
+
+            Flooring::FSCorSFICertifiedSourceHardwood => {
+                "FSC or SFI Certified Source Hardwood".into()
+            }
+
+            Flooring::Granite => "Granite".into(),
+
+            Flooring::Hardwood => "Hardwood".into(),
+
+            Flooring::Laminate => "Laminate".into(),
+
+            Flooring::Linoleum => "Linoleum".into(),
+
+            Flooring::Marble => "Marble".into(),
+
+            Flooring::None => "None".into(),
+
+            Flooring::Other => "Other".into(),
+
+            Flooring::PaintedStained => "Painted/Stained".into(),
+
+            Flooring::Parquet => "Parquet".into(),
+
+            Flooring::Pavers => "Pavers".into(),
+
+            Flooring::ReclaimedWood => "Reclaimed Wood".into(),
+
+            Flooring::SeeRemarks => "See Remarks".into(),
+
+            Flooring::SimulatedWood => "Simulated Wood".into(),
+
+            Flooring::Slate => "Slate".into(),
+
+            Flooring::Softwood => "Softwood".into(),
+
+            Flooring::Stamped => "Stamped".into(),
+
+            Flooring::Stone => "Stone".into(),
+
+            Flooring::Sustainable => "Sustainable".into(),
+
+            Flooring::Terrazzo => "Terrazzo".into(),
+
+            Flooring::Tile => "Tile".into(),
+
+            Flooring::Varies => "Varies".into(),
+
+            Flooring::Vinyl => "Vinyl".into(),
+
+            Flooring::Wood => "Wood".into(),
+
+            Flooring::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Flooring::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Flooring {
     fn from(s: String) -> Flooring {
         match s.as_ref() {
@@ -373,43 +698,5 @@ impl<'de> Deserialize<'de> for Flooring {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_flooring_format {
-    use super::Flooring;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Flooring>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Flooring>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

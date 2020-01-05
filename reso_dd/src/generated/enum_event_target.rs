@@ -66,6 +66,191 @@ pub enum EventTarget {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for EventTarget {
+    fn from_str(s: &str) -> EventTarget {
+        match s {
+            "Agent" => EventTarget::Agent,
+
+            "Broker" => EventTarget::Broker,
+
+            "Digg" => EventTarget::Digg,
+
+            "Email" => EventTarget::Email,
+
+            "Facebook" => EventTarget::Facebook,
+
+            "Facebook Messenger" => EventTarget::FacebookMessenger,
+
+            "GooglePlus" => EventTarget::GooglePlus,
+
+            "iMessage" => EventTarget::IMessage,
+
+            "Instagram" => EventTarget::Instagram,
+
+            "LinkedIn" => EventTarget::LinkedIn,
+
+            "Pinterest" => EventTarget::Pinterest,
+
+            "Reddit" => EventTarget::Reddit,
+
+            "Slack" => EventTarget::Slack,
+
+            "SMS" => EventTarget::SMS,
+
+            "Snapchat" => EventTarget::Snapchat,
+
+            "StumbleUpon" => EventTarget::StumbleUpon,
+
+            "Tumblr" => EventTarget::Tumblr,
+
+            "Twitter" => EventTarget::Twitter,
+
+            "YouTube" => EventTarget::YouTube,
+
+            _ => EventTarget::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> EventTarget {
+        match s.as_ref() {
+            "Agent" => EventTarget::Agent,
+
+            "Broker" => EventTarget::Broker,
+
+            "Digg" => EventTarget::Digg,
+
+            "Email" => EventTarget::Email,
+
+            "Facebook" => EventTarget::Facebook,
+
+            "Facebook Messenger" => EventTarget::FacebookMessenger,
+
+            "GooglePlus" => EventTarget::GooglePlus,
+
+            "iMessage" => EventTarget::IMessage,
+
+            "Instagram" => EventTarget::Instagram,
+
+            "LinkedIn" => EventTarget::LinkedIn,
+
+            "Pinterest" => EventTarget::Pinterest,
+
+            "Reddit" => EventTarget::Reddit,
+
+            "Slack" => EventTarget::Slack,
+
+            "SMS" => EventTarget::SMS,
+
+            "Snapchat" => EventTarget::Snapchat,
+
+            "StumbleUpon" => EventTarget::StumbleUpon,
+
+            "Tumblr" => EventTarget::Tumblr,
+
+            "Twitter" => EventTarget::Twitter,
+
+            "YouTube" => EventTarget::YouTube,
+
+            _ => EventTarget::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            EventTarget::Agent => "Agent",
+
+            EventTarget::Broker => "Broker",
+
+            EventTarget::Digg => "Digg",
+
+            EventTarget::Email => "Email",
+
+            EventTarget::Facebook => "Facebook",
+
+            EventTarget::FacebookMessenger => "Facebook Messenger",
+
+            EventTarget::GooglePlus => "GooglePlus",
+
+            EventTarget::IMessage => "iMessage",
+
+            EventTarget::Instagram => "Instagram",
+
+            EventTarget::LinkedIn => "LinkedIn",
+
+            EventTarget::Pinterest => "Pinterest",
+
+            EventTarget::Reddit => "Reddit",
+
+            EventTarget::Slack => "Slack",
+
+            EventTarget::SMS => "SMS",
+
+            EventTarget::Snapchat => "Snapchat",
+
+            EventTarget::StumbleUpon => "StumbleUpon",
+
+            EventTarget::Tumblr => "Tumblr",
+
+            EventTarget::Twitter => "Twitter",
+
+            EventTarget::YouTube => "YouTube",
+
+            EventTarget::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            EventTarget::Agent => "Agent".into(),
+
+            EventTarget::Broker => "Broker".into(),
+
+            EventTarget::Digg => "Digg".into(),
+
+            EventTarget::Email => "Email".into(),
+
+            EventTarget::Facebook => "Facebook".into(),
+
+            EventTarget::FacebookMessenger => "Facebook Messenger".into(),
+
+            EventTarget::GooglePlus => "GooglePlus".into(),
+
+            EventTarget::IMessage => "iMessage".into(),
+
+            EventTarget::Instagram => "Instagram".into(),
+
+            EventTarget::LinkedIn => "LinkedIn".into(),
+
+            EventTarget::Pinterest => "Pinterest".into(),
+
+            EventTarget::Reddit => "Reddit".into(),
+
+            EventTarget::Slack => "Slack".into(),
+
+            EventTarget::SMS => "SMS".into(),
+
+            EventTarget::Snapchat => "Snapchat".into(),
+
+            EventTarget::StumbleUpon => "StumbleUpon".into(),
+
+            EventTarget::Tumblr => "Tumblr".into(),
+
+            EventTarget::Twitter => "Twitter".into(),
+
+            EventTarget::YouTube => "YouTube".into(),
+
+            EventTarget::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            EventTarget::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for EventTarget {
     fn from(s: String) -> EventTarget {
         match s.as_ref() {
@@ -220,43 +405,5 @@ impl<'de> Deserialize<'de> for EventTarget {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_event_target_format {
-    use super::EventTarget;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<EventTarget>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<EventTarget>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

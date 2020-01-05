@@ -237,6 +237,647 @@ pub enum AssociationAmenities {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for AssociationAmenities {
+    fn from_str(s: &str) -> AssociationAmenities {
+        match s {
+            "Airport/Runway" => AssociationAmenities::AirportRunway,
+
+            "Barbecue" => AssociationAmenities::Barbecue,
+
+            "Basketball Court" => AssociationAmenities::BasketballCourt,
+
+            "Beach Access" => AssociationAmenities::BeachAccess,
+
+            "Beach Rights" => AssociationAmenities::BeachRights,
+
+            "Billiard Room" => AssociationAmenities::BilliardRoom,
+
+            "Boat Dock" => AssociationAmenities::BoatDock,
+
+            "Boat Slip" => AssociationAmenities::BoatSlip,
+
+            "Boating" => AssociationAmenities::Boating,
+
+            "Cabana" => AssociationAmenities::Cabana,
+
+            "Cable TV" => AssociationAmenities::CableTV,
+
+            "Car Wash Area" => AssociationAmenities::CarWashArea,
+
+            "Clubhouse" => AssociationAmenities::Clubhouse,
+
+            "Coin Laundry" => AssociationAmenities::CoinLaundry,
+
+            "Concierge" => AssociationAmenities::Concierge,
+
+            "Day Care" => AssociationAmenities::DayCare,
+
+            "Dog Park" => AssociationAmenities::DogPark,
+
+            "Dry Dock" => AssociationAmenities::DryDock,
+
+            "Electricity" => AssociationAmenities::Electricity,
+
+            "Elevator(s)" => AssociationAmenities::Elevators,
+
+            "Exercise Course" => AssociationAmenities::ExerciseCourse,
+
+            "Fitness Center" => AssociationAmenities::FitnessCenter,
+
+            "Game Court Exterior" => AssociationAmenities::GameCourtExterior,
+
+            "Game Court Interior" => AssociationAmenities::GameCourtInterior,
+
+            "Game Room" => AssociationAmenities::GameRoom,
+
+            "Gas" => AssociationAmenities::Gas,
+
+            "Gated" => AssociationAmenities::Gated,
+
+            "Golf Course" => AssociationAmenities::GolfCourse,
+
+            "Hot Water" => AssociationAmenities::HotWater,
+
+            "Indoor Pool" => AssociationAmenities::IndoorPool,
+
+            "Insurance" => AssociationAmenities::Insurance,
+
+            "Jogging Path" => AssociationAmenities::JoggingPath,
+
+            "Landscaping" => AssociationAmenities::Landscaping,
+
+            "Laundry" => AssociationAmenities::Laundry,
+
+            "Maid service" => AssociationAmenities::Maidservice,
+
+            "Maintenance" => AssociationAmenities::Maintenance,
+
+            "Maintenance Grounds" => AssociationAmenities::MaintenanceGrounds,
+
+            "Maintenance Structure" => AssociationAmenities::MaintenanceStructure,
+
+            "Management" => AssociationAmenities::Management,
+
+            "Marina" => AssociationAmenities::Marina,
+
+            "Meeting Room" => AssociationAmenities::MeetingRoom,
+
+            "None" => AssociationAmenities::None,
+
+            "Other" => AssociationAmenities::Other,
+
+            "Park" => AssociationAmenities::Park,
+
+            "Parking" => AssociationAmenities::Parking,
+
+            "Party Room" => AssociationAmenities::PartyRoom,
+
+            "Picnic Area" => AssociationAmenities::PicnicArea,
+
+            "Playground" => AssociationAmenities::Playground,
+
+            "Pond Seasonal" => AssociationAmenities::PondSeasonal,
+
+            "Pond Year Round" => AssociationAmenities::PondYearRound,
+
+            "Pool" => AssociationAmenities::Pool,
+
+            "Powered Boats Allowed" => AssociationAmenities::PoweredBoatsAllowed,
+
+            "Racquetball" => AssociationAmenities::Racquetball,
+
+            "Recreation Facilities" => AssociationAmenities::RecreationFacilities,
+
+            "Recreation Room" => AssociationAmenities::RecreationRoom,
+
+            "Roof Deck" => AssociationAmenities::RoofDeck,
+
+            "RV Parking" => AssociationAmenities::RVParking,
+
+            "RV/Boat Storage" => AssociationAmenities::RVBoatStorage,
+
+            "Sauna" => AssociationAmenities::Sauna,
+
+            "Security" => AssociationAmenities::Security,
+
+            "Service Elevator(s)" => AssociationAmenities::ServiceElevators,
+
+            "Shuffleboard Court" => AssociationAmenities::ShuffleboardCourt,
+
+            "Ski Accessible" => AssociationAmenities::SkiAccessible,
+
+            "Snow Removal" => AssociationAmenities::SnowRemoval,
+
+            "Spa/Hot Tub" => AssociationAmenities::SpaHotTub,
+
+            "Sport Court" => AssociationAmenities::SportCourt,
+
+            "Stable(s)" => AssociationAmenities::Stables,
+
+            "Storage" => AssociationAmenities::Storage,
+
+            "Stream Seasonal" => AssociationAmenities::StreamSeasonal,
+
+            "Stream Year Round" => AssociationAmenities::StreamYearRound,
+
+            "Taxes" => AssociationAmenities::Taxes,
+
+            "Tennis Court(s)" => AssociationAmenities::TennisCourts,
+
+            "Trail(s)" => AssociationAmenities::Trails,
+
+            "Trash" => AssociationAmenities::Trash,
+
+            "Water" => AssociationAmenities::Water,
+
+            "Workshop Area" => AssociationAmenities::WorkshopArea,
+
+            _ => AssociationAmenities::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> AssociationAmenities {
+        match s.as_ref() {
+            "Airport/Runway" => AssociationAmenities::AirportRunway,
+
+            "Barbecue" => AssociationAmenities::Barbecue,
+
+            "Basketball Court" => AssociationAmenities::BasketballCourt,
+
+            "Beach Access" => AssociationAmenities::BeachAccess,
+
+            "Beach Rights" => AssociationAmenities::BeachRights,
+
+            "Billiard Room" => AssociationAmenities::BilliardRoom,
+
+            "Boat Dock" => AssociationAmenities::BoatDock,
+
+            "Boat Slip" => AssociationAmenities::BoatSlip,
+
+            "Boating" => AssociationAmenities::Boating,
+
+            "Cabana" => AssociationAmenities::Cabana,
+
+            "Cable TV" => AssociationAmenities::CableTV,
+
+            "Car Wash Area" => AssociationAmenities::CarWashArea,
+
+            "Clubhouse" => AssociationAmenities::Clubhouse,
+
+            "Coin Laundry" => AssociationAmenities::CoinLaundry,
+
+            "Concierge" => AssociationAmenities::Concierge,
+
+            "Day Care" => AssociationAmenities::DayCare,
+
+            "Dog Park" => AssociationAmenities::DogPark,
+
+            "Dry Dock" => AssociationAmenities::DryDock,
+
+            "Electricity" => AssociationAmenities::Electricity,
+
+            "Elevator(s)" => AssociationAmenities::Elevators,
+
+            "Exercise Course" => AssociationAmenities::ExerciseCourse,
+
+            "Fitness Center" => AssociationAmenities::FitnessCenter,
+
+            "Game Court Exterior" => AssociationAmenities::GameCourtExterior,
+
+            "Game Court Interior" => AssociationAmenities::GameCourtInterior,
+
+            "Game Room" => AssociationAmenities::GameRoom,
+
+            "Gas" => AssociationAmenities::Gas,
+
+            "Gated" => AssociationAmenities::Gated,
+
+            "Golf Course" => AssociationAmenities::GolfCourse,
+
+            "Hot Water" => AssociationAmenities::HotWater,
+
+            "Indoor Pool" => AssociationAmenities::IndoorPool,
+
+            "Insurance" => AssociationAmenities::Insurance,
+
+            "Jogging Path" => AssociationAmenities::JoggingPath,
+
+            "Landscaping" => AssociationAmenities::Landscaping,
+
+            "Laundry" => AssociationAmenities::Laundry,
+
+            "Maid service" => AssociationAmenities::Maidservice,
+
+            "Maintenance" => AssociationAmenities::Maintenance,
+
+            "Maintenance Grounds" => AssociationAmenities::MaintenanceGrounds,
+
+            "Maintenance Structure" => AssociationAmenities::MaintenanceStructure,
+
+            "Management" => AssociationAmenities::Management,
+
+            "Marina" => AssociationAmenities::Marina,
+
+            "Meeting Room" => AssociationAmenities::MeetingRoom,
+
+            "None" => AssociationAmenities::None,
+
+            "Other" => AssociationAmenities::Other,
+
+            "Park" => AssociationAmenities::Park,
+
+            "Parking" => AssociationAmenities::Parking,
+
+            "Party Room" => AssociationAmenities::PartyRoom,
+
+            "Picnic Area" => AssociationAmenities::PicnicArea,
+
+            "Playground" => AssociationAmenities::Playground,
+
+            "Pond Seasonal" => AssociationAmenities::PondSeasonal,
+
+            "Pond Year Round" => AssociationAmenities::PondYearRound,
+
+            "Pool" => AssociationAmenities::Pool,
+
+            "Powered Boats Allowed" => AssociationAmenities::PoweredBoatsAllowed,
+
+            "Racquetball" => AssociationAmenities::Racquetball,
+
+            "Recreation Facilities" => AssociationAmenities::RecreationFacilities,
+
+            "Recreation Room" => AssociationAmenities::RecreationRoom,
+
+            "Roof Deck" => AssociationAmenities::RoofDeck,
+
+            "RV Parking" => AssociationAmenities::RVParking,
+
+            "RV/Boat Storage" => AssociationAmenities::RVBoatStorage,
+
+            "Sauna" => AssociationAmenities::Sauna,
+
+            "Security" => AssociationAmenities::Security,
+
+            "Service Elevator(s)" => AssociationAmenities::ServiceElevators,
+
+            "Shuffleboard Court" => AssociationAmenities::ShuffleboardCourt,
+
+            "Ski Accessible" => AssociationAmenities::SkiAccessible,
+
+            "Snow Removal" => AssociationAmenities::SnowRemoval,
+
+            "Spa/Hot Tub" => AssociationAmenities::SpaHotTub,
+
+            "Sport Court" => AssociationAmenities::SportCourt,
+
+            "Stable(s)" => AssociationAmenities::Stables,
+
+            "Storage" => AssociationAmenities::Storage,
+
+            "Stream Seasonal" => AssociationAmenities::StreamSeasonal,
+
+            "Stream Year Round" => AssociationAmenities::StreamYearRound,
+
+            "Taxes" => AssociationAmenities::Taxes,
+
+            "Tennis Court(s)" => AssociationAmenities::TennisCourts,
+
+            "Trail(s)" => AssociationAmenities::Trails,
+
+            "Trash" => AssociationAmenities::Trash,
+
+            "Water" => AssociationAmenities::Water,
+
+            "Workshop Area" => AssociationAmenities::WorkshopArea,
+
+            _ => AssociationAmenities::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            AssociationAmenities::AirportRunway => "Airport/Runway",
+
+            AssociationAmenities::Barbecue => "Barbecue",
+
+            AssociationAmenities::BasketballCourt => "Basketball Court",
+
+            AssociationAmenities::BeachAccess => "Beach Access",
+
+            AssociationAmenities::BeachRights => "Beach Rights",
+
+            AssociationAmenities::BilliardRoom => "Billiard Room",
+
+            AssociationAmenities::BoatDock => "Boat Dock",
+
+            AssociationAmenities::BoatSlip => "Boat Slip",
+
+            AssociationAmenities::Boating => "Boating",
+
+            AssociationAmenities::Cabana => "Cabana",
+
+            AssociationAmenities::CableTV => "Cable TV",
+
+            AssociationAmenities::CarWashArea => "Car Wash Area",
+
+            AssociationAmenities::Clubhouse => "Clubhouse",
+
+            AssociationAmenities::CoinLaundry => "Coin Laundry",
+
+            AssociationAmenities::Concierge => "Concierge",
+
+            AssociationAmenities::DayCare => "Day Care",
+
+            AssociationAmenities::DogPark => "Dog Park",
+
+            AssociationAmenities::DryDock => "Dry Dock",
+
+            AssociationAmenities::Electricity => "Electricity",
+
+            AssociationAmenities::Elevators => "Elevator(s)",
+
+            AssociationAmenities::ExerciseCourse => "Exercise Course",
+
+            AssociationAmenities::FitnessCenter => "Fitness Center",
+
+            AssociationAmenities::GameCourtExterior => "Game Court Exterior",
+
+            AssociationAmenities::GameCourtInterior => "Game Court Interior",
+
+            AssociationAmenities::GameRoom => "Game Room",
+
+            AssociationAmenities::Gas => "Gas",
+
+            AssociationAmenities::Gated => "Gated",
+
+            AssociationAmenities::GolfCourse => "Golf Course",
+
+            AssociationAmenities::HotWater => "Hot Water",
+
+            AssociationAmenities::IndoorPool => "Indoor Pool",
+
+            AssociationAmenities::Insurance => "Insurance",
+
+            AssociationAmenities::JoggingPath => "Jogging Path",
+
+            AssociationAmenities::Landscaping => "Landscaping",
+
+            AssociationAmenities::Laundry => "Laundry",
+
+            AssociationAmenities::Maidservice => "Maid service",
+
+            AssociationAmenities::Maintenance => "Maintenance",
+
+            AssociationAmenities::MaintenanceGrounds => "Maintenance Grounds",
+
+            AssociationAmenities::MaintenanceStructure => "Maintenance Structure",
+
+            AssociationAmenities::Management => "Management",
+
+            AssociationAmenities::Marina => "Marina",
+
+            AssociationAmenities::MeetingRoom => "Meeting Room",
+
+            AssociationAmenities::None => "None",
+
+            AssociationAmenities::Other => "Other",
+
+            AssociationAmenities::Park => "Park",
+
+            AssociationAmenities::Parking => "Parking",
+
+            AssociationAmenities::PartyRoom => "Party Room",
+
+            AssociationAmenities::PicnicArea => "Picnic Area",
+
+            AssociationAmenities::Playground => "Playground",
+
+            AssociationAmenities::PondSeasonal => "Pond Seasonal",
+
+            AssociationAmenities::PondYearRound => "Pond Year Round",
+
+            AssociationAmenities::Pool => "Pool",
+
+            AssociationAmenities::PoweredBoatsAllowed => "Powered Boats Allowed",
+
+            AssociationAmenities::Racquetball => "Racquetball",
+
+            AssociationAmenities::RecreationFacilities => "Recreation Facilities",
+
+            AssociationAmenities::RecreationRoom => "Recreation Room",
+
+            AssociationAmenities::RoofDeck => "Roof Deck",
+
+            AssociationAmenities::RVParking => "RV Parking",
+
+            AssociationAmenities::RVBoatStorage => "RV/Boat Storage",
+
+            AssociationAmenities::Sauna => "Sauna",
+
+            AssociationAmenities::Security => "Security",
+
+            AssociationAmenities::ServiceElevators => "Service Elevator(s)",
+
+            AssociationAmenities::ShuffleboardCourt => "Shuffleboard Court",
+
+            AssociationAmenities::SkiAccessible => "Ski Accessible",
+
+            AssociationAmenities::SnowRemoval => "Snow Removal",
+
+            AssociationAmenities::SpaHotTub => "Spa/Hot Tub",
+
+            AssociationAmenities::SportCourt => "Sport Court",
+
+            AssociationAmenities::Stables => "Stable(s)",
+
+            AssociationAmenities::Storage => "Storage",
+
+            AssociationAmenities::StreamSeasonal => "Stream Seasonal",
+
+            AssociationAmenities::StreamYearRound => "Stream Year Round",
+
+            AssociationAmenities::Taxes => "Taxes",
+
+            AssociationAmenities::TennisCourts => "Tennis Court(s)",
+
+            AssociationAmenities::Trails => "Trail(s)",
+
+            AssociationAmenities::Trash => "Trash",
+
+            AssociationAmenities::Water => "Water",
+
+            AssociationAmenities::WorkshopArea => "Workshop Area",
+
+            AssociationAmenities::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            AssociationAmenities::AirportRunway => "Airport/Runway".into(),
+
+            AssociationAmenities::Barbecue => "Barbecue".into(),
+
+            AssociationAmenities::BasketballCourt => "Basketball Court".into(),
+
+            AssociationAmenities::BeachAccess => "Beach Access".into(),
+
+            AssociationAmenities::BeachRights => "Beach Rights".into(),
+
+            AssociationAmenities::BilliardRoom => "Billiard Room".into(),
+
+            AssociationAmenities::BoatDock => "Boat Dock".into(),
+
+            AssociationAmenities::BoatSlip => "Boat Slip".into(),
+
+            AssociationAmenities::Boating => "Boating".into(),
+
+            AssociationAmenities::Cabana => "Cabana".into(),
+
+            AssociationAmenities::CableTV => "Cable TV".into(),
+
+            AssociationAmenities::CarWashArea => "Car Wash Area".into(),
+
+            AssociationAmenities::Clubhouse => "Clubhouse".into(),
+
+            AssociationAmenities::CoinLaundry => "Coin Laundry".into(),
+
+            AssociationAmenities::Concierge => "Concierge".into(),
+
+            AssociationAmenities::DayCare => "Day Care".into(),
+
+            AssociationAmenities::DogPark => "Dog Park".into(),
+
+            AssociationAmenities::DryDock => "Dry Dock".into(),
+
+            AssociationAmenities::Electricity => "Electricity".into(),
+
+            AssociationAmenities::Elevators => "Elevator(s)".into(),
+
+            AssociationAmenities::ExerciseCourse => "Exercise Course".into(),
+
+            AssociationAmenities::FitnessCenter => "Fitness Center".into(),
+
+            AssociationAmenities::GameCourtExterior => "Game Court Exterior".into(),
+
+            AssociationAmenities::GameCourtInterior => "Game Court Interior".into(),
+
+            AssociationAmenities::GameRoom => "Game Room".into(),
+
+            AssociationAmenities::Gas => "Gas".into(),
+
+            AssociationAmenities::Gated => "Gated".into(),
+
+            AssociationAmenities::GolfCourse => "Golf Course".into(),
+
+            AssociationAmenities::HotWater => "Hot Water".into(),
+
+            AssociationAmenities::IndoorPool => "Indoor Pool".into(),
+
+            AssociationAmenities::Insurance => "Insurance".into(),
+
+            AssociationAmenities::JoggingPath => "Jogging Path".into(),
+
+            AssociationAmenities::Landscaping => "Landscaping".into(),
+
+            AssociationAmenities::Laundry => "Laundry".into(),
+
+            AssociationAmenities::Maidservice => "Maid service".into(),
+
+            AssociationAmenities::Maintenance => "Maintenance".into(),
+
+            AssociationAmenities::MaintenanceGrounds => "Maintenance Grounds".into(),
+
+            AssociationAmenities::MaintenanceStructure => "Maintenance Structure".into(),
+
+            AssociationAmenities::Management => "Management".into(),
+
+            AssociationAmenities::Marina => "Marina".into(),
+
+            AssociationAmenities::MeetingRoom => "Meeting Room".into(),
+
+            AssociationAmenities::None => "None".into(),
+
+            AssociationAmenities::Other => "Other".into(),
+
+            AssociationAmenities::Park => "Park".into(),
+
+            AssociationAmenities::Parking => "Parking".into(),
+
+            AssociationAmenities::PartyRoom => "Party Room".into(),
+
+            AssociationAmenities::PicnicArea => "Picnic Area".into(),
+
+            AssociationAmenities::Playground => "Playground".into(),
+
+            AssociationAmenities::PondSeasonal => "Pond Seasonal".into(),
+
+            AssociationAmenities::PondYearRound => "Pond Year Round".into(),
+
+            AssociationAmenities::Pool => "Pool".into(),
+
+            AssociationAmenities::PoweredBoatsAllowed => "Powered Boats Allowed".into(),
+
+            AssociationAmenities::Racquetball => "Racquetball".into(),
+
+            AssociationAmenities::RecreationFacilities => "Recreation Facilities".into(),
+
+            AssociationAmenities::RecreationRoom => "Recreation Room".into(),
+
+            AssociationAmenities::RoofDeck => "Roof Deck".into(),
+
+            AssociationAmenities::RVParking => "RV Parking".into(),
+
+            AssociationAmenities::RVBoatStorage => "RV/Boat Storage".into(),
+
+            AssociationAmenities::Sauna => "Sauna".into(),
+
+            AssociationAmenities::Security => "Security".into(),
+
+            AssociationAmenities::ServiceElevators => "Service Elevator(s)".into(),
+
+            AssociationAmenities::ShuffleboardCourt => "Shuffleboard Court".into(),
+
+            AssociationAmenities::SkiAccessible => "Ski Accessible".into(),
+
+            AssociationAmenities::SnowRemoval => "Snow Removal".into(),
+
+            AssociationAmenities::SpaHotTub => "Spa/Hot Tub".into(),
+
+            AssociationAmenities::SportCourt => "Sport Court".into(),
+
+            AssociationAmenities::Stables => "Stable(s)".into(),
+
+            AssociationAmenities::Storage => "Storage".into(),
+
+            AssociationAmenities::StreamSeasonal => "Stream Seasonal".into(),
+
+            AssociationAmenities::StreamYearRound => "Stream Year Round".into(),
+
+            AssociationAmenities::Taxes => "Taxes".into(),
+
+            AssociationAmenities::TennisCourts => "Tennis Court(s)".into(),
+
+            AssociationAmenities::Trails => "Trail(s)".into(),
+
+            AssociationAmenities::Trash => "Trash".into(),
+
+            AssociationAmenities::Water => "Water".into(),
+
+            AssociationAmenities::WorkshopArea => "Workshop Area".into(),
+
+            AssociationAmenities::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            AssociationAmenities::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for AssociationAmenities {
     fn from(s: String) -> AssociationAmenities {
         match s.as_ref() {
@@ -733,45 +1374,5 @@ impl<'de> Deserialize<'de> for AssociationAmenities {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_association_amenities_format {
-    use super::AssociationAmenities;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<AssociationAmenities>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<AssociationAmenities>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

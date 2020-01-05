@@ -108,6 +108,303 @@ pub enum RoomType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for RoomType {
+    fn from_str(s: &str) -> RoomType {
+        match s {
+            "Basement" => RoomType::Basement,
+
+            "Bathroom" => RoomType::Bathroom,
+
+            "Bathroom 1" => RoomType::Bathroom1,
+
+            "Bathroom 2" => RoomType::Bathroom2,
+
+            "Bathroom 3" => RoomType::Bathroom3,
+
+            "Bathroom 4" => RoomType::Bathroom4,
+
+            "Bathroom 5" => RoomType::Bathroom5,
+
+            "Bedroom" => RoomType::Bedroom,
+
+            "Bedroom 1" => RoomType::Bedroom1,
+
+            "Bedroom 2" => RoomType::Bedroom2,
+
+            "Bedroom 3" => RoomType::Bedroom3,
+
+            "Bedroom 4" => RoomType::Bedroom4,
+
+            "Bedroom 5" => RoomType::Bedroom5,
+
+            "Bonus Room" => RoomType::BonusRoom,
+
+            "Den" => RoomType::Den,
+
+            "Dining Room" => RoomType::DiningRoom,
+
+            "Exercise Room" => RoomType::ExerciseRoom,
+
+            "Family Room" => RoomType::FamilyRoom,
+
+            "Game Room" => RoomType::GameRoom,
+
+            "Great Room" => RoomType::GreatRoom,
+
+            "Gym" => RoomType::Gym,
+
+            "Kitchen" => RoomType::Kitchen,
+
+            "Laundry" => RoomType::Laundry,
+
+            "Library" => RoomType::Library,
+
+            "Living Room" => RoomType::LivingRoom,
+
+            "Loft" => RoomType::Loft,
+
+            "Master Bathroom" => RoomType::MasterBathroom,
+
+            "Master Bedroom" => RoomType::MasterBedroom,
+
+            "Media Room" => RoomType::MediaRoom,
+
+            "Office" => RoomType::Office,
+
+            "Sauna" => RoomType::Sauna,
+
+            "Utility Room" => RoomType::UtilityRoom,
+
+            "Workshop" => RoomType::Workshop,
+
+            _ => RoomType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> RoomType {
+        match s.as_ref() {
+            "Basement" => RoomType::Basement,
+
+            "Bathroom" => RoomType::Bathroom,
+
+            "Bathroom 1" => RoomType::Bathroom1,
+
+            "Bathroom 2" => RoomType::Bathroom2,
+
+            "Bathroom 3" => RoomType::Bathroom3,
+
+            "Bathroom 4" => RoomType::Bathroom4,
+
+            "Bathroom 5" => RoomType::Bathroom5,
+
+            "Bedroom" => RoomType::Bedroom,
+
+            "Bedroom 1" => RoomType::Bedroom1,
+
+            "Bedroom 2" => RoomType::Bedroom2,
+
+            "Bedroom 3" => RoomType::Bedroom3,
+
+            "Bedroom 4" => RoomType::Bedroom4,
+
+            "Bedroom 5" => RoomType::Bedroom5,
+
+            "Bonus Room" => RoomType::BonusRoom,
+
+            "Den" => RoomType::Den,
+
+            "Dining Room" => RoomType::DiningRoom,
+
+            "Exercise Room" => RoomType::ExerciseRoom,
+
+            "Family Room" => RoomType::FamilyRoom,
+
+            "Game Room" => RoomType::GameRoom,
+
+            "Great Room" => RoomType::GreatRoom,
+
+            "Gym" => RoomType::Gym,
+
+            "Kitchen" => RoomType::Kitchen,
+
+            "Laundry" => RoomType::Laundry,
+
+            "Library" => RoomType::Library,
+
+            "Living Room" => RoomType::LivingRoom,
+
+            "Loft" => RoomType::Loft,
+
+            "Master Bathroom" => RoomType::MasterBathroom,
+
+            "Master Bedroom" => RoomType::MasterBedroom,
+
+            "Media Room" => RoomType::MediaRoom,
+
+            "Office" => RoomType::Office,
+
+            "Sauna" => RoomType::Sauna,
+
+            "Utility Room" => RoomType::UtilityRoom,
+
+            "Workshop" => RoomType::Workshop,
+
+            _ => RoomType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            RoomType::Basement => "Basement",
+
+            RoomType::Bathroom => "Bathroom",
+
+            RoomType::Bathroom1 => "Bathroom 1",
+
+            RoomType::Bathroom2 => "Bathroom 2",
+
+            RoomType::Bathroom3 => "Bathroom 3",
+
+            RoomType::Bathroom4 => "Bathroom 4",
+
+            RoomType::Bathroom5 => "Bathroom 5",
+
+            RoomType::Bedroom => "Bedroom",
+
+            RoomType::Bedroom1 => "Bedroom 1",
+
+            RoomType::Bedroom2 => "Bedroom 2",
+
+            RoomType::Bedroom3 => "Bedroom 3",
+
+            RoomType::Bedroom4 => "Bedroom 4",
+
+            RoomType::Bedroom5 => "Bedroom 5",
+
+            RoomType::BonusRoom => "Bonus Room",
+
+            RoomType::Den => "Den",
+
+            RoomType::DiningRoom => "Dining Room",
+
+            RoomType::ExerciseRoom => "Exercise Room",
+
+            RoomType::FamilyRoom => "Family Room",
+
+            RoomType::GameRoom => "Game Room",
+
+            RoomType::GreatRoom => "Great Room",
+
+            RoomType::Gym => "Gym",
+
+            RoomType::Kitchen => "Kitchen",
+
+            RoomType::Laundry => "Laundry",
+
+            RoomType::Library => "Library",
+
+            RoomType::LivingRoom => "Living Room",
+
+            RoomType::Loft => "Loft",
+
+            RoomType::MasterBathroom => "Master Bathroom",
+
+            RoomType::MasterBedroom => "Master Bedroom",
+
+            RoomType::MediaRoom => "Media Room",
+
+            RoomType::Office => "Office",
+
+            RoomType::Sauna => "Sauna",
+
+            RoomType::UtilityRoom => "Utility Room",
+
+            RoomType::Workshop => "Workshop",
+
+            RoomType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            RoomType::Basement => "Basement".into(),
+
+            RoomType::Bathroom => "Bathroom".into(),
+
+            RoomType::Bathroom1 => "Bathroom 1".into(),
+
+            RoomType::Bathroom2 => "Bathroom 2".into(),
+
+            RoomType::Bathroom3 => "Bathroom 3".into(),
+
+            RoomType::Bathroom4 => "Bathroom 4".into(),
+
+            RoomType::Bathroom5 => "Bathroom 5".into(),
+
+            RoomType::Bedroom => "Bedroom".into(),
+
+            RoomType::Bedroom1 => "Bedroom 1".into(),
+
+            RoomType::Bedroom2 => "Bedroom 2".into(),
+
+            RoomType::Bedroom3 => "Bedroom 3".into(),
+
+            RoomType::Bedroom4 => "Bedroom 4".into(),
+
+            RoomType::Bedroom5 => "Bedroom 5".into(),
+
+            RoomType::BonusRoom => "Bonus Room".into(),
+
+            RoomType::Den => "Den".into(),
+
+            RoomType::DiningRoom => "Dining Room".into(),
+
+            RoomType::ExerciseRoom => "Exercise Room".into(),
+
+            RoomType::FamilyRoom => "Family Room".into(),
+
+            RoomType::GameRoom => "Game Room".into(),
+
+            RoomType::GreatRoom => "Great Room".into(),
+
+            RoomType::Gym => "Gym".into(),
+
+            RoomType::Kitchen => "Kitchen".into(),
+
+            RoomType::Laundry => "Laundry".into(),
+
+            RoomType::Library => "Library".into(),
+
+            RoomType::LivingRoom => "Living Room".into(),
+
+            RoomType::Loft => "Loft".into(),
+
+            RoomType::MasterBathroom => "Master Bathroom".into(),
+
+            RoomType::MasterBedroom => "Master Bedroom".into(),
+
+            RoomType::MediaRoom => "Media Room".into(),
+
+            RoomType::Office => "Office".into(),
+
+            RoomType::Sauna => "Sauna".into(),
+
+            RoomType::UtilityRoom => "Utility Room".into(),
+
+            RoomType::Workshop => "Workshop".into(),
+
+            RoomType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            RoomType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for RoomType {
     fn from(s: String) -> RoomType {
         match s.as_ref() {
@@ -346,43 +643,5 @@ impl<'de> Deserialize<'de> for RoomType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_room_type_format {
-    use super::RoomType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<RoomType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<RoomType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

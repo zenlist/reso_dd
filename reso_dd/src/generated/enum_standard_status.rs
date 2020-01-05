@@ -42,6 +42,127 @@ pub enum StandardStatus {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for StandardStatus {
+    fn from_str(s: &str) -> StandardStatus {
+        match s {
+            "Active" => StandardStatus::Active,
+
+            "Active Under Contract" => StandardStatus::ActiveUnderContract,
+
+            "Canceled" => StandardStatus::Canceled,
+
+            "Closed" => StandardStatus::Closed,
+
+            "Coming Soon" => StandardStatus::ComingSoon,
+
+            "Delete" => StandardStatus::Delete,
+
+            "Expired" => StandardStatus::Expired,
+
+            "Hold" => StandardStatus::Hold,
+
+            "Incomplete" => StandardStatus::Incomplete,
+
+            "Pending" => StandardStatus::Pending,
+
+            "Withdrawn" => StandardStatus::Withdrawn,
+
+            _ => StandardStatus::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> StandardStatus {
+        match s.as_ref() {
+            "Active" => StandardStatus::Active,
+
+            "Active Under Contract" => StandardStatus::ActiveUnderContract,
+
+            "Canceled" => StandardStatus::Canceled,
+
+            "Closed" => StandardStatus::Closed,
+
+            "Coming Soon" => StandardStatus::ComingSoon,
+
+            "Delete" => StandardStatus::Delete,
+
+            "Expired" => StandardStatus::Expired,
+
+            "Hold" => StandardStatus::Hold,
+
+            "Incomplete" => StandardStatus::Incomplete,
+
+            "Pending" => StandardStatus::Pending,
+
+            "Withdrawn" => StandardStatus::Withdrawn,
+
+            _ => StandardStatus::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            StandardStatus::Active => "Active",
+
+            StandardStatus::ActiveUnderContract => "Active Under Contract",
+
+            StandardStatus::Canceled => "Canceled",
+
+            StandardStatus::Closed => "Closed",
+
+            StandardStatus::ComingSoon => "Coming Soon",
+
+            StandardStatus::Delete => "Delete",
+
+            StandardStatus::Expired => "Expired",
+
+            StandardStatus::Hold => "Hold",
+
+            StandardStatus::Incomplete => "Incomplete",
+
+            StandardStatus::Pending => "Pending",
+
+            StandardStatus::Withdrawn => "Withdrawn",
+
+            StandardStatus::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            StandardStatus::Active => "Active".into(),
+
+            StandardStatus::ActiveUnderContract => "Active Under Contract".into(),
+
+            StandardStatus::Canceled => "Canceled".into(),
+
+            StandardStatus::Closed => "Closed".into(),
+
+            StandardStatus::ComingSoon => "Coming Soon".into(),
+
+            StandardStatus::Delete => "Delete".into(),
+
+            StandardStatus::Expired => "Expired".into(),
+
+            StandardStatus::Hold => "Hold".into(),
+
+            StandardStatus::Incomplete => "Incomplete".into(),
+
+            StandardStatus::Pending => "Pending".into(),
+
+            StandardStatus::Withdrawn => "Withdrawn".into(),
+
+            StandardStatus::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            StandardStatus::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for StandardStatus {
     fn from(s: String) -> StandardStatus {
         match s.as_ref() {
@@ -148,45 +269,5 @@ impl<'de> Deserialize<'de> for StandardStatus {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_standard_status_format {
-    use super::StandardStatus;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<StandardStatus>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<StandardStatus>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

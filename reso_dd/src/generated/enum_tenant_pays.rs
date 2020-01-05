@@ -96,6 +96,271 @@ pub enum TenantPays {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for TenantPays {
+    fn from_str(s: &str) -> TenantPays {
+        match s {
+            "All Utilities" => TenantPays::AllUtilities,
+
+            "Association Fees" => TenantPays::AssociationFees,
+
+            "Cable TV" => TenantPays::CableTV,
+
+            "Common Area Maintenance" => TenantPays::CommonAreaMaintenance,
+
+            "Electricity" => TenantPays::Electricity,
+
+            "Exterior Maintenance" => TenantPays::ExteriorMaintenance,
+
+            "Gas" => TenantPays::Gas,
+
+            "Grounds Care" => TenantPays::GroundsCare,
+
+            "Hot Water" => TenantPays::HotWater,
+
+            "HVAC Maintenance" => TenantPays::HVACMaintenance,
+
+            "Insurance" => TenantPays::Insurance,
+
+            "Janitorial Service" => TenantPays::JanitorialService,
+
+            "Management" => TenantPays::Management,
+
+            "None" => TenantPays::None,
+
+            "Other" => TenantPays::Other,
+
+            "Other Tax" => TenantPays::OtherTax,
+
+            "Parking Fee" => TenantPays::ParkingFee,
+
+            "Pest Control" => TenantPays::PestControl,
+
+            "Pool Maintenance" => TenantPays::PoolMaintenance,
+
+            "Repairs" => TenantPays::Repairs,
+
+            "Roof" => TenantPays::Roof,
+
+            "Security" => TenantPays::Security,
+
+            "See Remarks" => TenantPays::SeeRemarks,
+
+            "Sewer" => TenantPays::Sewer,
+
+            "Snow Removal" => TenantPays::SnowRemoval,
+
+            "Taxes" => TenantPays::Taxes,
+
+            "Telephone" => TenantPays::Telephone,
+
+            "Trash Collection" => TenantPays::TrashCollection,
+
+            "Water" => TenantPays::Water,
+
+            _ => TenantPays::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> TenantPays {
+        match s.as_ref() {
+            "All Utilities" => TenantPays::AllUtilities,
+
+            "Association Fees" => TenantPays::AssociationFees,
+
+            "Cable TV" => TenantPays::CableTV,
+
+            "Common Area Maintenance" => TenantPays::CommonAreaMaintenance,
+
+            "Electricity" => TenantPays::Electricity,
+
+            "Exterior Maintenance" => TenantPays::ExteriorMaintenance,
+
+            "Gas" => TenantPays::Gas,
+
+            "Grounds Care" => TenantPays::GroundsCare,
+
+            "Hot Water" => TenantPays::HotWater,
+
+            "HVAC Maintenance" => TenantPays::HVACMaintenance,
+
+            "Insurance" => TenantPays::Insurance,
+
+            "Janitorial Service" => TenantPays::JanitorialService,
+
+            "Management" => TenantPays::Management,
+
+            "None" => TenantPays::None,
+
+            "Other" => TenantPays::Other,
+
+            "Other Tax" => TenantPays::OtherTax,
+
+            "Parking Fee" => TenantPays::ParkingFee,
+
+            "Pest Control" => TenantPays::PestControl,
+
+            "Pool Maintenance" => TenantPays::PoolMaintenance,
+
+            "Repairs" => TenantPays::Repairs,
+
+            "Roof" => TenantPays::Roof,
+
+            "Security" => TenantPays::Security,
+
+            "See Remarks" => TenantPays::SeeRemarks,
+
+            "Sewer" => TenantPays::Sewer,
+
+            "Snow Removal" => TenantPays::SnowRemoval,
+
+            "Taxes" => TenantPays::Taxes,
+
+            "Telephone" => TenantPays::Telephone,
+
+            "Trash Collection" => TenantPays::TrashCollection,
+
+            "Water" => TenantPays::Water,
+
+            _ => TenantPays::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            TenantPays::AllUtilities => "All Utilities",
+
+            TenantPays::AssociationFees => "Association Fees",
+
+            TenantPays::CableTV => "Cable TV",
+
+            TenantPays::CommonAreaMaintenance => "Common Area Maintenance",
+
+            TenantPays::Electricity => "Electricity",
+
+            TenantPays::ExteriorMaintenance => "Exterior Maintenance",
+
+            TenantPays::Gas => "Gas",
+
+            TenantPays::GroundsCare => "Grounds Care",
+
+            TenantPays::HotWater => "Hot Water",
+
+            TenantPays::HVACMaintenance => "HVAC Maintenance",
+
+            TenantPays::Insurance => "Insurance",
+
+            TenantPays::JanitorialService => "Janitorial Service",
+
+            TenantPays::Management => "Management",
+
+            TenantPays::None => "None",
+
+            TenantPays::Other => "Other",
+
+            TenantPays::OtherTax => "Other Tax",
+
+            TenantPays::ParkingFee => "Parking Fee",
+
+            TenantPays::PestControl => "Pest Control",
+
+            TenantPays::PoolMaintenance => "Pool Maintenance",
+
+            TenantPays::Repairs => "Repairs",
+
+            TenantPays::Roof => "Roof",
+
+            TenantPays::Security => "Security",
+
+            TenantPays::SeeRemarks => "See Remarks",
+
+            TenantPays::Sewer => "Sewer",
+
+            TenantPays::SnowRemoval => "Snow Removal",
+
+            TenantPays::Taxes => "Taxes",
+
+            TenantPays::Telephone => "Telephone",
+
+            TenantPays::TrashCollection => "Trash Collection",
+
+            TenantPays::Water => "Water",
+
+            TenantPays::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            TenantPays::AllUtilities => "All Utilities".into(),
+
+            TenantPays::AssociationFees => "Association Fees".into(),
+
+            TenantPays::CableTV => "Cable TV".into(),
+
+            TenantPays::CommonAreaMaintenance => "Common Area Maintenance".into(),
+
+            TenantPays::Electricity => "Electricity".into(),
+
+            TenantPays::ExteriorMaintenance => "Exterior Maintenance".into(),
+
+            TenantPays::Gas => "Gas".into(),
+
+            TenantPays::GroundsCare => "Grounds Care".into(),
+
+            TenantPays::HotWater => "Hot Water".into(),
+
+            TenantPays::HVACMaintenance => "HVAC Maintenance".into(),
+
+            TenantPays::Insurance => "Insurance".into(),
+
+            TenantPays::JanitorialService => "Janitorial Service".into(),
+
+            TenantPays::Management => "Management".into(),
+
+            TenantPays::None => "None".into(),
+
+            TenantPays::Other => "Other".into(),
+
+            TenantPays::OtherTax => "Other Tax".into(),
+
+            TenantPays::ParkingFee => "Parking Fee".into(),
+
+            TenantPays::PestControl => "Pest Control".into(),
+
+            TenantPays::PoolMaintenance => "Pool Maintenance".into(),
+
+            TenantPays::Repairs => "Repairs".into(),
+
+            TenantPays::Roof => "Roof".into(),
+
+            TenantPays::Security => "Security".into(),
+
+            TenantPays::SeeRemarks => "See Remarks".into(),
+
+            TenantPays::Sewer => "Sewer".into(),
+
+            TenantPays::SnowRemoval => "Snow Removal".into(),
+
+            TenantPays::Taxes => "Taxes".into(),
+
+            TenantPays::Telephone => "Telephone".into(),
+
+            TenantPays::TrashCollection => "Trash Collection".into(),
+
+            TenantPays::Water => "Water".into(),
+
+            TenantPays::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            TenantPays::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for TenantPays {
     fn from(s: String) -> TenantPays {
         match s.as_ref() {
@@ -310,43 +575,5 @@ impl<'de> Deserialize<'de> for TenantPays {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_tenant_pays_format {
-    use super::TenantPays;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<TenantPays>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<TenantPays>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

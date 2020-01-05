@@ -15,6 +15,55 @@ pub enum PowerProductionType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PowerProductionType {
+    fn from_str(s: &str) -> PowerProductionType {
+        match s {
+            "Photovoltaics" => PowerProductionType::Photovoltaics,
+
+            "Wind" => PowerProductionType::Wind,
+
+            _ => PowerProductionType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PowerProductionType {
+        match s.as_ref() {
+            "Photovoltaics" => PowerProductionType::Photovoltaics,
+
+            "Wind" => PowerProductionType::Wind,
+
+            _ => PowerProductionType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PowerProductionType::Photovoltaics => "Photovoltaics",
+
+            PowerProductionType::Wind => "Wind",
+
+            PowerProductionType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PowerProductionType::Photovoltaics => "Photovoltaics".into(),
+
+            PowerProductionType::Wind => "Wind".into(),
+
+            PowerProductionType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PowerProductionType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PowerProductionType {
     fn from(s: String) -> PowerProductionType {
         match s.as_ref() {
@@ -67,45 +116,5 @@ impl<'de> Deserialize<'de> for PowerProductionType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_power_production_type_format {
-    use super::PowerProductionType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PowerProductionType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<PowerProductionType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

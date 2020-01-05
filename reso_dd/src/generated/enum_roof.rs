@@ -111,6 +111,311 @@ pub enum Roof {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Roof {
+    fn from_str(s: &str) -> Roof {
+        match s {
+            "Aluminum" => Roof::Aluminum,
+
+            "Asbestos Shingle" => Roof::AsbestosShingle,
+
+            "Asphalt" => Roof::Asphalt,
+
+            "Bahama" => Roof::Bahama,
+
+            "Barrel" => Roof::Barrel,
+
+            "Bituthene" => Roof::Bituthene,
+
+            "Built-Up" => Roof::BuiltUp,
+
+            "Composition" => Roof::Composition,
+
+            "Concrete" => Roof::Concrete,
+
+            "Copper" => Roof::Copper,
+
+            "Elastomeric" => Roof::Elastomeric,
+
+            "Fiberglass" => Roof::Fiberglass,
+
+            "Flat" => Roof::Flat,
+
+            "Flat Tile" => Roof::FlatTile,
+
+            "Foam" => Roof::Foam,
+
+            "Green Roof" => Roof::GreenRoof,
+
+            "Mansard" => Roof::Mansard,
+
+            "Membrane" => Roof::Membrane,
+
+            "Metal" => Roof::Metal,
+
+            "Mixed" => Roof::Mixed,
+
+            "None" => Roof::None,
+
+            "Other" => Roof::Other,
+
+            "Rolled/Hot Mop" => Roof::RolledHotMop,
+
+            "Rubber" => Roof::Rubber,
+
+            "See Remarks" => Roof::SeeRemarks,
+
+            "Shake" => Roof::Shake,
+
+            "Shingle" => Roof::Shingle,
+
+            "Slate" => Roof::Slate,
+
+            "Spanish Tile" => Roof::SpanishTile,
+
+            "Stone" => Roof::Stone,
+
+            "Synthetic" => Roof::Synthetic,
+
+            "Tar/Gravel" => Roof::TarGravel,
+
+            "Tile" => Roof::Tile,
+
+            "Wood" => Roof::Wood,
+
+            _ => Roof::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Roof {
+        match s.as_ref() {
+            "Aluminum" => Roof::Aluminum,
+
+            "Asbestos Shingle" => Roof::AsbestosShingle,
+
+            "Asphalt" => Roof::Asphalt,
+
+            "Bahama" => Roof::Bahama,
+
+            "Barrel" => Roof::Barrel,
+
+            "Bituthene" => Roof::Bituthene,
+
+            "Built-Up" => Roof::BuiltUp,
+
+            "Composition" => Roof::Composition,
+
+            "Concrete" => Roof::Concrete,
+
+            "Copper" => Roof::Copper,
+
+            "Elastomeric" => Roof::Elastomeric,
+
+            "Fiberglass" => Roof::Fiberglass,
+
+            "Flat" => Roof::Flat,
+
+            "Flat Tile" => Roof::FlatTile,
+
+            "Foam" => Roof::Foam,
+
+            "Green Roof" => Roof::GreenRoof,
+
+            "Mansard" => Roof::Mansard,
+
+            "Membrane" => Roof::Membrane,
+
+            "Metal" => Roof::Metal,
+
+            "Mixed" => Roof::Mixed,
+
+            "None" => Roof::None,
+
+            "Other" => Roof::Other,
+
+            "Rolled/Hot Mop" => Roof::RolledHotMop,
+
+            "Rubber" => Roof::Rubber,
+
+            "See Remarks" => Roof::SeeRemarks,
+
+            "Shake" => Roof::Shake,
+
+            "Shingle" => Roof::Shingle,
+
+            "Slate" => Roof::Slate,
+
+            "Spanish Tile" => Roof::SpanishTile,
+
+            "Stone" => Roof::Stone,
+
+            "Synthetic" => Roof::Synthetic,
+
+            "Tar/Gravel" => Roof::TarGravel,
+
+            "Tile" => Roof::Tile,
+
+            "Wood" => Roof::Wood,
+
+            _ => Roof::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Roof::Aluminum => "Aluminum",
+
+            Roof::AsbestosShingle => "Asbestos Shingle",
+
+            Roof::Asphalt => "Asphalt",
+
+            Roof::Bahama => "Bahama",
+
+            Roof::Barrel => "Barrel",
+
+            Roof::Bituthene => "Bituthene",
+
+            Roof::BuiltUp => "Built-Up",
+
+            Roof::Composition => "Composition",
+
+            Roof::Concrete => "Concrete",
+
+            Roof::Copper => "Copper",
+
+            Roof::Elastomeric => "Elastomeric",
+
+            Roof::Fiberglass => "Fiberglass",
+
+            Roof::Flat => "Flat",
+
+            Roof::FlatTile => "Flat Tile",
+
+            Roof::Foam => "Foam",
+
+            Roof::GreenRoof => "Green Roof",
+
+            Roof::Mansard => "Mansard",
+
+            Roof::Membrane => "Membrane",
+
+            Roof::Metal => "Metal",
+
+            Roof::Mixed => "Mixed",
+
+            Roof::None => "None",
+
+            Roof::Other => "Other",
+
+            Roof::RolledHotMop => "Rolled/Hot Mop",
+
+            Roof::Rubber => "Rubber",
+
+            Roof::SeeRemarks => "See Remarks",
+
+            Roof::Shake => "Shake",
+
+            Roof::Shingle => "Shingle",
+
+            Roof::Slate => "Slate",
+
+            Roof::SpanishTile => "Spanish Tile",
+
+            Roof::Stone => "Stone",
+
+            Roof::Synthetic => "Synthetic",
+
+            Roof::TarGravel => "Tar/Gravel",
+
+            Roof::Tile => "Tile",
+
+            Roof::Wood => "Wood",
+
+            Roof::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Roof::Aluminum => "Aluminum".into(),
+
+            Roof::AsbestosShingle => "Asbestos Shingle".into(),
+
+            Roof::Asphalt => "Asphalt".into(),
+
+            Roof::Bahama => "Bahama".into(),
+
+            Roof::Barrel => "Barrel".into(),
+
+            Roof::Bituthene => "Bituthene".into(),
+
+            Roof::BuiltUp => "Built-Up".into(),
+
+            Roof::Composition => "Composition".into(),
+
+            Roof::Concrete => "Concrete".into(),
+
+            Roof::Copper => "Copper".into(),
+
+            Roof::Elastomeric => "Elastomeric".into(),
+
+            Roof::Fiberglass => "Fiberglass".into(),
+
+            Roof::Flat => "Flat".into(),
+
+            Roof::FlatTile => "Flat Tile".into(),
+
+            Roof::Foam => "Foam".into(),
+
+            Roof::GreenRoof => "Green Roof".into(),
+
+            Roof::Mansard => "Mansard".into(),
+
+            Roof::Membrane => "Membrane".into(),
+
+            Roof::Metal => "Metal".into(),
+
+            Roof::Mixed => "Mixed".into(),
+
+            Roof::None => "None".into(),
+
+            Roof::Other => "Other".into(),
+
+            Roof::RolledHotMop => "Rolled/Hot Mop".into(),
+
+            Roof::Rubber => "Rubber".into(),
+
+            Roof::SeeRemarks => "See Remarks".into(),
+
+            Roof::Shake => "Shake".into(),
+
+            Roof::Shingle => "Shingle".into(),
+
+            Roof::Slate => "Slate".into(),
+
+            Roof::SpanishTile => "Spanish Tile".into(),
+
+            Roof::Stone => "Stone".into(),
+
+            Roof::Synthetic => "Synthetic".into(),
+
+            Roof::TarGravel => "Tar/Gravel".into(),
+
+            Roof::Tile => "Tile".into(),
+
+            Roof::Wood => "Wood".into(),
+
+            Roof::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Roof::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Roof {
     fn from(s: String) -> Roof {
         match s.as_ref() {
@@ -355,40 +660,5 @@ impl<'de> Deserialize<'de> for Roof {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_roof_format {
-    use super::Roof;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(items: &Option<Vec<Roof>>, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Roof>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

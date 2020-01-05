@@ -90,6 +90,439 @@ pub enum CoListAgentDesignation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CoListAgentDesignation {
+    fn from_str(s: &str) -> CoListAgentDesignation {
+        match s {
+            "Accredited Buyer's Representative / ABR" => {
+                CoListAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => {
+                CoListAgentDesignation::AccreditedLandConsultantALC
+            }
+
+            "At Home With Diversity / AHWD" => CoListAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                CoListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                CoListAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                CoListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => {
+                CoListAgentDesignation::CertifiedPropertyManagerCPM
+            }
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                CoListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                CoListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                CoListAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => CoListAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => CoListAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                CoListAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                CoListAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                CoListAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => CoListAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                CoListAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => CoListAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                CoListAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                CoListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                CoListAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                CoListAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                CoListAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                CoListAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                CoListAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                CoListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                CoListAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => CoListAgentDesignation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CoListAgentDesignation {
+        match s.as_ref() {
+            "Accredited Buyer's Representative / ABR" => {
+                CoListAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => {
+                CoListAgentDesignation::AccreditedLandConsultantALC
+            }
+
+            "At Home With Diversity / AHWD" => CoListAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                CoListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                CoListAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                CoListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => {
+                CoListAgentDesignation::CertifiedPropertyManagerCPM
+            }
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                CoListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                CoListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                CoListAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => CoListAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => CoListAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                CoListAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                CoListAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                CoListAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => CoListAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                CoListAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => CoListAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                CoListAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                CoListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                CoListAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                CoListAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                CoListAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                CoListAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                CoListAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                CoListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                CoListAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => CoListAgentDesignation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CoListAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR"
+            }
+
+            CoListAgentDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC"
+            }
+
+            CoListAgentDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD",
+
+            CoListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM"
+            }
+
+            CoListAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE"
+            }
+
+            CoListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS"
+            }
+
+            CoListAgentDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM"
+            }
+
+            CoListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB"
+            }
+
+            CoListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS"
+            }
+
+            CoListAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS"
+            }
+
+            CoListAgentDesignation::CounselorofRealEstateCRE => "Counselor of Real Estate / CRE",
+
+            CoListAgentDesignation::EPRO => "e-PRO",
+
+            CoListAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA"
+            }
+
+            CoListAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI"
+            }
+
+            CoListAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP"
+            }
+
+            CoListAgentDesignation::NARsGreenDesignationGREEN => "NAR's Green Designation / GREEN",
+
+            CoListAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN"
+            }
+
+            CoListAgentDesignation::PricingStrategyAdvisorPSA => "Pricing Strategy Advisor / PSA",
+
+            CoListAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE"
+            }
+
+            CoListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE"
+            }
+
+            CoListAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA"
+            }
+
+            CoListAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS"
+            }
+
+            CoListAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS"
+            }
+
+            CoListAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES"
+            }
+
+            CoListAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR"
+            }
+
+            CoListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR"
+            }
+
+            CoListAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC"
+            }
+
+            CoListAgentDesignation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CoListAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR".into()
+            }
+
+            CoListAgentDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC".into()
+            }
+
+            CoListAgentDesignation::AtHomeWithDiversityAHWD => {
+                "At Home With Diversity / AHWD".into()
+            }
+
+            CoListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM".into()
+            }
+
+            CoListAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE".into()
+            }
+
+            CoListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS".into()
+            }
+
+            CoListAgentDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM".into()
+            }
+
+            CoListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB".into()
+            }
+
+            CoListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS".into()
+            }
+
+            CoListAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS".into()
+            }
+
+            CoListAgentDesignation::CounselorofRealEstateCRE => {
+                "Counselor of Real Estate / CRE".into()
+            }
+
+            CoListAgentDesignation::EPRO => "e-PRO".into(),
+
+            CoListAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA".into()
+            }
+
+            CoListAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI".into()
+            }
+
+            CoListAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP".into()
+            }
+
+            CoListAgentDesignation::NARsGreenDesignationGREEN => {
+                "NAR's Green Designation / GREEN".into()
+            }
+
+            CoListAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN".into()
+            }
+
+            CoListAgentDesignation::PricingStrategyAdvisorPSA => {
+                "Pricing Strategy Advisor / PSA".into()
+            }
+
+            CoListAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE".into()
+            }
+
+            CoListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE".into()
+            }
+
+            CoListAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA".into()
+            }
+
+            CoListAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS".into()
+            }
+
+            CoListAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS".into()
+            }
+
+            CoListAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES".into()
+            }
+
+            CoListAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR".into()
+            }
+
+            CoListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR".into()
+            }
+
+            CoListAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC".into()
+            }
+
+            CoListAgentDesignation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CoListAgentDesignation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CoListAgentDesignation {
     fn from(s: String) -> CoListAgentDesignation {
         match s.as_ref() {
@@ -424,45 +857,5 @@ impl<'de> Deserialize<'de> for CoListAgentDesignation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_co_list_agent_designation_format {
-    use super::CoListAgentDesignation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CoListAgentDesignation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<CoListAgentDesignation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -60,6 +60,175 @@ pub enum SocialMediaType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for SocialMediaType {
+    fn from_str(s: &str) -> SocialMediaType {
+        match s {
+            "Blog" => SocialMediaType::Blog,
+
+            "Digg" => SocialMediaType::Digg,
+
+            "Facebook" => SocialMediaType::Facebook,
+
+            "Facebook Messenger" => SocialMediaType::FacebookMessenger,
+
+            "GooglePlus" => SocialMediaType::GooglePlus,
+
+            "iMessage" => SocialMediaType::IMessage,
+
+            "Instagram" => SocialMediaType::Instagram,
+
+            "LinkedIn" => SocialMediaType::LinkedIn,
+
+            "Pinterest" => SocialMediaType::Pinterest,
+
+            "Reddit" => SocialMediaType::Reddit,
+
+            "Slack" => SocialMediaType::Slack,
+
+            "Snapchat" => SocialMediaType::Snapchat,
+
+            "StumbleUpon" => SocialMediaType::StumbleUpon,
+
+            "Tumblr" => SocialMediaType::Tumblr,
+
+            "Twitter" => SocialMediaType::Twitter,
+
+            "Website" => SocialMediaType::Website,
+
+            "YouTube" => SocialMediaType::YouTube,
+
+            _ => SocialMediaType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> SocialMediaType {
+        match s.as_ref() {
+            "Blog" => SocialMediaType::Blog,
+
+            "Digg" => SocialMediaType::Digg,
+
+            "Facebook" => SocialMediaType::Facebook,
+
+            "Facebook Messenger" => SocialMediaType::FacebookMessenger,
+
+            "GooglePlus" => SocialMediaType::GooglePlus,
+
+            "iMessage" => SocialMediaType::IMessage,
+
+            "Instagram" => SocialMediaType::Instagram,
+
+            "LinkedIn" => SocialMediaType::LinkedIn,
+
+            "Pinterest" => SocialMediaType::Pinterest,
+
+            "Reddit" => SocialMediaType::Reddit,
+
+            "Slack" => SocialMediaType::Slack,
+
+            "Snapchat" => SocialMediaType::Snapchat,
+
+            "StumbleUpon" => SocialMediaType::StumbleUpon,
+
+            "Tumblr" => SocialMediaType::Tumblr,
+
+            "Twitter" => SocialMediaType::Twitter,
+
+            "Website" => SocialMediaType::Website,
+
+            "YouTube" => SocialMediaType::YouTube,
+
+            _ => SocialMediaType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            SocialMediaType::Blog => "Blog",
+
+            SocialMediaType::Digg => "Digg",
+
+            SocialMediaType::Facebook => "Facebook",
+
+            SocialMediaType::FacebookMessenger => "Facebook Messenger",
+
+            SocialMediaType::GooglePlus => "GooglePlus",
+
+            SocialMediaType::IMessage => "iMessage",
+
+            SocialMediaType::Instagram => "Instagram",
+
+            SocialMediaType::LinkedIn => "LinkedIn",
+
+            SocialMediaType::Pinterest => "Pinterest",
+
+            SocialMediaType::Reddit => "Reddit",
+
+            SocialMediaType::Slack => "Slack",
+
+            SocialMediaType::Snapchat => "Snapchat",
+
+            SocialMediaType::StumbleUpon => "StumbleUpon",
+
+            SocialMediaType::Tumblr => "Tumblr",
+
+            SocialMediaType::Twitter => "Twitter",
+
+            SocialMediaType::Website => "Website",
+
+            SocialMediaType::YouTube => "YouTube",
+
+            SocialMediaType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            SocialMediaType::Blog => "Blog".into(),
+
+            SocialMediaType::Digg => "Digg".into(),
+
+            SocialMediaType::Facebook => "Facebook".into(),
+
+            SocialMediaType::FacebookMessenger => "Facebook Messenger".into(),
+
+            SocialMediaType::GooglePlus => "GooglePlus".into(),
+
+            SocialMediaType::IMessage => "iMessage".into(),
+
+            SocialMediaType::Instagram => "Instagram".into(),
+
+            SocialMediaType::LinkedIn => "LinkedIn".into(),
+
+            SocialMediaType::Pinterest => "Pinterest".into(),
+
+            SocialMediaType::Reddit => "Reddit".into(),
+
+            SocialMediaType::Slack => "Slack".into(),
+
+            SocialMediaType::Snapchat => "Snapchat".into(),
+
+            SocialMediaType::StumbleUpon => "StumbleUpon".into(),
+
+            SocialMediaType::Tumblr => "Tumblr".into(),
+
+            SocialMediaType::Twitter => "Twitter".into(),
+
+            SocialMediaType::Website => "Website".into(),
+
+            SocialMediaType::YouTube => "YouTube".into(),
+
+            SocialMediaType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            SocialMediaType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for SocialMediaType {
     fn from(s: String) -> SocialMediaType {
         match s.as_ref() {
@@ -202,45 +371,5 @@ impl<'de> Deserialize<'de> for SocialMediaType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_social_media_type_format {
-    use super::SocialMediaType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<SocialMediaType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<SocialMediaType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

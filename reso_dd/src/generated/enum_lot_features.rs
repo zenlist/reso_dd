@@ -171,6 +171,471 @@ pub enum LotFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for LotFeatures {
+    fn from_str(s: &str) -> LotFeatures {
+        match s {
+            "Agricultural" => LotFeatures::Agricultural,
+
+            "Back Yard" => LotFeatures::BackYard,
+
+            "Bluff" => LotFeatures::Bluff,
+
+            "City Lot" => LotFeatures::CityLot,
+
+            "Cleared" => LotFeatures::Cleared,
+
+            "Close to Clubhouse" => LotFeatures::ClosetoClubhouse,
+
+            "Corner Lot" => LotFeatures::CornerLot,
+
+            "Corners Marked" => LotFeatures::CornersMarked,
+
+            "Cul-De-Sac" => LotFeatures::CulDeSac,
+
+            "Desert Back" => LotFeatures::DesertBack,
+
+            "Desert Front" => LotFeatures::DesertFront,
+
+            "Farm" => LotFeatures::Farm,
+
+            "Few Trees" => LotFeatures::FewTrees,
+
+            "Flag Lot" => LotFeatures::FlagLot,
+
+            "Front Yard" => LotFeatures::FrontYard,
+
+            "Garden" => LotFeatures::Garden,
+
+            "Gentle Sloping" => LotFeatures::GentleSloping,
+
+            "Greenbelt" => LotFeatures::Greenbelt,
+
+            "Interior Lot" => LotFeatures::InteriorLot,
+
+            "Irregular Lot" => LotFeatures::IrregularLot,
+
+            "Landscaped" => LotFeatures::Landscaped,
+
+            "Level" => LotFeatures::Level,
+
+            "Many Trees" => LotFeatures::ManyTrees,
+
+            "Meadow" => LotFeatures::Meadow,
+
+            "Native Plants" => LotFeatures::NativePlants,
+
+            "Near Golf Course" => LotFeatures::NearGolfCourse,
+
+            "Near Public Transit" => LotFeatures::NearPublicTransit,
+
+            "On Golf Course" => LotFeatures::OnGolfCourse,
+
+            "Open Lot" => LotFeatures::OpenLot,
+
+            "Orchard(s)" => LotFeatures::Orchards,
+
+            "Other" => LotFeatures::Other,
+
+            "Pasture" => LotFeatures::Pasture,
+
+            "Paved" => LotFeatures::Paved,
+
+            "Pie Shaped Lot" => LotFeatures::PieShapedLot,
+
+            "Private" => LotFeatures::Private,
+
+            "Rectangular Lot" => LotFeatures::RectangularLot,
+
+            "Rock Outcropping" => LotFeatures::RockOutcropping,
+
+            "Rolling Slope" => LotFeatures::RollingSlope,
+
+            "Secluded" => LotFeatures::Secluded,
+
+            "See Remarks" => LotFeatures::SeeRemarks,
+
+            "Sloped" => LotFeatures::Sloped,
+
+            "Sloped Down" => LotFeatures::SlopedDown,
+
+            "Sloped Up" => LotFeatures::SlopedUp,
+
+            "Split Possible" => LotFeatures::SplitPossible,
+
+            "Sprinklers In Front" => LotFeatures::SprinklersInFront,
+
+            "Sprinklers In Rear" => LotFeatures::SprinklersInRear,
+
+            "Steep Slope" => LotFeatures::SteepSlope,
+
+            "Subdivided" => LotFeatures::Subdivided,
+
+            "Views" => LotFeatures::Views,
+
+            "Waterfall" => LotFeatures::Waterfall,
+
+            "Waterfront" => LotFeatures::Waterfront,
+
+            "Wetlands" => LotFeatures::Wetlands,
+
+            "Wooded" => LotFeatures::Wooded,
+
+            "Zero Lot Line" => LotFeatures::ZeroLotLine,
+
+            _ => LotFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> LotFeatures {
+        match s.as_ref() {
+            "Agricultural" => LotFeatures::Agricultural,
+
+            "Back Yard" => LotFeatures::BackYard,
+
+            "Bluff" => LotFeatures::Bluff,
+
+            "City Lot" => LotFeatures::CityLot,
+
+            "Cleared" => LotFeatures::Cleared,
+
+            "Close to Clubhouse" => LotFeatures::ClosetoClubhouse,
+
+            "Corner Lot" => LotFeatures::CornerLot,
+
+            "Corners Marked" => LotFeatures::CornersMarked,
+
+            "Cul-De-Sac" => LotFeatures::CulDeSac,
+
+            "Desert Back" => LotFeatures::DesertBack,
+
+            "Desert Front" => LotFeatures::DesertFront,
+
+            "Farm" => LotFeatures::Farm,
+
+            "Few Trees" => LotFeatures::FewTrees,
+
+            "Flag Lot" => LotFeatures::FlagLot,
+
+            "Front Yard" => LotFeatures::FrontYard,
+
+            "Garden" => LotFeatures::Garden,
+
+            "Gentle Sloping" => LotFeatures::GentleSloping,
+
+            "Greenbelt" => LotFeatures::Greenbelt,
+
+            "Interior Lot" => LotFeatures::InteriorLot,
+
+            "Irregular Lot" => LotFeatures::IrregularLot,
+
+            "Landscaped" => LotFeatures::Landscaped,
+
+            "Level" => LotFeatures::Level,
+
+            "Many Trees" => LotFeatures::ManyTrees,
+
+            "Meadow" => LotFeatures::Meadow,
+
+            "Native Plants" => LotFeatures::NativePlants,
+
+            "Near Golf Course" => LotFeatures::NearGolfCourse,
+
+            "Near Public Transit" => LotFeatures::NearPublicTransit,
+
+            "On Golf Course" => LotFeatures::OnGolfCourse,
+
+            "Open Lot" => LotFeatures::OpenLot,
+
+            "Orchard(s)" => LotFeatures::Orchards,
+
+            "Other" => LotFeatures::Other,
+
+            "Pasture" => LotFeatures::Pasture,
+
+            "Paved" => LotFeatures::Paved,
+
+            "Pie Shaped Lot" => LotFeatures::PieShapedLot,
+
+            "Private" => LotFeatures::Private,
+
+            "Rectangular Lot" => LotFeatures::RectangularLot,
+
+            "Rock Outcropping" => LotFeatures::RockOutcropping,
+
+            "Rolling Slope" => LotFeatures::RollingSlope,
+
+            "Secluded" => LotFeatures::Secluded,
+
+            "See Remarks" => LotFeatures::SeeRemarks,
+
+            "Sloped" => LotFeatures::Sloped,
+
+            "Sloped Down" => LotFeatures::SlopedDown,
+
+            "Sloped Up" => LotFeatures::SlopedUp,
+
+            "Split Possible" => LotFeatures::SplitPossible,
+
+            "Sprinklers In Front" => LotFeatures::SprinklersInFront,
+
+            "Sprinklers In Rear" => LotFeatures::SprinklersInRear,
+
+            "Steep Slope" => LotFeatures::SteepSlope,
+
+            "Subdivided" => LotFeatures::Subdivided,
+
+            "Views" => LotFeatures::Views,
+
+            "Waterfall" => LotFeatures::Waterfall,
+
+            "Waterfront" => LotFeatures::Waterfront,
+
+            "Wetlands" => LotFeatures::Wetlands,
+
+            "Wooded" => LotFeatures::Wooded,
+
+            "Zero Lot Line" => LotFeatures::ZeroLotLine,
+
+            _ => LotFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            LotFeatures::Agricultural => "Agricultural",
+
+            LotFeatures::BackYard => "Back Yard",
+
+            LotFeatures::Bluff => "Bluff",
+
+            LotFeatures::CityLot => "City Lot",
+
+            LotFeatures::Cleared => "Cleared",
+
+            LotFeatures::ClosetoClubhouse => "Close to Clubhouse",
+
+            LotFeatures::CornerLot => "Corner Lot",
+
+            LotFeatures::CornersMarked => "Corners Marked",
+
+            LotFeatures::CulDeSac => "Cul-De-Sac",
+
+            LotFeatures::DesertBack => "Desert Back",
+
+            LotFeatures::DesertFront => "Desert Front",
+
+            LotFeatures::Farm => "Farm",
+
+            LotFeatures::FewTrees => "Few Trees",
+
+            LotFeatures::FlagLot => "Flag Lot",
+
+            LotFeatures::FrontYard => "Front Yard",
+
+            LotFeatures::Garden => "Garden",
+
+            LotFeatures::GentleSloping => "Gentle Sloping",
+
+            LotFeatures::Greenbelt => "Greenbelt",
+
+            LotFeatures::InteriorLot => "Interior Lot",
+
+            LotFeatures::IrregularLot => "Irregular Lot",
+
+            LotFeatures::Landscaped => "Landscaped",
+
+            LotFeatures::Level => "Level",
+
+            LotFeatures::ManyTrees => "Many Trees",
+
+            LotFeatures::Meadow => "Meadow",
+
+            LotFeatures::NativePlants => "Native Plants",
+
+            LotFeatures::NearGolfCourse => "Near Golf Course",
+
+            LotFeatures::NearPublicTransit => "Near Public Transit",
+
+            LotFeatures::OnGolfCourse => "On Golf Course",
+
+            LotFeatures::OpenLot => "Open Lot",
+
+            LotFeatures::Orchards => "Orchard(s)",
+
+            LotFeatures::Other => "Other",
+
+            LotFeatures::Pasture => "Pasture",
+
+            LotFeatures::Paved => "Paved",
+
+            LotFeatures::PieShapedLot => "Pie Shaped Lot",
+
+            LotFeatures::Private => "Private",
+
+            LotFeatures::RectangularLot => "Rectangular Lot",
+
+            LotFeatures::RockOutcropping => "Rock Outcropping",
+
+            LotFeatures::RollingSlope => "Rolling Slope",
+
+            LotFeatures::Secluded => "Secluded",
+
+            LotFeatures::SeeRemarks => "See Remarks",
+
+            LotFeatures::Sloped => "Sloped",
+
+            LotFeatures::SlopedDown => "Sloped Down",
+
+            LotFeatures::SlopedUp => "Sloped Up",
+
+            LotFeatures::SplitPossible => "Split Possible",
+
+            LotFeatures::SprinklersInFront => "Sprinklers In Front",
+
+            LotFeatures::SprinklersInRear => "Sprinklers In Rear",
+
+            LotFeatures::SteepSlope => "Steep Slope",
+
+            LotFeatures::Subdivided => "Subdivided",
+
+            LotFeatures::Views => "Views",
+
+            LotFeatures::Waterfall => "Waterfall",
+
+            LotFeatures::Waterfront => "Waterfront",
+
+            LotFeatures::Wetlands => "Wetlands",
+
+            LotFeatures::Wooded => "Wooded",
+
+            LotFeatures::ZeroLotLine => "Zero Lot Line",
+
+            LotFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            LotFeatures::Agricultural => "Agricultural".into(),
+
+            LotFeatures::BackYard => "Back Yard".into(),
+
+            LotFeatures::Bluff => "Bluff".into(),
+
+            LotFeatures::CityLot => "City Lot".into(),
+
+            LotFeatures::Cleared => "Cleared".into(),
+
+            LotFeatures::ClosetoClubhouse => "Close to Clubhouse".into(),
+
+            LotFeatures::CornerLot => "Corner Lot".into(),
+
+            LotFeatures::CornersMarked => "Corners Marked".into(),
+
+            LotFeatures::CulDeSac => "Cul-De-Sac".into(),
+
+            LotFeatures::DesertBack => "Desert Back".into(),
+
+            LotFeatures::DesertFront => "Desert Front".into(),
+
+            LotFeatures::Farm => "Farm".into(),
+
+            LotFeatures::FewTrees => "Few Trees".into(),
+
+            LotFeatures::FlagLot => "Flag Lot".into(),
+
+            LotFeatures::FrontYard => "Front Yard".into(),
+
+            LotFeatures::Garden => "Garden".into(),
+
+            LotFeatures::GentleSloping => "Gentle Sloping".into(),
+
+            LotFeatures::Greenbelt => "Greenbelt".into(),
+
+            LotFeatures::InteriorLot => "Interior Lot".into(),
+
+            LotFeatures::IrregularLot => "Irregular Lot".into(),
+
+            LotFeatures::Landscaped => "Landscaped".into(),
+
+            LotFeatures::Level => "Level".into(),
+
+            LotFeatures::ManyTrees => "Many Trees".into(),
+
+            LotFeatures::Meadow => "Meadow".into(),
+
+            LotFeatures::NativePlants => "Native Plants".into(),
+
+            LotFeatures::NearGolfCourse => "Near Golf Course".into(),
+
+            LotFeatures::NearPublicTransit => "Near Public Transit".into(),
+
+            LotFeatures::OnGolfCourse => "On Golf Course".into(),
+
+            LotFeatures::OpenLot => "Open Lot".into(),
+
+            LotFeatures::Orchards => "Orchard(s)".into(),
+
+            LotFeatures::Other => "Other".into(),
+
+            LotFeatures::Pasture => "Pasture".into(),
+
+            LotFeatures::Paved => "Paved".into(),
+
+            LotFeatures::PieShapedLot => "Pie Shaped Lot".into(),
+
+            LotFeatures::Private => "Private".into(),
+
+            LotFeatures::RectangularLot => "Rectangular Lot".into(),
+
+            LotFeatures::RockOutcropping => "Rock Outcropping".into(),
+
+            LotFeatures::RollingSlope => "Rolling Slope".into(),
+
+            LotFeatures::Secluded => "Secluded".into(),
+
+            LotFeatures::SeeRemarks => "See Remarks".into(),
+
+            LotFeatures::Sloped => "Sloped".into(),
+
+            LotFeatures::SlopedDown => "Sloped Down".into(),
+
+            LotFeatures::SlopedUp => "Sloped Up".into(),
+
+            LotFeatures::SplitPossible => "Split Possible".into(),
+
+            LotFeatures::SprinklersInFront => "Sprinklers In Front".into(),
+
+            LotFeatures::SprinklersInRear => "Sprinklers In Rear".into(),
+
+            LotFeatures::SteepSlope => "Steep Slope".into(),
+
+            LotFeatures::Subdivided => "Subdivided".into(),
+
+            LotFeatures::Views => "Views".into(),
+
+            LotFeatures::Waterfall => "Waterfall".into(),
+
+            LotFeatures::Waterfront => "Waterfront".into(),
+
+            LotFeatures::Wetlands => "Wetlands".into(),
+
+            LotFeatures::Wooded => "Wooded".into(),
+
+            LotFeatures::ZeroLotLine => "Zero Lot Line".into(),
+
+            LotFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            LotFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for LotFeatures {
     fn from(s: String) -> LotFeatures {
         match s.as_ref() {
@@ -535,43 +1000,5 @@ impl<'de> Deserialize<'de> for LotFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_lot_features_format {
-    use super::LotFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<LotFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<LotFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

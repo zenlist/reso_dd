@@ -108,6 +108,303 @@ pub enum OperatingExpenseIncludes {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OperatingExpenseIncludes {
+    fn from_str(s: &str) -> OperatingExpenseIncludes {
+        match s {
+            "Accounting" => OperatingExpenseIncludes::Accounting,
+
+            "Advertising" => OperatingExpenseIncludes::Advertising,
+
+            "Association" => OperatingExpenseIncludes::Association,
+
+            "Cable TV" => OperatingExpenseIncludes::CableTV,
+
+            "Capital Improvements" => OperatingExpenseIncludes::CapitalImprovements,
+
+            "Depreciation" => OperatingExpenseIncludes::Depreciation,
+
+            "Equipment Rental" => OperatingExpenseIncludes::EquipmentRental,
+
+            "Fuel" => OperatingExpenseIncludes::Fuel,
+
+            "Furniture Replacement" => OperatingExpenseIncludes::FurnitureReplacement,
+
+            "Gardener" => OperatingExpenseIncludes::Gardener,
+
+            "Insurance" => OperatingExpenseIncludes::Insurance,
+
+            "Legal" => OperatingExpenseIncludes::Legal,
+
+            "Licenses" => OperatingExpenseIncludes::Licenses,
+
+            "Maintenance" => OperatingExpenseIncludes::Maintenance,
+
+            "Maintenance Grounds" => OperatingExpenseIncludes::MaintenanceGrounds,
+
+            "Maintenance Structure" => OperatingExpenseIncludes::MaintenanceStructure,
+
+            "Manager" => OperatingExpenseIncludes::Manager,
+
+            "Mortgage/Loans" => OperatingExpenseIncludes::MortgageLoans,
+
+            "New Tax" => OperatingExpenseIncludes::NewTax,
+
+            "Other" => OperatingExpenseIncludes::Other,
+
+            "Parking" => OperatingExpenseIncludes::Parking,
+
+            "Pest Control" => OperatingExpenseIncludes::PestControl,
+
+            "Pool/Spa" => OperatingExpenseIncludes::PoolSpa,
+
+            "Professional Management" => OperatingExpenseIncludes::ProfessionalManagement,
+
+            "Security" => OperatingExpenseIncludes::Security,
+
+            "Snow Removal" => OperatingExpenseIncludes::SnowRemoval,
+
+            "Staff" => OperatingExpenseIncludes::Staff,
+
+            "Supplies" => OperatingExpenseIncludes::Supplies,
+
+            "Trash" => OperatingExpenseIncludes::Trash,
+
+            "Utilities" => OperatingExpenseIncludes::Utilities,
+
+            "Vacancy Allowance" => OperatingExpenseIncludes::VacancyAllowance,
+
+            "Water/Sewer" => OperatingExpenseIncludes::WaterSewer,
+
+            "Workmans Compensation" => OperatingExpenseIncludes::WorkmansCompensation,
+
+            _ => OperatingExpenseIncludes::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OperatingExpenseIncludes {
+        match s.as_ref() {
+            "Accounting" => OperatingExpenseIncludes::Accounting,
+
+            "Advertising" => OperatingExpenseIncludes::Advertising,
+
+            "Association" => OperatingExpenseIncludes::Association,
+
+            "Cable TV" => OperatingExpenseIncludes::CableTV,
+
+            "Capital Improvements" => OperatingExpenseIncludes::CapitalImprovements,
+
+            "Depreciation" => OperatingExpenseIncludes::Depreciation,
+
+            "Equipment Rental" => OperatingExpenseIncludes::EquipmentRental,
+
+            "Fuel" => OperatingExpenseIncludes::Fuel,
+
+            "Furniture Replacement" => OperatingExpenseIncludes::FurnitureReplacement,
+
+            "Gardener" => OperatingExpenseIncludes::Gardener,
+
+            "Insurance" => OperatingExpenseIncludes::Insurance,
+
+            "Legal" => OperatingExpenseIncludes::Legal,
+
+            "Licenses" => OperatingExpenseIncludes::Licenses,
+
+            "Maintenance" => OperatingExpenseIncludes::Maintenance,
+
+            "Maintenance Grounds" => OperatingExpenseIncludes::MaintenanceGrounds,
+
+            "Maintenance Structure" => OperatingExpenseIncludes::MaintenanceStructure,
+
+            "Manager" => OperatingExpenseIncludes::Manager,
+
+            "Mortgage/Loans" => OperatingExpenseIncludes::MortgageLoans,
+
+            "New Tax" => OperatingExpenseIncludes::NewTax,
+
+            "Other" => OperatingExpenseIncludes::Other,
+
+            "Parking" => OperatingExpenseIncludes::Parking,
+
+            "Pest Control" => OperatingExpenseIncludes::PestControl,
+
+            "Pool/Spa" => OperatingExpenseIncludes::PoolSpa,
+
+            "Professional Management" => OperatingExpenseIncludes::ProfessionalManagement,
+
+            "Security" => OperatingExpenseIncludes::Security,
+
+            "Snow Removal" => OperatingExpenseIncludes::SnowRemoval,
+
+            "Staff" => OperatingExpenseIncludes::Staff,
+
+            "Supplies" => OperatingExpenseIncludes::Supplies,
+
+            "Trash" => OperatingExpenseIncludes::Trash,
+
+            "Utilities" => OperatingExpenseIncludes::Utilities,
+
+            "Vacancy Allowance" => OperatingExpenseIncludes::VacancyAllowance,
+
+            "Water/Sewer" => OperatingExpenseIncludes::WaterSewer,
+
+            "Workmans Compensation" => OperatingExpenseIncludes::WorkmansCompensation,
+
+            _ => OperatingExpenseIncludes::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OperatingExpenseIncludes::Accounting => "Accounting",
+
+            OperatingExpenseIncludes::Advertising => "Advertising",
+
+            OperatingExpenseIncludes::Association => "Association",
+
+            OperatingExpenseIncludes::CableTV => "Cable TV",
+
+            OperatingExpenseIncludes::CapitalImprovements => "Capital Improvements",
+
+            OperatingExpenseIncludes::Depreciation => "Depreciation",
+
+            OperatingExpenseIncludes::EquipmentRental => "Equipment Rental",
+
+            OperatingExpenseIncludes::Fuel => "Fuel",
+
+            OperatingExpenseIncludes::FurnitureReplacement => "Furniture Replacement",
+
+            OperatingExpenseIncludes::Gardener => "Gardener",
+
+            OperatingExpenseIncludes::Insurance => "Insurance",
+
+            OperatingExpenseIncludes::Legal => "Legal",
+
+            OperatingExpenseIncludes::Licenses => "Licenses",
+
+            OperatingExpenseIncludes::Maintenance => "Maintenance",
+
+            OperatingExpenseIncludes::MaintenanceGrounds => "Maintenance Grounds",
+
+            OperatingExpenseIncludes::MaintenanceStructure => "Maintenance Structure",
+
+            OperatingExpenseIncludes::Manager => "Manager",
+
+            OperatingExpenseIncludes::MortgageLoans => "Mortgage/Loans",
+
+            OperatingExpenseIncludes::NewTax => "New Tax",
+
+            OperatingExpenseIncludes::Other => "Other",
+
+            OperatingExpenseIncludes::Parking => "Parking",
+
+            OperatingExpenseIncludes::PestControl => "Pest Control",
+
+            OperatingExpenseIncludes::PoolSpa => "Pool/Spa",
+
+            OperatingExpenseIncludes::ProfessionalManagement => "Professional Management",
+
+            OperatingExpenseIncludes::Security => "Security",
+
+            OperatingExpenseIncludes::SnowRemoval => "Snow Removal",
+
+            OperatingExpenseIncludes::Staff => "Staff",
+
+            OperatingExpenseIncludes::Supplies => "Supplies",
+
+            OperatingExpenseIncludes::Trash => "Trash",
+
+            OperatingExpenseIncludes::Utilities => "Utilities",
+
+            OperatingExpenseIncludes::VacancyAllowance => "Vacancy Allowance",
+
+            OperatingExpenseIncludes::WaterSewer => "Water/Sewer",
+
+            OperatingExpenseIncludes::WorkmansCompensation => "Workmans Compensation",
+
+            OperatingExpenseIncludes::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OperatingExpenseIncludes::Accounting => "Accounting".into(),
+
+            OperatingExpenseIncludes::Advertising => "Advertising".into(),
+
+            OperatingExpenseIncludes::Association => "Association".into(),
+
+            OperatingExpenseIncludes::CableTV => "Cable TV".into(),
+
+            OperatingExpenseIncludes::CapitalImprovements => "Capital Improvements".into(),
+
+            OperatingExpenseIncludes::Depreciation => "Depreciation".into(),
+
+            OperatingExpenseIncludes::EquipmentRental => "Equipment Rental".into(),
+
+            OperatingExpenseIncludes::Fuel => "Fuel".into(),
+
+            OperatingExpenseIncludes::FurnitureReplacement => "Furniture Replacement".into(),
+
+            OperatingExpenseIncludes::Gardener => "Gardener".into(),
+
+            OperatingExpenseIncludes::Insurance => "Insurance".into(),
+
+            OperatingExpenseIncludes::Legal => "Legal".into(),
+
+            OperatingExpenseIncludes::Licenses => "Licenses".into(),
+
+            OperatingExpenseIncludes::Maintenance => "Maintenance".into(),
+
+            OperatingExpenseIncludes::MaintenanceGrounds => "Maintenance Grounds".into(),
+
+            OperatingExpenseIncludes::MaintenanceStructure => "Maintenance Structure".into(),
+
+            OperatingExpenseIncludes::Manager => "Manager".into(),
+
+            OperatingExpenseIncludes::MortgageLoans => "Mortgage/Loans".into(),
+
+            OperatingExpenseIncludes::NewTax => "New Tax".into(),
+
+            OperatingExpenseIncludes::Other => "Other".into(),
+
+            OperatingExpenseIncludes::Parking => "Parking".into(),
+
+            OperatingExpenseIncludes::PestControl => "Pest Control".into(),
+
+            OperatingExpenseIncludes::PoolSpa => "Pool/Spa".into(),
+
+            OperatingExpenseIncludes::ProfessionalManagement => "Professional Management".into(),
+
+            OperatingExpenseIncludes::Security => "Security".into(),
+
+            OperatingExpenseIncludes::SnowRemoval => "Snow Removal".into(),
+
+            OperatingExpenseIncludes::Staff => "Staff".into(),
+
+            OperatingExpenseIncludes::Supplies => "Supplies".into(),
+
+            OperatingExpenseIncludes::Trash => "Trash".into(),
+
+            OperatingExpenseIncludes::Utilities => "Utilities".into(),
+
+            OperatingExpenseIncludes::VacancyAllowance => "Vacancy Allowance".into(),
+
+            OperatingExpenseIncludes::WaterSewer => "Water/Sewer".into(),
+
+            OperatingExpenseIncludes::WorkmansCompensation => "Workmans Compensation".into(),
+
+            OperatingExpenseIncludes::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OperatingExpenseIncludes::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OperatingExpenseIncludes {
     fn from(s: String) -> OperatingExpenseIncludes {
         match s.as_ref() {
@@ -346,45 +643,5 @@ impl<'de> Deserialize<'de> for OperatingExpenseIncludes {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_operating_expense_includes_format {
-    use super::OperatingExpenseIncludes;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OperatingExpenseIncludes>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OperatingExpenseIncludes>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

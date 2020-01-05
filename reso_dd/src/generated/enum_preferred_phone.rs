@@ -30,6 +30,95 @@ pub enum PreferredPhone {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PreferredPhone {
+    fn from_str(s: &str) -> PreferredPhone {
+        match s {
+            "Direct" => PreferredPhone::Direct,
+
+            "Home" => PreferredPhone::Home,
+
+            "Mobile" => PreferredPhone::Mobile,
+
+            "Office" => PreferredPhone::Office,
+
+            "Other" => PreferredPhone::Other,
+
+            "Toll Free" => PreferredPhone::TollFree,
+
+            "Voicemail" => PreferredPhone::Voicemail,
+
+            _ => PreferredPhone::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PreferredPhone {
+        match s.as_ref() {
+            "Direct" => PreferredPhone::Direct,
+
+            "Home" => PreferredPhone::Home,
+
+            "Mobile" => PreferredPhone::Mobile,
+
+            "Office" => PreferredPhone::Office,
+
+            "Other" => PreferredPhone::Other,
+
+            "Toll Free" => PreferredPhone::TollFree,
+
+            "Voicemail" => PreferredPhone::Voicemail,
+
+            _ => PreferredPhone::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PreferredPhone::Direct => "Direct",
+
+            PreferredPhone::Home => "Home",
+
+            PreferredPhone::Mobile => "Mobile",
+
+            PreferredPhone::Office => "Office",
+
+            PreferredPhone::Other => "Other",
+
+            PreferredPhone::TollFree => "Toll Free",
+
+            PreferredPhone::Voicemail => "Voicemail",
+
+            PreferredPhone::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PreferredPhone::Direct => "Direct".into(),
+
+            PreferredPhone::Home => "Home".into(),
+
+            PreferredPhone::Mobile => "Mobile".into(),
+
+            PreferredPhone::Office => "Office".into(),
+
+            PreferredPhone::Other => "Other".into(),
+
+            PreferredPhone::TollFree => "Toll Free".into(),
+
+            PreferredPhone::Voicemail => "Voicemail".into(),
+
+            PreferredPhone::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PreferredPhone::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PreferredPhone {
     fn from(s: String) -> PreferredPhone {
         match s.as_ref() {
@@ -112,45 +201,5 @@ impl<'de> Deserialize<'de> for PreferredPhone {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_preferred_phone_format {
-    use super::PreferredPhone;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PreferredPhone>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<PreferredPhone>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

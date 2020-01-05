@@ -162,6 +162,447 @@ pub enum InteriorOrRoomFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for InteriorOrRoomFeatures {
+    fn from_str(s: &str) -> InteriorOrRoomFeatures {
+        match s {
+            "Bar" => InteriorOrRoomFeatures::Bar,
+
+            "Beamed Ceilings" => InteriorOrRoomFeatures::BeamedCeilings,
+
+            "Bidet" => InteriorOrRoomFeatures::Bidet,
+
+            "Bookcases" => InteriorOrRoomFeatures::Bookcases,
+
+            "Breakfast Bar" => InteriorOrRoomFeatures::BreakfastBar,
+
+            "Built-in Features" => InteriorOrRoomFeatures::BuiltinFeatures,
+
+            "Cathedral Ceiling(s)" => InteriorOrRoomFeatures::CathedralCeilings,
+
+            "Cedar Closet(s)" => InteriorOrRoomFeatures::CedarClosets,
+
+            "Ceiling Fan(s)" => InteriorOrRoomFeatures::CeilingFans,
+
+            "Central Vacuum" => InteriorOrRoomFeatures::CentralVacuum,
+
+            "Chandelier" => InteriorOrRoomFeatures::Chandelier,
+
+            "Coffered Ceiling(s)" => InteriorOrRoomFeatures::CofferedCeilings,
+
+            "Crown Molding" => InteriorOrRoomFeatures::CrownMolding,
+
+            "Double Vanity" => InteriorOrRoomFeatures::DoubleVanity,
+
+            "Dry Bar" => InteriorOrRoomFeatures::DryBar,
+
+            "Dumbwaiter" => InteriorOrRoomFeatures::Dumbwaiter,
+
+            "Eat-in Kitchen" => InteriorOrRoomFeatures::EatinKitchen,
+
+            "Elevator" => InteriorOrRoomFeatures::Elevator,
+
+            "Entrance Foyer" => InteriorOrRoomFeatures::EntranceFoyer,
+
+            "Granite Counters" => InteriorOrRoomFeatures::GraniteCounters,
+
+            "High Ceilings" => InteriorOrRoomFeatures::HighCeilings,
+
+            "High Speed Internet" => InteriorOrRoomFeatures::HighSpeedInternet,
+
+            "His and Hers Closets" => InteriorOrRoomFeatures::HisandHersClosets,
+
+            "In-Law Floorplan" => InteriorOrRoomFeatures::InLawFloorplan,
+
+            "Kitchen Island" => InteriorOrRoomFeatures::KitchenIsland,
+
+            "Laminate Counters" => InteriorOrRoomFeatures::LaminateCounters,
+
+            "Low Flow Plumbing Fixtures" => InteriorOrRoomFeatures::LowFlowPlumbingFixtures,
+
+            "Master Downstairs" => InteriorOrRoomFeatures::MasterDownstairs,
+
+            "Natural Woodwork" => InteriorOrRoomFeatures::NaturalWoodwork,
+
+            "Open Floorplan" => InteriorOrRoomFeatures::OpenFloorplan,
+
+            "Other" => InteriorOrRoomFeatures::Other,
+
+            "Pantry" => InteriorOrRoomFeatures::Pantry,
+
+            "Recessed Lighting" => InteriorOrRoomFeatures::RecessedLighting,
+
+            "Sauna" => InteriorOrRoomFeatures::Sauna,
+
+            "See Remarks" => InteriorOrRoomFeatures::SeeRemarks,
+
+            "Smart Home" => InteriorOrRoomFeatures::SmartHome,
+
+            "Smart Thermostat" => InteriorOrRoomFeatures::SmartThermostat,
+
+            "Soaking Tub" => InteriorOrRoomFeatures::SoakingTub,
+
+            "Solar Tube(s)" => InteriorOrRoomFeatures::SolarTubes,
+
+            "Sound System" => InteriorOrRoomFeatures::SoundSystem,
+
+            "Stone Counters" => InteriorOrRoomFeatures::StoneCounters,
+
+            "Storage" => InteriorOrRoomFeatures::Storage,
+
+            "Tile Counters" => InteriorOrRoomFeatures::TileCounters,
+
+            "Track Lighting" => InteriorOrRoomFeatures::TrackLighting,
+
+            "Tray Ceiling(s)" => InteriorOrRoomFeatures::TrayCeilings,
+
+            "Vaulted Ceiling(s)" => InteriorOrRoomFeatures::VaultedCeilings,
+
+            "Walk-In Closet(s)" => InteriorOrRoomFeatures::WalkInClosets,
+
+            "WaterSense Fixture(s)" => InteriorOrRoomFeatures::WaterSenseFixtures,
+
+            "Wet Bar" => InteriorOrRoomFeatures::WetBar,
+
+            "Wired for Data" => InteriorOrRoomFeatures::WiredforData,
+
+            "Wired for Sound" => InteriorOrRoomFeatures::WiredforSound,
+
+            _ => InteriorOrRoomFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> InteriorOrRoomFeatures {
+        match s.as_ref() {
+            "Bar" => InteriorOrRoomFeatures::Bar,
+
+            "Beamed Ceilings" => InteriorOrRoomFeatures::BeamedCeilings,
+
+            "Bidet" => InteriorOrRoomFeatures::Bidet,
+
+            "Bookcases" => InteriorOrRoomFeatures::Bookcases,
+
+            "Breakfast Bar" => InteriorOrRoomFeatures::BreakfastBar,
+
+            "Built-in Features" => InteriorOrRoomFeatures::BuiltinFeatures,
+
+            "Cathedral Ceiling(s)" => InteriorOrRoomFeatures::CathedralCeilings,
+
+            "Cedar Closet(s)" => InteriorOrRoomFeatures::CedarClosets,
+
+            "Ceiling Fan(s)" => InteriorOrRoomFeatures::CeilingFans,
+
+            "Central Vacuum" => InteriorOrRoomFeatures::CentralVacuum,
+
+            "Chandelier" => InteriorOrRoomFeatures::Chandelier,
+
+            "Coffered Ceiling(s)" => InteriorOrRoomFeatures::CofferedCeilings,
+
+            "Crown Molding" => InteriorOrRoomFeatures::CrownMolding,
+
+            "Double Vanity" => InteriorOrRoomFeatures::DoubleVanity,
+
+            "Dry Bar" => InteriorOrRoomFeatures::DryBar,
+
+            "Dumbwaiter" => InteriorOrRoomFeatures::Dumbwaiter,
+
+            "Eat-in Kitchen" => InteriorOrRoomFeatures::EatinKitchen,
+
+            "Elevator" => InteriorOrRoomFeatures::Elevator,
+
+            "Entrance Foyer" => InteriorOrRoomFeatures::EntranceFoyer,
+
+            "Granite Counters" => InteriorOrRoomFeatures::GraniteCounters,
+
+            "High Ceilings" => InteriorOrRoomFeatures::HighCeilings,
+
+            "High Speed Internet" => InteriorOrRoomFeatures::HighSpeedInternet,
+
+            "His and Hers Closets" => InteriorOrRoomFeatures::HisandHersClosets,
+
+            "In-Law Floorplan" => InteriorOrRoomFeatures::InLawFloorplan,
+
+            "Kitchen Island" => InteriorOrRoomFeatures::KitchenIsland,
+
+            "Laminate Counters" => InteriorOrRoomFeatures::LaminateCounters,
+
+            "Low Flow Plumbing Fixtures" => InteriorOrRoomFeatures::LowFlowPlumbingFixtures,
+
+            "Master Downstairs" => InteriorOrRoomFeatures::MasterDownstairs,
+
+            "Natural Woodwork" => InteriorOrRoomFeatures::NaturalWoodwork,
+
+            "Open Floorplan" => InteriorOrRoomFeatures::OpenFloorplan,
+
+            "Other" => InteriorOrRoomFeatures::Other,
+
+            "Pantry" => InteriorOrRoomFeatures::Pantry,
+
+            "Recessed Lighting" => InteriorOrRoomFeatures::RecessedLighting,
+
+            "Sauna" => InteriorOrRoomFeatures::Sauna,
+
+            "See Remarks" => InteriorOrRoomFeatures::SeeRemarks,
+
+            "Smart Home" => InteriorOrRoomFeatures::SmartHome,
+
+            "Smart Thermostat" => InteriorOrRoomFeatures::SmartThermostat,
+
+            "Soaking Tub" => InteriorOrRoomFeatures::SoakingTub,
+
+            "Solar Tube(s)" => InteriorOrRoomFeatures::SolarTubes,
+
+            "Sound System" => InteriorOrRoomFeatures::SoundSystem,
+
+            "Stone Counters" => InteriorOrRoomFeatures::StoneCounters,
+
+            "Storage" => InteriorOrRoomFeatures::Storage,
+
+            "Tile Counters" => InteriorOrRoomFeatures::TileCounters,
+
+            "Track Lighting" => InteriorOrRoomFeatures::TrackLighting,
+
+            "Tray Ceiling(s)" => InteriorOrRoomFeatures::TrayCeilings,
+
+            "Vaulted Ceiling(s)" => InteriorOrRoomFeatures::VaultedCeilings,
+
+            "Walk-In Closet(s)" => InteriorOrRoomFeatures::WalkInClosets,
+
+            "WaterSense Fixture(s)" => InteriorOrRoomFeatures::WaterSenseFixtures,
+
+            "Wet Bar" => InteriorOrRoomFeatures::WetBar,
+
+            "Wired for Data" => InteriorOrRoomFeatures::WiredforData,
+
+            "Wired for Sound" => InteriorOrRoomFeatures::WiredforSound,
+
+            _ => InteriorOrRoomFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            InteriorOrRoomFeatures::Bar => "Bar",
+
+            InteriorOrRoomFeatures::BeamedCeilings => "Beamed Ceilings",
+
+            InteriorOrRoomFeatures::Bidet => "Bidet",
+
+            InteriorOrRoomFeatures::Bookcases => "Bookcases",
+
+            InteriorOrRoomFeatures::BreakfastBar => "Breakfast Bar",
+
+            InteriorOrRoomFeatures::BuiltinFeatures => "Built-in Features",
+
+            InteriorOrRoomFeatures::CathedralCeilings => "Cathedral Ceiling(s)",
+
+            InteriorOrRoomFeatures::CedarClosets => "Cedar Closet(s)",
+
+            InteriorOrRoomFeatures::CeilingFans => "Ceiling Fan(s)",
+
+            InteriorOrRoomFeatures::CentralVacuum => "Central Vacuum",
+
+            InteriorOrRoomFeatures::Chandelier => "Chandelier",
+
+            InteriorOrRoomFeatures::CofferedCeilings => "Coffered Ceiling(s)",
+
+            InteriorOrRoomFeatures::CrownMolding => "Crown Molding",
+
+            InteriorOrRoomFeatures::DoubleVanity => "Double Vanity",
+
+            InteriorOrRoomFeatures::DryBar => "Dry Bar",
+
+            InteriorOrRoomFeatures::Dumbwaiter => "Dumbwaiter",
+
+            InteriorOrRoomFeatures::EatinKitchen => "Eat-in Kitchen",
+
+            InteriorOrRoomFeatures::Elevator => "Elevator",
+
+            InteriorOrRoomFeatures::EntranceFoyer => "Entrance Foyer",
+
+            InteriorOrRoomFeatures::GraniteCounters => "Granite Counters",
+
+            InteriorOrRoomFeatures::HighCeilings => "High Ceilings",
+
+            InteriorOrRoomFeatures::HighSpeedInternet => "High Speed Internet",
+
+            InteriorOrRoomFeatures::HisandHersClosets => "His and Hers Closets",
+
+            InteriorOrRoomFeatures::InLawFloorplan => "In-Law Floorplan",
+
+            InteriorOrRoomFeatures::KitchenIsland => "Kitchen Island",
+
+            InteriorOrRoomFeatures::LaminateCounters => "Laminate Counters",
+
+            InteriorOrRoomFeatures::LowFlowPlumbingFixtures => "Low Flow Plumbing Fixtures",
+
+            InteriorOrRoomFeatures::MasterDownstairs => "Master Downstairs",
+
+            InteriorOrRoomFeatures::NaturalWoodwork => "Natural Woodwork",
+
+            InteriorOrRoomFeatures::OpenFloorplan => "Open Floorplan",
+
+            InteriorOrRoomFeatures::Other => "Other",
+
+            InteriorOrRoomFeatures::Pantry => "Pantry",
+
+            InteriorOrRoomFeatures::RecessedLighting => "Recessed Lighting",
+
+            InteriorOrRoomFeatures::Sauna => "Sauna",
+
+            InteriorOrRoomFeatures::SeeRemarks => "See Remarks",
+
+            InteriorOrRoomFeatures::SmartHome => "Smart Home",
+
+            InteriorOrRoomFeatures::SmartThermostat => "Smart Thermostat",
+
+            InteriorOrRoomFeatures::SoakingTub => "Soaking Tub",
+
+            InteriorOrRoomFeatures::SolarTubes => "Solar Tube(s)",
+
+            InteriorOrRoomFeatures::SoundSystem => "Sound System",
+
+            InteriorOrRoomFeatures::StoneCounters => "Stone Counters",
+
+            InteriorOrRoomFeatures::Storage => "Storage",
+
+            InteriorOrRoomFeatures::TileCounters => "Tile Counters",
+
+            InteriorOrRoomFeatures::TrackLighting => "Track Lighting",
+
+            InteriorOrRoomFeatures::TrayCeilings => "Tray Ceiling(s)",
+
+            InteriorOrRoomFeatures::VaultedCeilings => "Vaulted Ceiling(s)",
+
+            InteriorOrRoomFeatures::WalkInClosets => "Walk-In Closet(s)",
+
+            InteriorOrRoomFeatures::WaterSenseFixtures => "WaterSense Fixture(s)",
+
+            InteriorOrRoomFeatures::WetBar => "Wet Bar",
+
+            InteriorOrRoomFeatures::WiredforData => "Wired for Data",
+
+            InteriorOrRoomFeatures::WiredforSound => "Wired for Sound",
+
+            InteriorOrRoomFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            InteriorOrRoomFeatures::Bar => "Bar".into(),
+
+            InteriorOrRoomFeatures::BeamedCeilings => "Beamed Ceilings".into(),
+
+            InteriorOrRoomFeatures::Bidet => "Bidet".into(),
+
+            InteriorOrRoomFeatures::Bookcases => "Bookcases".into(),
+
+            InteriorOrRoomFeatures::BreakfastBar => "Breakfast Bar".into(),
+
+            InteriorOrRoomFeatures::BuiltinFeatures => "Built-in Features".into(),
+
+            InteriorOrRoomFeatures::CathedralCeilings => "Cathedral Ceiling(s)".into(),
+
+            InteriorOrRoomFeatures::CedarClosets => "Cedar Closet(s)".into(),
+
+            InteriorOrRoomFeatures::CeilingFans => "Ceiling Fan(s)".into(),
+
+            InteriorOrRoomFeatures::CentralVacuum => "Central Vacuum".into(),
+
+            InteriorOrRoomFeatures::Chandelier => "Chandelier".into(),
+
+            InteriorOrRoomFeatures::CofferedCeilings => "Coffered Ceiling(s)".into(),
+
+            InteriorOrRoomFeatures::CrownMolding => "Crown Molding".into(),
+
+            InteriorOrRoomFeatures::DoubleVanity => "Double Vanity".into(),
+
+            InteriorOrRoomFeatures::DryBar => "Dry Bar".into(),
+
+            InteriorOrRoomFeatures::Dumbwaiter => "Dumbwaiter".into(),
+
+            InteriorOrRoomFeatures::EatinKitchen => "Eat-in Kitchen".into(),
+
+            InteriorOrRoomFeatures::Elevator => "Elevator".into(),
+
+            InteriorOrRoomFeatures::EntranceFoyer => "Entrance Foyer".into(),
+
+            InteriorOrRoomFeatures::GraniteCounters => "Granite Counters".into(),
+
+            InteriorOrRoomFeatures::HighCeilings => "High Ceilings".into(),
+
+            InteriorOrRoomFeatures::HighSpeedInternet => "High Speed Internet".into(),
+
+            InteriorOrRoomFeatures::HisandHersClosets => "His and Hers Closets".into(),
+
+            InteriorOrRoomFeatures::InLawFloorplan => "In-Law Floorplan".into(),
+
+            InteriorOrRoomFeatures::KitchenIsland => "Kitchen Island".into(),
+
+            InteriorOrRoomFeatures::LaminateCounters => "Laminate Counters".into(),
+
+            InteriorOrRoomFeatures::LowFlowPlumbingFixtures => "Low Flow Plumbing Fixtures".into(),
+
+            InteriorOrRoomFeatures::MasterDownstairs => "Master Downstairs".into(),
+
+            InteriorOrRoomFeatures::NaturalWoodwork => "Natural Woodwork".into(),
+
+            InteriorOrRoomFeatures::OpenFloorplan => "Open Floorplan".into(),
+
+            InteriorOrRoomFeatures::Other => "Other".into(),
+
+            InteriorOrRoomFeatures::Pantry => "Pantry".into(),
+
+            InteriorOrRoomFeatures::RecessedLighting => "Recessed Lighting".into(),
+
+            InteriorOrRoomFeatures::Sauna => "Sauna".into(),
+
+            InteriorOrRoomFeatures::SeeRemarks => "See Remarks".into(),
+
+            InteriorOrRoomFeatures::SmartHome => "Smart Home".into(),
+
+            InteriorOrRoomFeatures::SmartThermostat => "Smart Thermostat".into(),
+
+            InteriorOrRoomFeatures::SoakingTub => "Soaking Tub".into(),
+
+            InteriorOrRoomFeatures::SolarTubes => "Solar Tube(s)".into(),
+
+            InteriorOrRoomFeatures::SoundSystem => "Sound System".into(),
+
+            InteriorOrRoomFeatures::StoneCounters => "Stone Counters".into(),
+
+            InteriorOrRoomFeatures::Storage => "Storage".into(),
+
+            InteriorOrRoomFeatures::TileCounters => "Tile Counters".into(),
+
+            InteriorOrRoomFeatures::TrackLighting => "Track Lighting".into(),
+
+            InteriorOrRoomFeatures::TrayCeilings => "Tray Ceiling(s)".into(),
+
+            InteriorOrRoomFeatures::VaultedCeilings => "Vaulted Ceiling(s)".into(),
+
+            InteriorOrRoomFeatures::WalkInClosets => "Walk-In Closet(s)".into(),
+
+            InteriorOrRoomFeatures::WaterSenseFixtures => "WaterSense Fixture(s)".into(),
+
+            InteriorOrRoomFeatures::WetBar => "Wet Bar".into(),
+
+            InteriorOrRoomFeatures::WiredforData => "Wired for Data".into(),
+
+            InteriorOrRoomFeatures::WiredforSound => "Wired for Sound".into(),
+
+            InteriorOrRoomFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            InteriorOrRoomFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for InteriorOrRoomFeatures {
     fn from(s: String) -> InteriorOrRoomFeatures {
         match s.as_ref() {
@@ -508,45 +949,5 @@ impl<'de> Deserialize<'de> for InteriorOrRoomFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_interior_or_room_features_format {
-    use super::InteriorOrRoomFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<InteriorOrRoomFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<InteriorOrRoomFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

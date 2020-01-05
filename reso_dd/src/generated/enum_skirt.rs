@@ -66,6 +66,191 @@ pub enum Skirt {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Skirt {
+    fn from_str(s: &str) -> Skirt {
+        match s {
+            "Aluminum" => Skirt::Aluminum,
+
+            "Block" => Skirt::Block,
+
+            "Brick" => Skirt::Brick,
+
+            "Combination" => Skirt::Combination,
+
+            "Concrete" => Skirt::Concrete,
+
+            "Fiberglass" => Skirt::Fiberglass,
+
+            "Frame" => Skirt::Frame,
+
+            "Glass" => Skirt::Glass,
+
+            "Masonite" => Skirt::Masonite,
+
+            "Metal" => Skirt::Metal,
+
+            "None" => Skirt::None,
+
+            "Other" => Skirt::Other,
+
+            "Steel" => Skirt::Steel,
+
+            "Stone" => Skirt::Stone,
+
+            "Stucco" => Skirt::Stucco,
+
+            "Synthetic" => Skirt::Synthetic,
+
+            "Unknown" => Skirt::Unknown,
+
+            "Vinyl" => Skirt::Vinyl,
+
+            "Wood" => Skirt::Wood,
+
+            _ => Skirt::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Skirt {
+        match s.as_ref() {
+            "Aluminum" => Skirt::Aluminum,
+
+            "Block" => Skirt::Block,
+
+            "Brick" => Skirt::Brick,
+
+            "Combination" => Skirt::Combination,
+
+            "Concrete" => Skirt::Concrete,
+
+            "Fiberglass" => Skirt::Fiberglass,
+
+            "Frame" => Skirt::Frame,
+
+            "Glass" => Skirt::Glass,
+
+            "Masonite" => Skirt::Masonite,
+
+            "Metal" => Skirt::Metal,
+
+            "None" => Skirt::None,
+
+            "Other" => Skirt::Other,
+
+            "Steel" => Skirt::Steel,
+
+            "Stone" => Skirt::Stone,
+
+            "Stucco" => Skirt::Stucco,
+
+            "Synthetic" => Skirt::Synthetic,
+
+            "Unknown" => Skirt::Unknown,
+
+            "Vinyl" => Skirt::Vinyl,
+
+            "Wood" => Skirt::Wood,
+
+            _ => Skirt::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Skirt::Aluminum => "Aluminum",
+
+            Skirt::Block => "Block",
+
+            Skirt::Brick => "Brick",
+
+            Skirt::Combination => "Combination",
+
+            Skirt::Concrete => "Concrete",
+
+            Skirt::Fiberglass => "Fiberglass",
+
+            Skirt::Frame => "Frame",
+
+            Skirt::Glass => "Glass",
+
+            Skirt::Masonite => "Masonite",
+
+            Skirt::Metal => "Metal",
+
+            Skirt::None => "None",
+
+            Skirt::Other => "Other",
+
+            Skirt::Steel => "Steel",
+
+            Skirt::Stone => "Stone",
+
+            Skirt::Stucco => "Stucco",
+
+            Skirt::Synthetic => "Synthetic",
+
+            Skirt::Unknown => "Unknown",
+
+            Skirt::Vinyl => "Vinyl",
+
+            Skirt::Wood => "Wood",
+
+            Skirt::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Skirt::Aluminum => "Aluminum".into(),
+
+            Skirt::Block => "Block".into(),
+
+            Skirt::Brick => "Brick".into(),
+
+            Skirt::Combination => "Combination".into(),
+
+            Skirt::Concrete => "Concrete".into(),
+
+            Skirt::Fiberglass => "Fiberglass".into(),
+
+            Skirt::Frame => "Frame".into(),
+
+            Skirt::Glass => "Glass".into(),
+
+            Skirt::Masonite => "Masonite".into(),
+
+            Skirt::Metal => "Metal".into(),
+
+            Skirt::None => "None".into(),
+
+            Skirt::Other => "Other".into(),
+
+            Skirt::Steel => "Steel".into(),
+
+            Skirt::Stone => "Stone".into(),
+
+            Skirt::Stucco => "Stucco".into(),
+
+            Skirt::Synthetic => "Synthetic".into(),
+
+            Skirt::Unknown => "Unknown".into(),
+
+            Skirt::Vinyl => "Vinyl".into(),
+
+            Skirt::Wood => "Wood".into(),
+
+            Skirt::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Skirt::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Skirt {
     fn from(s: String) -> Skirt {
         match s.as_ref() {
@@ -220,40 +405,5 @@ impl<'de> Deserialize<'de> for Skirt {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_skirt_format {
-    use super::Skirt;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(items: &Option<Vec<Skirt>>, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Skirt>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -15,6 +15,55 @@ pub enum OfficeStatus {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OfficeStatus {
+    fn from_str(s: &str) -> OfficeStatus {
+        match s {
+            "Active" => OfficeStatus::Active,
+
+            "Inactive" => OfficeStatus::Inactive,
+
+            _ => OfficeStatus::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OfficeStatus {
+        match s.as_ref() {
+            "Active" => OfficeStatus::Active,
+
+            "Inactive" => OfficeStatus::Inactive,
+
+            _ => OfficeStatus::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OfficeStatus::Active => "Active",
+
+            OfficeStatus::Inactive => "Inactive",
+
+            OfficeStatus::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OfficeStatus::Active => "Active".into(),
+
+            OfficeStatus::Inactive => "Inactive".into(),
+
+            OfficeStatus::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OfficeStatus::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OfficeStatus {
     fn from(s: String) -> OfficeStatus {
         match s.as_ref() {
@@ -67,45 +116,5 @@ impl<'de> Deserialize<'de> for OfficeStatus {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_office_status_format {
-    use super::OfficeStatus;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OfficeStatus>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OfficeStatus>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

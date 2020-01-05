@@ -114,6 +114,319 @@ pub enum PoolFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PoolFeatures {
+    fn from_str(s: &str) -> PoolFeatures {
+        match s {
+            "Above Ground" => PoolFeatures::AboveGround,
+
+            "Association" => PoolFeatures::Association,
+
+            "Black Bottom" => PoolFeatures::BlackBottom,
+
+            "Cabana" => PoolFeatures::Cabana,
+
+            "Community" => PoolFeatures::Community,
+
+            "Diving Board" => PoolFeatures::DivingBoard,
+
+            "Electric Heat" => PoolFeatures::ElectricHeat,
+
+            "ENERGY STAR Qualified pool pump" => PoolFeatures::ENERGYSTARQualifiedpoolpump,
+
+            "Fenced" => PoolFeatures::Fenced,
+
+            "Fiberglass" => PoolFeatures::Fiberglass,
+
+            "Filtered" => PoolFeatures::Filtered,
+
+            "Gas Heat" => PoolFeatures::GasHeat,
+
+            "Gunite" => PoolFeatures::Gunite,
+
+            "Heated" => PoolFeatures::Heated,
+
+            "In Ground" => PoolFeatures::InGround,
+
+            "Indoor" => PoolFeatures::Indoor,
+
+            "Infinity" => PoolFeatures::Infinity,
+
+            "Lap" => PoolFeatures::Lap,
+
+            "Liner" => PoolFeatures::Liner,
+
+            "None" => PoolFeatures::None,
+
+            "Other" => PoolFeatures::Other,
+
+            "Outdoor Pool" => PoolFeatures::OutdoorPool,
+
+            "Pool Cover" => PoolFeatures::PoolCover,
+
+            "Pool Sweep" => PoolFeatures::PoolSweep,
+
+            "Pool/Spa Combo" => PoolFeatures::PoolSpaCombo,
+
+            "Private" => PoolFeatures::Private,
+
+            "Salt Water" => PoolFeatures::SaltWater,
+
+            "Screen Enclosure" => PoolFeatures::ScreenEnclosure,
+
+            "See Remarks" => PoolFeatures::SeeRemarks,
+
+            "Solar Cover" => PoolFeatures::SolarCover,
+
+            "Solar Heat" => PoolFeatures::SolarHeat,
+
+            "Sport" => PoolFeatures::Sport,
+
+            "Tile" => PoolFeatures::Tile,
+
+            "Vinyl" => PoolFeatures::Vinyl,
+
+            "Waterfall" => PoolFeatures::Waterfall,
+
+            _ => PoolFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PoolFeatures {
+        match s.as_ref() {
+            "Above Ground" => PoolFeatures::AboveGround,
+
+            "Association" => PoolFeatures::Association,
+
+            "Black Bottom" => PoolFeatures::BlackBottom,
+
+            "Cabana" => PoolFeatures::Cabana,
+
+            "Community" => PoolFeatures::Community,
+
+            "Diving Board" => PoolFeatures::DivingBoard,
+
+            "Electric Heat" => PoolFeatures::ElectricHeat,
+
+            "ENERGY STAR Qualified pool pump" => PoolFeatures::ENERGYSTARQualifiedpoolpump,
+
+            "Fenced" => PoolFeatures::Fenced,
+
+            "Fiberglass" => PoolFeatures::Fiberglass,
+
+            "Filtered" => PoolFeatures::Filtered,
+
+            "Gas Heat" => PoolFeatures::GasHeat,
+
+            "Gunite" => PoolFeatures::Gunite,
+
+            "Heated" => PoolFeatures::Heated,
+
+            "In Ground" => PoolFeatures::InGround,
+
+            "Indoor" => PoolFeatures::Indoor,
+
+            "Infinity" => PoolFeatures::Infinity,
+
+            "Lap" => PoolFeatures::Lap,
+
+            "Liner" => PoolFeatures::Liner,
+
+            "None" => PoolFeatures::None,
+
+            "Other" => PoolFeatures::Other,
+
+            "Outdoor Pool" => PoolFeatures::OutdoorPool,
+
+            "Pool Cover" => PoolFeatures::PoolCover,
+
+            "Pool Sweep" => PoolFeatures::PoolSweep,
+
+            "Pool/Spa Combo" => PoolFeatures::PoolSpaCombo,
+
+            "Private" => PoolFeatures::Private,
+
+            "Salt Water" => PoolFeatures::SaltWater,
+
+            "Screen Enclosure" => PoolFeatures::ScreenEnclosure,
+
+            "See Remarks" => PoolFeatures::SeeRemarks,
+
+            "Solar Cover" => PoolFeatures::SolarCover,
+
+            "Solar Heat" => PoolFeatures::SolarHeat,
+
+            "Sport" => PoolFeatures::Sport,
+
+            "Tile" => PoolFeatures::Tile,
+
+            "Vinyl" => PoolFeatures::Vinyl,
+
+            "Waterfall" => PoolFeatures::Waterfall,
+
+            _ => PoolFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PoolFeatures::AboveGround => "Above Ground",
+
+            PoolFeatures::Association => "Association",
+
+            PoolFeatures::BlackBottom => "Black Bottom",
+
+            PoolFeatures::Cabana => "Cabana",
+
+            PoolFeatures::Community => "Community",
+
+            PoolFeatures::DivingBoard => "Diving Board",
+
+            PoolFeatures::ElectricHeat => "Electric Heat",
+
+            PoolFeatures::ENERGYSTARQualifiedpoolpump => "ENERGY STAR Qualified pool pump",
+
+            PoolFeatures::Fenced => "Fenced",
+
+            PoolFeatures::Fiberglass => "Fiberglass",
+
+            PoolFeatures::Filtered => "Filtered",
+
+            PoolFeatures::GasHeat => "Gas Heat",
+
+            PoolFeatures::Gunite => "Gunite",
+
+            PoolFeatures::Heated => "Heated",
+
+            PoolFeatures::InGround => "In Ground",
+
+            PoolFeatures::Indoor => "Indoor",
+
+            PoolFeatures::Infinity => "Infinity",
+
+            PoolFeatures::Lap => "Lap",
+
+            PoolFeatures::Liner => "Liner",
+
+            PoolFeatures::None => "None",
+
+            PoolFeatures::Other => "Other",
+
+            PoolFeatures::OutdoorPool => "Outdoor Pool",
+
+            PoolFeatures::PoolCover => "Pool Cover",
+
+            PoolFeatures::PoolSweep => "Pool Sweep",
+
+            PoolFeatures::PoolSpaCombo => "Pool/Spa Combo",
+
+            PoolFeatures::Private => "Private",
+
+            PoolFeatures::SaltWater => "Salt Water",
+
+            PoolFeatures::ScreenEnclosure => "Screen Enclosure",
+
+            PoolFeatures::SeeRemarks => "See Remarks",
+
+            PoolFeatures::SolarCover => "Solar Cover",
+
+            PoolFeatures::SolarHeat => "Solar Heat",
+
+            PoolFeatures::Sport => "Sport",
+
+            PoolFeatures::Tile => "Tile",
+
+            PoolFeatures::Vinyl => "Vinyl",
+
+            PoolFeatures::Waterfall => "Waterfall",
+
+            PoolFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PoolFeatures::AboveGround => "Above Ground".into(),
+
+            PoolFeatures::Association => "Association".into(),
+
+            PoolFeatures::BlackBottom => "Black Bottom".into(),
+
+            PoolFeatures::Cabana => "Cabana".into(),
+
+            PoolFeatures::Community => "Community".into(),
+
+            PoolFeatures::DivingBoard => "Diving Board".into(),
+
+            PoolFeatures::ElectricHeat => "Electric Heat".into(),
+
+            PoolFeatures::ENERGYSTARQualifiedpoolpump => "ENERGY STAR Qualified pool pump".into(),
+
+            PoolFeatures::Fenced => "Fenced".into(),
+
+            PoolFeatures::Fiberglass => "Fiberglass".into(),
+
+            PoolFeatures::Filtered => "Filtered".into(),
+
+            PoolFeatures::GasHeat => "Gas Heat".into(),
+
+            PoolFeatures::Gunite => "Gunite".into(),
+
+            PoolFeatures::Heated => "Heated".into(),
+
+            PoolFeatures::InGround => "In Ground".into(),
+
+            PoolFeatures::Indoor => "Indoor".into(),
+
+            PoolFeatures::Infinity => "Infinity".into(),
+
+            PoolFeatures::Lap => "Lap".into(),
+
+            PoolFeatures::Liner => "Liner".into(),
+
+            PoolFeatures::None => "None".into(),
+
+            PoolFeatures::Other => "Other".into(),
+
+            PoolFeatures::OutdoorPool => "Outdoor Pool".into(),
+
+            PoolFeatures::PoolCover => "Pool Cover".into(),
+
+            PoolFeatures::PoolSweep => "Pool Sweep".into(),
+
+            PoolFeatures::PoolSpaCombo => "Pool/Spa Combo".into(),
+
+            PoolFeatures::Private => "Private".into(),
+
+            PoolFeatures::SaltWater => "Salt Water".into(),
+
+            PoolFeatures::ScreenEnclosure => "Screen Enclosure".into(),
+
+            PoolFeatures::SeeRemarks => "See Remarks".into(),
+
+            PoolFeatures::SolarCover => "Solar Cover".into(),
+
+            PoolFeatures::SolarHeat => "Solar Heat".into(),
+
+            PoolFeatures::Sport => "Sport".into(),
+
+            PoolFeatures::Tile => "Tile".into(),
+
+            PoolFeatures::Vinyl => "Vinyl".into(),
+
+            PoolFeatures::Waterfall => "Waterfall".into(),
+
+            PoolFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PoolFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PoolFeatures {
     fn from(s: String) -> PoolFeatures {
         match s.as_ref() {
@@ -364,45 +677,5 @@ impl<'de> Deserialize<'de> for PoolFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_pool_features_format {
-    use super::PoolFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PoolFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<PoolFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

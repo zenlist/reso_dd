@@ -18,6 +18,63 @@ pub enum OpenHouseStatus {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OpenHouseStatus {
+    fn from_str(s: &str) -> OpenHouseStatus {
+        match s {
+            "Active" => OpenHouseStatus::Active,
+
+            "Canceled" => OpenHouseStatus::Canceled,
+
+            "Ended" => OpenHouseStatus::Ended,
+
+            _ => OpenHouseStatus::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OpenHouseStatus {
+        match s.as_ref() {
+            "Active" => OpenHouseStatus::Active,
+
+            "Canceled" => OpenHouseStatus::Canceled,
+
+            "Ended" => OpenHouseStatus::Ended,
+
+            _ => OpenHouseStatus::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OpenHouseStatus::Active => "Active",
+
+            OpenHouseStatus::Canceled => "Canceled",
+
+            OpenHouseStatus::Ended => "Ended",
+
+            OpenHouseStatus::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OpenHouseStatus::Active => "Active".into(),
+
+            OpenHouseStatus::Canceled => "Canceled".into(),
+
+            OpenHouseStatus::Ended => "Ended".into(),
+
+            OpenHouseStatus::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OpenHouseStatus::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OpenHouseStatus {
     fn from(s: String) -> OpenHouseStatus {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for OpenHouseStatus {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_open_house_status_format {
-    use super::OpenHouseStatus;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OpenHouseStatus>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OpenHouseStatus>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

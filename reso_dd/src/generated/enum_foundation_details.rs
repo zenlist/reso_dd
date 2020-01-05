@@ -45,6 +45,135 @@ pub enum FoundationDetails {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for FoundationDetails {
+    fn from_str(s: &str) -> FoundationDetails {
+        match s {
+            "Block" => FoundationDetails::Block,
+
+            "Brick/Mortar" => FoundationDetails::BrickMortar,
+
+            "Combination" => FoundationDetails::Combination,
+
+            "Concrete Perimeter" => FoundationDetails::ConcretePerimeter,
+
+            "None" => FoundationDetails::None,
+
+            "Other" => FoundationDetails::Other,
+
+            "Permanent" => FoundationDetails::Permanent,
+
+            "Pillar/Post/Pier" => FoundationDetails::PillarPostPier,
+
+            "Raised" => FoundationDetails::Raised,
+
+            "See Remarks" => FoundationDetails::SeeRemarks,
+
+            "Slab" => FoundationDetails::Slab,
+
+            "Stone" => FoundationDetails::Stone,
+
+            _ => FoundationDetails::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> FoundationDetails {
+        match s.as_ref() {
+            "Block" => FoundationDetails::Block,
+
+            "Brick/Mortar" => FoundationDetails::BrickMortar,
+
+            "Combination" => FoundationDetails::Combination,
+
+            "Concrete Perimeter" => FoundationDetails::ConcretePerimeter,
+
+            "None" => FoundationDetails::None,
+
+            "Other" => FoundationDetails::Other,
+
+            "Permanent" => FoundationDetails::Permanent,
+
+            "Pillar/Post/Pier" => FoundationDetails::PillarPostPier,
+
+            "Raised" => FoundationDetails::Raised,
+
+            "See Remarks" => FoundationDetails::SeeRemarks,
+
+            "Slab" => FoundationDetails::Slab,
+
+            "Stone" => FoundationDetails::Stone,
+
+            _ => FoundationDetails::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            FoundationDetails::Block => "Block",
+
+            FoundationDetails::BrickMortar => "Brick/Mortar",
+
+            FoundationDetails::Combination => "Combination",
+
+            FoundationDetails::ConcretePerimeter => "Concrete Perimeter",
+
+            FoundationDetails::None => "None",
+
+            FoundationDetails::Other => "Other",
+
+            FoundationDetails::Permanent => "Permanent",
+
+            FoundationDetails::PillarPostPier => "Pillar/Post/Pier",
+
+            FoundationDetails::Raised => "Raised",
+
+            FoundationDetails::SeeRemarks => "See Remarks",
+
+            FoundationDetails::Slab => "Slab",
+
+            FoundationDetails::Stone => "Stone",
+
+            FoundationDetails::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            FoundationDetails::Block => "Block".into(),
+
+            FoundationDetails::BrickMortar => "Brick/Mortar".into(),
+
+            FoundationDetails::Combination => "Combination".into(),
+
+            FoundationDetails::ConcretePerimeter => "Concrete Perimeter".into(),
+
+            FoundationDetails::None => "None".into(),
+
+            FoundationDetails::Other => "Other".into(),
+
+            FoundationDetails::Permanent => "Permanent".into(),
+
+            FoundationDetails::PillarPostPier => "Pillar/Post/Pier".into(),
+
+            FoundationDetails::Raised => "Raised".into(),
+
+            FoundationDetails::SeeRemarks => "See Remarks".into(),
+
+            FoundationDetails::Slab => "Slab".into(),
+
+            FoundationDetails::Stone => "Stone".into(),
+
+            FoundationDetails::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            FoundationDetails::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for FoundationDetails {
     fn from(s: String) -> FoundationDetails {
         match s.as_ref() {
@@ -157,45 +286,5 @@ impl<'de> Deserialize<'de> for FoundationDetails {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_foundation_details_format {
-    use super::FoundationDetails;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<FoundationDetails>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<FoundationDetails>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

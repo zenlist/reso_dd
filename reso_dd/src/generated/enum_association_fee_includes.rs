@@ -54,6 +54,159 @@ pub enum AssociationFeeIncludes {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for AssociationFeeIncludes {
+    fn from_str(s: &str) -> AssociationFeeIncludes {
+        match s {
+            "Cable TV" => AssociationFeeIncludes::CableTV,
+
+            "Earthquake Insurance" => AssociationFeeIncludes::EarthquakeInsurance,
+
+            "Electricity" => AssociationFeeIncludes::Electricity,
+
+            "Gas" => AssociationFeeIncludes::Gas,
+
+            "Insurance" => AssociationFeeIncludes::Insurance,
+
+            "Internet" => AssociationFeeIncludes::Internet,
+
+            "Maintenance Grounds" => AssociationFeeIncludes::MaintenanceGrounds,
+
+            "Maintenance Structure" => AssociationFeeIncludes::MaintenanceStructure,
+
+            "Pest Control" => AssociationFeeIncludes::PestControl,
+
+            "Security" => AssociationFeeIncludes::Security,
+
+            "Sewer" => AssociationFeeIncludes::Sewer,
+
+            "Snow Removal" => AssociationFeeIncludes::SnowRemoval,
+
+            "Trash" => AssociationFeeIncludes::Trash,
+
+            "Utilities" => AssociationFeeIncludes::Utilities,
+
+            "Water" => AssociationFeeIncludes::Water,
+
+            _ => AssociationFeeIncludes::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> AssociationFeeIncludes {
+        match s.as_ref() {
+            "Cable TV" => AssociationFeeIncludes::CableTV,
+
+            "Earthquake Insurance" => AssociationFeeIncludes::EarthquakeInsurance,
+
+            "Electricity" => AssociationFeeIncludes::Electricity,
+
+            "Gas" => AssociationFeeIncludes::Gas,
+
+            "Insurance" => AssociationFeeIncludes::Insurance,
+
+            "Internet" => AssociationFeeIncludes::Internet,
+
+            "Maintenance Grounds" => AssociationFeeIncludes::MaintenanceGrounds,
+
+            "Maintenance Structure" => AssociationFeeIncludes::MaintenanceStructure,
+
+            "Pest Control" => AssociationFeeIncludes::PestControl,
+
+            "Security" => AssociationFeeIncludes::Security,
+
+            "Sewer" => AssociationFeeIncludes::Sewer,
+
+            "Snow Removal" => AssociationFeeIncludes::SnowRemoval,
+
+            "Trash" => AssociationFeeIncludes::Trash,
+
+            "Utilities" => AssociationFeeIncludes::Utilities,
+
+            "Water" => AssociationFeeIncludes::Water,
+
+            _ => AssociationFeeIncludes::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            AssociationFeeIncludes::CableTV => "Cable TV",
+
+            AssociationFeeIncludes::EarthquakeInsurance => "Earthquake Insurance",
+
+            AssociationFeeIncludes::Electricity => "Electricity",
+
+            AssociationFeeIncludes::Gas => "Gas",
+
+            AssociationFeeIncludes::Insurance => "Insurance",
+
+            AssociationFeeIncludes::Internet => "Internet",
+
+            AssociationFeeIncludes::MaintenanceGrounds => "Maintenance Grounds",
+
+            AssociationFeeIncludes::MaintenanceStructure => "Maintenance Structure",
+
+            AssociationFeeIncludes::PestControl => "Pest Control",
+
+            AssociationFeeIncludes::Security => "Security",
+
+            AssociationFeeIncludes::Sewer => "Sewer",
+
+            AssociationFeeIncludes::SnowRemoval => "Snow Removal",
+
+            AssociationFeeIncludes::Trash => "Trash",
+
+            AssociationFeeIncludes::Utilities => "Utilities",
+
+            AssociationFeeIncludes::Water => "Water",
+
+            AssociationFeeIncludes::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            AssociationFeeIncludes::CableTV => "Cable TV".into(),
+
+            AssociationFeeIncludes::EarthquakeInsurance => "Earthquake Insurance".into(),
+
+            AssociationFeeIncludes::Electricity => "Electricity".into(),
+
+            AssociationFeeIncludes::Gas => "Gas".into(),
+
+            AssociationFeeIncludes::Insurance => "Insurance".into(),
+
+            AssociationFeeIncludes::Internet => "Internet".into(),
+
+            AssociationFeeIncludes::MaintenanceGrounds => "Maintenance Grounds".into(),
+
+            AssociationFeeIncludes::MaintenanceStructure => "Maintenance Structure".into(),
+
+            AssociationFeeIncludes::PestControl => "Pest Control".into(),
+
+            AssociationFeeIncludes::Security => "Security".into(),
+
+            AssociationFeeIncludes::Sewer => "Sewer".into(),
+
+            AssociationFeeIncludes::SnowRemoval => "Snow Removal".into(),
+
+            AssociationFeeIncludes::Trash => "Trash".into(),
+
+            AssociationFeeIncludes::Utilities => "Utilities".into(),
+
+            AssociationFeeIncludes::Water => "Water".into(),
+
+            AssociationFeeIncludes::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            AssociationFeeIncludes::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for AssociationFeeIncludes {
     fn from(s: String) -> AssociationFeeIncludes {
         match s.as_ref() {
@@ -184,45 +337,5 @@ impl<'de> Deserialize<'de> for AssociationFeeIncludes {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_association_fee_includes_format {
-    use super::AssociationFeeIncludes;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<AssociationFeeIncludes>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<AssociationFeeIncludes>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

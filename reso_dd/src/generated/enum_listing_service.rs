@@ -18,6 +18,63 @@ pub enum ListingService {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ListingService {
+    fn from_str(s: &str) -> ListingService {
+        match s {
+            "Entry Only" => ListingService::EntryOnly,
+
+            "Full Service" => ListingService::FullService,
+
+            "Limited Service" => ListingService::LimitedService,
+
+            _ => ListingService::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ListingService {
+        match s.as_ref() {
+            "Entry Only" => ListingService::EntryOnly,
+
+            "Full Service" => ListingService::FullService,
+
+            "Limited Service" => ListingService::LimitedService,
+
+            _ => ListingService::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ListingService::EntryOnly => "Entry Only",
+
+            ListingService::FullService => "Full Service",
+
+            ListingService::LimitedService => "Limited Service",
+
+            ListingService::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ListingService::EntryOnly => "Entry Only".into(),
+
+            ListingService::FullService => "Full Service".into(),
+
+            ListingService::LimitedService => "Limited Service".into(),
+
+            ListingService::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ListingService::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ListingService {
     fn from(s: String) -> ListingService {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for ListingService {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_listing_service_format {
-    use super::ListingService;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ListingService>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ListingService>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

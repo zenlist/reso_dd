@@ -225,6 +225,623 @@ pub enum ParkingFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ParkingFeatures {
+    fn from_str(s: &str) -> ParkingFeatures {
+        match s {
+            "Additional Parking" => ParkingFeatures::AdditionalParking,
+
+            "Aggregate" => ParkingFeatures::Aggregate,
+
+            "Alley Access" => ParkingFeatures::AlleyAccess,
+
+            "Asphalt" => ParkingFeatures::Asphalt,
+
+            "Assigned" => ParkingFeatures::Assigned,
+
+            "Attached" => ParkingFeatures::Attached,
+
+            "Attached Carport" => ParkingFeatures::AttachedCarport,
+
+            "Basement" => ParkingFeatures::Basement,
+
+            "Boat" => ParkingFeatures::Boat,
+
+            "Carport" => ParkingFeatures::Carport,
+
+            "Circular Driveway" => ParkingFeatures::CircularDriveway,
+
+            "Common" => ParkingFeatures::Common,
+
+            "Community Structure" => ParkingFeatures::CommunityStructure,
+
+            "Concrete" => ParkingFeatures::Concrete,
+
+            "Converted Garage" => ParkingFeatures::ConvertedGarage,
+
+            "Covered" => ParkingFeatures::Covered,
+
+            "Deck" => ParkingFeatures::Deck,
+
+            "Deeded" => ParkingFeatures::Deeded,
+
+            "Detached" => ParkingFeatures::Detached,
+
+            "Detached Carport" => ParkingFeatures::DetachedCarport,
+
+            "Direct Access" => ParkingFeatures::DirectAccess,
+
+            "Drive Through" => ParkingFeatures::DriveThrough,
+
+            "Driveway" => ParkingFeatures::Driveway,
+
+            "Electric Gate" => ParkingFeatures::ElectricGate,
+
+            "Electric Vehicle Charging Station(s)" => {
+                ParkingFeatures::ElectricVehicleChargingStations
+            }
+
+            "Enclosed" => ParkingFeatures::Enclosed,
+
+            "Garage" => ParkingFeatures::Garage,
+
+            "Garage Door Opener" => ParkingFeatures::GarageDoorOpener,
+
+            "Garage Faces Front" => ParkingFeatures::GarageFacesFront,
+
+            "Garage Faces Rear" => ParkingFeatures::GarageFacesRear,
+
+            "Garage Faces Side" => ParkingFeatures::GarageFacesSide,
+
+            "Gated" => ParkingFeatures::Gated,
+
+            "Golf Cart Garage" => ParkingFeatures::GolfCartGarage,
+
+            "Gravel" => ParkingFeatures::Gravel,
+
+            "Guest" => ParkingFeatures::Guest,
+
+            "Heated Garage" => ParkingFeatures::HeatedGarage,
+
+            "Inside Entrance" => ParkingFeatures::InsideEntrance,
+
+            "Kitchen Level" => ParkingFeatures::KitchenLevel,
+
+            "Leased" => ParkingFeatures::Leased,
+
+            "Lighted" => ParkingFeatures::Lighted,
+
+            "No Garage" => ParkingFeatures::NoGarage,
+
+            "None" => ParkingFeatures::None,
+
+            "Off Site" => ParkingFeatures::OffSite,
+
+            "Off Street" => ParkingFeatures::OffStreet,
+
+            "On Site" => ParkingFeatures::OnSite,
+
+            "On Street" => ParkingFeatures::OnStreet,
+
+            "Open" => ParkingFeatures::Open,
+
+            "Other" => ParkingFeatures::Other,
+
+            "Outside" => ParkingFeatures::Outside,
+
+            "Oversized" => ParkingFeatures::Oversized,
+
+            "Parking Lot" => ParkingFeatures::ParkingLot,
+
+            "Parking Pad" => ParkingFeatures::ParkingPad,
+
+            "Paved" => ParkingFeatures::Paved,
+
+            "Paver Block" => ParkingFeatures::PaverBlock,
+
+            "Permit Required" => ParkingFeatures::PermitRequired,
+
+            "Private" => ParkingFeatures::Private,
+
+            "RV Access/Parking" => ParkingFeatures::RVAccessParking,
+
+            "RV Carport" => ParkingFeatures::RVCarport,
+
+            "RV Garage" => ParkingFeatures::RVGarage,
+
+            "RV Gated" => ParkingFeatures::RVGated,
+
+            "Secured" => ParkingFeatures::Secured,
+
+            "See Remarks" => ParkingFeatures::SeeRemarks,
+
+            "Shared Driveway" => ParkingFeatures::SharedDriveway,
+
+            "Side By Side" => ParkingFeatures::SideBySide,
+
+            "Storage" => ParkingFeatures::Storage,
+
+            "Tandem" => ParkingFeatures::Tandem,
+
+            "Unassigned" => ParkingFeatures::Unassigned,
+
+            "Underground" => ParkingFeatures::Underground,
+
+            "Unpaved" => ParkingFeatures::Unpaved,
+
+            "Valet" => ParkingFeatures::Valet,
+
+            "Varies by Unit" => ParkingFeatures::VariesbyUnit,
+
+            "Workshop in Garage" => ParkingFeatures::WorkshopinGarage,
+
+            _ => ParkingFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ParkingFeatures {
+        match s.as_ref() {
+            "Additional Parking" => ParkingFeatures::AdditionalParking,
+
+            "Aggregate" => ParkingFeatures::Aggregate,
+
+            "Alley Access" => ParkingFeatures::AlleyAccess,
+
+            "Asphalt" => ParkingFeatures::Asphalt,
+
+            "Assigned" => ParkingFeatures::Assigned,
+
+            "Attached" => ParkingFeatures::Attached,
+
+            "Attached Carport" => ParkingFeatures::AttachedCarport,
+
+            "Basement" => ParkingFeatures::Basement,
+
+            "Boat" => ParkingFeatures::Boat,
+
+            "Carport" => ParkingFeatures::Carport,
+
+            "Circular Driveway" => ParkingFeatures::CircularDriveway,
+
+            "Common" => ParkingFeatures::Common,
+
+            "Community Structure" => ParkingFeatures::CommunityStructure,
+
+            "Concrete" => ParkingFeatures::Concrete,
+
+            "Converted Garage" => ParkingFeatures::ConvertedGarage,
+
+            "Covered" => ParkingFeatures::Covered,
+
+            "Deck" => ParkingFeatures::Deck,
+
+            "Deeded" => ParkingFeatures::Deeded,
+
+            "Detached" => ParkingFeatures::Detached,
+
+            "Detached Carport" => ParkingFeatures::DetachedCarport,
+
+            "Direct Access" => ParkingFeatures::DirectAccess,
+
+            "Drive Through" => ParkingFeatures::DriveThrough,
+
+            "Driveway" => ParkingFeatures::Driveway,
+
+            "Electric Gate" => ParkingFeatures::ElectricGate,
+
+            "Electric Vehicle Charging Station(s)" => {
+                ParkingFeatures::ElectricVehicleChargingStations
+            }
+
+            "Enclosed" => ParkingFeatures::Enclosed,
+
+            "Garage" => ParkingFeatures::Garage,
+
+            "Garage Door Opener" => ParkingFeatures::GarageDoorOpener,
+
+            "Garage Faces Front" => ParkingFeatures::GarageFacesFront,
+
+            "Garage Faces Rear" => ParkingFeatures::GarageFacesRear,
+
+            "Garage Faces Side" => ParkingFeatures::GarageFacesSide,
+
+            "Gated" => ParkingFeatures::Gated,
+
+            "Golf Cart Garage" => ParkingFeatures::GolfCartGarage,
+
+            "Gravel" => ParkingFeatures::Gravel,
+
+            "Guest" => ParkingFeatures::Guest,
+
+            "Heated Garage" => ParkingFeatures::HeatedGarage,
+
+            "Inside Entrance" => ParkingFeatures::InsideEntrance,
+
+            "Kitchen Level" => ParkingFeatures::KitchenLevel,
+
+            "Leased" => ParkingFeatures::Leased,
+
+            "Lighted" => ParkingFeatures::Lighted,
+
+            "No Garage" => ParkingFeatures::NoGarage,
+
+            "None" => ParkingFeatures::None,
+
+            "Off Site" => ParkingFeatures::OffSite,
+
+            "Off Street" => ParkingFeatures::OffStreet,
+
+            "On Site" => ParkingFeatures::OnSite,
+
+            "On Street" => ParkingFeatures::OnStreet,
+
+            "Open" => ParkingFeatures::Open,
+
+            "Other" => ParkingFeatures::Other,
+
+            "Outside" => ParkingFeatures::Outside,
+
+            "Oversized" => ParkingFeatures::Oversized,
+
+            "Parking Lot" => ParkingFeatures::ParkingLot,
+
+            "Parking Pad" => ParkingFeatures::ParkingPad,
+
+            "Paved" => ParkingFeatures::Paved,
+
+            "Paver Block" => ParkingFeatures::PaverBlock,
+
+            "Permit Required" => ParkingFeatures::PermitRequired,
+
+            "Private" => ParkingFeatures::Private,
+
+            "RV Access/Parking" => ParkingFeatures::RVAccessParking,
+
+            "RV Carport" => ParkingFeatures::RVCarport,
+
+            "RV Garage" => ParkingFeatures::RVGarage,
+
+            "RV Gated" => ParkingFeatures::RVGated,
+
+            "Secured" => ParkingFeatures::Secured,
+
+            "See Remarks" => ParkingFeatures::SeeRemarks,
+
+            "Shared Driveway" => ParkingFeatures::SharedDriveway,
+
+            "Side By Side" => ParkingFeatures::SideBySide,
+
+            "Storage" => ParkingFeatures::Storage,
+
+            "Tandem" => ParkingFeatures::Tandem,
+
+            "Unassigned" => ParkingFeatures::Unassigned,
+
+            "Underground" => ParkingFeatures::Underground,
+
+            "Unpaved" => ParkingFeatures::Unpaved,
+
+            "Valet" => ParkingFeatures::Valet,
+
+            "Varies by Unit" => ParkingFeatures::VariesbyUnit,
+
+            "Workshop in Garage" => ParkingFeatures::WorkshopinGarage,
+
+            _ => ParkingFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ParkingFeatures::AdditionalParking => "Additional Parking",
+
+            ParkingFeatures::Aggregate => "Aggregate",
+
+            ParkingFeatures::AlleyAccess => "Alley Access",
+
+            ParkingFeatures::Asphalt => "Asphalt",
+
+            ParkingFeatures::Assigned => "Assigned",
+
+            ParkingFeatures::Attached => "Attached",
+
+            ParkingFeatures::AttachedCarport => "Attached Carport",
+
+            ParkingFeatures::Basement => "Basement",
+
+            ParkingFeatures::Boat => "Boat",
+
+            ParkingFeatures::Carport => "Carport",
+
+            ParkingFeatures::CircularDriveway => "Circular Driveway",
+
+            ParkingFeatures::Common => "Common",
+
+            ParkingFeatures::CommunityStructure => "Community Structure",
+
+            ParkingFeatures::Concrete => "Concrete",
+
+            ParkingFeatures::ConvertedGarage => "Converted Garage",
+
+            ParkingFeatures::Covered => "Covered",
+
+            ParkingFeatures::Deck => "Deck",
+
+            ParkingFeatures::Deeded => "Deeded",
+
+            ParkingFeatures::Detached => "Detached",
+
+            ParkingFeatures::DetachedCarport => "Detached Carport",
+
+            ParkingFeatures::DirectAccess => "Direct Access",
+
+            ParkingFeatures::DriveThrough => "Drive Through",
+
+            ParkingFeatures::Driveway => "Driveway",
+
+            ParkingFeatures::ElectricGate => "Electric Gate",
+
+            ParkingFeatures::ElectricVehicleChargingStations => {
+                "Electric Vehicle Charging Station(s)"
+            }
+
+            ParkingFeatures::Enclosed => "Enclosed",
+
+            ParkingFeatures::Garage => "Garage",
+
+            ParkingFeatures::GarageDoorOpener => "Garage Door Opener",
+
+            ParkingFeatures::GarageFacesFront => "Garage Faces Front",
+
+            ParkingFeatures::GarageFacesRear => "Garage Faces Rear",
+
+            ParkingFeatures::GarageFacesSide => "Garage Faces Side",
+
+            ParkingFeatures::Gated => "Gated",
+
+            ParkingFeatures::GolfCartGarage => "Golf Cart Garage",
+
+            ParkingFeatures::Gravel => "Gravel",
+
+            ParkingFeatures::Guest => "Guest",
+
+            ParkingFeatures::HeatedGarage => "Heated Garage",
+
+            ParkingFeatures::InsideEntrance => "Inside Entrance",
+
+            ParkingFeatures::KitchenLevel => "Kitchen Level",
+
+            ParkingFeatures::Leased => "Leased",
+
+            ParkingFeatures::Lighted => "Lighted",
+
+            ParkingFeatures::NoGarage => "No Garage",
+
+            ParkingFeatures::None => "None",
+
+            ParkingFeatures::OffSite => "Off Site",
+
+            ParkingFeatures::OffStreet => "Off Street",
+
+            ParkingFeatures::OnSite => "On Site",
+
+            ParkingFeatures::OnStreet => "On Street",
+
+            ParkingFeatures::Open => "Open",
+
+            ParkingFeatures::Other => "Other",
+
+            ParkingFeatures::Outside => "Outside",
+
+            ParkingFeatures::Oversized => "Oversized",
+
+            ParkingFeatures::ParkingLot => "Parking Lot",
+
+            ParkingFeatures::ParkingPad => "Parking Pad",
+
+            ParkingFeatures::Paved => "Paved",
+
+            ParkingFeatures::PaverBlock => "Paver Block",
+
+            ParkingFeatures::PermitRequired => "Permit Required",
+
+            ParkingFeatures::Private => "Private",
+
+            ParkingFeatures::RVAccessParking => "RV Access/Parking",
+
+            ParkingFeatures::RVCarport => "RV Carport",
+
+            ParkingFeatures::RVGarage => "RV Garage",
+
+            ParkingFeatures::RVGated => "RV Gated",
+
+            ParkingFeatures::Secured => "Secured",
+
+            ParkingFeatures::SeeRemarks => "See Remarks",
+
+            ParkingFeatures::SharedDriveway => "Shared Driveway",
+
+            ParkingFeatures::SideBySide => "Side By Side",
+
+            ParkingFeatures::Storage => "Storage",
+
+            ParkingFeatures::Tandem => "Tandem",
+
+            ParkingFeatures::Unassigned => "Unassigned",
+
+            ParkingFeatures::Underground => "Underground",
+
+            ParkingFeatures::Unpaved => "Unpaved",
+
+            ParkingFeatures::Valet => "Valet",
+
+            ParkingFeatures::VariesbyUnit => "Varies by Unit",
+
+            ParkingFeatures::WorkshopinGarage => "Workshop in Garage",
+
+            ParkingFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ParkingFeatures::AdditionalParking => "Additional Parking".into(),
+
+            ParkingFeatures::Aggregate => "Aggregate".into(),
+
+            ParkingFeatures::AlleyAccess => "Alley Access".into(),
+
+            ParkingFeatures::Asphalt => "Asphalt".into(),
+
+            ParkingFeatures::Assigned => "Assigned".into(),
+
+            ParkingFeatures::Attached => "Attached".into(),
+
+            ParkingFeatures::AttachedCarport => "Attached Carport".into(),
+
+            ParkingFeatures::Basement => "Basement".into(),
+
+            ParkingFeatures::Boat => "Boat".into(),
+
+            ParkingFeatures::Carport => "Carport".into(),
+
+            ParkingFeatures::CircularDriveway => "Circular Driveway".into(),
+
+            ParkingFeatures::Common => "Common".into(),
+
+            ParkingFeatures::CommunityStructure => "Community Structure".into(),
+
+            ParkingFeatures::Concrete => "Concrete".into(),
+
+            ParkingFeatures::ConvertedGarage => "Converted Garage".into(),
+
+            ParkingFeatures::Covered => "Covered".into(),
+
+            ParkingFeatures::Deck => "Deck".into(),
+
+            ParkingFeatures::Deeded => "Deeded".into(),
+
+            ParkingFeatures::Detached => "Detached".into(),
+
+            ParkingFeatures::DetachedCarport => "Detached Carport".into(),
+
+            ParkingFeatures::DirectAccess => "Direct Access".into(),
+
+            ParkingFeatures::DriveThrough => "Drive Through".into(),
+
+            ParkingFeatures::Driveway => "Driveway".into(),
+
+            ParkingFeatures::ElectricGate => "Electric Gate".into(),
+
+            ParkingFeatures::ElectricVehicleChargingStations => {
+                "Electric Vehicle Charging Station(s)".into()
+            }
+
+            ParkingFeatures::Enclosed => "Enclosed".into(),
+
+            ParkingFeatures::Garage => "Garage".into(),
+
+            ParkingFeatures::GarageDoorOpener => "Garage Door Opener".into(),
+
+            ParkingFeatures::GarageFacesFront => "Garage Faces Front".into(),
+
+            ParkingFeatures::GarageFacesRear => "Garage Faces Rear".into(),
+
+            ParkingFeatures::GarageFacesSide => "Garage Faces Side".into(),
+
+            ParkingFeatures::Gated => "Gated".into(),
+
+            ParkingFeatures::GolfCartGarage => "Golf Cart Garage".into(),
+
+            ParkingFeatures::Gravel => "Gravel".into(),
+
+            ParkingFeatures::Guest => "Guest".into(),
+
+            ParkingFeatures::HeatedGarage => "Heated Garage".into(),
+
+            ParkingFeatures::InsideEntrance => "Inside Entrance".into(),
+
+            ParkingFeatures::KitchenLevel => "Kitchen Level".into(),
+
+            ParkingFeatures::Leased => "Leased".into(),
+
+            ParkingFeatures::Lighted => "Lighted".into(),
+
+            ParkingFeatures::NoGarage => "No Garage".into(),
+
+            ParkingFeatures::None => "None".into(),
+
+            ParkingFeatures::OffSite => "Off Site".into(),
+
+            ParkingFeatures::OffStreet => "Off Street".into(),
+
+            ParkingFeatures::OnSite => "On Site".into(),
+
+            ParkingFeatures::OnStreet => "On Street".into(),
+
+            ParkingFeatures::Open => "Open".into(),
+
+            ParkingFeatures::Other => "Other".into(),
+
+            ParkingFeatures::Outside => "Outside".into(),
+
+            ParkingFeatures::Oversized => "Oversized".into(),
+
+            ParkingFeatures::ParkingLot => "Parking Lot".into(),
+
+            ParkingFeatures::ParkingPad => "Parking Pad".into(),
+
+            ParkingFeatures::Paved => "Paved".into(),
+
+            ParkingFeatures::PaverBlock => "Paver Block".into(),
+
+            ParkingFeatures::PermitRequired => "Permit Required".into(),
+
+            ParkingFeatures::Private => "Private".into(),
+
+            ParkingFeatures::RVAccessParking => "RV Access/Parking".into(),
+
+            ParkingFeatures::RVCarport => "RV Carport".into(),
+
+            ParkingFeatures::RVGarage => "RV Garage".into(),
+
+            ParkingFeatures::RVGated => "RV Gated".into(),
+
+            ParkingFeatures::Secured => "Secured".into(),
+
+            ParkingFeatures::SeeRemarks => "See Remarks".into(),
+
+            ParkingFeatures::SharedDriveway => "Shared Driveway".into(),
+
+            ParkingFeatures::SideBySide => "Side By Side".into(),
+
+            ParkingFeatures::Storage => "Storage".into(),
+
+            ParkingFeatures::Tandem => "Tandem".into(),
+
+            ParkingFeatures::Unassigned => "Unassigned".into(),
+
+            ParkingFeatures::Underground => "Underground".into(),
+
+            ParkingFeatures::Unpaved => "Unpaved".into(),
+
+            ParkingFeatures::Valet => "Valet".into(),
+
+            ParkingFeatures::VariesbyUnit => "Varies by Unit".into(),
+
+            ParkingFeatures::WorkshopinGarage => "Workshop in Garage".into(),
+
+            ParkingFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ParkingFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ParkingFeatures {
     fn from(s: String) -> ParkingFeatures {
         match s.as_ref() {
@@ -703,45 +1320,5 @@ impl<'de> Deserialize<'de> for ParkingFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_parking_features_format {
-    use super::ParkingFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ParkingFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ParkingFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -48,6 +48,143 @@ pub enum RentIncludes {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for RentIncludes {
+    fn from_str(s: &str) -> RentIncludes {
+        match s {
+            "All Utilities" => RentIncludes::AllUtilities,
+
+            "Cable TV" => RentIncludes::CableTV,
+
+            "Electricity" => RentIncludes::Electricity,
+
+            "Gardener" => RentIncludes::Gardener,
+
+            "Gas" => RentIncludes::Gas,
+
+            "Internet" => RentIncludes::Internet,
+
+            "Management" => RentIncludes::Management,
+
+            "None" => RentIncludes::None,
+
+            "Other" => RentIncludes::Other,
+
+            "See Remarks" => RentIncludes::SeeRemarks,
+
+            "Sewer" => RentIncludes::Sewer,
+
+            "Trash Collection" => RentIncludes::TrashCollection,
+
+            "Water" => RentIncludes::Water,
+
+            _ => RentIncludes::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> RentIncludes {
+        match s.as_ref() {
+            "All Utilities" => RentIncludes::AllUtilities,
+
+            "Cable TV" => RentIncludes::CableTV,
+
+            "Electricity" => RentIncludes::Electricity,
+
+            "Gardener" => RentIncludes::Gardener,
+
+            "Gas" => RentIncludes::Gas,
+
+            "Internet" => RentIncludes::Internet,
+
+            "Management" => RentIncludes::Management,
+
+            "None" => RentIncludes::None,
+
+            "Other" => RentIncludes::Other,
+
+            "See Remarks" => RentIncludes::SeeRemarks,
+
+            "Sewer" => RentIncludes::Sewer,
+
+            "Trash Collection" => RentIncludes::TrashCollection,
+
+            "Water" => RentIncludes::Water,
+
+            _ => RentIncludes::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            RentIncludes::AllUtilities => "All Utilities",
+
+            RentIncludes::CableTV => "Cable TV",
+
+            RentIncludes::Electricity => "Electricity",
+
+            RentIncludes::Gardener => "Gardener",
+
+            RentIncludes::Gas => "Gas",
+
+            RentIncludes::Internet => "Internet",
+
+            RentIncludes::Management => "Management",
+
+            RentIncludes::None => "None",
+
+            RentIncludes::Other => "Other",
+
+            RentIncludes::SeeRemarks => "See Remarks",
+
+            RentIncludes::Sewer => "Sewer",
+
+            RentIncludes::TrashCollection => "Trash Collection",
+
+            RentIncludes::Water => "Water",
+
+            RentIncludes::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            RentIncludes::AllUtilities => "All Utilities".into(),
+
+            RentIncludes::CableTV => "Cable TV".into(),
+
+            RentIncludes::Electricity => "Electricity".into(),
+
+            RentIncludes::Gardener => "Gardener".into(),
+
+            RentIncludes::Gas => "Gas".into(),
+
+            RentIncludes::Internet => "Internet".into(),
+
+            RentIncludes::Management => "Management".into(),
+
+            RentIncludes::None => "None".into(),
+
+            RentIncludes::Other => "Other".into(),
+
+            RentIncludes::SeeRemarks => "See Remarks".into(),
+
+            RentIncludes::Sewer => "Sewer".into(),
+
+            RentIncludes::TrashCollection => "Trash Collection".into(),
+
+            RentIncludes::Water => "Water".into(),
+
+            RentIncludes::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            RentIncludes::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for RentIncludes {
     fn from(s: String) -> RentIncludes {
         match s.as_ref() {
@@ -166,45 +303,5 @@ impl<'de> Deserialize<'de> for RentIncludes {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_rent_includes_format {
-    use super::RentIncludes;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<RentIncludes>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<RentIncludes>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

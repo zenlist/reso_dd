@@ -228,6 +228,627 @@ pub enum Appliances {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Appliances {
+    fn from_str(s: &str) -> Appliances {
+        match s {
+            "Bar Fridge" => Appliances::BarFridge,
+
+            "Built-In Electric Oven" => Appliances::BuiltInElectricOven,
+
+            "Built-In Electric Range" => Appliances::BuiltInElectricRange,
+
+            "Built-In Freezer" => Appliances::BuiltInFreezer,
+
+            "Built-In Gas Oven" => Appliances::BuiltInGasOven,
+
+            "Built-In Gas Range" => Appliances::BuiltInGasRange,
+
+            "Built-In Range" => Appliances::BuiltInRange,
+
+            "Built-In Refrigerator" => Appliances::BuiltInRefrigerator,
+
+            "Convection Oven" => Appliances::ConvectionOven,
+
+            "Cooktop" => Appliances::Cooktop,
+
+            "Dishwasher" => Appliances::Dishwasher,
+
+            "Disposal" => Appliances::Disposal,
+
+            "Double Oven" => Appliances::DoubleOven,
+
+            "Down Draft" => Appliances::DownDraft,
+
+            "Dryer" => Appliances::Dryer,
+
+            "Electric Cooktop" => Appliances::ElectricCooktop,
+
+            "Electric Oven" => Appliances::ElectricOven,
+
+            "Electric Range" => Appliances::ElectricRange,
+
+            "Electric Water Heater" => Appliances::ElectricWaterHeater,
+
+            "ENERGY STAR Qualified Appliances" => Appliances::ENERGYSTARQualifiedAppliances,
+
+            "ENERGY STAR Qualified Dishwasher" => Appliances::ENERGYSTARQualifiedDishwasher,
+
+            "ENERGY STAR Qualified Dryer" => Appliances::ENERGYSTARQualifiedDryer,
+
+            "ENERGY STAR Qualified Freezer" => Appliances::ENERGYSTARQualifiedFreezer,
+
+            "ENERGY STAR Qualified Refrigerator" => Appliances::ENERGYSTARQualifiedRefrigerator,
+
+            "ENERGY STAR Qualified Washer" => Appliances::ENERGYSTARQualifiedWasher,
+
+            "ENERGY STAR Qualified Water Heater" => Appliances::ENERGYSTARQualifiedWaterHeater,
+
+            "Exhaust Fan" => Appliances::ExhaustFan,
+
+            "Free-Standing Electric Oven" => Appliances::FreeStandingElectricOven,
+
+            "Free-Standing Electric Range" => Appliances::FreeStandingElectricRange,
+
+            "Free-Standing Freezer" => Appliances::FreeStandingFreezer,
+
+            "Free-Standing Gas Oven" => Appliances::FreeStandingGasOven,
+
+            "Free-Standing Gas Range" => Appliances::FreeStandingGasRange,
+
+            "Free-Standing Range" => Appliances::FreeStandingRange,
+
+            "Free-Standing Refrigerator" => Appliances::FreeStandingRefrigerator,
+
+            "Freezer" => Appliances::Freezer,
+
+            "Gas Cooktop" => Appliances::GasCooktop,
+
+            "Gas Oven" => Appliances::GasOven,
+
+            "Gas Range" => Appliances::GasRange,
+
+            "Gas Water Heater" => Appliances::GasWaterHeater,
+
+            "Humidifier" => Appliances::Humidifier,
+
+            "Ice Maker" => Appliances::IceMaker,
+
+            "Indoor Grill" => Appliances::IndoorGrill,
+
+            "Induction Cooktop" => Appliances::InductionCooktop,
+
+            "Instant Hot Water" => Appliances::InstantHotWater,
+
+            "Microwave" => Appliances::Microwave,
+
+            "None" => Appliances::None,
+
+            "Other" => Appliances::Other,
+
+            "Oven" => Appliances::Oven,
+
+            "Plumbed For Ice Maker" => Appliances::PlumbedForIceMaker,
+
+            "Portable Dishwasher" => Appliances::PortableDishwasher,
+
+            "Propane Cooktop" => Appliances::PropaneCooktop,
+
+            "Range" => Appliances::Range,
+
+            "Range Hood" => Appliances::RangeHood,
+
+            "Refrigerator" => Appliances::Refrigerator,
+
+            "Self Cleaning Oven" => Appliances::SelfCleaningOven,
+
+            "Solar Hot Water" => Appliances::SolarHotWater,
+
+            "Stainless Steel Appliance(s)" => Appliances::StainlessSteelAppliances,
+
+            "Tankless Water Heater" => Appliances::TanklessWaterHeater,
+
+            "Trash Compactor" => Appliances::TrashCompactor,
+
+            "Vented Exhaust Fan" => Appliances::VentedExhaustFan,
+
+            "Warming Drawer" => Appliances::WarmingDrawer,
+
+            "Washer" => Appliances::Washer,
+
+            "Washer/Dryer" => Appliances::WasherDryer,
+
+            "Washer/Dryer Stacked" => Appliances::WasherDryerStacked,
+
+            "Water Heater" => Appliances::WaterHeater,
+
+            "Water Purifier" => Appliances::WaterPurifier,
+
+            "Water Purifier Owned" => Appliances::WaterPurifierOwned,
+
+            "Water Purifier Rented" => Appliances::WaterPurifierRented,
+
+            "Water Softener" => Appliances::WaterSoftener,
+
+            "Water Softener Owned" => Appliances::WaterSoftenerOwned,
+
+            "Water Softener Rented" => Appliances::WaterSoftenerRented,
+
+            "Wine Cooler" => Appliances::WineCooler,
+
+            "Wine Refrigerator" => Appliances::WineRefrigerator,
+
+            _ => Appliances::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Appliances {
+        match s.as_ref() {
+            "Bar Fridge" => Appliances::BarFridge,
+
+            "Built-In Electric Oven" => Appliances::BuiltInElectricOven,
+
+            "Built-In Electric Range" => Appliances::BuiltInElectricRange,
+
+            "Built-In Freezer" => Appliances::BuiltInFreezer,
+
+            "Built-In Gas Oven" => Appliances::BuiltInGasOven,
+
+            "Built-In Gas Range" => Appliances::BuiltInGasRange,
+
+            "Built-In Range" => Appliances::BuiltInRange,
+
+            "Built-In Refrigerator" => Appliances::BuiltInRefrigerator,
+
+            "Convection Oven" => Appliances::ConvectionOven,
+
+            "Cooktop" => Appliances::Cooktop,
+
+            "Dishwasher" => Appliances::Dishwasher,
+
+            "Disposal" => Appliances::Disposal,
+
+            "Double Oven" => Appliances::DoubleOven,
+
+            "Down Draft" => Appliances::DownDraft,
+
+            "Dryer" => Appliances::Dryer,
+
+            "Electric Cooktop" => Appliances::ElectricCooktop,
+
+            "Electric Oven" => Appliances::ElectricOven,
+
+            "Electric Range" => Appliances::ElectricRange,
+
+            "Electric Water Heater" => Appliances::ElectricWaterHeater,
+
+            "ENERGY STAR Qualified Appliances" => Appliances::ENERGYSTARQualifiedAppliances,
+
+            "ENERGY STAR Qualified Dishwasher" => Appliances::ENERGYSTARQualifiedDishwasher,
+
+            "ENERGY STAR Qualified Dryer" => Appliances::ENERGYSTARQualifiedDryer,
+
+            "ENERGY STAR Qualified Freezer" => Appliances::ENERGYSTARQualifiedFreezer,
+
+            "ENERGY STAR Qualified Refrigerator" => Appliances::ENERGYSTARQualifiedRefrigerator,
+
+            "ENERGY STAR Qualified Washer" => Appliances::ENERGYSTARQualifiedWasher,
+
+            "ENERGY STAR Qualified Water Heater" => Appliances::ENERGYSTARQualifiedWaterHeater,
+
+            "Exhaust Fan" => Appliances::ExhaustFan,
+
+            "Free-Standing Electric Oven" => Appliances::FreeStandingElectricOven,
+
+            "Free-Standing Electric Range" => Appliances::FreeStandingElectricRange,
+
+            "Free-Standing Freezer" => Appliances::FreeStandingFreezer,
+
+            "Free-Standing Gas Oven" => Appliances::FreeStandingGasOven,
+
+            "Free-Standing Gas Range" => Appliances::FreeStandingGasRange,
+
+            "Free-Standing Range" => Appliances::FreeStandingRange,
+
+            "Free-Standing Refrigerator" => Appliances::FreeStandingRefrigerator,
+
+            "Freezer" => Appliances::Freezer,
+
+            "Gas Cooktop" => Appliances::GasCooktop,
+
+            "Gas Oven" => Appliances::GasOven,
+
+            "Gas Range" => Appliances::GasRange,
+
+            "Gas Water Heater" => Appliances::GasWaterHeater,
+
+            "Humidifier" => Appliances::Humidifier,
+
+            "Ice Maker" => Appliances::IceMaker,
+
+            "Indoor Grill" => Appliances::IndoorGrill,
+
+            "Induction Cooktop" => Appliances::InductionCooktop,
+
+            "Instant Hot Water" => Appliances::InstantHotWater,
+
+            "Microwave" => Appliances::Microwave,
+
+            "None" => Appliances::None,
+
+            "Other" => Appliances::Other,
+
+            "Oven" => Appliances::Oven,
+
+            "Plumbed For Ice Maker" => Appliances::PlumbedForIceMaker,
+
+            "Portable Dishwasher" => Appliances::PortableDishwasher,
+
+            "Propane Cooktop" => Appliances::PropaneCooktop,
+
+            "Range" => Appliances::Range,
+
+            "Range Hood" => Appliances::RangeHood,
+
+            "Refrigerator" => Appliances::Refrigerator,
+
+            "Self Cleaning Oven" => Appliances::SelfCleaningOven,
+
+            "Solar Hot Water" => Appliances::SolarHotWater,
+
+            "Stainless Steel Appliance(s)" => Appliances::StainlessSteelAppliances,
+
+            "Tankless Water Heater" => Appliances::TanklessWaterHeater,
+
+            "Trash Compactor" => Appliances::TrashCompactor,
+
+            "Vented Exhaust Fan" => Appliances::VentedExhaustFan,
+
+            "Warming Drawer" => Appliances::WarmingDrawer,
+
+            "Washer" => Appliances::Washer,
+
+            "Washer/Dryer" => Appliances::WasherDryer,
+
+            "Washer/Dryer Stacked" => Appliances::WasherDryerStacked,
+
+            "Water Heater" => Appliances::WaterHeater,
+
+            "Water Purifier" => Appliances::WaterPurifier,
+
+            "Water Purifier Owned" => Appliances::WaterPurifierOwned,
+
+            "Water Purifier Rented" => Appliances::WaterPurifierRented,
+
+            "Water Softener" => Appliances::WaterSoftener,
+
+            "Water Softener Owned" => Appliances::WaterSoftenerOwned,
+
+            "Water Softener Rented" => Appliances::WaterSoftenerRented,
+
+            "Wine Cooler" => Appliances::WineCooler,
+
+            "Wine Refrigerator" => Appliances::WineRefrigerator,
+
+            _ => Appliances::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Appliances::BarFridge => "Bar Fridge",
+
+            Appliances::BuiltInElectricOven => "Built-In Electric Oven",
+
+            Appliances::BuiltInElectricRange => "Built-In Electric Range",
+
+            Appliances::BuiltInFreezer => "Built-In Freezer",
+
+            Appliances::BuiltInGasOven => "Built-In Gas Oven",
+
+            Appliances::BuiltInGasRange => "Built-In Gas Range",
+
+            Appliances::BuiltInRange => "Built-In Range",
+
+            Appliances::BuiltInRefrigerator => "Built-In Refrigerator",
+
+            Appliances::ConvectionOven => "Convection Oven",
+
+            Appliances::Cooktop => "Cooktop",
+
+            Appliances::Dishwasher => "Dishwasher",
+
+            Appliances::Disposal => "Disposal",
+
+            Appliances::DoubleOven => "Double Oven",
+
+            Appliances::DownDraft => "Down Draft",
+
+            Appliances::Dryer => "Dryer",
+
+            Appliances::ElectricCooktop => "Electric Cooktop",
+
+            Appliances::ElectricOven => "Electric Oven",
+
+            Appliances::ElectricRange => "Electric Range",
+
+            Appliances::ElectricWaterHeater => "Electric Water Heater",
+
+            Appliances::ENERGYSTARQualifiedAppliances => "ENERGY STAR Qualified Appliances",
+
+            Appliances::ENERGYSTARQualifiedDishwasher => "ENERGY STAR Qualified Dishwasher",
+
+            Appliances::ENERGYSTARQualifiedDryer => "ENERGY STAR Qualified Dryer",
+
+            Appliances::ENERGYSTARQualifiedFreezer => "ENERGY STAR Qualified Freezer",
+
+            Appliances::ENERGYSTARQualifiedRefrigerator => "ENERGY STAR Qualified Refrigerator",
+
+            Appliances::ENERGYSTARQualifiedWasher => "ENERGY STAR Qualified Washer",
+
+            Appliances::ENERGYSTARQualifiedWaterHeater => "ENERGY STAR Qualified Water Heater",
+
+            Appliances::ExhaustFan => "Exhaust Fan",
+
+            Appliances::FreeStandingElectricOven => "Free-Standing Electric Oven",
+
+            Appliances::FreeStandingElectricRange => "Free-Standing Electric Range",
+
+            Appliances::FreeStandingFreezer => "Free-Standing Freezer",
+
+            Appliances::FreeStandingGasOven => "Free-Standing Gas Oven",
+
+            Appliances::FreeStandingGasRange => "Free-Standing Gas Range",
+
+            Appliances::FreeStandingRange => "Free-Standing Range",
+
+            Appliances::FreeStandingRefrigerator => "Free-Standing Refrigerator",
+
+            Appliances::Freezer => "Freezer",
+
+            Appliances::GasCooktop => "Gas Cooktop",
+
+            Appliances::GasOven => "Gas Oven",
+
+            Appliances::GasRange => "Gas Range",
+
+            Appliances::GasWaterHeater => "Gas Water Heater",
+
+            Appliances::Humidifier => "Humidifier",
+
+            Appliances::IceMaker => "Ice Maker",
+
+            Appliances::IndoorGrill => "Indoor Grill",
+
+            Appliances::InductionCooktop => "Induction Cooktop",
+
+            Appliances::InstantHotWater => "Instant Hot Water",
+
+            Appliances::Microwave => "Microwave",
+
+            Appliances::None => "None",
+
+            Appliances::Other => "Other",
+
+            Appliances::Oven => "Oven",
+
+            Appliances::PlumbedForIceMaker => "Plumbed For Ice Maker",
+
+            Appliances::PortableDishwasher => "Portable Dishwasher",
+
+            Appliances::PropaneCooktop => "Propane Cooktop",
+
+            Appliances::Range => "Range",
+
+            Appliances::RangeHood => "Range Hood",
+
+            Appliances::Refrigerator => "Refrigerator",
+
+            Appliances::SelfCleaningOven => "Self Cleaning Oven",
+
+            Appliances::SolarHotWater => "Solar Hot Water",
+
+            Appliances::StainlessSteelAppliances => "Stainless Steel Appliance(s)",
+
+            Appliances::TanklessWaterHeater => "Tankless Water Heater",
+
+            Appliances::TrashCompactor => "Trash Compactor",
+
+            Appliances::VentedExhaustFan => "Vented Exhaust Fan",
+
+            Appliances::WarmingDrawer => "Warming Drawer",
+
+            Appliances::Washer => "Washer",
+
+            Appliances::WasherDryer => "Washer/Dryer",
+
+            Appliances::WasherDryerStacked => "Washer/Dryer Stacked",
+
+            Appliances::WaterHeater => "Water Heater",
+
+            Appliances::WaterPurifier => "Water Purifier",
+
+            Appliances::WaterPurifierOwned => "Water Purifier Owned",
+
+            Appliances::WaterPurifierRented => "Water Purifier Rented",
+
+            Appliances::WaterSoftener => "Water Softener",
+
+            Appliances::WaterSoftenerOwned => "Water Softener Owned",
+
+            Appliances::WaterSoftenerRented => "Water Softener Rented",
+
+            Appliances::WineCooler => "Wine Cooler",
+
+            Appliances::WineRefrigerator => "Wine Refrigerator",
+
+            Appliances::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Appliances::BarFridge => "Bar Fridge".into(),
+
+            Appliances::BuiltInElectricOven => "Built-In Electric Oven".into(),
+
+            Appliances::BuiltInElectricRange => "Built-In Electric Range".into(),
+
+            Appliances::BuiltInFreezer => "Built-In Freezer".into(),
+
+            Appliances::BuiltInGasOven => "Built-In Gas Oven".into(),
+
+            Appliances::BuiltInGasRange => "Built-In Gas Range".into(),
+
+            Appliances::BuiltInRange => "Built-In Range".into(),
+
+            Appliances::BuiltInRefrigerator => "Built-In Refrigerator".into(),
+
+            Appliances::ConvectionOven => "Convection Oven".into(),
+
+            Appliances::Cooktop => "Cooktop".into(),
+
+            Appliances::Dishwasher => "Dishwasher".into(),
+
+            Appliances::Disposal => "Disposal".into(),
+
+            Appliances::DoubleOven => "Double Oven".into(),
+
+            Appliances::DownDraft => "Down Draft".into(),
+
+            Appliances::Dryer => "Dryer".into(),
+
+            Appliances::ElectricCooktop => "Electric Cooktop".into(),
+
+            Appliances::ElectricOven => "Electric Oven".into(),
+
+            Appliances::ElectricRange => "Electric Range".into(),
+
+            Appliances::ElectricWaterHeater => "Electric Water Heater".into(),
+
+            Appliances::ENERGYSTARQualifiedAppliances => "ENERGY STAR Qualified Appliances".into(),
+
+            Appliances::ENERGYSTARQualifiedDishwasher => "ENERGY STAR Qualified Dishwasher".into(),
+
+            Appliances::ENERGYSTARQualifiedDryer => "ENERGY STAR Qualified Dryer".into(),
+
+            Appliances::ENERGYSTARQualifiedFreezer => "ENERGY STAR Qualified Freezer".into(),
+
+            Appliances::ENERGYSTARQualifiedRefrigerator => {
+                "ENERGY STAR Qualified Refrigerator".into()
+            }
+
+            Appliances::ENERGYSTARQualifiedWasher => "ENERGY STAR Qualified Washer".into(),
+
+            Appliances::ENERGYSTARQualifiedWaterHeater => {
+                "ENERGY STAR Qualified Water Heater".into()
+            }
+
+            Appliances::ExhaustFan => "Exhaust Fan".into(),
+
+            Appliances::FreeStandingElectricOven => "Free-Standing Electric Oven".into(),
+
+            Appliances::FreeStandingElectricRange => "Free-Standing Electric Range".into(),
+
+            Appliances::FreeStandingFreezer => "Free-Standing Freezer".into(),
+
+            Appliances::FreeStandingGasOven => "Free-Standing Gas Oven".into(),
+
+            Appliances::FreeStandingGasRange => "Free-Standing Gas Range".into(),
+
+            Appliances::FreeStandingRange => "Free-Standing Range".into(),
+
+            Appliances::FreeStandingRefrigerator => "Free-Standing Refrigerator".into(),
+
+            Appliances::Freezer => "Freezer".into(),
+
+            Appliances::GasCooktop => "Gas Cooktop".into(),
+
+            Appliances::GasOven => "Gas Oven".into(),
+
+            Appliances::GasRange => "Gas Range".into(),
+
+            Appliances::GasWaterHeater => "Gas Water Heater".into(),
+
+            Appliances::Humidifier => "Humidifier".into(),
+
+            Appliances::IceMaker => "Ice Maker".into(),
+
+            Appliances::IndoorGrill => "Indoor Grill".into(),
+
+            Appliances::InductionCooktop => "Induction Cooktop".into(),
+
+            Appliances::InstantHotWater => "Instant Hot Water".into(),
+
+            Appliances::Microwave => "Microwave".into(),
+
+            Appliances::None => "None".into(),
+
+            Appliances::Other => "Other".into(),
+
+            Appliances::Oven => "Oven".into(),
+
+            Appliances::PlumbedForIceMaker => "Plumbed For Ice Maker".into(),
+
+            Appliances::PortableDishwasher => "Portable Dishwasher".into(),
+
+            Appliances::PropaneCooktop => "Propane Cooktop".into(),
+
+            Appliances::Range => "Range".into(),
+
+            Appliances::RangeHood => "Range Hood".into(),
+
+            Appliances::Refrigerator => "Refrigerator".into(),
+
+            Appliances::SelfCleaningOven => "Self Cleaning Oven".into(),
+
+            Appliances::SolarHotWater => "Solar Hot Water".into(),
+
+            Appliances::StainlessSteelAppliances => "Stainless Steel Appliance(s)".into(),
+
+            Appliances::TanklessWaterHeater => "Tankless Water Heater".into(),
+
+            Appliances::TrashCompactor => "Trash Compactor".into(),
+
+            Appliances::VentedExhaustFan => "Vented Exhaust Fan".into(),
+
+            Appliances::WarmingDrawer => "Warming Drawer".into(),
+
+            Appliances::Washer => "Washer".into(),
+
+            Appliances::WasherDryer => "Washer/Dryer".into(),
+
+            Appliances::WasherDryerStacked => "Washer/Dryer Stacked".into(),
+
+            Appliances::WaterHeater => "Water Heater".into(),
+
+            Appliances::WaterPurifier => "Water Purifier".into(),
+
+            Appliances::WaterPurifierOwned => "Water Purifier Owned".into(),
+
+            Appliances::WaterPurifierRented => "Water Purifier Rented".into(),
+
+            Appliances::WaterSoftener => "Water Softener".into(),
+
+            Appliances::WaterSoftenerOwned => "Water Softener Owned".into(),
+
+            Appliances::WaterSoftenerRented => "Water Softener Rented".into(),
+
+            Appliances::WineCooler => "Wine Cooler".into(),
+
+            Appliances::WineRefrigerator => "Wine Refrigerator".into(),
+
+            Appliances::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Appliances::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Appliances {
     fn from(s: String) -> Appliances {
         match s.as_ref() {
@@ -706,43 +1327,5 @@ impl<'de> Deserialize<'de> for Appliances {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_appliances_format {
-    use super::Appliances;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Appliances>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Appliances>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -36,6 +36,111 @@ pub enum WaterSource {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for WaterSource {
+    fn from_str(s: &str) -> WaterSource {
+        match s {
+            "Cistern" => WaterSource::Cistern,
+
+            "None" => WaterSource::None,
+
+            "Other" => WaterSource::Other,
+
+            "Private" => WaterSource::Private,
+
+            "Public" => WaterSource::Public,
+
+            "See Remarks" => WaterSource::SeeRemarks,
+
+            "Shared Well" => WaterSource::SharedWell,
+
+            "Spring" => WaterSource::Spring,
+
+            "Well" => WaterSource::Well,
+
+            _ => WaterSource::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> WaterSource {
+        match s.as_ref() {
+            "Cistern" => WaterSource::Cistern,
+
+            "None" => WaterSource::None,
+
+            "Other" => WaterSource::Other,
+
+            "Private" => WaterSource::Private,
+
+            "Public" => WaterSource::Public,
+
+            "See Remarks" => WaterSource::SeeRemarks,
+
+            "Shared Well" => WaterSource::SharedWell,
+
+            "Spring" => WaterSource::Spring,
+
+            "Well" => WaterSource::Well,
+
+            _ => WaterSource::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            WaterSource::Cistern => "Cistern",
+
+            WaterSource::None => "None",
+
+            WaterSource::Other => "Other",
+
+            WaterSource::Private => "Private",
+
+            WaterSource::Public => "Public",
+
+            WaterSource::SeeRemarks => "See Remarks",
+
+            WaterSource::SharedWell => "Shared Well",
+
+            WaterSource::Spring => "Spring",
+
+            WaterSource::Well => "Well",
+
+            WaterSource::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            WaterSource::Cistern => "Cistern".into(),
+
+            WaterSource::None => "None".into(),
+
+            WaterSource::Other => "Other".into(),
+
+            WaterSource::Private => "Private".into(),
+
+            WaterSource::Public => "Public".into(),
+
+            WaterSource::SeeRemarks => "See Remarks".into(),
+
+            WaterSource::SharedWell => "Shared Well".into(),
+
+            WaterSource::Spring => "Spring".into(),
+
+            WaterSource::Well => "Well".into(),
+
+            WaterSource::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            WaterSource::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for WaterSource {
     fn from(s: String) -> WaterSource {
         match s.as_ref() {
@@ -130,43 +235,5 @@ impl<'de> Deserialize<'de> for WaterSource {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_water_source_format {
-    use super::WaterSource;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<WaterSource>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<WaterSource>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

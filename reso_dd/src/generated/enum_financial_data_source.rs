@@ -18,6 +18,63 @@ pub enum FinancialDataSource {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for FinancialDataSource {
+    fn from_str(s: &str) -> FinancialDataSource {
+        match s {
+            "Accountant" => FinancialDataSource::Accountant,
+
+            "Owner" => FinancialDataSource::Owner,
+
+            "Property Manager" => FinancialDataSource::PropertyManager,
+
+            _ => FinancialDataSource::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> FinancialDataSource {
+        match s.as_ref() {
+            "Accountant" => FinancialDataSource::Accountant,
+
+            "Owner" => FinancialDataSource::Owner,
+
+            "Property Manager" => FinancialDataSource::PropertyManager,
+
+            _ => FinancialDataSource::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            FinancialDataSource::Accountant => "Accountant",
+
+            FinancialDataSource::Owner => "Owner",
+
+            FinancialDataSource::PropertyManager => "Property Manager",
+
+            FinancialDataSource::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            FinancialDataSource::Accountant => "Accountant".into(),
+
+            FinancialDataSource::Owner => "Owner".into(),
+
+            FinancialDataSource::PropertyManager => "Property Manager".into(),
+
+            FinancialDataSource::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            FinancialDataSource::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for FinancialDataSource {
     fn from(s: String) -> FinancialDataSource {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for FinancialDataSource {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_financial_data_source_format {
-    use super::FinancialDataSource;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<FinancialDataSource>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<FinancialDataSource>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

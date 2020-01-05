@@ -66,6 +66,191 @@ pub enum EventType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for EventType {
+    fn from_str(s: &str) -> EventType {
+        match s {
+            "Click to Primary Hosted Site" => EventType::ClicktoPrimaryHostedSite,
+
+            "Clicked on Email Address" => EventType::ClickedonEmailAddress,
+
+            "Clicked on Phone Number" => EventType::ClickedonPhoneNumber,
+
+            "Comments" => EventType::Comments,
+
+            "Detailed View" => EventType::DetailedView,
+
+            "Discard" => EventType::Discard,
+
+            "Driving Directions" => EventType::DrivingDirections,
+
+            "Exit Detailed View" => EventType::ExitDetailedView,
+
+            "Favorited" => EventType::Favorited,
+
+            "Maybe" => EventType::Maybe,
+
+            "Non-Detailed View" => EventType::NonDetailedView,
+
+            "Object Modified" => EventType::ObjectModified,
+
+            "Photo Gallery" => EventType::PhotoGallery,
+
+            "Printed" => EventType::Printed,
+
+            "Property Videos" => EventType::PropertyVideos,
+
+            "Search" => EventType::Search,
+
+            "Share" => EventType::Share,
+
+            "Submission of Lead Form" => EventType::SubmissionofLeadForm,
+
+            "Virtual Tour" => EventType::VirtualTour,
+
+            _ => EventType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> EventType {
+        match s.as_ref() {
+            "Click to Primary Hosted Site" => EventType::ClicktoPrimaryHostedSite,
+
+            "Clicked on Email Address" => EventType::ClickedonEmailAddress,
+
+            "Clicked on Phone Number" => EventType::ClickedonPhoneNumber,
+
+            "Comments" => EventType::Comments,
+
+            "Detailed View" => EventType::DetailedView,
+
+            "Discard" => EventType::Discard,
+
+            "Driving Directions" => EventType::DrivingDirections,
+
+            "Exit Detailed View" => EventType::ExitDetailedView,
+
+            "Favorited" => EventType::Favorited,
+
+            "Maybe" => EventType::Maybe,
+
+            "Non-Detailed View" => EventType::NonDetailedView,
+
+            "Object Modified" => EventType::ObjectModified,
+
+            "Photo Gallery" => EventType::PhotoGallery,
+
+            "Printed" => EventType::Printed,
+
+            "Property Videos" => EventType::PropertyVideos,
+
+            "Search" => EventType::Search,
+
+            "Share" => EventType::Share,
+
+            "Submission of Lead Form" => EventType::SubmissionofLeadForm,
+
+            "Virtual Tour" => EventType::VirtualTour,
+
+            _ => EventType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            EventType::ClicktoPrimaryHostedSite => "Click to Primary Hosted Site",
+
+            EventType::ClickedonEmailAddress => "Clicked on Email Address",
+
+            EventType::ClickedonPhoneNumber => "Clicked on Phone Number",
+
+            EventType::Comments => "Comments",
+
+            EventType::DetailedView => "Detailed View",
+
+            EventType::Discard => "Discard",
+
+            EventType::DrivingDirections => "Driving Directions",
+
+            EventType::ExitDetailedView => "Exit Detailed View",
+
+            EventType::Favorited => "Favorited",
+
+            EventType::Maybe => "Maybe",
+
+            EventType::NonDetailedView => "Non-Detailed View",
+
+            EventType::ObjectModified => "Object Modified",
+
+            EventType::PhotoGallery => "Photo Gallery",
+
+            EventType::Printed => "Printed",
+
+            EventType::PropertyVideos => "Property Videos",
+
+            EventType::Search => "Search",
+
+            EventType::Share => "Share",
+
+            EventType::SubmissionofLeadForm => "Submission of Lead Form",
+
+            EventType::VirtualTour => "Virtual Tour",
+
+            EventType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            EventType::ClicktoPrimaryHostedSite => "Click to Primary Hosted Site".into(),
+
+            EventType::ClickedonEmailAddress => "Clicked on Email Address".into(),
+
+            EventType::ClickedonPhoneNumber => "Clicked on Phone Number".into(),
+
+            EventType::Comments => "Comments".into(),
+
+            EventType::DetailedView => "Detailed View".into(),
+
+            EventType::Discard => "Discard".into(),
+
+            EventType::DrivingDirections => "Driving Directions".into(),
+
+            EventType::ExitDetailedView => "Exit Detailed View".into(),
+
+            EventType::Favorited => "Favorited".into(),
+
+            EventType::Maybe => "Maybe".into(),
+
+            EventType::NonDetailedView => "Non-Detailed View".into(),
+
+            EventType::ObjectModified => "Object Modified".into(),
+
+            EventType::PhotoGallery => "Photo Gallery".into(),
+
+            EventType::Printed => "Printed".into(),
+
+            EventType::PropertyVideos => "Property Videos".into(),
+
+            EventType::Search => "Search".into(),
+
+            EventType::Share => "Share".into(),
+
+            EventType::SubmissionofLeadForm => "Submission of Lead Form".into(),
+
+            EventType::VirtualTour => "Virtual Tour".into(),
+
+            EventType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            EventType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for EventType {
     fn from(s: String) -> EventType {
         match s.as_ref() {
@@ -220,43 +405,5 @@ impl<'de> Deserialize<'de> for EventType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_event_type_format {
-    use super::EventType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<EventType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<EventType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

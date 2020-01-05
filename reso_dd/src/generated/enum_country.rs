@@ -747,6 +747,2007 @@ pub enum Country {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Country {
+    fn from_str(s: &str) -> Country {
+        match s {
+            "AD" => Country::AD,
+
+            "AE" => Country::AE,
+
+            "AF" => Country::AF,
+
+            "AG" => Country::AG,
+
+            "AI" => Country::AI,
+
+            "AL" => Country::AL,
+
+            "AM" => Country::AM,
+
+            "AN" => Country::AN,
+
+            "AO" => Country::AO,
+
+            "AQ" => Country::AQ,
+
+            "AR" => Country::AR,
+
+            "AS" => Country::AS,
+
+            "AT" => Country::AT,
+
+            "AU" => Country::AU,
+
+            "AW" => Country::AW,
+
+            "AX" => Country::AX,
+
+            "AZ" => Country::AZ,
+
+            "BA" => Country::BA,
+
+            "BB" => Country::BB,
+
+            "BD" => Country::BD,
+
+            "BE" => Country::BE,
+
+            "BF" => Country::BF,
+
+            "BG" => Country::BG,
+
+            "BH" => Country::BH,
+
+            "BI" => Country::BI,
+
+            "BJ" => Country::BJ,
+
+            "BL" => Country::BL,
+
+            "BM" => Country::BM,
+
+            "BN" => Country::BN,
+
+            "BO" => Country::BO,
+
+            "BR" => Country::BR,
+
+            "BS" => Country::BS,
+
+            "BT" => Country::BT,
+
+            "BV" => Country::BV,
+
+            "BW" => Country::BW,
+
+            "BY" => Country::BY,
+
+            "BZ" => Country::BZ,
+
+            "CA" => Country::CA,
+
+            "CC" => Country::CC,
+
+            "CD" => Country::CD,
+
+            "CF" => Country::CF,
+
+            "CG" => Country::CG,
+
+            "CH" => Country::CH,
+
+            "CI" => Country::CI,
+
+            "CK" => Country::CK,
+
+            "CL" => Country::CL,
+
+            "CM" => Country::CM,
+
+            "CN" => Country::CN,
+
+            "CO" => Country::CO,
+
+            "CR" => Country::CR,
+
+            "CU" => Country::CU,
+
+            "CV" => Country::CV,
+
+            "CX" => Country::CX,
+
+            "CY" => Country::CY,
+
+            "CZ" => Country::CZ,
+
+            "DE" => Country::DE,
+
+            "DJ" => Country::DJ,
+
+            "DK" => Country::DK,
+
+            "DM" => Country::DM,
+
+            "DO" => Country::DO,
+
+            "DZ" => Country::DZ,
+
+            "EC" => Country::EC,
+
+            "EE" => Country::EE,
+
+            "EG" => Country::EG,
+
+            "EH" => Country::EH,
+
+            "ER" => Country::ER,
+
+            "ES" => Country::ES,
+
+            "ET" => Country::ET,
+
+            "FI" => Country::FI,
+
+            "FJ" => Country::FJ,
+
+            "FK" => Country::FK,
+
+            "FM" => Country::FM,
+
+            "FO" => Country::FO,
+
+            "FR" => Country::FR,
+
+            "GA" => Country::GA,
+
+            "GB" => Country::GB,
+
+            "GD" => Country::GD,
+
+            "GE" => Country::GE,
+
+            "GF" => Country::GF,
+
+            "GG" => Country::GG,
+
+            "GH" => Country::GH,
+
+            "GI" => Country::GI,
+
+            "GL" => Country::GL,
+
+            "GM" => Country::GM,
+
+            "GN" => Country::GN,
+
+            "GP" => Country::GP,
+
+            "GQ" => Country::GQ,
+
+            "GR" => Country::GR,
+
+            "GS" => Country::GS,
+
+            "GT" => Country::GT,
+
+            "GU" => Country::GU,
+
+            "GW" => Country::GW,
+
+            "GY" => Country::GY,
+
+            "HK" => Country::HK,
+
+            "HM" => Country::HM,
+
+            "HN" => Country::HN,
+
+            "HR" => Country::HR,
+
+            "HT" => Country::HT,
+
+            "HU" => Country::HU,
+
+            "ID" => Country::ID,
+
+            "IE" => Country::IE,
+
+            "IL" => Country::IL,
+
+            "IM" => Country::IM,
+
+            "IN" => Country::IN,
+
+            "IO" => Country::IO,
+
+            "IQ" => Country::IQ,
+
+            "IR" => Country::IR,
+
+            "IS" => Country::IS,
+
+            "IT" => Country::IT,
+
+            "JE" => Country::JE,
+
+            "JM" => Country::JM,
+
+            "JO" => Country::JO,
+
+            "JP" => Country::JP,
+
+            "KE" => Country::KE,
+
+            "KG" => Country::KG,
+
+            "KH" => Country::KH,
+
+            "KI" => Country::KI,
+
+            "KM" => Country::KM,
+
+            "KN" => Country::KN,
+
+            "KP" => Country::KP,
+
+            "KR" => Country::KR,
+
+            "KW" => Country::KW,
+
+            "KY" => Country::KY,
+
+            "KZ" => Country::KZ,
+
+            "LA" => Country::LA,
+
+            "LB" => Country::LB,
+
+            "LC" => Country::LC,
+
+            "LI" => Country::LI,
+
+            "LK" => Country::LK,
+
+            "LR" => Country::LR,
+
+            "LS" => Country::LS,
+
+            "LT" => Country::LT,
+
+            "LU" => Country::LU,
+
+            "LV" => Country::LV,
+
+            "LY" => Country::LY,
+
+            "MA" => Country::MA,
+
+            "MC" => Country::MC,
+
+            "MD" => Country::MD,
+
+            "ME" => Country::ME,
+
+            "MF" => Country::MF,
+
+            "MG" => Country::MG,
+
+            "MH" => Country::MH,
+
+            "MK" => Country::MK,
+
+            "ML" => Country::ML,
+
+            "MM" => Country::MM,
+
+            "MN" => Country::MN,
+
+            "MO" => Country::MO,
+
+            "MP" => Country::MP,
+
+            "MQ" => Country::MQ,
+
+            "MR" => Country::MR,
+
+            "MS" => Country::MS,
+
+            "MT" => Country::MT,
+
+            "MU" => Country::MU,
+
+            "MV" => Country::MV,
+
+            "MW" => Country::MW,
+
+            "MX" => Country::MX,
+
+            "MY" => Country::MY,
+
+            "MZ" => Country::MZ,
+
+            "NA" => Country::NA,
+
+            "NC" => Country::NC,
+
+            "NE" => Country::NE,
+
+            "NF" => Country::NF,
+
+            "NG" => Country::NG,
+
+            "NI" => Country::NI,
+
+            "NL" => Country::NL,
+
+            "NP" => Country::NP,
+
+            "NR" => Country::NR,
+
+            "NU" => Country::NU,
+
+            "NZ" => Country::NZ,
+
+            "OM" => Country::OM,
+
+            "OT" => Country::OT,
+
+            "PA" => Country::PA,
+
+            "PE" => Country::PE,
+
+            "PF" => Country::PF,
+
+            "PG" => Country::PG,
+
+            "PH" => Country::PH,
+
+            "PK" => Country::PK,
+
+            "PL" => Country::PL,
+
+            "PM" => Country::PM,
+
+            "PN" => Country::PN,
+
+            "PR" => Country::PR,
+
+            "PS" => Country::PS,
+
+            "PT" => Country::PT,
+
+            "PW" => Country::PW,
+
+            "PY" => Country::PY,
+
+            "QA" => Country::QA,
+
+            "RE" => Country::RE,
+
+            "RO" => Country::RO,
+
+            "RS" => Country::RS,
+
+            "RU" => Country::RU,
+
+            "RW" => Country::RW,
+
+            "SA" => Country::SA,
+
+            "SB" => Country::SB,
+
+            "SC" => Country::SC,
+
+            "SD" => Country::SD,
+
+            "SE" => Country::SE,
+
+            "SG" => Country::SG,
+
+            "SH" => Country::SH,
+
+            "SI" => Country::SI,
+
+            "SJ" => Country::SJ,
+
+            "SK" => Country::SK,
+
+            "SL" => Country::SL,
+
+            "SM" => Country::SM,
+
+            "SN" => Country::SN,
+
+            "SO" => Country::SO,
+
+            "SR" => Country::SR,
+
+            "ST" => Country::ST,
+
+            "SV" => Country::SV,
+
+            "SY" => Country::SY,
+
+            "SZ" => Country::SZ,
+
+            "TC" => Country::TC,
+
+            "TD" => Country::TD,
+
+            "TF" => Country::TF,
+
+            "TG" => Country::TG,
+
+            "TH" => Country::TH,
+
+            "TJ" => Country::TJ,
+
+            "TK" => Country::TK,
+
+            "TL" => Country::TL,
+
+            "TM" => Country::TM,
+
+            "TN" => Country::TN,
+
+            "TO" => Country::TO,
+
+            "TR" => Country::TR,
+
+            "TT" => Country::TT,
+
+            "TV" => Country::TV,
+
+            "TW" => Country::TW,
+
+            "TZ" => Country::TZ,
+
+            "UA" => Country::UA,
+
+            "UG" => Country::UG,
+
+            "UM" => Country::UM,
+
+            "US" => Country::US,
+
+            "UY" => Country::UY,
+
+            "UZ" => Country::UZ,
+
+            "VA" => Country::VA,
+
+            "VC" => Country::VC,
+
+            "VE" => Country::VE,
+
+            "VG" => Country::VG,
+
+            "VI" => Country::VI,
+
+            "VN" => Country::VN,
+
+            "VU" => Country::VU,
+
+            "WF" => Country::WF,
+
+            "WS" => Country::WS,
+
+            "YE" => Country::YE,
+
+            "YT" => Country::YT,
+
+            "ZA" => Country::ZA,
+
+            "ZM" => Country::ZM,
+
+            "ZW" => Country::ZW,
+
+            _ => Country::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Country {
+        match s.as_ref() {
+            "AD" => Country::AD,
+
+            "AE" => Country::AE,
+
+            "AF" => Country::AF,
+
+            "AG" => Country::AG,
+
+            "AI" => Country::AI,
+
+            "AL" => Country::AL,
+
+            "AM" => Country::AM,
+
+            "AN" => Country::AN,
+
+            "AO" => Country::AO,
+
+            "AQ" => Country::AQ,
+
+            "AR" => Country::AR,
+
+            "AS" => Country::AS,
+
+            "AT" => Country::AT,
+
+            "AU" => Country::AU,
+
+            "AW" => Country::AW,
+
+            "AX" => Country::AX,
+
+            "AZ" => Country::AZ,
+
+            "BA" => Country::BA,
+
+            "BB" => Country::BB,
+
+            "BD" => Country::BD,
+
+            "BE" => Country::BE,
+
+            "BF" => Country::BF,
+
+            "BG" => Country::BG,
+
+            "BH" => Country::BH,
+
+            "BI" => Country::BI,
+
+            "BJ" => Country::BJ,
+
+            "BL" => Country::BL,
+
+            "BM" => Country::BM,
+
+            "BN" => Country::BN,
+
+            "BO" => Country::BO,
+
+            "BR" => Country::BR,
+
+            "BS" => Country::BS,
+
+            "BT" => Country::BT,
+
+            "BV" => Country::BV,
+
+            "BW" => Country::BW,
+
+            "BY" => Country::BY,
+
+            "BZ" => Country::BZ,
+
+            "CA" => Country::CA,
+
+            "CC" => Country::CC,
+
+            "CD" => Country::CD,
+
+            "CF" => Country::CF,
+
+            "CG" => Country::CG,
+
+            "CH" => Country::CH,
+
+            "CI" => Country::CI,
+
+            "CK" => Country::CK,
+
+            "CL" => Country::CL,
+
+            "CM" => Country::CM,
+
+            "CN" => Country::CN,
+
+            "CO" => Country::CO,
+
+            "CR" => Country::CR,
+
+            "CU" => Country::CU,
+
+            "CV" => Country::CV,
+
+            "CX" => Country::CX,
+
+            "CY" => Country::CY,
+
+            "CZ" => Country::CZ,
+
+            "DE" => Country::DE,
+
+            "DJ" => Country::DJ,
+
+            "DK" => Country::DK,
+
+            "DM" => Country::DM,
+
+            "DO" => Country::DO,
+
+            "DZ" => Country::DZ,
+
+            "EC" => Country::EC,
+
+            "EE" => Country::EE,
+
+            "EG" => Country::EG,
+
+            "EH" => Country::EH,
+
+            "ER" => Country::ER,
+
+            "ES" => Country::ES,
+
+            "ET" => Country::ET,
+
+            "FI" => Country::FI,
+
+            "FJ" => Country::FJ,
+
+            "FK" => Country::FK,
+
+            "FM" => Country::FM,
+
+            "FO" => Country::FO,
+
+            "FR" => Country::FR,
+
+            "GA" => Country::GA,
+
+            "GB" => Country::GB,
+
+            "GD" => Country::GD,
+
+            "GE" => Country::GE,
+
+            "GF" => Country::GF,
+
+            "GG" => Country::GG,
+
+            "GH" => Country::GH,
+
+            "GI" => Country::GI,
+
+            "GL" => Country::GL,
+
+            "GM" => Country::GM,
+
+            "GN" => Country::GN,
+
+            "GP" => Country::GP,
+
+            "GQ" => Country::GQ,
+
+            "GR" => Country::GR,
+
+            "GS" => Country::GS,
+
+            "GT" => Country::GT,
+
+            "GU" => Country::GU,
+
+            "GW" => Country::GW,
+
+            "GY" => Country::GY,
+
+            "HK" => Country::HK,
+
+            "HM" => Country::HM,
+
+            "HN" => Country::HN,
+
+            "HR" => Country::HR,
+
+            "HT" => Country::HT,
+
+            "HU" => Country::HU,
+
+            "ID" => Country::ID,
+
+            "IE" => Country::IE,
+
+            "IL" => Country::IL,
+
+            "IM" => Country::IM,
+
+            "IN" => Country::IN,
+
+            "IO" => Country::IO,
+
+            "IQ" => Country::IQ,
+
+            "IR" => Country::IR,
+
+            "IS" => Country::IS,
+
+            "IT" => Country::IT,
+
+            "JE" => Country::JE,
+
+            "JM" => Country::JM,
+
+            "JO" => Country::JO,
+
+            "JP" => Country::JP,
+
+            "KE" => Country::KE,
+
+            "KG" => Country::KG,
+
+            "KH" => Country::KH,
+
+            "KI" => Country::KI,
+
+            "KM" => Country::KM,
+
+            "KN" => Country::KN,
+
+            "KP" => Country::KP,
+
+            "KR" => Country::KR,
+
+            "KW" => Country::KW,
+
+            "KY" => Country::KY,
+
+            "KZ" => Country::KZ,
+
+            "LA" => Country::LA,
+
+            "LB" => Country::LB,
+
+            "LC" => Country::LC,
+
+            "LI" => Country::LI,
+
+            "LK" => Country::LK,
+
+            "LR" => Country::LR,
+
+            "LS" => Country::LS,
+
+            "LT" => Country::LT,
+
+            "LU" => Country::LU,
+
+            "LV" => Country::LV,
+
+            "LY" => Country::LY,
+
+            "MA" => Country::MA,
+
+            "MC" => Country::MC,
+
+            "MD" => Country::MD,
+
+            "ME" => Country::ME,
+
+            "MF" => Country::MF,
+
+            "MG" => Country::MG,
+
+            "MH" => Country::MH,
+
+            "MK" => Country::MK,
+
+            "ML" => Country::ML,
+
+            "MM" => Country::MM,
+
+            "MN" => Country::MN,
+
+            "MO" => Country::MO,
+
+            "MP" => Country::MP,
+
+            "MQ" => Country::MQ,
+
+            "MR" => Country::MR,
+
+            "MS" => Country::MS,
+
+            "MT" => Country::MT,
+
+            "MU" => Country::MU,
+
+            "MV" => Country::MV,
+
+            "MW" => Country::MW,
+
+            "MX" => Country::MX,
+
+            "MY" => Country::MY,
+
+            "MZ" => Country::MZ,
+
+            "NA" => Country::NA,
+
+            "NC" => Country::NC,
+
+            "NE" => Country::NE,
+
+            "NF" => Country::NF,
+
+            "NG" => Country::NG,
+
+            "NI" => Country::NI,
+
+            "NL" => Country::NL,
+
+            "NP" => Country::NP,
+
+            "NR" => Country::NR,
+
+            "NU" => Country::NU,
+
+            "NZ" => Country::NZ,
+
+            "OM" => Country::OM,
+
+            "OT" => Country::OT,
+
+            "PA" => Country::PA,
+
+            "PE" => Country::PE,
+
+            "PF" => Country::PF,
+
+            "PG" => Country::PG,
+
+            "PH" => Country::PH,
+
+            "PK" => Country::PK,
+
+            "PL" => Country::PL,
+
+            "PM" => Country::PM,
+
+            "PN" => Country::PN,
+
+            "PR" => Country::PR,
+
+            "PS" => Country::PS,
+
+            "PT" => Country::PT,
+
+            "PW" => Country::PW,
+
+            "PY" => Country::PY,
+
+            "QA" => Country::QA,
+
+            "RE" => Country::RE,
+
+            "RO" => Country::RO,
+
+            "RS" => Country::RS,
+
+            "RU" => Country::RU,
+
+            "RW" => Country::RW,
+
+            "SA" => Country::SA,
+
+            "SB" => Country::SB,
+
+            "SC" => Country::SC,
+
+            "SD" => Country::SD,
+
+            "SE" => Country::SE,
+
+            "SG" => Country::SG,
+
+            "SH" => Country::SH,
+
+            "SI" => Country::SI,
+
+            "SJ" => Country::SJ,
+
+            "SK" => Country::SK,
+
+            "SL" => Country::SL,
+
+            "SM" => Country::SM,
+
+            "SN" => Country::SN,
+
+            "SO" => Country::SO,
+
+            "SR" => Country::SR,
+
+            "ST" => Country::ST,
+
+            "SV" => Country::SV,
+
+            "SY" => Country::SY,
+
+            "SZ" => Country::SZ,
+
+            "TC" => Country::TC,
+
+            "TD" => Country::TD,
+
+            "TF" => Country::TF,
+
+            "TG" => Country::TG,
+
+            "TH" => Country::TH,
+
+            "TJ" => Country::TJ,
+
+            "TK" => Country::TK,
+
+            "TL" => Country::TL,
+
+            "TM" => Country::TM,
+
+            "TN" => Country::TN,
+
+            "TO" => Country::TO,
+
+            "TR" => Country::TR,
+
+            "TT" => Country::TT,
+
+            "TV" => Country::TV,
+
+            "TW" => Country::TW,
+
+            "TZ" => Country::TZ,
+
+            "UA" => Country::UA,
+
+            "UG" => Country::UG,
+
+            "UM" => Country::UM,
+
+            "US" => Country::US,
+
+            "UY" => Country::UY,
+
+            "UZ" => Country::UZ,
+
+            "VA" => Country::VA,
+
+            "VC" => Country::VC,
+
+            "VE" => Country::VE,
+
+            "VG" => Country::VG,
+
+            "VI" => Country::VI,
+
+            "VN" => Country::VN,
+
+            "VU" => Country::VU,
+
+            "WF" => Country::WF,
+
+            "WS" => Country::WS,
+
+            "YE" => Country::YE,
+
+            "YT" => Country::YT,
+
+            "ZA" => Country::ZA,
+
+            "ZM" => Country::ZM,
+
+            "ZW" => Country::ZW,
+
+            _ => Country::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Country::AD => "AD",
+
+            Country::AE => "AE",
+
+            Country::AF => "AF",
+
+            Country::AG => "AG",
+
+            Country::AI => "AI",
+
+            Country::AL => "AL",
+
+            Country::AM => "AM",
+
+            Country::AN => "AN",
+
+            Country::AO => "AO",
+
+            Country::AQ => "AQ",
+
+            Country::AR => "AR",
+
+            Country::AS => "AS",
+
+            Country::AT => "AT",
+
+            Country::AU => "AU",
+
+            Country::AW => "AW",
+
+            Country::AX => "AX",
+
+            Country::AZ => "AZ",
+
+            Country::BA => "BA",
+
+            Country::BB => "BB",
+
+            Country::BD => "BD",
+
+            Country::BE => "BE",
+
+            Country::BF => "BF",
+
+            Country::BG => "BG",
+
+            Country::BH => "BH",
+
+            Country::BI => "BI",
+
+            Country::BJ => "BJ",
+
+            Country::BL => "BL",
+
+            Country::BM => "BM",
+
+            Country::BN => "BN",
+
+            Country::BO => "BO",
+
+            Country::BR => "BR",
+
+            Country::BS => "BS",
+
+            Country::BT => "BT",
+
+            Country::BV => "BV",
+
+            Country::BW => "BW",
+
+            Country::BY => "BY",
+
+            Country::BZ => "BZ",
+
+            Country::CA => "CA",
+
+            Country::CC => "CC",
+
+            Country::CD => "CD",
+
+            Country::CF => "CF",
+
+            Country::CG => "CG",
+
+            Country::CH => "CH",
+
+            Country::CI => "CI",
+
+            Country::CK => "CK",
+
+            Country::CL => "CL",
+
+            Country::CM => "CM",
+
+            Country::CN => "CN",
+
+            Country::CO => "CO",
+
+            Country::CR => "CR",
+
+            Country::CU => "CU",
+
+            Country::CV => "CV",
+
+            Country::CX => "CX",
+
+            Country::CY => "CY",
+
+            Country::CZ => "CZ",
+
+            Country::DE => "DE",
+
+            Country::DJ => "DJ",
+
+            Country::DK => "DK",
+
+            Country::DM => "DM",
+
+            Country::DO => "DO",
+
+            Country::DZ => "DZ",
+
+            Country::EC => "EC",
+
+            Country::EE => "EE",
+
+            Country::EG => "EG",
+
+            Country::EH => "EH",
+
+            Country::ER => "ER",
+
+            Country::ES => "ES",
+
+            Country::ET => "ET",
+
+            Country::FI => "FI",
+
+            Country::FJ => "FJ",
+
+            Country::FK => "FK",
+
+            Country::FM => "FM",
+
+            Country::FO => "FO",
+
+            Country::FR => "FR",
+
+            Country::GA => "GA",
+
+            Country::GB => "GB",
+
+            Country::GD => "GD",
+
+            Country::GE => "GE",
+
+            Country::GF => "GF",
+
+            Country::GG => "GG",
+
+            Country::GH => "GH",
+
+            Country::GI => "GI",
+
+            Country::GL => "GL",
+
+            Country::GM => "GM",
+
+            Country::GN => "GN",
+
+            Country::GP => "GP",
+
+            Country::GQ => "GQ",
+
+            Country::GR => "GR",
+
+            Country::GS => "GS",
+
+            Country::GT => "GT",
+
+            Country::GU => "GU",
+
+            Country::GW => "GW",
+
+            Country::GY => "GY",
+
+            Country::HK => "HK",
+
+            Country::HM => "HM",
+
+            Country::HN => "HN",
+
+            Country::HR => "HR",
+
+            Country::HT => "HT",
+
+            Country::HU => "HU",
+
+            Country::ID => "ID",
+
+            Country::IE => "IE",
+
+            Country::IL => "IL",
+
+            Country::IM => "IM",
+
+            Country::IN => "IN",
+
+            Country::IO => "IO",
+
+            Country::IQ => "IQ",
+
+            Country::IR => "IR",
+
+            Country::IS => "IS",
+
+            Country::IT => "IT",
+
+            Country::JE => "JE",
+
+            Country::JM => "JM",
+
+            Country::JO => "JO",
+
+            Country::JP => "JP",
+
+            Country::KE => "KE",
+
+            Country::KG => "KG",
+
+            Country::KH => "KH",
+
+            Country::KI => "KI",
+
+            Country::KM => "KM",
+
+            Country::KN => "KN",
+
+            Country::KP => "KP",
+
+            Country::KR => "KR",
+
+            Country::KW => "KW",
+
+            Country::KY => "KY",
+
+            Country::KZ => "KZ",
+
+            Country::LA => "LA",
+
+            Country::LB => "LB",
+
+            Country::LC => "LC",
+
+            Country::LI => "LI",
+
+            Country::LK => "LK",
+
+            Country::LR => "LR",
+
+            Country::LS => "LS",
+
+            Country::LT => "LT",
+
+            Country::LU => "LU",
+
+            Country::LV => "LV",
+
+            Country::LY => "LY",
+
+            Country::MA => "MA",
+
+            Country::MC => "MC",
+
+            Country::MD => "MD",
+
+            Country::ME => "ME",
+
+            Country::MF => "MF",
+
+            Country::MG => "MG",
+
+            Country::MH => "MH",
+
+            Country::MK => "MK",
+
+            Country::ML => "ML",
+
+            Country::MM => "MM",
+
+            Country::MN => "MN",
+
+            Country::MO => "MO",
+
+            Country::MP => "MP",
+
+            Country::MQ => "MQ",
+
+            Country::MR => "MR",
+
+            Country::MS => "MS",
+
+            Country::MT => "MT",
+
+            Country::MU => "MU",
+
+            Country::MV => "MV",
+
+            Country::MW => "MW",
+
+            Country::MX => "MX",
+
+            Country::MY => "MY",
+
+            Country::MZ => "MZ",
+
+            Country::NA => "NA",
+
+            Country::NC => "NC",
+
+            Country::NE => "NE",
+
+            Country::NF => "NF",
+
+            Country::NG => "NG",
+
+            Country::NI => "NI",
+
+            Country::NL => "NL",
+
+            Country::NP => "NP",
+
+            Country::NR => "NR",
+
+            Country::NU => "NU",
+
+            Country::NZ => "NZ",
+
+            Country::OM => "OM",
+
+            Country::OT => "OT",
+
+            Country::PA => "PA",
+
+            Country::PE => "PE",
+
+            Country::PF => "PF",
+
+            Country::PG => "PG",
+
+            Country::PH => "PH",
+
+            Country::PK => "PK",
+
+            Country::PL => "PL",
+
+            Country::PM => "PM",
+
+            Country::PN => "PN",
+
+            Country::PR => "PR",
+
+            Country::PS => "PS",
+
+            Country::PT => "PT",
+
+            Country::PW => "PW",
+
+            Country::PY => "PY",
+
+            Country::QA => "QA",
+
+            Country::RE => "RE",
+
+            Country::RO => "RO",
+
+            Country::RS => "RS",
+
+            Country::RU => "RU",
+
+            Country::RW => "RW",
+
+            Country::SA => "SA",
+
+            Country::SB => "SB",
+
+            Country::SC => "SC",
+
+            Country::SD => "SD",
+
+            Country::SE => "SE",
+
+            Country::SG => "SG",
+
+            Country::SH => "SH",
+
+            Country::SI => "SI",
+
+            Country::SJ => "SJ",
+
+            Country::SK => "SK",
+
+            Country::SL => "SL",
+
+            Country::SM => "SM",
+
+            Country::SN => "SN",
+
+            Country::SO => "SO",
+
+            Country::SR => "SR",
+
+            Country::ST => "ST",
+
+            Country::SV => "SV",
+
+            Country::SY => "SY",
+
+            Country::SZ => "SZ",
+
+            Country::TC => "TC",
+
+            Country::TD => "TD",
+
+            Country::TF => "TF",
+
+            Country::TG => "TG",
+
+            Country::TH => "TH",
+
+            Country::TJ => "TJ",
+
+            Country::TK => "TK",
+
+            Country::TL => "TL",
+
+            Country::TM => "TM",
+
+            Country::TN => "TN",
+
+            Country::TO => "TO",
+
+            Country::TR => "TR",
+
+            Country::TT => "TT",
+
+            Country::TV => "TV",
+
+            Country::TW => "TW",
+
+            Country::TZ => "TZ",
+
+            Country::UA => "UA",
+
+            Country::UG => "UG",
+
+            Country::UM => "UM",
+
+            Country::US => "US",
+
+            Country::UY => "UY",
+
+            Country::UZ => "UZ",
+
+            Country::VA => "VA",
+
+            Country::VC => "VC",
+
+            Country::VE => "VE",
+
+            Country::VG => "VG",
+
+            Country::VI => "VI",
+
+            Country::VN => "VN",
+
+            Country::VU => "VU",
+
+            Country::WF => "WF",
+
+            Country::WS => "WS",
+
+            Country::YE => "YE",
+
+            Country::YT => "YT",
+
+            Country::ZA => "ZA",
+
+            Country::ZM => "ZM",
+
+            Country::ZW => "ZW",
+
+            Country::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Country::AD => "AD".into(),
+
+            Country::AE => "AE".into(),
+
+            Country::AF => "AF".into(),
+
+            Country::AG => "AG".into(),
+
+            Country::AI => "AI".into(),
+
+            Country::AL => "AL".into(),
+
+            Country::AM => "AM".into(),
+
+            Country::AN => "AN".into(),
+
+            Country::AO => "AO".into(),
+
+            Country::AQ => "AQ".into(),
+
+            Country::AR => "AR".into(),
+
+            Country::AS => "AS".into(),
+
+            Country::AT => "AT".into(),
+
+            Country::AU => "AU".into(),
+
+            Country::AW => "AW".into(),
+
+            Country::AX => "AX".into(),
+
+            Country::AZ => "AZ".into(),
+
+            Country::BA => "BA".into(),
+
+            Country::BB => "BB".into(),
+
+            Country::BD => "BD".into(),
+
+            Country::BE => "BE".into(),
+
+            Country::BF => "BF".into(),
+
+            Country::BG => "BG".into(),
+
+            Country::BH => "BH".into(),
+
+            Country::BI => "BI".into(),
+
+            Country::BJ => "BJ".into(),
+
+            Country::BL => "BL".into(),
+
+            Country::BM => "BM".into(),
+
+            Country::BN => "BN".into(),
+
+            Country::BO => "BO".into(),
+
+            Country::BR => "BR".into(),
+
+            Country::BS => "BS".into(),
+
+            Country::BT => "BT".into(),
+
+            Country::BV => "BV".into(),
+
+            Country::BW => "BW".into(),
+
+            Country::BY => "BY".into(),
+
+            Country::BZ => "BZ".into(),
+
+            Country::CA => "CA".into(),
+
+            Country::CC => "CC".into(),
+
+            Country::CD => "CD".into(),
+
+            Country::CF => "CF".into(),
+
+            Country::CG => "CG".into(),
+
+            Country::CH => "CH".into(),
+
+            Country::CI => "CI".into(),
+
+            Country::CK => "CK".into(),
+
+            Country::CL => "CL".into(),
+
+            Country::CM => "CM".into(),
+
+            Country::CN => "CN".into(),
+
+            Country::CO => "CO".into(),
+
+            Country::CR => "CR".into(),
+
+            Country::CU => "CU".into(),
+
+            Country::CV => "CV".into(),
+
+            Country::CX => "CX".into(),
+
+            Country::CY => "CY".into(),
+
+            Country::CZ => "CZ".into(),
+
+            Country::DE => "DE".into(),
+
+            Country::DJ => "DJ".into(),
+
+            Country::DK => "DK".into(),
+
+            Country::DM => "DM".into(),
+
+            Country::DO => "DO".into(),
+
+            Country::DZ => "DZ".into(),
+
+            Country::EC => "EC".into(),
+
+            Country::EE => "EE".into(),
+
+            Country::EG => "EG".into(),
+
+            Country::EH => "EH".into(),
+
+            Country::ER => "ER".into(),
+
+            Country::ES => "ES".into(),
+
+            Country::ET => "ET".into(),
+
+            Country::FI => "FI".into(),
+
+            Country::FJ => "FJ".into(),
+
+            Country::FK => "FK".into(),
+
+            Country::FM => "FM".into(),
+
+            Country::FO => "FO".into(),
+
+            Country::FR => "FR".into(),
+
+            Country::GA => "GA".into(),
+
+            Country::GB => "GB".into(),
+
+            Country::GD => "GD".into(),
+
+            Country::GE => "GE".into(),
+
+            Country::GF => "GF".into(),
+
+            Country::GG => "GG".into(),
+
+            Country::GH => "GH".into(),
+
+            Country::GI => "GI".into(),
+
+            Country::GL => "GL".into(),
+
+            Country::GM => "GM".into(),
+
+            Country::GN => "GN".into(),
+
+            Country::GP => "GP".into(),
+
+            Country::GQ => "GQ".into(),
+
+            Country::GR => "GR".into(),
+
+            Country::GS => "GS".into(),
+
+            Country::GT => "GT".into(),
+
+            Country::GU => "GU".into(),
+
+            Country::GW => "GW".into(),
+
+            Country::GY => "GY".into(),
+
+            Country::HK => "HK".into(),
+
+            Country::HM => "HM".into(),
+
+            Country::HN => "HN".into(),
+
+            Country::HR => "HR".into(),
+
+            Country::HT => "HT".into(),
+
+            Country::HU => "HU".into(),
+
+            Country::ID => "ID".into(),
+
+            Country::IE => "IE".into(),
+
+            Country::IL => "IL".into(),
+
+            Country::IM => "IM".into(),
+
+            Country::IN => "IN".into(),
+
+            Country::IO => "IO".into(),
+
+            Country::IQ => "IQ".into(),
+
+            Country::IR => "IR".into(),
+
+            Country::IS => "IS".into(),
+
+            Country::IT => "IT".into(),
+
+            Country::JE => "JE".into(),
+
+            Country::JM => "JM".into(),
+
+            Country::JO => "JO".into(),
+
+            Country::JP => "JP".into(),
+
+            Country::KE => "KE".into(),
+
+            Country::KG => "KG".into(),
+
+            Country::KH => "KH".into(),
+
+            Country::KI => "KI".into(),
+
+            Country::KM => "KM".into(),
+
+            Country::KN => "KN".into(),
+
+            Country::KP => "KP".into(),
+
+            Country::KR => "KR".into(),
+
+            Country::KW => "KW".into(),
+
+            Country::KY => "KY".into(),
+
+            Country::KZ => "KZ".into(),
+
+            Country::LA => "LA".into(),
+
+            Country::LB => "LB".into(),
+
+            Country::LC => "LC".into(),
+
+            Country::LI => "LI".into(),
+
+            Country::LK => "LK".into(),
+
+            Country::LR => "LR".into(),
+
+            Country::LS => "LS".into(),
+
+            Country::LT => "LT".into(),
+
+            Country::LU => "LU".into(),
+
+            Country::LV => "LV".into(),
+
+            Country::LY => "LY".into(),
+
+            Country::MA => "MA".into(),
+
+            Country::MC => "MC".into(),
+
+            Country::MD => "MD".into(),
+
+            Country::ME => "ME".into(),
+
+            Country::MF => "MF".into(),
+
+            Country::MG => "MG".into(),
+
+            Country::MH => "MH".into(),
+
+            Country::MK => "MK".into(),
+
+            Country::ML => "ML".into(),
+
+            Country::MM => "MM".into(),
+
+            Country::MN => "MN".into(),
+
+            Country::MO => "MO".into(),
+
+            Country::MP => "MP".into(),
+
+            Country::MQ => "MQ".into(),
+
+            Country::MR => "MR".into(),
+
+            Country::MS => "MS".into(),
+
+            Country::MT => "MT".into(),
+
+            Country::MU => "MU".into(),
+
+            Country::MV => "MV".into(),
+
+            Country::MW => "MW".into(),
+
+            Country::MX => "MX".into(),
+
+            Country::MY => "MY".into(),
+
+            Country::MZ => "MZ".into(),
+
+            Country::NA => "NA".into(),
+
+            Country::NC => "NC".into(),
+
+            Country::NE => "NE".into(),
+
+            Country::NF => "NF".into(),
+
+            Country::NG => "NG".into(),
+
+            Country::NI => "NI".into(),
+
+            Country::NL => "NL".into(),
+
+            Country::NP => "NP".into(),
+
+            Country::NR => "NR".into(),
+
+            Country::NU => "NU".into(),
+
+            Country::NZ => "NZ".into(),
+
+            Country::OM => "OM".into(),
+
+            Country::OT => "OT".into(),
+
+            Country::PA => "PA".into(),
+
+            Country::PE => "PE".into(),
+
+            Country::PF => "PF".into(),
+
+            Country::PG => "PG".into(),
+
+            Country::PH => "PH".into(),
+
+            Country::PK => "PK".into(),
+
+            Country::PL => "PL".into(),
+
+            Country::PM => "PM".into(),
+
+            Country::PN => "PN".into(),
+
+            Country::PR => "PR".into(),
+
+            Country::PS => "PS".into(),
+
+            Country::PT => "PT".into(),
+
+            Country::PW => "PW".into(),
+
+            Country::PY => "PY".into(),
+
+            Country::QA => "QA".into(),
+
+            Country::RE => "RE".into(),
+
+            Country::RO => "RO".into(),
+
+            Country::RS => "RS".into(),
+
+            Country::RU => "RU".into(),
+
+            Country::RW => "RW".into(),
+
+            Country::SA => "SA".into(),
+
+            Country::SB => "SB".into(),
+
+            Country::SC => "SC".into(),
+
+            Country::SD => "SD".into(),
+
+            Country::SE => "SE".into(),
+
+            Country::SG => "SG".into(),
+
+            Country::SH => "SH".into(),
+
+            Country::SI => "SI".into(),
+
+            Country::SJ => "SJ".into(),
+
+            Country::SK => "SK".into(),
+
+            Country::SL => "SL".into(),
+
+            Country::SM => "SM".into(),
+
+            Country::SN => "SN".into(),
+
+            Country::SO => "SO".into(),
+
+            Country::SR => "SR".into(),
+
+            Country::ST => "ST".into(),
+
+            Country::SV => "SV".into(),
+
+            Country::SY => "SY".into(),
+
+            Country::SZ => "SZ".into(),
+
+            Country::TC => "TC".into(),
+
+            Country::TD => "TD".into(),
+
+            Country::TF => "TF".into(),
+
+            Country::TG => "TG".into(),
+
+            Country::TH => "TH".into(),
+
+            Country::TJ => "TJ".into(),
+
+            Country::TK => "TK".into(),
+
+            Country::TL => "TL".into(),
+
+            Country::TM => "TM".into(),
+
+            Country::TN => "TN".into(),
+
+            Country::TO => "TO".into(),
+
+            Country::TR => "TR".into(),
+
+            Country::TT => "TT".into(),
+
+            Country::TV => "TV".into(),
+
+            Country::TW => "TW".into(),
+
+            Country::TZ => "TZ".into(),
+
+            Country::UA => "UA".into(),
+
+            Country::UG => "UG".into(),
+
+            Country::UM => "UM".into(),
+
+            Country::US => "US".into(),
+
+            Country::UY => "UY".into(),
+
+            Country::UZ => "UZ".into(),
+
+            Country::VA => "VA".into(),
+
+            Country::VC => "VC".into(),
+
+            Country::VE => "VE".into(),
+
+            Country::VG => "VG".into(),
+
+            Country::VI => "VI".into(),
+
+            Country::VN => "VN".into(),
+
+            Country::VU => "VU".into(),
+
+            Country::WF => "WF".into(),
+
+            Country::WS => "WS".into(),
+
+            Country::YE => "YE".into(),
+
+            Country::YT => "YT".into(),
+
+            Country::ZA => "ZA".into(),
+
+            Country::ZM => "ZM".into(),
+
+            Country::ZW => "ZW".into(),
+
+            Country::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Country::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Country {
     fn from(s: String) -> Country {
         match s.as_ref() {
@@ -2263,43 +4264,5 @@ impl<'de> Deserialize<'de> for Country {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_country_format {
-    use super::Country;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Country>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Country>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -60,6 +60,183 @@ pub enum GreenBuildingVerificationType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for GreenBuildingVerificationType {
+    fn from_str(s: &str) -> GreenBuildingVerificationType {
+        match s {
+
+
+"Certified Passive House" => GreenBuildingVerificationType::CertifiedPassiveHouse,
+
+"ENERGY STAR Certified Homes" => GreenBuildingVerificationType::ENERGYSTARCertifiedHomes,
+
+"EnerPHit" => GreenBuildingVerificationType::EnerPHit,
+
+"HERS Index Score" => GreenBuildingVerificationType::HERSIndexScore,
+
+"Home Energy Score" => GreenBuildingVerificationType::HomeEnergyScore,
+
+"Home Energy Upgrade Certificate of Energy Efficiency Improvements" => GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyImprovements,
+
+"Home Energy Upgrade Certificate of Energy Efficiency Performance" => GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyPerformance,
+
+"Home Performance with ENERGY STAR" => GreenBuildingVerificationType::HomePerformancewithENERGYSTAR,
+
+"Indoor airPLUS" => GreenBuildingVerificationType::IndoorairPLUS,
+
+"LEED For Homes" => GreenBuildingVerificationType::LEEDForHomes,
+
+"Living Building Challenge" => GreenBuildingVerificationType::LivingBuildingChallenge,
+
+"NGBS New Construction" => GreenBuildingVerificationType::NGBSNewConstruction,
+
+"NGBS Small Projects Remodel" => GreenBuildingVerificationType::NGBSSmallProjectsRemodel,
+
+"NGBS Whole-Home Remodel" => GreenBuildingVerificationType::NGBSWholeHomeRemodel,
+
+"PHIUS+" => GreenBuildingVerificationType::PHIUSPlus,
+
+"WaterSense" => GreenBuildingVerificationType::WaterSense,
+
+"Zero Energy Ready Home" => GreenBuildingVerificationType::ZeroEnergyReadyHome,
+
+_ => GreenBuildingVerificationType::OpenEnumeration(s.into()),
+}
+    }
+
+    fn from_string(s: String) -> GreenBuildingVerificationType {
+        match s.as_ref() {
+
+
+"Certified Passive House" => GreenBuildingVerificationType::CertifiedPassiveHouse,
+
+"ENERGY STAR Certified Homes" => GreenBuildingVerificationType::ENERGYSTARCertifiedHomes,
+
+"EnerPHit" => GreenBuildingVerificationType::EnerPHit,
+
+"HERS Index Score" => GreenBuildingVerificationType::HERSIndexScore,
+
+"Home Energy Score" => GreenBuildingVerificationType::HomeEnergyScore,
+
+"Home Energy Upgrade Certificate of Energy Efficiency Improvements" => GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyImprovements,
+
+"Home Energy Upgrade Certificate of Energy Efficiency Performance" => GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyPerformance,
+
+"Home Performance with ENERGY STAR" => GreenBuildingVerificationType::HomePerformancewithENERGYSTAR,
+
+"Indoor airPLUS" => GreenBuildingVerificationType::IndoorairPLUS,
+
+"LEED For Homes" => GreenBuildingVerificationType::LEEDForHomes,
+
+"Living Building Challenge" => GreenBuildingVerificationType::LivingBuildingChallenge,
+
+"NGBS New Construction" => GreenBuildingVerificationType::NGBSNewConstruction,
+
+"NGBS Small Projects Remodel" => GreenBuildingVerificationType::NGBSSmallProjectsRemodel,
+
+"NGBS Whole-Home Remodel" => GreenBuildingVerificationType::NGBSWholeHomeRemodel,
+
+"PHIUS+" => GreenBuildingVerificationType::PHIUSPlus,
+
+"WaterSense" => GreenBuildingVerificationType::WaterSense,
+
+"Zero Energy Ready Home" => GreenBuildingVerificationType::ZeroEnergyReadyHome,
+
+_ => GreenBuildingVerificationType::OpenEnumeration(s),
+}
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+
+
+GreenBuildingVerificationType::CertifiedPassiveHouse => "Certified Passive House",
+
+GreenBuildingVerificationType::ENERGYSTARCertifiedHomes => "ENERGY STAR Certified Homes",
+
+GreenBuildingVerificationType::EnerPHit => "EnerPHit",
+
+GreenBuildingVerificationType::HERSIndexScore => "HERS Index Score",
+
+GreenBuildingVerificationType::HomeEnergyScore => "Home Energy Score",
+
+GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyImprovements => "Home Energy Upgrade Certificate of Energy Efficiency Improvements",
+
+GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyPerformance => "Home Energy Upgrade Certificate of Energy Efficiency Performance",
+
+GreenBuildingVerificationType::HomePerformancewithENERGYSTAR => "Home Performance with ENERGY STAR",
+
+GreenBuildingVerificationType::IndoorairPLUS => "Indoor airPLUS",
+
+GreenBuildingVerificationType::LEEDForHomes => "LEED For Homes",
+
+GreenBuildingVerificationType::LivingBuildingChallenge => "Living Building Challenge",
+
+GreenBuildingVerificationType::NGBSNewConstruction => "NGBS New Construction",
+
+GreenBuildingVerificationType::NGBSSmallProjectsRemodel => "NGBS Small Projects Remodel",
+
+GreenBuildingVerificationType::NGBSWholeHomeRemodel => "NGBS Whole-Home Remodel",
+
+GreenBuildingVerificationType::PHIUSPlus => "PHIUS+",
+
+GreenBuildingVerificationType::WaterSense => "WaterSense",
+
+GreenBuildingVerificationType::ZeroEnergyReadyHome => "Zero Energy Ready Home",
+
+GreenBuildingVerificationType::OpenEnumeration(ref s) => s,
+}
+    }
+
+    fn into_string(self) -> String {
+        match self {
+
+
+GreenBuildingVerificationType::CertifiedPassiveHouse => "Certified Passive House".into(),
+
+GreenBuildingVerificationType::ENERGYSTARCertifiedHomes => "ENERGY STAR Certified Homes".into(),
+
+GreenBuildingVerificationType::EnerPHit => "EnerPHit".into(),
+
+GreenBuildingVerificationType::HERSIndexScore => "HERS Index Score".into(),
+
+GreenBuildingVerificationType::HomeEnergyScore => "Home Energy Score".into(),
+
+GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyImprovements => "Home Energy Upgrade Certificate of Energy Efficiency Improvements".into(),
+
+GreenBuildingVerificationType::HomeEnergyUpgradeCertificateofEnergyEfficiencyPerformance => "Home Energy Upgrade Certificate of Energy Efficiency Performance".into(),
+
+GreenBuildingVerificationType::HomePerformancewithENERGYSTAR => "Home Performance with ENERGY STAR".into(),
+
+GreenBuildingVerificationType::IndoorairPLUS => "Indoor airPLUS".into(),
+
+GreenBuildingVerificationType::LEEDForHomes => "LEED For Homes".into(),
+
+GreenBuildingVerificationType::LivingBuildingChallenge => "Living Building Challenge".into(),
+
+GreenBuildingVerificationType::NGBSNewConstruction => "NGBS New Construction".into(),
+
+GreenBuildingVerificationType::NGBSSmallProjectsRemodel => "NGBS Small Projects Remodel".into(),
+
+GreenBuildingVerificationType::NGBSWholeHomeRemodel => "NGBS Whole-Home Remodel".into(),
+
+GreenBuildingVerificationType::PHIUSPlus => "PHIUS+".into(),
+
+GreenBuildingVerificationType::WaterSense => "WaterSense".into(),
+
+GreenBuildingVerificationType::ZeroEnergyReadyHome => "Zero Energy Ready Home".into(),
+
+GreenBuildingVerificationType::OpenEnumeration(s) => s,
+}
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            GreenBuildingVerificationType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for GreenBuildingVerificationType {
     fn from(s: String) -> GreenBuildingVerificationType {
         match s.as_ref() {
@@ -208,45 +385,5 @@ impl<'de> Deserialize<'de> for GreenBuildingVerificationType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_green_building_verification_type_format {
-    use super::GreenBuildingVerificationType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<GreenBuildingVerificationType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<GreenBuildingVerificationType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

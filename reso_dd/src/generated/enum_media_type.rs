@@ -57,6 +57,167 @@ pub enum MediaType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for MediaType {
+    fn from_str(s: &str) -> MediaType {
+        match s {
+            "doc" => MediaType::Doc,
+
+            "docx" => MediaType::Docx,
+
+            "gif" => MediaType::Gif,
+
+            "jpeg" => MediaType::Jpeg,
+
+            "mov" => MediaType::Mov,
+
+            "mp4" => MediaType::Mp4,
+
+            "mpeg" => MediaType::Mpeg,
+
+            "pdf" => MediaType::Pdf,
+
+            "png" => MediaType::Png,
+
+            "quicktime" => MediaType::Quicktime,
+
+            "rtf" => MediaType::Rtf,
+
+            "tiff" => MediaType::Tiff,
+
+            "txt" => MediaType::Txt,
+
+            "wmv" => MediaType::Wmv,
+
+            "xls" => MediaType::Xls,
+
+            "xlsx" => MediaType::Xlsx,
+
+            _ => MediaType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> MediaType {
+        match s.as_ref() {
+            "doc" => MediaType::Doc,
+
+            "docx" => MediaType::Docx,
+
+            "gif" => MediaType::Gif,
+
+            "jpeg" => MediaType::Jpeg,
+
+            "mov" => MediaType::Mov,
+
+            "mp4" => MediaType::Mp4,
+
+            "mpeg" => MediaType::Mpeg,
+
+            "pdf" => MediaType::Pdf,
+
+            "png" => MediaType::Png,
+
+            "quicktime" => MediaType::Quicktime,
+
+            "rtf" => MediaType::Rtf,
+
+            "tiff" => MediaType::Tiff,
+
+            "txt" => MediaType::Txt,
+
+            "wmv" => MediaType::Wmv,
+
+            "xls" => MediaType::Xls,
+
+            "xlsx" => MediaType::Xlsx,
+
+            _ => MediaType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            MediaType::Doc => "doc",
+
+            MediaType::Docx => "docx",
+
+            MediaType::Gif => "gif",
+
+            MediaType::Jpeg => "jpeg",
+
+            MediaType::Mov => "mov",
+
+            MediaType::Mp4 => "mp4",
+
+            MediaType::Mpeg => "mpeg",
+
+            MediaType::Pdf => "pdf",
+
+            MediaType::Png => "png",
+
+            MediaType::Quicktime => "quicktime",
+
+            MediaType::Rtf => "rtf",
+
+            MediaType::Tiff => "tiff",
+
+            MediaType::Txt => "txt",
+
+            MediaType::Wmv => "wmv",
+
+            MediaType::Xls => "xls",
+
+            MediaType::Xlsx => "xlsx",
+
+            MediaType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            MediaType::Doc => "doc".into(),
+
+            MediaType::Docx => "docx".into(),
+
+            MediaType::Gif => "gif".into(),
+
+            MediaType::Jpeg => "jpeg".into(),
+
+            MediaType::Mov => "mov".into(),
+
+            MediaType::Mp4 => "mp4".into(),
+
+            MediaType::Mpeg => "mpeg".into(),
+
+            MediaType::Pdf => "pdf".into(),
+
+            MediaType::Png => "png".into(),
+
+            MediaType::Quicktime => "quicktime".into(),
+
+            MediaType::Rtf => "rtf".into(),
+
+            MediaType::Tiff => "tiff".into(),
+
+            MediaType::Txt => "txt".into(),
+
+            MediaType::Wmv => "wmv".into(),
+
+            MediaType::Xls => "xls".into(),
+
+            MediaType::Xlsx => "xlsx".into(),
+
+            MediaType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            MediaType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for MediaType {
     fn from(s: String) -> MediaType {
         match s.as_ref() {
@@ -193,43 +354,5 @@ impl<'de> Deserialize<'de> for MediaType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_media_type_format {
-    use super::MediaType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<MediaType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<MediaType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

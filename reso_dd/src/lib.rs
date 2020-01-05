@@ -26,6 +26,9 @@
 
 mod generated;
 pub use generated::*;
+mod reso_enumeration;
+pub use reso_enumeration::ResoEnumeration;
+pub mod comma_delimited;
 
 #[cfg(test)]
 mod test {

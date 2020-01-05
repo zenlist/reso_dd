@@ -18,6 +18,63 @@ pub enum ContactListingPreference {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ContactListingPreference {
+    fn from_str(s: &str) -> ContactListingPreference {
+        match s {
+            "Discard" => ContactListingPreference::Discard,
+
+            "Favorite" => ContactListingPreference::Favorite,
+
+            "Possibility" => ContactListingPreference::Possibility,
+
+            _ => ContactListingPreference::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ContactListingPreference {
+        match s.as_ref() {
+            "Discard" => ContactListingPreference::Discard,
+
+            "Favorite" => ContactListingPreference::Favorite,
+
+            "Possibility" => ContactListingPreference::Possibility,
+
+            _ => ContactListingPreference::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ContactListingPreference::Discard => "Discard",
+
+            ContactListingPreference::Favorite => "Favorite",
+
+            ContactListingPreference::Possibility => "Possibility",
+
+            ContactListingPreference::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ContactListingPreference::Discard => "Discard".into(),
+
+            ContactListingPreference::Favorite => "Favorite".into(),
+
+            ContactListingPreference::Possibility => "Possibility".into(),
+
+            ContactListingPreference::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ContactListingPreference::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ContactListingPreference {
     fn from(s: String) -> ContactListingPreference {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for ContactListingPreference {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_contact_listing_preference_format {
-    use super::ContactListingPreference;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ContactListingPreference>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ContactListingPreference>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

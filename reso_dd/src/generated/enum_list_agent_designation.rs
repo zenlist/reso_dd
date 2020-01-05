@@ -90,6 +90,425 @@ pub enum ListAgentDesignation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ListAgentDesignation {
+    fn from_str(s: &str) -> ListAgentDesignation {
+        match s {
+            "Accredited Buyer's Representative / ABR" => {
+                ListAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => ListAgentDesignation::AccreditedLandConsultantALC,
+
+            "At Home With Diversity / AHWD" => ListAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                ListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                ListAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                ListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => ListAgentDesignation::CertifiedPropertyManagerCPM,
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                ListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                ListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                ListAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => ListAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => ListAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                ListAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                ListAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                ListAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => ListAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                ListAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => ListAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                ListAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                ListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                ListAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                ListAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                ListAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                ListAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                ListAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                ListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                ListAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => ListAgentDesignation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ListAgentDesignation {
+        match s.as_ref() {
+            "Accredited Buyer's Representative / ABR" => {
+                ListAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => ListAgentDesignation::AccreditedLandConsultantALC,
+
+            "At Home With Diversity / AHWD" => ListAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                ListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                ListAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                ListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => ListAgentDesignation::CertifiedPropertyManagerCPM,
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                ListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                ListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                ListAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => ListAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => ListAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                ListAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                ListAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                ListAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => ListAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                ListAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => ListAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                ListAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                ListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                ListAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                ListAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                ListAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                ListAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                ListAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                ListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                ListAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => ListAgentDesignation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ListAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR"
+            }
+
+            ListAgentDesignation::AccreditedLandConsultantALC => "Accredited Land Consultant / ALC",
+
+            ListAgentDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD",
+
+            ListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM"
+            }
+
+            ListAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE"
+            }
+
+            ListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS"
+            }
+
+            ListAgentDesignation::CertifiedPropertyManagerCPM => "Certified Property Manager / CPM",
+
+            ListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB"
+            }
+
+            ListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS"
+            }
+
+            ListAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS"
+            }
+
+            ListAgentDesignation::CounselorofRealEstateCRE => "Counselor of Real Estate / CRE",
+
+            ListAgentDesignation::EPRO => "e-PRO",
+
+            ListAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA"
+            }
+
+            ListAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI"
+            }
+
+            ListAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP"
+            }
+
+            ListAgentDesignation::NARsGreenDesignationGREEN => "NAR's Green Designation / GREEN",
+
+            ListAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN"
+            }
+
+            ListAgentDesignation::PricingStrategyAdvisorPSA => "Pricing Strategy Advisor / PSA",
+
+            ListAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE"
+            }
+
+            ListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE"
+            }
+
+            ListAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA"
+            }
+
+            ListAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS"
+            }
+
+            ListAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS"
+            }
+
+            ListAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES"
+            }
+
+            ListAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR"
+            }
+
+            ListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR"
+            }
+
+            ListAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC"
+            }
+
+            ListAgentDesignation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ListAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR".into()
+            }
+
+            ListAgentDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC".into()
+            }
+
+            ListAgentDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD".into(),
+
+            ListAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM".into()
+            }
+
+            ListAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE".into()
+            }
+
+            ListAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS".into()
+            }
+
+            ListAgentDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM".into()
+            }
+
+            ListAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB".into()
+            }
+
+            ListAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS".into()
+            }
+
+            ListAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS".into()
+            }
+
+            ListAgentDesignation::CounselorofRealEstateCRE => {
+                "Counselor of Real Estate / CRE".into()
+            }
+
+            ListAgentDesignation::EPRO => "e-PRO".into(),
+
+            ListAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA".into()
+            }
+
+            ListAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI".into()
+            }
+
+            ListAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP".into()
+            }
+
+            ListAgentDesignation::NARsGreenDesignationGREEN => {
+                "NAR's Green Designation / GREEN".into()
+            }
+
+            ListAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN".into()
+            }
+
+            ListAgentDesignation::PricingStrategyAdvisorPSA => {
+                "Pricing Strategy Advisor / PSA".into()
+            }
+
+            ListAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE".into()
+            }
+
+            ListAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE".into()
+            }
+
+            ListAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA".into()
+            }
+
+            ListAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS".into()
+            }
+
+            ListAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS".into()
+            }
+
+            ListAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES".into()
+            }
+
+            ListAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR".into()
+            }
+
+            ListAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR".into()
+            }
+
+            ListAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC".into()
+            }
+
+            ListAgentDesignation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ListAgentDesignation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ListAgentDesignation {
     fn from(s: String) -> ListAgentDesignation {
         match s.as_ref() {
@@ -412,45 +831,5 @@ impl<'de> Deserialize<'de> for ListAgentDesignation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_list_agent_designation_format {
-    use super::ListAgentDesignation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ListAgentDesignation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ListAgentDesignation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

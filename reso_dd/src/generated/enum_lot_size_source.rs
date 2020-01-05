@@ -36,6 +36,111 @@ pub enum LotSizeSource {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for LotSizeSource {
+    fn from_str(s: &str) -> LotSizeSource {
+        match s {
+            "Appraiser" => LotSizeSource::Appraiser,
+
+            "Assessor" => LotSizeSource::Assessor,
+
+            "Builder" => LotSizeSource::Builder,
+
+            "Estimated" => LotSizeSource::Estimated,
+
+            "Other" => LotSizeSource::Other,
+
+            "Owner" => LotSizeSource::Owner,
+
+            "Plans" => LotSizeSource::Plans,
+
+            "Public Records" => LotSizeSource::PublicRecords,
+
+            "See Remarks" => LotSizeSource::SeeRemarks,
+
+            _ => LotSizeSource::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> LotSizeSource {
+        match s.as_ref() {
+            "Appraiser" => LotSizeSource::Appraiser,
+
+            "Assessor" => LotSizeSource::Assessor,
+
+            "Builder" => LotSizeSource::Builder,
+
+            "Estimated" => LotSizeSource::Estimated,
+
+            "Other" => LotSizeSource::Other,
+
+            "Owner" => LotSizeSource::Owner,
+
+            "Plans" => LotSizeSource::Plans,
+
+            "Public Records" => LotSizeSource::PublicRecords,
+
+            "See Remarks" => LotSizeSource::SeeRemarks,
+
+            _ => LotSizeSource::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            LotSizeSource::Appraiser => "Appraiser",
+
+            LotSizeSource::Assessor => "Assessor",
+
+            LotSizeSource::Builder => "Builder",
+
+            LotSizeSource::Estimated => "Estimated",
+
+            LotSizeSource::Other => "Other",
+
+            LotSizeSource::Owner => "Owner",
+
+            LotSizeSource::Plans => "Plans",
+
+            LotSizeSource::PublicRecords => "Public Records",
+
+            LotSizeSource::SeeRemarks => "See Remarks",
+
+            LotSizeSource::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            LotSizeSource::Appraiser => "Appraiser".into(),
+
+            LotSizeSource::Assessor => "Assessor".into(),
+
+            LotSizeSource::Builder => "Builder".into(),
+
+            LotSizeSource::Estimated => "Estimated".into(),
+
+            LotSizeSource::Other => "Other".into(),
+
+            LotSizeSource::Owner => "Owner".into(),
+
+            LotSizeSource::Plans => "Plans".into(),
+
+            LotSizeSource::PublicRecords => "Public Records".into(),
+
+            LotSizeSource::SeeRemarks => "See Remarks".into(),
+
+            LotSizeSource::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            LotSizeSource::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for LotSizeSource {
     fn from(s: String) -> LotSizeSource {
         match s.as_ref() {
@@ -130,45 +235,5 @@ impl<'de> Deserialize<'de> for LotSizeSource {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_lot_size_source_format {
-    use super::LotSizeSource;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<LotSizeSource>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<LotSizeSource>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

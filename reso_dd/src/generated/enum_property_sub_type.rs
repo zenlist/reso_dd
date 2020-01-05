@@ -93,6 +93,263 @@ pub enum PropertySubType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for PropertySubType {
+    fn from_str(s: &str) -> PropertySubType {
+        match s {
+            "Agriculture" => PropertySubType::Agriculture,
+
+            "Apartment" => PropertySubType::Apartment,
+
+            "Boat Slip" => PropertySubType::BoatSlip,
+
+            "Business" => PropertySubType::Business,
+
+            "Cabin" => PropertySubType::Cabin,
+
+            "Condominium" => PropertySubType::Condominium,
+
+            "Deeded Parking" => PropertySubType::DeededParking,
+
+            "Duplex" => PropertySubType::Duplex,
+
+            "Farm" => PropertySubType::Farm,
+
+            "Hotel/Motel" => PropertySubType::HotelMotel,
+
+            "Industrial" => PropertySubType::Industrial,
+
+            "Manufactured Home" => PropertySubType::ManufacturedHome,
+
+            "Manufactured On Land" => PropertySubType::ManufacturedOnLand,
+
+            "Mixed Use" => PropertySubType::MixedUse,
+
+            "Mobile Home" => PropertySubType::MobileHome,
+
+            "Multi Family" => PropertySubType::MultiFamily,
+
+            "Office" => PropertySubType::Office,
+
+            "Own Your Own" => PropertySubType::OwnYourOwn,
+
+            "Quadruplex" => PropertySubType::Quadruplex,
+
+            "Ranch" => PropertySubType::Ranch,
+
+            "Retail" => PropertySubType::Retail,
+
+            "Single Family Residence" => PropertySubType::SingleFamilyResidence,
+
+            "Stock Cooperative" => PropertySubType::StockCooperative,
+
+            "Timeshare" => PropertySubType::Timeshare,
+
+            "Townhouse" => PropertySubType::Townhouse,
+
+            "Triplex" => PropertySubType::Triplex,
+
+            "Unimproved Land" => PropertySubType::UnimprovedLand,
+
+            "Warehouse" => PropertySubType::Warehouse,
+
+            _ => PropertySubType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> PropertySubType {
+        match s.as_ref() {
+            "Agriculture" => PropertySubType::Agriculture,
+
+            "Apartment" => PropertySubType::Apartment,
+
+            "Boat Slip" => PropertySubType::BoatSlip,
+
+            "Business" => PropertySubType::Business,
+
+            "Cabin" => PropertySubType::Cabin,
+
+            "Condominium" => PropertySubType::Condominium,
+
+            "Deeded Parking" => PropertySubType::DeededParking,
+
+            "Duplex" => PropertySubType::Duplex,
+
+            "Farm" => PropertySubType::Farm,
+
+            "Hotel/Motel" => PropertySubType::HotelMotel,
+
+            "Industrial" => PropertySubType::Industrial,
+
+            "Manufactured Home" => PropertySubType::ManufacturedHome,
+
+            "Manufactured On Land" => PropertySubType::ManufacturedOnLand,
+
+            "Mixed Use" => PropertySubType::MixedUse,
+
+            "Mobile Home" => PropertySubType::MobileHome,
+
+            "Multi Family" => PropertySubType::MultiFamily,
+
+            "Office" => PropertySubType::Office,
+
+            "Own Your Own" => PropertySubType::OwnYourOwn,
+
+            "Quadruplex" => PropertySubType::Quadruplex,
+
+            "Ranch" => PropertySubType::Ranch,
+
+            "Retail" => PropertySubType::Retail,
+
+            "Single Family Residence" => PropertySubType::SingleFamilyResidence,
+
+            "Stock Cooperative" => PropertySubType::StockCooperative,
+
+            "Timeshare" => PropertySubType::Timeshare,
+
+            "Townhouse" => PropertySubType::Townhouse,
+
+            "Triplex" => PropertySubType::Triplex,
+
+            "Unimproved Land" => PropertySubType::UnimprovedLand,
+
+            "Warehouse" => PropertySubType::Warehouse,
+
+            _ => PropertySubType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            PropertySubType::Agriculture => "Agriculture",
+
+            PropertySubType::Apartment => "Apartment",
+
+            PropertySubType::BoatSlip => "Boat Slip",
+
+            PropertySubType::Business => "Business",
+
+            PropertySubType::Cabin => "Cabin",
+
+            PropertySubType::Condominium => "Condominium",
+
+            PropertySubType::DeededParking => "Deeded Parking",
+
+            PropertySubType::Duplex => "Duplex",
+
+            PropertySubType::Farm => "Farm",
+
+            PropertySubType::HotelMotel => "Hotel/Motel",
+
+            PropertySubType::Industrial => "Industrial",
+
+            PropertySubType::ManufacturedHome => "Manufactured Home",
+
+            PropertySubType::ManufacturedOnLand => "Manufactured On Land",
+
+            PropertySubType::MixedUse => "Mixed Use",
+
+            PropertySubType::MobileHome => "Mobile Home",
+
+            PropertySubType::MultiFamily => "Multi Family",
+
+            PropertySubType::Office => "Office",
+
+            PropertySubType::OwnYourOwn => "Own Your Own",
+
+            PropertySubType::Quadruplex => "Quadruplex",
+
+            PropertySubType::Ranch => "Ranch",
+
+            PropertySubType::Retail => "Retail",
+
+            PropertySubType::SingleFamilyResidence => "Single Family Residence",
+
+            PropertySubType::StockCooperative => "Stock Cooperative",
+
+            PropertySubType::Timeshare => "Timeshare",
+
+            PropertySubType::Townhouse => "Townhouse",
+
+            PropertySubType::Triplex => "Triplex",
+
+            PropertySubType::UnimprovedLand => "Unimproved Land",
+
+            PropertySubType::Warehouse => "Warehouse",
+
+            PropertySubType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            PropertySubType::Agriculture => "Agriculture".into(),
+
+            PropertySubType::Apartment => "Apartment".into(),
+
+            PropertySubType::BoatSlip => "Boat Slip".into(),
+
+            PropertySubType::Business => "Business".into(),
+
+            PropertySubType::Cabin => "Cabin".into(),
+
+            PropertySubType::Condominium => "Condominium".into(),
+
+            PropertySubType::DeededParking => "Deeded Parking".into(),
+
+            PropertySubType::Duplex => "Duplex".into(),
+
+            PropertySubType::Farm => "Farm".into(),
+
+            PropertySubType::HotelMotel => "Hotel/Motel".into(),
+
+            PropertySubType::Industrial => "Industrial".into(),
+
+            PropertySubType::ManufacturedHome => "Manufactured Home".into(),
+
+            PropertySubType::ManufacturedOnLand => "Manufactured On Land".into(),
+
+            PropertySubType::MixedUse => "Mixed Use".into(),
+
+            PropertySubType::MobileHome => "Mobile Home".into(),
+
+            PropertySubType::MultiFamily => "Multi Family".into(),
+
+            PropertySubType::Office => "Office".into(),
+
+            PropertySubType::OwnYourOwn => "Own Your Own".into(),
+
+            PropertySubType::Quadruplex => "Quadruplex".into(),
+
+            PropertySubType::Ranch => "Ranch".into(),
+
+            PropertySubType::Retail => "Retail".into(),
+
+            PropertySubType::SingleFamilyResidence => "Single Family Residence".into(),
+
+            PropertySubType::StockCooperative => "Stock Cooperative".into(),
+
+            PropertySubType::Timeshare => "Timeshare".into(),
+
+            PropertySubType::Townhouse => "Townhouse".into(),
+
+            PropertySubType::Triplex => "Triplex".into(),
+
+            PropertySubType::UnimprovedLand => "Unimproved Land".into(),
+
+            PropertySubType::Warehouse => "Warehouse".into(),
+
+            PropertySubType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            PropertySubType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for PropertySubType {
     fn from(s: String) -> PropertySubType {
         match s.as_ref() {
@@ -301,45 +558,5 @@ impl<'de> Deserialize<'de> for PropertySubType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_property_sub_type_format {
-    use super::PropertySubType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<PropertySubType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<PropertySubType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

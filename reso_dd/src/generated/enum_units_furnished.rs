@@ -18,6 +18,63 @@ pub enum UnitsFurnished {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for UnitsFurnished {
+    fn from_str(s: &str) -> UnitsFurnished {
+        match s {
+            "All Units" => UnitsFurnished::AllUnits,
+
+            "None" => UnitsFurnished::None,
+
+            "Varies By Unit" => UnitsFurnished::VariesByUnit,
+
+            _ => UnitsFurnished::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> UnitsFurnished {
+        match s.as_ref() {
+            "All Units" => UnitsFurnished::AllUnits,
+
+            "None" => UnitsFurnished::None,
+
+            "Varies By Unit" => UnitsFurnished::VariesByUnit,
+
+            _ => UnitsFurnished::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            UnitsFurnished::AllUnits => "All Units",
+
+            UnitsFurnished::None => "None",
+
+            UnitsFurnished::VariesByUnit => "Varies By Unit",
+
+            UnitsFurnished::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            UnitsFurnished::AllUnits => "All Units".into(),
+
+            UnitsFurnished::None => "None".into(),
+
+            UnitsFurnished::VariesByUnit => "Varies By Unit".into(),
+
+            UnitsFurnished::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            UnitsFurnished::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for UnitsFurnished {
     fn from(s: String) -> UnitsFurnished {
         match s.as_ref() {
@@ -76,45 +133,5 @@ impl<'de> Deserialize<'de> for UnitsFurnished {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_units_furnished_format {
-    use super::UnitsFurnished;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<UnitsFurnished>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<UnitsFurnished>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

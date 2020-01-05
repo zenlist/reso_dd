@@ -204,6 +204,559 @@ pub enum StateOrProvince {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for StateOrProvince {
+    fn from_str(s: &str) -> StateOrProvince {
+        match s {
+            "AB" => StateOrProvince::AB,
+
+            "AK" => StateOrProvince::AK,
+
+            "AL" => StateOrProvince::AL,
+
+            "AR" => StateOrProvince::AR,
+
+            "AZ" => StateOrProvince::AZ,
+
+            "BC" => StateOrProvince::BC,
+
+            "CA" => StateOrProvince::CA,
+
+            "CO" => StateOrProvince::CO,
+
+            "CT" => StateOrProvince::CT,
+
+            "DC" => StateOrProvince::DC,
+
+            "DE" => StateOrProvince::DE,
+
+            "FL" => StateOrProvince::FL,
+
+            "GA" => StateOrProvince::GA,
+
+            "HI" => StateOrProvince::HI,
+
+            "IA" => StateOrProvince::IA,
+
+            "ID" => StateOrProvince::ID,
+
+            "IL" => StateOrProvince::IL,
+
+            "IN" => StateOrProvince::IN,
+
+            "KS" => StateOrProvince::KS,
+
+            "KY" => StateOrProvince::KY,
+
+            "LA" => StateOrProvince::LA,
+
+            "MA" => StateOrProvince::MA,
+
+            "MB" => StateOrProvince::MB,
+
+            "MD" => StateOrProvince::MD,
+
+            "ME" => StateOrProvince::ME,
+
+            "MI" => StateOrProvince::MI,
+
+            "MN" => StateOrProvince::MN,
+
+            "MO" => StateOrProvince::MO,
+
+            "MS" => StateOrProvince::MS,
+
+            "MT" => StateOrProvince::MT,
+
+            "NB" => StateOrProvince::NB,
+
+            "NC" => StateOrProvince::NC,
+
+            "ND" => StateOrProvince::ND,
+
+            "NE" => StateOrProvince::NE,
+
+            "NF" => StateOrProvince::NF,
+
+            "NH" => StateOrProvince::NH,
+
+            "NJ" => StateOrProvince::NJ,
+
+            "NM" => StateOrProvince::NM,
+
+            "NS" => StateOrProvince::NS,
+
+            "NT" => StateOrProvince::NT,
+
+            "NU" => StateOrProvince::NU,
+
+            "NV" => StateOrProvince::NV,
+
+            "NY" => StateOrProvince::NY,
+
+            "OH" => StateOrProvince::OH,
+
+            "OK" => StateOrProvince::OK,
+
+            "ON" => StateOrProvince::ON,
+
+            "OR" => StateOrProvince::OR,
+
+            "PA" => StateOrProvince::PA,
+
+            "PE" => StateOrProvince::PE,
+
+            "QC" => StateOrProvince::QC,
+
+            "RI" => StateOrProvince::RI,
+
+            "SC" => StateOrProvince::SC,
+
+            "SD" => StateOrProvince::SD,
+
+            "SK" => StateOrProvince::SK,
+
+            "TN" => StateOrProvince::TN,
+
+            "TX" => StateOrProvince::TX,
+
+            "UT" => StateOrProvince::UT,
+
+            "VA" => StateOrProvince::VA,
+
+            "VI" => StateOrProvince::VI,
+
+            "VT" => StateOrProvince::VT,
+
+            "WA" => StateOrProvince::WA,
+
+            "WI" => StateOrProvince::WI,
+
+            "WV" => StateOrProvince::WV,
+
+            "WY" => StateOrProvince::WY,
+
+            "YT" => StateOrProvince::YT,
+
+            _ => StateOrProvince::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> StateOrProvince {
+        match s.as_ref() {
+            "AB" => StateOrProvince::AB,
+
+            "AK" => StateOrProvince::AK,
+
+            "AL" => StateOrProvince::AL,
+
+            "AR" => StateOrProvince::AR,
+
+            "AZ" => StateOrProvince::AZ,
+
+            "BC" => StateOrProvince::BC,
+
+            "CA" => StateOrProvince::CA,
+
+            "CO" => StateOrProvince::CO,
+
+            "CT" => StateOrProvince::CT,
+
+            "DC" => StateOrProvince::DC,
+
+            "DE" => StateOrProvince::DE,
+
+            "FL" => StateOrProvince::FL,
+
+            "GA" => StateOrProvince::GA,
+
+            "HI" => StateOrProvince::HI,
+
+            "IA" => StateOrProvince::IA,
+
+            "ID" => StateOrProvince::ID,
+
+            "IL" => StateOrProvince::IL,
+
+            "IN" => StateOrProvince::IN,
+
+            "KS" => StateOrProvince::KS,
+
+            "KY" => StateOrProvince::KY,
+
+            "LA" => StateOrProvince::LA,
+
+            "MA" => StateOrProvince::MA,
+
+            "MB" => StateOrProvince::MB,
+
+            "MD" => StateOrProvince::MD,
+
+            "ME" => StateOrProvince::ME,
+
+            "MI" => StateOrProvince::MI,
+
+            "MN" => StateOrProvince::MN,
+
+            "MO" => StateOrProvince::MO,
+
+            "MS" => StateOrProvince::MS,
+
+            "MT" => StateOrProvince::MT,
+
+            "NB" => StateOrProvince::NB,
+
+            "NC" => StateOrProvince::NC,
+
+            "ND" => StateOrProvince::ND,
+
+            "NE" => StateOrProvince::NE,
+
+            "NF" => StateOrProvince::NF,
+
+            "NH" => StateOrProvince::NH,
+
+            "NJ" => StateOrProvince::NJ,
+
+            "NM" => StateOrProvince::NM,
+
+            "NS" => StateOrProvince::NS,
+
+            "NT" => StateOrProvince::NT,
+
+            "NU" => StateOrProvince::NU,
+
+            "NV" => StateOrProvince::NV,
+
+            "NY" => StateOrProvince::NY,
+
+            "OH" => StateOrProvince::OH,
+
+            "OK" => StateOrProvince::OK,
+
+            "ON" => StateOrProvince::ON,
+
+            "OR" => StateOrProvince::OR,
+
+            "PA" => StateOrProvince::PA,
+
+            "PE" => StateOrProvince::PE,
+
+            "QC" => StateOrProvince::QC,
+
+            "RI" => StateOrProvince::RI,
+
+            "SC" => StateOrProvince::SC,
+
+            "SD" => StateOrProvince::SD,
+
+            "SK" => StateOrProvince::SK,
+
+            "TN" => StateOrProvince::TN,
+
+            "TX" => StateOrProvince::TX,
+
+            "UT" => StateOrProvince::UT,
+
+            "VA" => StateOrProvince::VA,
+
+            "VI" => StateOrProvince::VI,
+
+            "VT" => StateOrProvince::VT,
+
+            "WA" => StateOrProvince::WA,
+
+            "WI" => StateOrProvince::WI,
+
+            "WV" => StateOrProvince::WV,
+
+            "WY" => StateOrProvince::WY,
+
+            "YT" => StateOrProvince::YT,
+
+            _ => StateOrProvince::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            StateOrProvince::AB => "AB",
+
+            StateOrProvince::AK => "AK",
+
+            StateOrProvince::AL => "AL",
+
+            StateOrProvince::AR => "AR",
+
+            StateOrProvince::AZ => "AZ",
+
+            StateOrProvince::BC => "BC",
+
+            StateOrProvince::CA => "CA",
+
+            StateOrProvince::CO => "CO",
+
+            StateOrProvince::CT => "CT",
+
+            StateOrProvince::DC => "DC",
+
+            StateOrProvince::DE => "DE",
+
+            StateOrProvince::FL => "FL",
+
+            StateOrProvince::GA => "GA",
+
+            StateOrProvince::HI => "HI",
+
+            StateOrProvince::IA => "IA",
+
+            StateOrProvince::ID => "ID",
+
+            StateOrProvince::IL => "IL",
+
+            StateOrProvince::IN => "IN",
+
+            StateOrProvince::KS => "KS",
+
+            StateOrProvince::KY => "KY",
+
+            StateOrProvince::LA => "LA",
+
+            StateOrProvince::MA => "MA",
+
+            StateOrProvince::MB => "MB",
+
+            StateOrProvince::MD => "MD",
+
+            StateOrProvince::ME => "ME",
+
+            StateOrProvince::MI => "MI",
+
+            StateOrProvince::MN => "MN",
+
+            StateOrProvince::MO => "MO",
+
+            StateOrProvince::MS => "MS",
+
+            StateOrProvince::MT => "MT",
+
+            StateOrProvince::NB => "NB",
+
+            StateOrProvince::NC => "NC",
+
+            StateOrProvince::ND => "ND",
+
+            StateOrProvince::NE => "NE",
+
+            StateOrProvince::NF => "NF",
+
+            StateOrProvince::NH => "NH",
+
+            StateOrProvince::NJ => "NJ",
+
+            StateOrProvince::NM => "NM",
+
+            StateOrProvince::NS => "NS",
+
+            StateOrProvince::NT => "NT",
+
+            StateOrProvince::NU => "NU",
+
+            StateOrProvince::NV => "NV",
+
+            StateOrProvince::NY => "NY",
+
+            StateOrProvince::OH => "OH",
+
+            StateOrProvince::OK => "OK",
+
+            StateOrProvince::ON => "ON",
+
+            StateOrProvince::OR => "OR",
+
+            StateOrProvince::PA => "PA",
+
+            StateOrProvince::PE => "PE",
+
+            StateOrProvince::QC => "QC",
+
+            StateOrProvince::RI => "RI",
+
+            StateOrProvince::SC => "SC",
+
+            StateOrProvince::SD => "SD",
+
+            StateOrProvince::SK => "SK",
+
+            StateOrProvince::TN => "TN",
+
+            StateOrProvince::TX => "TX",
+
+            StateOrProvince::UT => "UT",
+
+            StateOrProvince::VA => "VA",
+
+            StateOrProvince::VI => "VI",
+
+            StateOrProvince::VT => "VT",
+
+            StateOrProvince::WA => "WA",
+
+            StateOrProvince::WI => "WI",
+
+            StateOrProvince::WV => "WV",
+
+            StateOrProvince::WY => "WY",
+
+            StateOrProvince::YT => "YT",
+
+            StateOrProvince::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            StateOrProvince::AB => "AB".into(),
+
+            StateOrProvince::AK => "AK".into(),
+
+            StateOrProvince::AL => "AL".into(),
+
+            StateOrProvince::AR => "AR".into(),
+
+            StateOrProvince::AZ => "AZ".into(),
+
+            StateOrProvince::BC => "BC".into(),
+
+            StateOrProvince::CA => "CA".into(),
+
+            StateOrProvince::CO => "CO".into(),
+
+            StateOrProvince::CT => "CT".into(),
+
+            StateOrProvince::DC => "DC".into(),
+
+            StateOrProvince::DE => "DE".into(),
+
+            StateOrProvince::FL => "FL".into(),
+
+            StateOrProvince::GA => "GA".into(),
+
+            StateOrProvince::HI => "HI".into(),
+
+            StateOrProvince::IA => "IA".into(),
+
+            StateOrProvince::ID => "ID".into(),
+
+            StateOrProvince::IL => "IL".into(),
+
+            StateOrProvince::IN => "IN".into(),
+
+            StateOrProvince::KS => "KS".into(),
+
+            StateOrProvince::KY => "KY".into(),
+
+            StateOrProvince::LA => "LA".into(),
+
+            StateOrProvince::MA => "MA".into(),
+
+            StateOrProvince::MB => "MB".into(),
+
+            StateOrProvince::MD => "MD".into(),
+
+            StateOrProvince::ME => "ME".into(),
+
+            StateOrProvince::MI => "MI".into(),
+
+            StateOrProvince::MN => "MN".into(),
+
+            StateOrProvince::MO => "MO".into(),
+
+            StateOrProvince::MS => "MS".into(),
+
+            StateOrProvince::MT => "MT".into(),
+
+            StateOrProvince::NB => "NB".into(),
+
+            StateOrProvince::NC => "NC".into(),
+
+            StateOrProvince::ND => "ND".into(),
+
+            StateOrProvince::NE => "NE".into(),
+
+            StateOrProvince::NF => "NF".into(),
+
+            StateOrProvince::NH => "NH".into(),
+
+            StateOrProvince::NJ => "NJ".into(),
+
+            StateOrProvince::NM => "NM".into(),
+
+            StateOrProvince::NS => "NS".into(),
+
+            StateOrProvince::NT => "NT".into(),
+
+            StateOrProvince::NU => "NU".into(),
+
+            StateOrProvince::NV => "NV".into(),
+
+            StateOrProvince::NY => "NY".into(),
+
+            StateOrProvince::OH => "OH".into(),
+
+            StateOrProvince::OK => "OK".into(),
+
+            StateOrProvince::ON => "ON".into(),
+
+            StateOrProvince::OR => "OR".into(),
+
+            StateOrProvince::PA => "PA".into(),
+
+            StateOrProvince::PE => "PE".into(),
+
+            StateOrProvince::QC => "QC".into(),
+
+            StateOrProvince::RI => "RI".into(),
+
+            StateOrProvince::SC => "SC".into(),
+
+            StateOrProvince::SD => "SD".into(),
+
+            StateOrProvince::SK => "SK".into(),
+
+            StateOrProvince::TN => "TN".into(),
+
+            StateOrProvince::TX => "TX".into(),
+
+            StateOrProvince::UT => "UT".into(),
+
+            StateOrProvince::VA => "VA".into(),
+
+            StateOrProvince::VI => "VI".into(),
+
+            StateOrProvince::VT => "VT".into(),
+
+            StateOrProvince::WA => "WA".into(),
+
+            StateOrProvince::WI => "WI".into(),
+
+            StateOrProvince::WV => "WV".into(),
+
+            StateOrProvince::WY => "WY".into(),
+
+            StateOrProvince::YT => "YT".into(),
+
+            StateOrProvince::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            StateOrProvince::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for StateOrProvince {
     fn from(s: String) -> StateOrProvince {
         match s.as_ref() {
@@ -634,45 +1187,5 @@ impl<'de> Deserialize<'de> for StateOrProvince {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_state_or_province_format {
-    use super::StateOrProvince;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<StateOrProvince>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<StateOrProvince>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

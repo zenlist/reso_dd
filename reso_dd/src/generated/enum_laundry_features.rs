@@ -81,6 +81,231 @@ pub enum LaundryFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for LaundryFeatures {
+    fn from_str(s: &str) -> LaundryFeatures {
+        match s {
+            "Common Area" => LaundryFeatures::CommonArea,
+
+            "Electric Dryer Hookup" => LaundryFeatures::ElectricDryerHookup,
+
+            "Gas Dryer Hookup" => LaundryFeatures::GasDryerHookup,
+
+            "In Basement" => LaundryFeatures::InBasement,
+
+            "In Bathroom" => LaundryFeatures::InBathroom,
+
+            "In Carport" => LaundryFeatures::InCarport,
+
+            "In Garage" => LaundryFeatures::InGarage,
+
+            "In Hall" => LaundryFeatures::InHall,
+
+            "In Kitchen" => LaundryFeatures::InKitchen,
+
+            "In Unit" => LaundryFeatures::InUnit,
+
+            "Inside" => LaundryFeatures::Inside,
+
+            "Laundry Chute" => LaundryFeatures::LaundryChute,
+
+            "Laundry Closet" => LaundryFeatures::LaundryCloset,
+
+            "Laundry Room" => LaundryFeatures::LaundryRoom,
+
+            "Lower Level" => LaundryFeatures::LowerLevel,
+
+            "Main Level" => LaundryFeatures::MainLevel,
+
+            "Multiple Locations" => LaundryFeatures::MultipleLocations,
+
+            "None" => LaundryFeatures::None,
+
+            "Other" => LaundryFeatures::Other,
+
+            "Outside" => LaundryFeatures::Outside,
+
+            "See Remarks" => LaundryFeatures::SeeRemarks,
+
+            "Sink" => LaundryFeatures::Sink,
+
+            "Upper Level" => LaundryFeatures::UpperLevel,
+
+            "Washer Hookup" => LaundryFeatures::WasherHookup,
+
+            _ => LaundryFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> LaundryFeatures {
+        match s.as_ref() {
+            "Common Area" => LaundryFeatures::CommonArea,
+
+            "Electric Dryer Hookup" => LaundryFeatures::ElectricDryerHookup,
+
+            "Gas Dryer Hookup" => LaundryFeatures::GasDryerHookup,
+
+            "In Basement" => LaundryFeatures::InBasement,
+
+            "In Bathroom" => LaundryFeatures::InBathroom,
+
+            "In Carport" => LaundryFeatures::InCarport,
+
+            "In Garage" => LaundryFeatures::InGarage,
+
+            "In Hall" => LaundryFeatures::InHall,
+
+            "In Kitchen" => LaundryFeatures::InKitchen,
+
+            "In Unit" => LaundryFeatures::InUnit,
+
+            "Inside" => LaundryFeatures::Inside,
+
+            "Laundry Chute" => LaundryFeatures::LaundryChute,
+
+            "Laundry Closet" => LaundryFeatures::LaundryCloset,
+
+            "Laundry Room" => LaundryFeatures::LaundryRoom,
+
+            "Lower Level" => LaundryFeatures::LowerLevel,
+
+            "Main Level" => LaundryFeatures::MainLevel,
+
+            "Multiple Locations" => LaundryFeatures::MultipleLocations,
+
+            "None" => LaundryFeatures::None,
+
+            "Other" => LaundryFeatures::Other,
+
+            "Outside" => LaundryFeatures::Outside,
+
+            "See Remarks" => LaundryFeatures::SeeRemarks,
+
+            "Sink" => LaundryFeatures::Sink,
+
+            "Upper Level" => LaundryFeatures::UpperLevel,
+
+            "Washer Hookup" => LaundryFeatures::WasherHookup,
+
+            _ => LaundryFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            LaundryFeatures::CommonArea => "Common Area",
+
+            LaundryFeatures::ElectricDryerHookup => "Electric Dryer Hookup",
+
+            LaundryFeatures::GasDryerHookup => "Gas Dryer Hookup",
+
+            LaundryFeatures::InBasement => "In Basement",
+
+            LaundryFeatures::InBathroom => "In Bathroom",
+
+            LaundryFeatures::InCarport => "In Carport",
+
+            LaundryFeatures::InGarage => "In Garage",
+
+            LaundryFeatures::InHall => "In Hall",
+
+            LaundryFeatures::InKitchen => "In Kitchen",
+
+            LaundryFeatures::InUnit => "In Unit",
+
+            LaundryFeatures::Inside => "Inside",
+
+            LaundryFeatures::LaundryChute => "Laundry Chute",
+
+            LaundryFeatures::LaundryCloset => "Laundry Closet",
+
+            LaundryFeatures::LaundryRoom => "Laundry Room",
+
+            LaundryFeatures::LowerLevel => "Lower Level",
+
+            LaundryFeatures::MainLevel => "Main Level",
+
+            LaundryFeatures::MultipleLocations => "Multiple Locations",
+
+            LaundryFeatures::None => "None",
+
+            LaundryFeatures::Other => "Other",
+
+            LaundryFeatures::Outside => "Outside",
+
+            LaundryFeatures::SeeRemarks => "See Remarks",
+
+            LaundryFeatures::Sink => "Sink",
+
+            LaundryFeatures::UpperLevel => "Upper Level",
+
+            LaundryFeatures::WasherHookup => "Washer Hookup",
+
+            LaundryFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            LaundryFeatures::CommonArea => "Common Area".into(),
+
+            LaundryFeatures::ElectricDryerHookup => "Electric Dryer Hookup".into(),
+
+            LaundryFeatures::GasDryerHookup => "Gas Dryer Hookup".into(),
+
+            LaundryFeatures::InBasement => "In Basement".into(),
+
+            LaundryFeatures::InBathroom => "In Bathroom".into(),
+
+            LaundryFeatures::InCarport => "In Carport".into(),
+
+            LaundryFeatures::InGarage => "In Garage".into(),
+
+            LaundryFeatures::InHall => "In Hall".into(),
+
+            LaundryFeatures::InKitchen => "In Kitchen".into(),
+
+            LaundryFeatures::InUnit => "In Unit".into(),
+
+            LaundryFeatures::Inside => "Inside".into(),
+
+            LaundryFeatures::LaundryChute => "Laundry Chute".into(),
+
+            LaundryFeatures::LaundryCloset => "Laundry Closet".into(),
+
+            LaundryFeatures::LaundryRoom => "Laundry Room".into(),
+
+            LaundryFeatures::LowerLevel => "Lower Level".into(),
+
+            LaundryFeatures::MainLevel => "Main Level".into(),
+
+            LaundryFeatures::MultipleLocations => "Multiple Locations".into(),
+
+            LaundryFeatures::None => "None".into(),
+
+            LaundryFeatures::Other => "Other".into(),
+
+            LaundryFeatures::Outside => "Outside".into(),
+
+            LaundryFeatures::SeeRemarks => "See Remarks".into(),
+
+            LaundryFeatures::Sink => "Sink".into(),
+
+            LaundryFeatures::UpperLevel => "Upper Level".into(),
+
+            LaundryFeatures::WasherHookup => "Washer Hookup".into(),
+
+            LaundryFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            LaundryFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for LaundryFeatures {
     fn from(s: String) -> LaundryFeatures {
         match s.as_ref() {
@@ -265,45 +490,5 @@ impl<'de> Deserialize<'de> for LaundryFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_laundry_features_format {
-    use super::LaundryFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<LaundryFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<LaundryFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

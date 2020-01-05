@@ -48,6 +48,143 @@ pub enum RoadFrontageType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for RoadFrontageType {
+    fn from_str(s: &str) -> RoadFrontageType {
+        match s {
+            "Alley" => RoadFrontageType::Alley,
+
+            "City Street" => RoadFrontageType::CityStreet,
+
+            "County Road" => RoadFrontageType::CountyRoad,
+
+            "Easement" => RoadFrontageType::Easement,
+
+            "Freeway" => RoadFrontageType::Freeway,
+
+            "Highway" => RoadFrontageType::Highway,
+
+            "Interstate" => RoadFrontageType::Interstate,
+
+            "None" => RoadFrontageType::None,
+
+            "Other" => RoadFrontageType::Other,
+
+            "Private Road" => RoadFrontageType::PrivateRoad,
+
+            "See Remarks" => RoadFrontageType::SeeRemarks,
+
+            "State Road" => RoadFrontageType::StateRoad,
+
+            "Unimproved" => RoadFrontageType::Unimproved,
+
+            _ => RoadFrontageType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> RoadFrontageType {
+        match s.as_ref() {
+            "Alley" => RoadFrontageType::Alley,
+
+            "City Street" => RoadFrontageType::CityStreet,
+
+            "County Road" => RoadFrontageType::CountyRoad,
+
+            "Easement" => RoadFrontageType::Easement,
+
+            "Freeway" => RoadFrontageType::Freeway,
+
+            "Highway" => RoadFrontageType::Highway,
+
+            "Interstate" => RoadFrontageType::Interstate,
+
+            "None" => RoadFrontageType::None,
+
+            "Other" => RoadFrontageType::Other,
+
+            "Private Road" => RoadFrontageType::PrivateRoad,
+
+            "See Remarks" => RoadFrontageType::SeeRemarks,
+
+            "State Road" => RoadFrontageType::StateRoad,
+
+            "Unimproved" => RoadFrontageType::Unimproved,
+
+            _ => RoadFrontageType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            RoadFrontageType::Alley => "Alley",
+
+            RoadFrontageType::CityStreet => "City Street",
+
+            RoadFrontageType::CountyRoad => "County Road",
+
+            RoadFrontageType::Easement => "Easement",
+
+            RoadFrontageType::Freeway => "Freeway",
+
+            RoadFrontageType::Highway => "Highway",
+
+            RoadFrontageType::Interstate => "Interstate",
+
+            RoadFrontageType::None => "None",
+
+            RoadFrontageType::Other => "Other",
+
+            RoadFrontageType::PrivateRoad => "Private Road",
+
+            RoadFrontageType::SeeRemarks => "See Remarks",
+
+            RoadFrontageType::StateRoad => "State Road",
+
+            RoadFrontageType::Unimproved => "Unimproved",
+
+            RoadFrontageType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            RoadFrontageType::Alley => "Alley".into(),
+
+            RoadFrontageType::CityStreet => "City Street".into(),
+
+            RoadFrontageType::CountyRoad => "County Road".into(),
+
+            RoadFrontageType::Easement => "Easement".into(),
+
+            RoadFrontageType::Freeway => "Freeway".into(),
+
+            RoadFrontageType::Highway => "Highway".into(),
+
+            RoadFrontageType::Interstate => "Interstate".into(),
+
+            RoadFrontageType::None => "None".into(),
+
+            RoadFrontageType::Other => "Other".into(),
+
+            RoadFrontageType::PrivateRoad => "Private Road".into(),
+
+            RoadFrontageType::SeeRemarks => "See Remarks".into(),
+
+            RoadFrontageType::StateRoad => "State Road".into(),
+
+            RoadFrontageType::Unimproved => "Unimproved".into(),
+
+            RoadFrontageType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            RoadFrontageType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for RoadFrontageType {
     fn from(s: String) -> RoadFrontageType {
         match s.as_ref() {
@@ -166,45 +303,5 @@ impl<'de> Deserialize<'de> for RoadFrontageType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_road_frontage_type_format {
-    use super::RoadFrontageType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<RoadFrontageType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<RoadFrontageType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

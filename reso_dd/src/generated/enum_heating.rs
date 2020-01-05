@@ -135,6 +135,383 @@ pub enum Heating {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Heating {
+    fn from_str(s: &str) -> Heating {
+        match s {
+            "Active Solar" => Heating::ActiveSolar,
+
+            "Baseboard" => Heating::Baseboard,
+
+            "Ceiling" => Heating::Ceiling,
+
+            "Central" => Heating::Central,
+
+            "Coal" => Heating::Coal,
+
+            "Coal Stove" => Heating::CoalStove,
+
+            "Ductless" => Heating::Ductless,
+
+            "Electric" => Heating::Electric,
+
+            "ENERGY STAR Qualified Equipment" => Heating::ENERGYSTARQualifiedEquipment,
+
+            "ENERGY STAR/ACCA RSI Qualified Installation" => {
+                Heating::ENERGYSTARACCARSIQualifiedInstallation
+            }
+
+            "Exhaust Fan" => Heating::ExhaustFan,
+
+            "Fireplace Insert" => Heating::FireplaceInsert,
+
+            "Fireplace(s)" => Heating::Fireplaces,
+
+            "Floor Furnace" => Heating::FloorFurnace,
+
+            "Forced Air" => Heating::ForcedAir,
+
+            "Geothermal" => Heating::Geothermal,
+
+            "Gravity" => Heating::Gravity,
+
+            "Heat Pump" => Heating::HeatPump,
+
+            "Hot Water" => Heating::HotWater,
+
+            "Humidity Control" => Heating::HumidityControl,
+
+            "Kerosene" => Heating::Kerosene,
+
+            "Natural Gas" => Heating::NaturalGas,
+
+            "None" => Heating::None,
+
+            "Oil" => Heating::Oil,
+
+            "Other" => Heating::Other,
+
+            "Passive Solar" => Heating::PassiveSolar,
+
+            "Pellet Stove" => Heating::PelletStove,
+
+            "Propane" => Heating::Propane,
+
+            "Propane Stove" => Heating::PropaneStove,
+
+            "Radiant" => Heating::Radiant,
+
+            "Radiant Ceiling" => Heating::RadiantCeiling,
+
+            "Radiant Floor" => Heating::RadiantFloor,
+
+            "See Remarks" => Heating::SeeRemarks,
+
+            "Separate Meters" => Heating::SeparateMeters,
+
+            "Solar" => Heating::Solar,
+
+            "Space Heater" => Heating::SpaceHeater,
+
+            "Steam" => Heating::Steam,
+
+            "Varies by Unit" => Heating::VariesbyUnit,
+
+            "Wall Furnace" => Heating::WallFurnace,
+
+            "Wood" => Heating::Wood,
+
+            "Wood Stove" => Heating::WoodStove,
+
+            "Zoned" => Heating::Zoned,
+
+            _ => Heating::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Heating {
+        match s.as_ref() {
+            "Active Solar" => Heating::ActiveSolar,
+
+            "Baseboard" => Heating::Baseboard,
+
+            "Ceiling" => Heating::Ceiling,
+
+            "Central" => Heating::Central,
+
+            "Coal" => Heating::Coal,
+
+            "Coal Stove" => Heating::CoalStove,
+
+            "Ductless" => Heating::Ductless,
+
+            "Electric" => Heating::Electric,
+
+            "ENERGY STAR Qualified Equipment" => Heating::ENERGYSTARQualifiedEquipment,
+
+            "ENERGY STAR/ACCA RSI Qualified Installation" => {
+                Heating::ENERGYSTARACCARSIQualifiedInstallation
+            }
+
+            "Exhaust Fan" => Heating::ExhaustFan,
+
+            "Fireplace Insert" => Heating::FireplaceInsert,
+
+            "Fireplace(s)" => Heating::Fireplaces,
+
+            "Floor Furnace" => Heating::FloorFurnace,
+
+            "Forced Air" => Heating::ForcedAir,
+
+            "Geothermal" => Heating::Geothermal,
+
+            "Gravity" => Heating::Gravity,
+
+            "Heat Pump" => Heating::HeatPump,
+
+            "Hot Water" => Heating::HotWater,
+
+            "Humidity Control" => Heating::HumidityControl,
+
+            "Kerosene" => Heating::Kerosene,
+
+            "Natural Gas" => Heating::NaturalGas,
+
+            "None" => Heating::None,
+
+            "Oil" => Heating::Oil,
+
+            "Other" => Heating::Other,
+
+            "Passive Solar" => Heating::PassiveSolar,
+
+            "Pellet Stove" => Heating::PelletStove,
+
+            "Propane" => Heating::Propane,
+
+            "Propane Stove" => Heating::PropaneStove,
+
+            "Radiant" => Heating::Radiant,
+
+            "Radiant Ceiling" => Heating::RadiantCeiling,
+
+            "Radiant Floor" => Heating::RadiantFloor,
+
+            "See Remarks" => Heating::SeeRemarks,
+
+            "Separate Meters" => Heating::SeparateMeters,
+
+            "Solar" => Heating::Solar,
+
+            "Space Heater" => Heating::SpaceHeater,
+
+            "Steam" => Heating::Steam,
+
+            "Varies by Unit" => Heating::VariesbyUnit,
+
+            "Wall Furnace" => Heating::WallFurnace,
+
+            "Wood" => Heating::Wood,
+
+            "Wood Stove" => Heating::WoodStove,
+
+            "Zoned" => Heating::Zoned,
+
+            _ => Heating::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Heating::ActiveSolar => "Active Solar",
+
+            Heating::Baseboard => "Baseboard",
+
+            Heating::Ceiling => "Ceiling",
+
+            Heating::Central => "Central",
+
+            Heating::Coal => "Coal",
+
+            Heating::CoalStove => "Coal Stove",
+
+            Heating::Ductless => "Ductless",
+
+            Heating::Electric => "Electric",
+
+            Heating::ENERGYSTARQualifiedEquipment => "ENERGY STAR Qualified Equipment",
+
+            Heating::ENERGYSTARACCARSIQualifiedInstallation => {
+                "ENERGY STAR/ACCA RSI Qualified Installation"
+            }
+
+            Heating::ExhaustFan => "Exhaust Fan",
+
+            Heating::FireplaceInsert => "Fireplace Insert",
+
+            Heating::Fireplaces => "Fireplace(s)",
+
+            Heating::FloorFurnace => "Floor Furnace",
+
+            Heating::ForcedAir => "Forced Air",
+
+            Heating::Geothermal => "Geothermal",
+
+            Heating::Gravity => "Gravity",
+
+            Heating::HeatPump => "Heat Pump",
+
+            Heating::HotWater => "Hot Water",
+
+            Heating::HumidityControl => "Humidity Control",
+
+            Heating::Kerosene => "Kerosene",
+
+            Heating::NaturalGas => "Natural Gas",
+
+            Heating::None => "None",
+
+            Heating::Oil => "Oil",
+
+            Heating::Other => "Other",
+
+            Heating::PassiveSolar => "Passive Solar",
+
+            Heating::PelletStove => "Pellet Stove",
+
+            Heating::Propane => "Propane",
+
+            Heating::PropaneStove => "Propane Stove",
+
+            Heating::Radiant => "Radiant",
+
+            Heating::RadiantCeiling => "Radiant Ceiling",
+
+            Heating::RadiantFloor => "Radiant Floor",
+
+            Heating::SeeRemarks => "See Remarks",
+
+            Heating::SeparateMeters => "Separate Meters",
+
+            Heating::Solar => "Solar",
+
+            Heating::SpaceHeater => "Space Heater",
+
+            Heating::Steam => "Steam",
+
+            Heating::VariesbyUnit => "Varies by Unit",
+
+            Heating::WallFurnace => "Wall Furnace",
+
+            Heating::Wood => "Wood",
+
+            Heating::WoodStove => "Wood Stove",
+
+            Heating::Zoned => "Zoned",
+
+            Heating::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Heating::ActiveSolar => "Active Solar".into(),
+
+            Heating::Baseboard => "Baseboard".into(),
+
+            Heating::Ceiling => "Ceiling".into(),
+
+            Heating::Central => "Central".into(),
+
+            Heating::Coal => "Coal".into(),
+
+            Heating::CoalStove => "Coal Stove".into(),
+
+            Heating::Ductless => "Ductless".into(),
+
+            Heating::Electric => "Electric".into(),
+
+            Heating::ENERGYSTARQualifiedEquipment => "ENERGY STAR Qualified Equipment".into(),
+
+            Heating::ENERGYSTARACCARSIQualifiedInstallation => {
+                "ENERGY STAR/ACCA RSI Qualified Installation".into()
+            }
+
+            Heating::ExhaustFan => "Exhaust Fan".into(),
+
+            Heating::FireplaceInsert => "Fireplace Insert".into(),
+
+            Heating::Fireplaces => "Fireplace(s)".into(),
+
+            Heating::FloorFurnace => "Floor Furnace".into(),
+
+            Heating::ForcedAir => "Forced Air".into(),
+
+            Heating::Geothermal => "Geothermal".into(),
+
+            Heating::Gravity => "Gravity".into(),
+
+            Heating::HeatPump => "Heat Pump".into(),
+
+            Heating::HotWater => "Hot Water".into(),
+
+            Heating::HumidityControl => "Humidity Control".into(),
+
+            Heating::Kerosene => "Kerosene".into(),
+
+            Heating::NaturalGas => "Natural Gas".into(),
+
+            Heating::None => "None".into(),
+
+            Heating::Oil => "Oil".into(),
+
+            Heating::Other => "Other".into(),
+
+            Heating::PassiveSolar => "Passive Solar".into(),
+
+            Heating::PelletStove => "Pellet Stove".into(),
+
+            Heating::Propane => "Propane".into(),
+
+            Heating::PropaneStove => "Propane Stove".into(),
+
+            Heating::Radiant => "Radiant".into(),
+
+            Heating::RadiantCeiling => "Radiant Ceiling".into(),
+
+            Heating::RadiantFloor => "Radiant Floor".into(),
+
+            Heating::SeeRemarks => "See Remarks".into(),
+
+            Heating::SeparateMeters => "Separate Meters".into(),
+
+            Heating::Solar => "Solar".into(),
+
+            Heating::SpaceHeater => "Space Heater".into(),
+
+            Heating::Steam => "Steam".into(),
+
+            Heating::VariesbyUnit => "Varies by Unit".into(),
+
+            Heating::WallFurnace => "Wall Furnace".into(),
+
+            Heating::Wood => "Wood".into(),
+
+            Heating::WoodStove => "Wood Stove".into(),
+
+            Heating::Zoned => "Zoned".into(),
+
+            Heating::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Heating::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Heating {
     fn from(s: String) -> Heating {
         match s.as_ref() {
@@ -433,43 +810,5 @@ impl<'de> Deserialize<'de> for Heating {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_heating_format {
-    use super::Heating;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Heating>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Heating>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

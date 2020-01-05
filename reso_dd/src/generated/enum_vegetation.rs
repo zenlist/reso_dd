@@ -39,6 +39,119 @@ pub enum Vegetation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Vegetation {
+    fn from_str(s: &str) -> Vegetation {
+        match s {
+            "Brush" => Vegetation::Brush,
+
+            "Cleared" => Vegetation::Cleared,
+
+            "Crop(s)" => Vegetation::Crops,
+
+            "Grassed" => Vegetation::Grassed,
+
+            "Heavily Wooded" => Vegetation::HeavilyWooded,
+
+            "Natural State" => Vegetation::NaturalState,
+
+            "Other" => Vegetation::Other,
+
+            "Partially Wooded" => Vegetation::PartiallyWooded,
+
+            "See Remarks" => Vegetation::SeeRemarks,
+
+            "Wooded" => Vegetation::Wooded,
+
+            _ => Vegetation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Vegetation {
+        match s.as_ref() {
+            "Brush" => Vegetation::Brush,
+
+            "Cleared" => Vegetation::Cleared,
+
+            "Crop(s)" => Vegetation::Crops,
+
+            "Grassed" => Vegetation::Grassed,
+
+            "Heavily Wooded" => Vegetation::HeavilyWooded,
+
+            "Natural State" => Vegetation::NaturalState,
+
+            "Other" => Vegetation::Other,
+
+            "Partially Wooded" => Vegetation::PartiallyWooded,
+
+            "See Remarks" => Vegetation::SeeRemarks,
+
+            "Wooded" => Vegetation::Wooded,
+
+            _ => Vegetation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Vegetation::Brush => "Brush",
+
+            Vegetation::Cleared => "Cleared",
+
+            Vegetation::Crops => "Crop(s)",
+
+            Vegetation::Grassed => "Grassed",
+
+            Vegetation::HeavilyWooded => "Heavily Wooded",
+
+            Vegetation::NaturalState => "Natural State",
+
+            Vegetation::Other => "Other",
+
+            Vegetation::PartiallyWooded => "Partially Wooded",
+
+            Vegetation::SeeRemarks => "See Remarks",
+
+            Vegetation::Wooded => "Wooded",
+
+            Vegetation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Vegetation::Brush => "Brush".into(),
+
+            Vegetation::Cleared => "Cleared".into(),
+
+            Vegetation::Crops => "Crop(s)".into(),
+
+            Vegetation::Grassed => "Grassed".into(),
+
+            Vegetation::HeavilyWooded => "Heavily Wooded".into(),
+
+            Vegetation::NaturalState => "Natural State".into(),
+
+            Vegetation::Other => "Other".into(),
+
+            Vegetation::PartiallyWooded => "Partially Wooded".into(),
+
+            Vegetation::SeeRemarks => "See Remarks".into(),
+
+            Vegetation::Wooded => "Wooded".into(),
+
+            Vegetation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Vegetation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Vegetation {
     fn from(s: String) -> Vegetation {
         match s.as_ref() {
@@ -139,43 +252,5 @@ impl<'de> Deserialize<'de> for Vegetation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_vegetation_format {
-    use super::Vegetation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Vegetation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Vegetation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -108,6 +108,303 @@ pub enum ExteriorFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for ExteriorFeatures {
+    fn from_str(s: &str) -> ExteriorFeatures {
+        match s {
+            "Awning(s)" => ExteriorFeatures::Awnings,
+
+            "Balcony" => ExteriorFeatures::Balcony,
+
+            "Barbecue" => ExteriorFeatures::Barbecue,
+
+            "Basketball Court" => ExteriorFeatures::BasketballCourt,
+
+            "Boat Slip" => ExteriorFeatures::BoatSlip,
+
+            "Built-in Barbecue" => ExteriorFeatures::BuiltinBarbecue,
+
+            "Courtyard" => ExteriorFeatures::Courtyard,
+
+            "Covered Courtyard" => ExteriorFeatures::CoveredCourtyard,
+
+            "Dock" => ExteriorFeatures::Dock,
+
+            "Dog Run" => ExteriorFeatures::DogRun,
+
+            "Electric Grill" => ExteriorFeatures::ElectricGrill,
+
+            "Fire Pit" => ExteriorFeatures::FirePit,
+
+            "Garden" => ExteriorFeatures::Garden,
+
+            "Gas Grill" => ExteriorFeatures::GasGrill,
+
+            "Gray Water System" => ExteriorFeatures::GrayWaterSystem,
+
+            "Kennel" => ExteriorFeatures::Kennel,
+
+            "Lighting" => ExteriorFeatures::Lighting,
+
+            "Misting System" => ExteriorFeatures::MistingSystem,
+
+            "None" => ExteriorFeatures::None,
+
+            "Other" => ExteriorFeatures::Other,
+
+            "Outdoor Grill" => ExteriorFeatures::OutdoorGrill,
+
+            "Outdoor Kitchen" => ExteriorFeatures::OutdoorKitchen,
+
+            "Outdoor Shower" => ExteriorFeatures::OutdoorShower,
+
+            "Permeable Paving" => ExteriorFeatures::PermeablePaving,
+
+            "Playground" => ExteriorFeatures::Playground,
+
+            "Private Entrance" => ExteriorFeatures::PrivateEntrance,
+
+            "Private Yard" => ExteriorFeatures::PrivateYard,
+
+            "Rain Barrel/Cistern(s)" => ExteriorFeatures::RainBarrelCisterns,
+
+            "Rain Gutters" => ExteriorFeatures::RainGutters,
+
+            "RV Hookup" => ExteriorFeatures::RVHookup,
+
+            "Storage" => ExteriorFeatures::Storage,
+
+            "Tennis Court(s)" => ExteriorFeatures::TennisCourts,
+
+            "Uncovered Courtyard" => ExteriorFeatures::UncoveredCourtyard,
+
+            _ => ExteriorFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> ExteriorFeatures {
+        match s.as_ref() {
+            "Awning(s)" => ExteriorFeatures::Awnings,
+
+            "Balcony" => ExteriorFeatures::Balcony,
+
+            "Barbecue" => ExteriorFeatures::Barbecue,
+
+            "Basketball Court" => ExteriorFeatures::BasketballCourt,
+
+            "Boat Slip" => ExteriorFeatures::BoatSlip,
+
+            "Built-in Barbecue" => ExteriorFeatures::BuiltinBarbecue,
+
+            "Courtyard" => ExteriorFeatures::Courtyard,
+
+            "Covered Courtyard" => ExteriorFeatures::CoveredCourtyard,
+
+            "Dock" => ExteriorFeatures::Dock,
+
+            "Dog Run" => ExteriorFeatures::DogRun,
+
+            "Electric Grill" => ExteriorFeatures::ElectricGrill,
+
+            "Fire Pit" => ExteriorFeatures::FirePit,
+
+            "Garden" => ExteriorFeatures::Garden,
+
+            "Gas Grill" => ExteriorFeatures::GasGrill,
+
+            "Gray Water System" => ExteriorFeatures::GrayWaterSystem,
+
+            "Kennel" => ExteriorFeatures::Kennel,
+
+            "Lighting" => ExteriorFeatures::Lighting,
+
+            "Misting System" => ExteriorFeatures::MistingSystem,
+
+            "None" => ExteriorFeatures::None,
+
+            "Other" => ExteriorFeatures::Other,
+
+            "Outdoor Grill" => ExteriorFeatures::OutdoorGrill,
+
+            "Outdoor Kitchen" => ExteriorFeatures::OutdoorKitchen,
+
+            "Outdoor Shower" => ExteriorFeatures::OutdoorShower,
+
+            "Permeable Paving" => ExteriorFeatures::PermeablePaving,
+
+            "Playground" => ExteriorFeatures::Playground,
+
+            "Private Entrance" => ExteriorFeatures::PrivateEntrance,
+
+            "Private Yard" => ExteriorFeatures::PrivateYard,
+
+            "Rain Barrel/Cistern(s)" => ExteriorFeatures::RainBarrelCisterns,
+
+            "Rain Gutters" => ExteriorFeatures::RainGutters,
+
+            "RV Hookup" => ExteriorFeatures::RVHookup,
+
+            "Storage" => ExteriorFeatures::Storage,
+
+            "Tennis Court(s)" => ExteriorFeatures::TennisCourts,
+
+            "Uncovered Courtyard" => ExteriorFeatures::UncoveredCourtyard,
+
+            _ => ExteriorFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            ExteriorFeatures::Awnings => "Awning(s)",
+
+            ExteriorFeatures::Balcony => "Balcony",
+
+            ExteriorFeatures::Barbecue => "Barbecue",
+
+            ExteriorFeatures::BasketballCourt => "Basketball Court",
+
+            ExteriorFeatures::BoatSlip => "Boat Slip",
+
+            ExteriorFeatures::BuiltinBarbecue => "Built-in Barbecue",
+
+            ExteriorFeatures::Courtyard => "Courtyard",
+
+            ExteriorFeatures::CoveredCourtyard => "Covered Courtyard",
+
+            ExteriorFeatures::Dock => "Dock",
+
+            ExteriorFeatures::DogRun => "Dog Run",
+
+            ExteriorFeatures::ElectricGrill => "Electric Grill",
+
+            ExteriorFeatures::FirePit => "Fire Pit",
+
+            ExteriorFeatures::Garden => "Garden",
+
+            ExteriorFeatures::GasGrill => "Gas Grill",
+
+            ExteriorFeatures::GrayWaterSystem => "Gray Water System",
+
+            ExteriorFeatures::Kennel => "Kennel",
+
+            ExteriorFeatures::Lighting => "Lighting",
+
+            ExteriorFeatures::MistingSystem => "Misting System",
+
+            ExteriorFeatures::None => "None",
+
+            ExteriorFeatures::Other => "Other",
+
+            ExteriorFeatures::OutdoorGrill => "Outdoor Grill",
+
+            ExteriorFeatures::OutdoorKitchen => "Outdoor Kitchen",
+
+            ExteriorFeatures::OutdoorShower => "Outdoor Shower",
+
+            ExteriorFeatures::PermeablePaving => "Permeable Paving",
+
+            ExteriorFeatures::Playground => "Playground",
+
+            ExteriorFeatures::PrivateEntrance => "Private Entrance",
+
+            ExteriorFeatures::PrivateYard => "Private Yard",
+
+            ExteriorFeatures::RainBarrelCisterns => "Rain Barrel/Cistern(s)",
+
+            ExteriorFeatures::RainGutters => "Rain Gutters",
+
+            ExteriorFeatures::RVHookup => "RV Hookup",
+
+            ExteriorFeatures::Storage => "Storage",
+
+            ExteriorFeatures::TennisCourts => "Tennis Court(s)",
+
+            ExteriorFeatures::UncoveredCourtyard => "Uncovered Courtyard",
+
+            ExteriorFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            ExteriorFeatures::Awnings => "Awning(s)".into(),
+
+            ExteriorFeatures::Balcony => "Balcony".into(),
+
+            ExteriorFeatures::Barbecue => "Barbecue".into(),
+
+            ExteriorFeatures::BasketballCourt => "Basketball Court".into(),
+
+            ExteriorFeatures::BoatSlip => "Boat Slip".into(),
+
+            ExteriorFeatures::BuiltinBarbecue => "Built-in Barbecue".into(),
+
+            ExteriorFeatures::Courtyard => "Courtyard".into(),
+
+            ExteriorFeatures::CoveredCourtyard => "Covered Courtyard".into(),
+
+            ExteriorFeatures::Dock => "Dock".into(),
+
+            ExteriorFeatures::DogRun => "Dog Run".into(),
+
+            ExteriorFeatures::ElectricGrill => "Electric Grill".into(),
+
+            ExteriorFeatures::FirePit => "Fire Pit".into(),
+
+            ExteriorFeatures::Garden => "Garden".into(),
+
+            ExteriorFeatures::GasGrill => "Gas Grill".into(),
+
+            ExteriorFeatures::GrayWaterSystem => "Gray Water System".into(),
+
+            ExteriorFeatures::Kennel => "Kennel".into(),
+
+            ExteriorFeatures::Lighting => "Lighting".into(),
+
+            ExteriorFeatures::MistingSystem => "Misting System".into(),
+
+            ExteriorFeatures::None => "None".into(),
+
+            ExteriorFeatures::Other => "Other".into(),
+
+            ExteriorFeatures::OutdoorGrill => "Outdoor Grill".into(),
+
+            ExteriorFeatures::OutdoorKitchen => "Outdoor Kitchen".into(),
+
+            ExteriorFeatures::OutdoorShower => "Outdoor Shower".into(),
+
+            ExteriorFeatures::PermeablePaving => "Permeable Paving".into(),
+
+            ExteriorFeatures::Playground => "Playground".into(),
+
+            ExteriorFeatures::PrivateEntrance => "Private Entrance".into(),
+
+            ExteriorFeatures::PrivateYard => "Private Yard".into(),
+
+            ExteriorFeatures::RainBarrelCisterns => "Rain Barrel/Cistern(s)".into(),
+
+            ExteriorFeatures::RainGutters => "Rain Gutters".into(),
+
+            ExteriorFeatures::RVHookup => "RV Hookup".into(),
+
+            ExteriorFeatures::Storage => "Storage".into(),
+
+            ExteriorFeatures::TennisCourts => "Tennis Court(s)".into(),
+
+            ExteriorFeatures::UncoveredCourtyard => "Uncovered Courtyard".into(),
+
+            ExteriorFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            ExteriorFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for ExteriorFeatures {
     fn from(s: String) -> ExteriorFeatures {
         match s.as_ref() {
@@ -346,45 +643,5 @@ impl<'de> Deserialize<'de> for ExteriorFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_exterior_features_format {
-    use super::ExteriorFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<ExteriorFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<ExteriorFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

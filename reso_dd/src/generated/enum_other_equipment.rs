@@ -72,6 +72,207 @@ pub enum OtherEquipment {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OtherEquipment {
+    fn from_str(s: &str) -> OtherEquipment {
+        match s {
+            "Air Purifier" => OtherEquipment::AirPurifier,
+
+            "Call Listing Agent" => OtherEquipment::CallListingAgent,
+
+            "Compressor" => OtherEquipment::Compressor,
+
+            "DC Well Pump" => OtherEquipment::DCWellPump,
+
+            "Dehumidifier" => OtherEquipment::Dehumidifier,
+
+            "Farm Equipment" => OtherEquipment::FarmEquipment,
+
+            "Fuel Tank(s)" => OtherEquipment::FuelTanks,
+
+            "Generator" => OtherEquipment::Generator,
+
+            "Home Theater" => OtherEquipment::HomeTheater,
+
+            "Intercom" => OtherEquipment::Intercom,
+
+            "Irrigation Equipment" => OtherEquipment::IrrigationEquipment,
+
+            "List Available" => OtherEquipment::ListAvailable,
+
+            "Livestock Equipment" => OtherEquipment::LivestockEquipment,
+
+            "Negotiable" => OtherEquipment::Negotiable,
+
+            "None" => OtherEquipment::None,
+
+            "Orchard Equipment" => OtherEquipment::OrchardEquipment,
+
+            "Other" => OtherEquipment::Other,
+
+            "Rotary Antenna" => OtherEquipment::RotaryAntenna,
+
+            "Satellite Dish" => OtherEquipment::SatelliteDish,
+
+            "TV Antenna" => OtherEquipment::TVAntenna,
+
+            "Varies by Unit" => OtherEquipment::VariesbyUnit,
+
+            _ => OtherEquipment::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OtherEquipment {
+        match s.as_ref() {
+            "Air Purifier" => OtherEquipment::AirPurifier,
+
+            "Call Listing Agent" => OtherEquipment::CallListingAgent,
+
+            "Compressor" => OtherEquipment::Compressor,
+
+            "DC Well Pump" => OtherEquipment::DCWellPump,
+
+            "Dehumidifier" => OtherEquipment::Dehumidifier,
+
+            "Farm Equipment" => OtherEquipment::FarmEquipment,
+
+            "Fuel Tank(s)" => OtherEquipment::FuelTanks,
+
+            "Generator" => OtherEquipment::Generator,
+
+            "Home Theater" => OtherEquipment::HomeTheater,
+
+            "Intercom" => OtherEquipment::Intercom,
+
+            "Irrigation Equipment" => OtherEquipment::IrrigationEquipment,
+
+            "List Available" => OtherEquipment::ListAvailable,
+
+            "Livestock Equipment" => OtherEquipment::LivestockEquipment,
+
+            "Negotiable" => OtherEquipment::Negotiable,
+
+            "None" => OtherEquipment::None,
+
+            "Orchard Equipment" => OtherEquipment::OrchardEquipment,
+
+            "Other" => OtherEquipment::Other,
+
+            "Rotary Antenna" => OtherEquipment::RotaryAntenna,
+
+            "Satellite Dish" => OtherEquipment::SatelliteDish,
+
+            "TV Antenna" => OtherEquipment::TVAntenna,
+
+            "Varies by Unit" => OtherEquipment::VariesbyUnit,
+
+            _ => OtherEquipment::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OtherEquipment::AirPurifier => "Air Purifier",
+
+            OtherEquipment::CallListingAgent => "Call Listing Agent",
+
+            OtherEquipment::Compressor => "Compressor",
+
+            OtherEquipment::DCWellPump => "DC Well Pump",
+
+            OtherEquipment::Dehumidifier => "Dehumidifier",
+
+            OtherEquipment::FarmEquipment => "Farm Equipment",
+
+            OtherEquipment::FuelTanks => "Fuel Tank(s)",
+
+            OtherEquipment::Generator => "Generator",
+
+            OtherEquipment::HomeTheater => "Home Theater",
+
+            OtherEquipment::Intercom => "Intercom",
+
+            OtherEquipment::IrrigationEquipment => "Irrigation Equipment",
+
+            OtherEquipment::ListAvailable => "List Available",
+
+            OtherEquipment::LivestockEquipment => "Livestock Equipment",
+
+            OtherEquipment::Negotiable => "Negotiable",
+
+            OtherEquipment::None => "None",
+
+            OtherEquipment::OrchardEquipment => "Orchard Equipment",
+
+            OtherEquipment::Other => "Other",
+
+            OtherEquipment::RotaryAntenna => "Rotary Antenna",
+
+            OtherEquipment::SatelliteDish => "Satellite Dish",
+
+            OtherEquipment::TVAntenna => "TV Antenna",
+
+            OtherEquipment::VariesbyUnit => "Varies by Unit",
+
+            OtherEquipment::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OtherEquipment::AirPurifier => "Air Purifier".into(),
+
+            OtherEquipment::CallListingAgent => "Call Listing Agent".into(),
+
+            OtherEquipment::Compressor => "Compressor".into(),
+
+            OtherEquipment::DCWellPump => "DC Well Pump".into(),
+
+            OtherEquipment::Dehumidifier => "Dehumidifier".into(),
+
+            OtherEquipment::FarmEquipment => "Farm Equipment".into(),
+
+            OtherEquipment::FuelTanks => "Fuel Tank(s)".into(),
+
+            OtherEquipment::Generator => "Generator".into(),
+
+            OtherEquipment::HomeTheater => "Home Theater".into(),
+
+            OtherEquipment::Intercom => "Intercom".into(),
+
+            OtherEquipment::IrrigationEquipment => "Irrigation Equipment".into(),
+
+            OtherEquipment::ListAvailable => "List Available".into(),
+
+            OtherEquipment::LivestockEquipment => "Livestock Equipment".into(),
+
+            OtherEquipment::Negotiable => "Negotiable".into(),
+
+            OtherEquipment::None => "None".into(),
+
+            OtherEquipment::OrchardEquipment => "Orchard Equipment".into(),
+
+            OtherEquipment::Other => "Other".into(),
+
+            OtherEquipment::RotaryAntenna => "Rotary Antenna".into(),
+
+            OtherEquipment::SatelliteDish => "Satellite Dish".into(),
+
+            OtherEquipment::TVAntenna => "TV Antenna".into(),
+
+            OtherEquipment::VariesbyUnit => "Varies by Unit".into(),
+
+            OtherEquipment::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OtherEquipment::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OtherEquipment {
     fn from(s: String) -> OtherEquipment {
         match s.as_ref() {
@@ -238,45 +439,5 @@ impl<'de> Deserialize<'de> for OtherEquipment {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_other_equipment_format {
-    use super::OtherEquipment;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OtherEquipment>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OtherEquipment>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

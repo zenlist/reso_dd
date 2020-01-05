@@ -51,6 +51,151 @@ pub enum MemberType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for MemberType {
+    fn from_str(s: &str) -> MemberType {
+        match s {
+            "Assistant" => MemberType::Assistant,
+
+            "Association Staff" => MemberType::AssociationStaff,
+
+            "Designated REALTOR Appraiser" => MemberType::DesignatedREALTORAppraiser,
+
+            "Designated REALTOR Participant" => MemberType::DesignatedREALTORParticipant,
+
+            "Licensed Assistant" => MemberType::LicensedAssistant,
+
+            "MLS Only Appraiser" => MemberType::MLSOnlyAppraiser,
+
+            "MLS Only Broker" => MemberType::MLSOnlyBroker,
+
+            "MLS Only Salesperson" => MemberType::MLSOnlySalesperson,
+
+            "MLS Staff" => MemberType::MLSStaff,
+
+            "Non Member/Vendor" => MemberType::NonMemberVendor,
+
+            "Office Manager" => MemberType::OfficeManager,
+
+            "REALTOR Appraiser" => MemberType::REALTORAppraiser,
+
+            "REALTOR Salesperson" => MemberType::REALTORSalesperson,
+
+            "Unlicensed Assistant" => MemberType::UnlicensedAssistant,
+
+            _ => MemberType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> MemberType {
+        match s.as_ref() {
+            "Assistant" => MemberType::Assistant,
+
+            "Association Staff" => MemberType::AssociationStaff,
+
+            "Designated REALTOR Appraiser" => MemberType::DesignatedREALTORAppraiser,
+
+            "Designated REALTOR Participant" => MemberType::DesignatedREALTORParticipant,
+
+            "Licensed Assistant" => MemberType::LicensedAssistant,
+
+            "MLS Only Appraiser" => MemberType::MLSOnlyAppraiser,
+
+            "MLS Only Broker" => MemberType::MLSOnlyBroker,
+
+            "MLS Only Salesperson" => MemberType::MLSOnlySalesperson,
+
+            "MLS Staff" => MemberType::MLSStaff,
+
+            "Non Member/Vendor" => MemberType::NonMemberVendor,
+
+            "Office Manager" => MemberType::OfficeManager,
+
+            "REALTOR Appraiser" => MemberType::REALTORAppraiser,
+
+            "REALTOR Salesperson" => MemberType::REALTORSalesperson,
+
+            "Unlicensed Assistant" => MemberType::UnlicensedAssistant,
+
+            _ => MemberType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            MemberType::Assistant => "Assistant",
+
+            MemberType::AssociationStaff => "Association Staff",
+
+            MemberType::DesignatedREALTORAppraiser => "Designated REALTOR Appraiser",
+
+            MemberType::DesignatedREALTORParticipant => "Designated REALTOR Participant",
+
+            MemberType::LicensedAssistant => "Licensed Assistant",
+
+            MemberType::MLSOnlyAppraiser => "MLS Only Appraiser",
+
+            MemberType::MLSOnlyBroker => "MLS Only Broker",
+
+            MemberType::MLSOnlySalesperson => "MLS Only Salesperson",
+
+            MemberType::MLSStaff => "MLS Staff",
+
+            MemberType::NonMemberVendor => "Non Member/Vendor",
+
+            MemberType::OfficeManager => "Office Manager",
+
+            MemberType::REALTORAppraiser => "REALTOR Appraiser",
+
+            MemberType::REALTORSalesperson => "REALTOR Salesperson",
+
+            MemberType::UnlicensedAssistant => "Unlicensed Assistant",
+
+            MemberType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            MemberType::Assistant => "Assistant".into(),
+
+            MemberType::AssociationStaff => "Association Staff".into(),
+
+            MemberType::DesignatedREALTORAppraiser => "Designated REALTOR Appraiser".into(),
+
+            MemberType::DesignatedREALTORParticipant => "Designated REALTOR Participant".into(),
+
+            MemberType::LicensedAssistant => "Licensed Assistant".into(),
+
+            MemberType::MLSOnlyAppraiser => "MLS Only Appraiser".into(),
+
+            MemberType::MLSOnlyBroker => "MLS Only Broker".into(),
+
+            MemberType::MLSOnlySalesperson => "MLS Only Salesperson".into(),
+
+            MemberType::MLSStaff => "MLS Staff".into(),
+
+            MemberType::NonMemberVendor => "Non Member/Vendor".into(),
+
+            MemberType::OfficeManager => "Office Manager".into(),
+
+            MemberType::REALTORAppraiser => "REALTOR Appraiser".into(),
+
+            MemberType::REALTORSalesperson => "REALTOR Salesperson".into(),
+
+            MemberType::UnlicensedAssistant => "Unlicensed Assistant".into(),
+
+            MemberType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            MemberType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for MemberType {
     fn from(s: String) -> MemberType {
         match s.as_ref() {
@@ -175,43 +320,5 @@ impl<'de> Deserialize<'de> for MemberType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_member_type_format {
-    use super::MemberType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<MemberType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<MemberType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

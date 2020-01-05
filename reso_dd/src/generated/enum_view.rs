@@ -123,6 +123,343 @@ pub enum View {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for View {
+    fn from_str(s: &str) -> View {
+        match s {
+            "Bay" => View::Bay,
+
+            "Beach" => View::Beach,
+
+            "Bridge(s)" => View::Bridges,
+
+            "Canal" => View::Canal,
+
+            "Canyon" => View::Canyon,
+
+            "City" => View::City,
+
+            "City Lights" => View::CityLights,
+
+            "Creek/Stream" => View::CreekStream,
+
+            "Desert" => View::Desert,
+
+            "Downtown" => View::Downtown,
+
+            "Forest" => View::Forest,
+
+            "Garden" => View::Garden,
+
+            "Golf Course" => View::GolfCourse,
+
+            "Hills" => View::Hills,
+
+            "Lake" => View::Lake,
+
+            "Marina" => View::Marina,
+
+            "Meadow" => View::Meadow,
+
+            "Mountain(s)" => View::Mountains,
+
+            "Neighborhood" => View::Neighborhood,
+
+            "None" => View::None,
+
+            "Ocean" => View::Ocean,
+
+            "Orchard" => View::Orchard,
+
+            "Other" => View::Other,
+
+            "Panoramic" => View::Panoramic,
+
+            "Park/Greenbelt" => View::ParkGreenbelt,
+
+            "Pasture" => View::Pasture,
+
+            "Pond" => View::Pond,
+
+            "Pool" => View::Pool,
+
+            "Ridge" => View::Ridge,
+
+            "River" => View::River,
+
+            "Rural" => View::Rural,
+
+            "See Remarks" => View::SeeRemarks,
+
+            "Skyline" => View::Skyline,
+
+            "Territorial" => View::Territorial,
+
+            "Trees/Woods" => View::TreesWoods,
+
+            "Valley" => View::Valley,
+
+            "Vineyard" => View::Vineyard,
+
+            "Water" => View::Water,
+
+            _ => View::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> View {
+        match s.as_ref() {
+            "Bay" => View::Bay,
+
+            "Beach" => View::Beach,
+
+            "Bridge(s)" => View::Bridges,
+
+            "Canal" => View::Canal,
+
+            "Canyon" => View::Canyon,
+
+            "City" => View::City,
+
+            "City Lights" => View::CityLights,
+
+            "Creek/Stream" => View::CreekStream,
+
+            "Desert" => View::Desert,
+
+            "Downtown" => View::Downtown,
+
+            "Forest" => View::Forest,
+
+            "Garden" => View::Garden,
+
+            "Golf Course" => View::GolfCourse,
+
+            "Hills" => View::Hills,
+
+            "Lake" => View::Lake,
+
+            "Marina" => View::Marina,
+
+            "Meadow" => View::Meadow,
+
+            "Mountain(s)" => View::Mountains,
+
+            "Neighborhood" => View::Neighborhood,
+
+            "None" => View::None,
+
+            "Ocean" => View::Ocean,
+
+            "Orchard" => View::Orchard,
+
+            "Other" => View::Other,
+
+            "Panoramic" => View::Panoramic,
+
+            "Park/Greenbelt" => View::ParkGreenbelt,
+
+            "Pasture" => View::Pasture,
+
+            "Pond" => View::Pond,
+
+            "Pool" => View::Pool,
+
+            "Ridge" => View::Ridge,
+
+            "River" => View::River,
+
+            "Rural" => View::Rural,
+
+            "See Remarks" => View::SeeRemarks,
+
+            "Skyline" => View::Skyline,
+
+            "Territorial" => View::Territorial,
+
+            "Trees/Woods" => View::TreesWoods,
+
+            "Valley" => View::Valley,
+
+            "Vineyard" => View::Vineyard,
+
+            "Water" => View::Water,
+
+            _ => View::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            View::Bay => "Bay",
+
+            View::Beach => "Beach",
+
+            View::Bridges => "Bridge(s)",
+
+            View::Canal => "Canal",
+
+            View::Canyon => "Canyon",
+
+            View::City => "City",
+
+            View::CityLights => "City Lights",
+
+            View::CreekStream => "Creek/Stream",
+
+            View::Desert => "Desert",
+
+            View::Downtown => "Downtown",
+
+            View::Forest => "Forest",
+
+            View::Garden => "Garden",
+
+            View::GolfCourse => "Golf Course",
+
+            View::Hills => "Hills",
+
+            View::Lake => "Lake",
+
+            View::Marina => "Marina",
+
+            View::Meadow => "Meadow",
+
+            View::Mountains => "Mountain(s)",
+
+            View::Neighborhood => "Neighborhood",
+
+            View::None => "None",
+
+            View::Ocean => "Ocean",
+
+            View::Orchard => "Orchard",
+
+            View::Other => "Other",
+
+            View::Panoramic => "Panoramic",
+
+            View::ParkGreenbelt => "Park/Greenbelt",
+
+            View::Pasture => "Pasture",
+
+            View::Pond => "Pond",
+
+            View::Pool => "Pool",
+
+            View::Ridge => "Ridge",
+
+            View::River => "River",
+
+            View::Rural => "Rural",
+
+            View::SeeRemarks => "See Remarks",
+
+            View::Skyline => "Skyline",
+
+            View::Territorial => "Territorial",
+
+            View::TreesWoods => "Trees/Woods",
+
+            View::Valley => "Valley",
+
+            View::Vineyard => "Vineyard",
+
+            View::Water => "Water",
+
+            View::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            View::Bay => "Bay".into(),
+
+            View::Beach => "Beach".into(),
+
+            View::Bridges => "Bridge(s)".into(),
+
+            View::Canal => "Canal".into(),
+
+            View::Canyon => "Canyon".into(),
+
+            View::City => "City".into(),
+
+            View::CityLights => "City Lights".into(),
+
+            View::CreekStream => "Creek/Stream".into(),
+
+            View::Desert => "Desert".into(),
+
+            View::Downtown => "Downtown".into(),
+
+            View::Forest => "Forest".into(),
+
+            View::Garden => "Garden".into(),
+
+            View::GolfCourse => "Golf Course".into(),
+
+            View::Hills => "Hills".into(),
+
+            View::Lake => "Lake".into(),
+
+            View::Marina => "Marina".into(),
+
+            View::Meadow => "Meadow".into(),
+
+            View::Mountains => "Mountain(s)".into(),
+
+            View::Neighborhood => "Neighborhood".into(),
+
+            View::None => "None".into(),
+
+            View::Ocean => "Ocean".into(),
+
+            View::Orchard => "Orchard".into(),
+
+            View::Other => "Other".into(),
+
+            View::Panoramic => "Panoramic".into(),
+
+            View::ParkGreenbelt => "Park/Greenbelt".into(),
+
+            View::Pasture => "Pasture".into(),
+
+            View::Pond => "Pond".into(),
+
+            View::Pool => "Pool".into(),
+
+            View::Ridge => "Ridge".into(),
+
+            View::River => "River".into(),
+
+            View::Rural => "Rural".into(),
+
+            View::SeeRemarks => "See Remarks".into(),
+
+            View::Skyline => "Skyline".into(),
+
+            View::Territorial => "Territorial".into(),
+
+            View::TreesWoods => "Trees/Woods".into(),
+
+            View::Valley => "Valley".into(),
+
+            View::Vineyard => "Vineyard".into(),
+
+            View::Water => "Water".into(),
+
+            View::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            View::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for View {
     fn from(s: String) -> View {
         match s.as_ref() {
@@ -391,40 +728,5 @@ impl<'de> Deserialize<'de> for View {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_view_format {
-    use super::View;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(items: &Option<Vec<View>>, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<View>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

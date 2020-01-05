@@ -69,6 +69,199 @@ pub enum CommunityFeatures {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CommunityFeatures {
+    fn from_str(s: &str) -> CommunityFeatures {
+        match s {
+            "Airport/Runway" => CommunityFeatures::AirportRunway,
+
+            "Clubhouse" => CommunityFeatures::Clubhouse,
+
+            "Curbs" => CommunityFeatures::Curbs,
+
+            "Fishing" => CommunityFeatures::Fishing,
+
+            "Fitness Center" => CommunityFeatures::FitnessCenter,
+
+            "Gated" => CommunityFeatures::Gated,
+
+            "Golf" => CommunityFeatures::Golf,
+
+            "Lake" => CommunityFeatures::Lake,
+
+            "None" => CommunityFeatures::None,
+
+            "Other" => CommunityFeatures::Other,
+
+            "Park" => CommunityFeatures::Park,
+
+            "Playground" => CommunityFeatures::Playground,
+
+            "Pool" => CommunityFeatures::Pool,
+
+            "Racquetball" => CommunityFeatures::Racquetball,
+
+            "Restaurant" => CommunityFeatures::Restaurant,
+
+            "Sidewalks" => CommunityFeatures::Sidewalks,
+
+            "Stable(s)" => CommunityFeatures::Stables,
+
+            "Street Lights" => CommunityFeatures::StreetLights,
+
+            "Suburban" => CommunityFeatures::Suburban,
+
+            "Tennis Court(s)" => CommunityFeatures::TennisCourts,
+
+            _ => CommunityFeatures::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CommunityFeatures {
+        match s.as_ref() {
+            "Airport/Runway" => CommunityFeatures::AirportRunway,
+
+            "Clubhouse" => CommunityFeatures::Clubhouse,
+
+            "Curbs" => CommunityFeatures::Curbs,
+
+            "Fishing" => CommunityFeatures::Fishing,
+
+            "Fitness Center" => CommunityFeatures::FitnessCenter,
+
+            "Gated" => CommunityFeatures::Gated,
+
+            "Golf" => CommunityFeatures::Golf,
+
+            "Lake" => CommunityFeatures::Lake,
+
+            "None" => CommunityFeatures::None,
+
+            "Other" => CommunityFeatures::Other,
+
+            "Park" => CommunityFeatures::Park,
+
+            "Playground" => CommunityFeatures::Playground,
+
+            "Pool" => CommunityFeatures::Pool,
+
+            "Racquetball" => CommunityFeatures::Racquetball,
+
+            "Restaurant" => CommunityFeatures::Restaurant,
+
+            "Sidewalks" => CommunityFeatures::Sidewalks,
+
+            "Stable(s)" => CommunityFeatures::Stables,
+
+            "Street Lights" => CommunityFeatures::StreetLights,
+
+            "Suburban" => CommunityFeatures::Suburban,
+
+            "Tennis Court(s)" => CommunityFeatures::TennisCourts,
+
+            _ => CommunityFeatures::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CommunityFeatures::AirportRunway => "Airport/Runway",
+
+            CommunityFeatures::Clubhouse => "Clubhouse",
+
+            CommunityFeatures::Curbs => "Curbs",
+
+            CommunityFeatures::Fishing => "Fishing",
+
+            CommunityFeatures::FitnessCenter => "Fitness Center",
+
+            CommunityFeatures::Gated => "Gated",
+
+            CommunityFeatures::Golf => "Golf",
+
+            CommunityFeatures::Lake => "Lake",
+
+            CommunityFeatures::None => "None",
+
+            CommunityFeatures::Other => "Other",
+
+            CommunityFeatures::Park => "Park",
+
+            CommunityFeatures::Playground => "Playground",
+
+            CommunityFeatures::Pool => "Pool",
+
+            CommunityFeatures::Racquetball => "Racquetball",
+
+            CommunityFeatures::Restaurant => "Restaurant",
+
+            CommunityFeatures::Sidewalks => "Sidewalks",
+
+            CommunityFeatures::Stables => "Stable(s)",
+
+            CommunityFeatures::StreetLights => "Street Lights",
+
+            CommunityFeatures::Suburban => "Suburban",
+
+            CommunityFeatures::TennisCourts => "Tennis Court(s)",
+
+            CommunityFeatures::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CommunityFeatures::AirportRunway => "Airport/Runway".into(),
+
+            CommunityFeatures::Clubhouse => "Clubhouse".into(),
+
+            CommunityFeatures::Curbs => "Curbs".into(),
+
+            CommunityFeatures::Fishing => "Fishing".into(),
+
+            CommunityFeatures::FitnessCenter => "Fitness Center".into(),
+
+            CommunityFeatures::Gated => "Gated".into(),
+
+            CommunityFeatures::Golf => "Golf".into(),
+
+            CommunityFeatures::Lake => "Lake".into(),
+
+            CommunityFeatures::None => "None".into(),
+
+            CommunityFeatures::Other => "Other".into(),
+
+            CommunityFeatures::Park => "Park".into(),
+
+            CommunityFeatures::Playground => "Playground".into(),
+
+            CommunityFeatures::Pool => "Pool".into(),
+
+            CommunityFeatures::Racquetball => "Racquetball".into(),
+
+            CommunityFeatures::Restaurant => "Restaurant".into(),
+
+            CommunityFeatures::Sidewalks => "Sidewalks".into(),
+
+            CommunityFeatures::Stables => "Stable(s)".into(),
+
+            CommunityFeatures::StreetLights => "Street Lights".into(),
+
+            CommunityFeatures::Suburban => "Suburban".into(),
+
+            CommunityFeatures::TennisCourts => "Tennis Court(s)".into(),
+
+            CommunityFeatures::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CommunityFeatures::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CommunityFeatures {
     fn from(s: String) -> CommunityFeatures {
         match s.as_ref() {
@@ -229,45 +422,5 @@ impl<'de> Deserialize<'de> for CommunityFeatures {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_community_features_format {
-    use super::CommunityFeatures;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CommunityFeatures>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<CommunityFeatures>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

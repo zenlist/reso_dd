@@ -51,6 +51,151 @@ pub enum OtherPhoneType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for OtherPhoneType {
+    fn from_str(s: &str) -> OtherPhoneType {
+        match s {
+            "Direct" => OtherPhoneType::Direct,
+
+            "Fax" => OtherPhoneType::Fax,
+
+            "First" => OtherPhoneType::First,
+
+            "Home" => OtherPhoneType::Home,
+
+            "Mobile" => OtherPhoneType::Mobile,
+
+            "Modem" => OtherPhoneType::Modem,
+
+            "Office" => OtherPhoneType::Office,
+
+            "Pager" => OtherPhoneType::Pager,
+
+            "Preferred" => OtherPhoneType::Preferred,
+
+            "Second" => OtherPhoneType::Second,
+
+            "SMS" => OtherPhoneType::SMS,
+
+            "Third" => OtherPhoneType::Third,
+
+            "Toll Free" => OtherPhoneType::TollFree,
+
+            "Voicemail" => OtherPhoneType::Voicemail,
+
+            _ => OtherPhoneType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> OtherPhoneType {
+        match s.as_ref() {
+            "Direct" => OtherPhoneType::Direct,
+
+            "Fax" => OtherPhoneType::Fax,
+
+            "First" => OtherPhoneType::First,
+
+            "Home" => OtherPhoneType::Home,
+
+            "Mobile" => OtherPhoneType::Mobile,
+
+            "Modem" => OtherPhoneType::Modem,
+
+            "Office" => OtherPhoneType::Office,
+
+            "Pager" => OtherPhoneType::Pager,
+
+            "Preferred" => OtherPhoneType::Preferred,
+
+            "Second" => OtherPhoneType::Second,
+
+            "SMS" => OtherPhoneType::SMS,
+
+            "Third" => OtherPhoneType::Third,
+
+            "Toll Free" => OtherPhoneType::TollFree,
+
+            "Voicemail" => OtherPhoneType::Voicemail,
+
+            _ => OtherPhoneType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            OtherPhoneType::Direct => "Direct",
+
+            OtherPhoneType::Fax => "Fax",
+
+            OtherPhoneType::First => "First",
+
+            OtherPhoneType::Home => "Home",
+
+            OtherPhoneType::Mobile => "Mobile",
+
+            OtherPhoneType::Modem => "Modem",
+
+            OtherPhoneType::Office => "Office",
+
+            OtherPhoneType::Pager => "Pager",
+
+            OtherPhoneType::Preferred => "Preferred",
+
+            OtherPhoneType::Second => "Second",
+
+            OtherPhoneType::SMS => "SMS",
+
+            OtherPhoneType::Third => "Third",
+
+            OtherPhoneType::TollFree => "Toll Free",
+
+            OtherPhoneType::Voicemail => "Voicemail",
+
+            OtherPhoneType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            OtherPhoneType::Direct => "Direct".into(),
+
+            OtherPhoneType::Fax => "Fax".into(),
+
+            OtherPhoneType::First => "First".into(),
+
+            OtherPhoneType::Home => "Home".into(),
+
+            OtherPhoneType::Mobile => "Mobile".into(),
+
+            OtherPhoneType::Modem => "Modem".into(),
+
+            OtherPhoneType::Office => "Office".into(),
+
+            OtherPhoneType::Pager => "Pager".into(),
+
+            OtherPhoneType::Preferred => "Preferred".into(),
+
+            OtherPhoneType::Second => "Second".into(),
+
+            OtherPhoneType::SMS => "SMS".into(),
+
+            OtherPhoneType::Third => "Third".into(),
+
+            OtherPhoneType::TollFree => "Toll Free".into(),
+
+            OtherPhoneType::Voicemail => "Voicemail".into(),
+
+            OtherPhoneType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            OtherPhoneType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for OtherPhoneType {
     fn from(s: String) -> OtherPhoneType {
         match s.as_ref() {
@@ -175,45 +320,5 @@ impl<'de> Deserialize<'de> for OtherPhoneType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_other_phone_type_format {
-    use super::OtherPhoneType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<OtherPhoneType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<OtherPhoneType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

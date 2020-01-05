@@ -54,6 +54,159 @@ pub enum Sewer {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Sewer {
+    fn from_str(s: &str) -> Sewer {
+        match s {
+            "Aerobic Septic" => Sewer::AerobicSeptic,
+
+            "Cesspool" => Sewer::Cesspool,
+
+            "Engineered Septic" => Sewer::EngineeredSeptic,
+
+            "Holding Tank" => Sewer::HoldingTank,
+
+            "Mound Septic" => Sewer::MoundSeptic,
+
+            "None" => Sewer::None,
+
+            "Other" => Sewer::Other,
+
+            "Perc Test On File" => Sewer::PercTestOnFile,
+
+            "Perc Test Required" => Sewer::PercTestRequired,
+
+            "Private Sewer" => Sewer::PrivateSewer,
+
+            "Public Sewer" => Sewer::PublicSewer,
+
+            "Septic Needed" => Sewer::SepticNeeded,
+
+            "Septic Tank" => Sewer::SepticTank,
+
+            "Shared Septic" => Sewer::SharedSeptic,
+
+            "Unknown" => Sewer::Unknown,
+
+            _ => Sewer::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Sewer {
+        match s.as_ref() {
+            "Aerobic Septic" => Sewer::AerobicSeptic,
+
+            "Cesspool" => Sewer::Cesspool,
+
+            "Engineered Septic" => Sewer::EngineeredSeptic,
+
+            "Holding Tank" => Sewer::HoldingTank,
+
+            "Mound Septic" => Sewer::MoundSeptic,
+
+            "None" => Sewer::None,
+
+            "Other" => Sewer::Other,
+
+            "Perc Test On File" => Sewer::PercTestOnFile,
+
+            "Perc Test Required" => Sewer::PercTestRequired,
+
+            "Private Sewer" => Sewer::PrivateSewer,
+
+            "Public Sewer" => Sewer::PublicSewer,
+
+            "Septic Needed" => Sewer::SepticNeeded,
+
+            "Septic Tank" => Sewer::SepticTank,
+
+            "Shared Septic" => Sewer::SharedSeptic,
+
+            "Unknown" => Sewer::Unknown,
+
+            _ => Sewer::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Sewer::AerobicSeptic => "Aerobic Septic",
+
+            Sewer::Cesspool => "Cesspool",
+
+            Sewer::EngineeredSeptic => "Engineered Septic",
+
+            Sewer::HoldingTank => "Holding Tank",
+
+            Sewer::MoundSeptic => "Mound Septic",
+
+            Sewer::None => "None",
+
+            Sewer::Other => "Other",
+
+            Sewer::PercTestOnFile => "Perc Test On File",
+
+            Sewer::PercTestRequired => "Perc Test Required",
+
+            Sewer::PrivateSewer => "Private Sewer",
+
+            Sewer::PublicSewer => "Public Sewer",
+
+            Sewer::SepticNeeded => "Septic Needed",
+
+            Sewer::SepticTank => "Septic Tank",
+
+            Sewer::SharedSeptic => "Shared Septic",
+
+            Sewer::Unknown => "Unknown",
+
+            Sewer::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Sewer::AerobicSeptic => "Aerobic Septic".into(),
+
+            Sewer::Cesspool => "Cesspool".into(),
+
+            Sewer::EngineeredSeptic => "Engineered Septic".into(),
+
+            Sewer::HoldingTank => "Holding Tank".into(),
+
+            Sewer::MoundSeptic => "Mound Septic".into(),
+
+            Sewer::None => "None".into(),
+
+            Sewer::Other => "Other".into(),
+
+            Sewer::PercTestOnFile => "Perc Test On File".into(),
+
+            Sewer::PercTestRequired => "Perc Test Required".into(),
+
+            Sewer::PrivateSewer => "Private Sewer".into(),
+
+            Sewer::PublicSewer => "Public Sewer".into(),
+
+            Sewer::SepticNeeded => "Septic Needed".into(),
+
+            Sewer::SepticTank => "Septic Tank".into(),
+
+            Sewer::SharedSeptic => "Shared Septic".into(),
+
+            Sewer::Unknown => "Unknown".into(),
+
+            Sewer::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Sewer::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Sewer {
     fn from(s: String) -> Sewer {
         match s.as_ref() {
@@ -184,40 +337,5 @@ impl<'de> Deserialize<'de> for Sewer {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_sewer_format {
-    use super::Sewer;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(items: &Option<Vec<Sewer>>, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Sewer>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

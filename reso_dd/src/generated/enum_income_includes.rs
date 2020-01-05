@@ -27,6 +27,87 @@ pub enum IncomeIncludes {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for IncomeIncludes {
+    fn from_str(s: &str) -> IncomeIncludes {
+        match s {
+            "Laundry" => IncomeIncludes::Laundry,
+
+            "Parking" => IncomeIncludes::Parking,
+
+            "Recreation" => IncomeIncludes::Recreation,
+
+            "Rent Only" => IncomeIncludes::RentOnly,
+
+            "RV Storage" => IncomeIncludes::RVStorage,
+
+            "Storage" => IncomeIncludes::Storage,
+
+            _ => IncomeIncludes::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> IncomeIncludes {
+        match s.as_ref() {
+            "Laundry" => IncomeIncludes::Laundry,
+
+            "Parking" => IncomeIncludes::Parking,
+
+            "Recreation" => IncomeIncludes::Recreation,
+
+            "Rent Only" => IncomeIncludes::RentOnly,
+
+            "RV Storage" => IncomeIncludes::RVStorage,
+
+            "Storage" => IncomeIncludes::Storage,
+
+            _ => IncomeIncludes::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            IncomeIncludes::Laundry => "Laundry",
+
+            IncomeIncludes::Parking => "Parking",
+
+            IncomeIncludes::Recreation => "Recreation",
+
+            IncomeIncludes::RentOnly => "Rent Only",
+
+            IncomeIncludes::RVStorage => "RV Storage",
+
+            IncomeIncludes::Storage => "Storage",
+
+            IncomeIncludes::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            IncomeIncludes::Laundry => "Laundry".into(),
+
+            IncomeIncludes::Parking => "Parking".into(),
+
+            IncomeIncludes::Recreation => "Recreation".into(),
+
+            IncomeIncludes::RentOnly => "Rent Only".into(),
+
+            IncomeIncludes::RVStorage => "RV Storage".into(),
+
+            IncomeIncludes::Storage => "Storage".into(),
+
+            IncomeIncludes::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            IncomeIncludes::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for IncomeIncludes {
     fn from(s: String) -> IncomeIncludes {
         match s.as_ref() {
@@ -103,45 +184,5 @@ impl<'de> Deserialize<'de> for IncomeIncludes {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_income_includes_format {
-    use super::IncomeIncludes;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<IncomeIncludes>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<IncomeIncludes>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

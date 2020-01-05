@@ -1,7 +1,6 @@
 // THIS IS A GENERATED FILE
 // If anything in this file needs to be updated, it needs to be fixed in reso_dd_generator
 #[allow(unused_imports)]
-use crate::*;
 use serde::{Deserialize, Serialize};
 
 /// [Property Resource](https://ddwiki.reso.org/display/DDW17/Property+Resource)
@@ -23,7 +22,7 @@ pub struct Property {
         rename = "AboveGradeFinishedAreaSource",
         skip_serializing_if = "Option::is_none"
     )]
-    pub above_grade_finished_area_source: Option<AreaSource>,
+    pub above_grade_finished_area_source: Option<crate::AreaSource>,
 
     /// A pick list of the unit of measurement for the area. i.e. Square Feet, Square Meters, Acres, etc.
     ///
@@ -32,7 +31,7 @@ pub struct Property {
         rename = "AboveGradeFinishedAreaUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub above_grade_finished_area_units: Option<AreaUnits>,
+    pub above_grade_finished_area_units: Option<crate::AreaUnits>,
 
     /// If the property is located behind an unmanned security gate such as in a Gated Community, what is the code to gain access through the secured gate.
     ///
@@ -47,8 +46,8 @@ pub struct Property {
         rename = "AccessibilityFeatures",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_accessibility_features_format")]
-    pub accessibility_features: Option<Vec<AccessibilityFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub accessibility_features: Option<Vec<crate::AccessibilityFeatures>>,
 
     /// If additional parcels are included in the sale, a list of those parcel's IDs separated by commas.  Do not include the first or primary parcel number, that should be located in the Parcel Number field.
     ///
@@ -78,8 +77,8 @@ pub struct Property {
     ///
     /// [Appliances](https://ddwiki.reso.org/display/DDW17/Appliances+Field)
     #[serde(rename = "Appliances", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_appliances_format")]
-    pub appliances: Option<Vec<Appliances>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub appliances: Option<Vec<crate::Appliances>>,
 
     /// A list describing the style of the structure. For example, Victorian, Ranch, Craftsman, etc.
     ///
@@ -94,8 +93,8 @@ pub struct Property {
         rename = "AssociationAmenities",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_association_amenities_format")]
-    pub association_amenities: Option<Vec<AssociationAmenities>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub association_amenities: Option<Vec<crate::AssociationAmenities>>,
 
     /// A fee paid by the homeowner to the Home Owners Association which is used for the upkeep of the common area, neighborhood or other association related benefits.
     ///
@@ -116,7 +115,7 @@ pub struct Property {
         rename = "AssociationFee2Frequency",
         skip_serializing_if = "Option::is_none"
     )]
-    pub association_fee2_frequency: Option<FeeFrequency>,
+    pub association_fee2_frequency: Option<crate::FeeFrequency>,
 
     /// The frequency the association fee is paid.  For example, Weekly, Monthly, Annually, Bi-Monthly, One Time, etc.
     ///
@@ -125,7 +124,7 @@ pub struct Property {
         rename = "AssociationFeeFrequency",
         skip_serializing_if = "Option::is_none"
     )]
-    pub association_fee_frequency: Option<FeeFrequency>,
+    pub association_fee_frequency: Option<crate::FeeFrequency>,
 
     /// Services included with the association fee.  For example Landscaping, Trash, Water, etc.
     ///
@@ -134,8 +133,8 @@ pub struct Property {
         rename = "AssociationFeeIncludes",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_association_fee_includes_format")]
-    pub association_fee_includes: Option<Vec<AssociationFeeIncludes>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub association_fee_includes: Option<Vec<crate::AssociationFeeIncludes>>,
 
     /// The name of the Home Owners Association.
     ///
@@ -183,8 +182,8 @@ pub struct Property {
     ///
     /// [Basement](https://ddwiki.reso.org/display/DDW17/Basement+Field)
     #[serde(rename = "Basement", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_basement_format")]
-    pub basement: Option<Vec<Basement>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub basement: Option<Vec<crate::Basement>>,
 
     /// Does the property have a basement?
     ///
@@ -265,7 +264,7 @@ pub struct Property {
         rename = "BelowGradeFinishedAreaSource",
         skip_serializing_if = "Option::is_none"
     )]
-    pub below_grade_finished_area_source: Option<AreaSource>,
+    pub below_grade_finished_area_source: Option<crate::AreaSource>,
 
     /// A pick list of the unit of measurement for the area.  i.e. Square Feet, Square Meters, Acres, etc.
     ///
@@ -274,14 +273,14 @@ pub struct Property {
         rename = "BelowGradeFinishedAreaUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub below_grade_finished_area_units: Option<AreaUnits>,
+    pub below_grade_finished_area_units: Option<crate::AreaUnits>,
 
     /// Type of mobile home.
     ///
     /// [BodyType](https://ddwiki.reso.org/display/DDW17/BodyType+Field)
     #[serde(rename = "BodyType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_body_type_format")]
-    pub body_type: Option<Vec<BodyType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub body_type: Option<Vec<crate::BodyType>>,
 
     /// The builders model name or number for the property.
     ///
@@ -299,7 +298,7 @@ pub struct Property {
     ///
     /// [BuildingAreaSource](https://ddwiki.reso.org/display/DDW17/BuildingAreaSource+Field)
     #[serde(rename = "BuildingAreaSource", skip_serializing_if = "Option::is_none")]
-    pub building_area_source: Option<AreaSource>,
+    pub building_area_source: Option<crate::AreaSource>,
 
     /// Total area of the structure. Includes both finished and unfinished areas.
     ///
@@ -311,7 +310,7 @@ pub struct Property {
     ///
     /// [BuildingAreaUnits](https://ddwiki.reso.org/display/DDW17/BuildingAreaUnits+Field)
     #[serde(rename = "BuildingAreaUnits", skip_serializing_if = "Option::is_none")]
-    pub building_area_units: Option<AreaUnits>,
+    pub building_area_units: Option<crate::AreaUnits>,
 
     /// Features or amenities of the building or business park.
     ///
@@ -335,8 +334,8 @@ pub struct Property {
     ///
     /// [BusinessType](https://ddwiki.reso.org/display/DDW17/BusinessType+Field)
     #[serde(rename = "BusinessType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_business_type_format")]
-    pub business_type: Option<Vec<BusinessType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub business_type: Option<Vec<crate::BusinessType>>,
 
     /// The total commission to be paid for this sale, expressed as either a percentage or a constant currency amount.
     ///
@@ -354,7 +353,7 @@ pub struct Property {
         rename = "BuyerAgencyCompensationType",
         skip_serializing_if = "Option::is_none"
     )]
-    pub buyer_agency_compensation_type: Option<CompensationType>,
+    pub buyer_agency_compensation_type: Option<crate::CompensationType>,
 
     /// The Buyer's Agent's Board or Association of REALTORS.
     ///
@@ -369,8 +368,8 @@ pub struct Property {
         rename = "BuyerAgentDesignation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_buyer_agent_designation_format")]
-    pub buyer_agent_designation: Option<Vec<BuyerAgentDesignation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub buyer_agent_designation: Option<Vec<crate::BuyerAgentDesignation>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -568,8 +567,8 @@ pub struct Property {
     ///
     /// [BuyerFinancing](https://ddwiki.reso.org/display/DDW17/BuyerFinancing+Field)
     #[serde(rename = "BuyerFinancing", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_buyer_financing_format")]
-    pub buyer_financing: Option<Vec<BuyerFinancing>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub buyer_financing: Option<Vec<crate::BuyerFinancing>>,
 
     /// The Buyer's Office's Board or Association of REALTORS.
     ///
@@ -731,8 +730,8 @@ pub struct Property {
         rename = "CoBuyerAgentDesignation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_co_buyer_agent_designation_format")]
-    pub co_buyer_agent_designation: Option<Vec<CoBuyerAgentDesignation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub co_buyer_agent_designation: Option<Vec<crate::CoBuyerAgentDesignation>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -1011,8 +1010,8 @@ pub struct Property {
         rename = "CoListAgentDesignation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_co_list_agent_designation_format")]
-    pub co_list_agent_designation: Option<Vec<CoListAgentDesignation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub co_list_agent_designation: Option<Vec<crate::CoListAgentDesignation>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -1282,27 +1281,27 @@ pub struct Property {
     ///
     /// [CommonInterest](https://ddwiki.reso.org/display/DDW17/CommonInterest+Field)
     #[serde(rename = "CommonInterest", skip_serializing_if = "Option::is_none")]
-    pub common_interest: Option<CommonInterest>,
+    pub common_interest: Option<crate::CommonInterest>,
 
     /// A multi select list with options like 1 Common Wall, 2 Common Walls, No Common Walls, No One Above, No One Below. Implementation should include rules preventing illogical selection combinations and to ensure consistency with the Property Attached Y/N field.
     ///
     /// [CommonWalls](https://ddwiki.reso.org/display/DDW17/CommonWalls+Field)
     #[serde(rename = "CommonWalls", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_common_walls_format")]
-    pub common_walls: Option<Vec<CommonWalls>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub common_walls: Option<Vec<crate::CommonWalls>>,
 
     /// A list of features related to, or available within, the community.
     ///
     /// [CommunityFeatures](https://ddwiki.reso.org/display/DDW17/CommunityFeatures+Field)
     #[serde(rename = "CommunityFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_community_features_format")]
-    pub community_features: Option<Vec<CommunityFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub community_features: Option<Vec<crate::CommunityFeatures>>,
 
     /// Are there concessions included in the sales agreement? Yes, No or Call Listing Agent
     ///
     /// [Concessions](https://ddwiki.reso.org/display/DDW17/Concessions+Field)
     #[serde(rename = "Concessions", skip_serializing_if = "Option::is_none")]
-    pub concessions: Option<Concessions>,
+    pub concessions: Option<crate::Concessions>,
 
     /// The dollar amount of the concessions.  If the concessions are made by the seller, some may subtract this value from the sales price as a means of calculating their own true price.  If concessions are made by the buyer, some may add this amount to the sale price to create their own true price.  Concessions made by both buyer and seller should be subtracted from each other providing a net value.  Details of this calculation should be added to the Concessions Comments field.
     ///
@@ -1326,8 +1325,8 @@ pub struct Property {
         rename = "ConstructionMaterials",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_construction_materials_format")]
-    pub construction_materials: Option<Vec<ConstructionMaterials>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub construction_materials: Option<Vec<crate::ConstructionMaterials>>,
 
     /// A sub-section or area of a continent.  Examples would be Southern Europe or Scandinavia.
     ///
@@ -1360,8 +1359,8 @@ pub struct Property {
     ///
     /// [Cooling](https://ddwiki.reso.org/display/DDW17/Cooling+Field)
     #[serde(rename = "Cooling", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_cooling_format")]
-    pub cooling: Option<Vec<Cooling>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub cooling: Option<Vec<crate::Cooling>>,
 
     /// The property has cooling or Air Conditioning.
     ///
@@ -1379,7 +1378,7 @@ pub struct Property {
     ///
     /// [Country](https://ddwiki.reso.org/display/DDW17/Country+Field)
     #[serde(rename = "Country", skip_serializing_if = "Option::is_none")]
-    pub country: Option<Country>,
+    pub country: Option<crate::Country>,
 
     /// A sub-section or area of a defined country.  Examples would be Napa Valley in the US, or the Amalfi Coast in Italy.
     ///
@@ -1430,15 +1429,15 @@ pub struct Property {
     ///
     /// [CurrentFinancing](https://ddwiki.reso.org/display/DDW17/CurrentFinancing+Field)
     #[serde(rename = "CurrentFinancing", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_current_financing_format")]
-    pub current_financing: Option<Vec<CurrentFinancing>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub current_financing: Option<Vec<crate::CurrentFinancing>>,
 
     /// A list of the type(s) of current use of the property. The current use of the property is an important factor in understanding the overall condition of the land and determining it's appropriateness for intended use.
     ///
     /// [CurrentUse](https://ddwiki.reso.org/display/DDW17/CurrentUse+Field)
     #[serde(rename = "CurrentUse", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_current_use_format")]
-    pub current_use: Option<Vec<CurrentUse>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub current_use: Option<Vec<crate::CurrentUse>>,
 
     /// Department of Housing decal number for the mobile or manufactured home.  For the first or only unit/section use DOH 1 over DOH 2 or 3.
     ///
@@ -1468,14 +1467,14 @@ pub struct Property {
     ///
     /// [DevelopmentStatus](https://ddwiki.reso.org/display/DDW17/DevelopmentStatus+Field)
     #[serde(rename = "DevelopmentStatus", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_development_status_format")]
-    pub development_status: Option<Vec<DevelopmentStatus>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub development_status: Option<Vec<crate::DevelopmentStatus>>,
 
     /// The compass direction that the main entrance to the building faces. For example, North, South, East, West, South-West, etc. It may also be known as the building exposure.
     ///
     /// [DirectionFaces](https://ddwiki.reso.org/display/DDW17/DirectionFaces+Field)
     #[serde(rename = "DirectionFaces", skip_serializing_if = "Option::is_none")]
-    pub direction_faces: Option<DirectionFaces>,
+    pub direction_faces: Option<crate::DirectionFaces>,
 
     /// Driving directions to the property.
     ///
@@ -1517,7 +1516,7 @@ pub struct Property {
     ///
     /// [DistanceToBusUnits](https://ddwiki.reso.org/display/DDW17/DistanceToBusUnits+Field)
     #[serde(rename = "DistanceToBusUnits", skip_serializing_if = "Option::is_none")]
-    pub distance_to_bus_units: Option<LinearUnits>,
+    pub distance_to_bus_units: Option<crate::LinearUnits>,
 
     /// If the property does not currently have electrical utility, is service available and if so, what is the distance.
     ///
@@ -1544,7 +1543,7 @@ pub struct Property {
         rename = "DistanceToElectricUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_electric_units: Option<LinearUnits>,
+    pub distance_to_electric_units: Option<crate::LinearUnits>,
 
     /// A textual description of the distance to freeways.
     ///
@@ -1571,7 +1570,7 @@ pub struct Property {
         rename = "DistanceToFreewayUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_freeway_units: Option<LinearUnits>,
+    pub distance_to_freeway_units: Option<crate::LinearUnits>,
 
     /// If the property does not currently have natural gas utility, is service available and if so, what is the distance.
     ///
@@ -1595,7 +1594,7 @@ pub struct Property {
     ///
     /// [DistanceToGasUnits](https://ddwiki.reso.org/display/DDW17/DistanceToGasUnits+Field)
     #[serde(rename = "DistanceToGasUnits", skip_serializing_if = "Option::is_none")]
-    pub distance_to_gas_units: Option<LinearUnits>,
+    pub distance_to_gas_units: Option<crate::LinearUnits>,
 
     /// If the property does not currently have phone service, is service available and if so, what is the distance.
     ///
@@ -1622,7 +1621,7 @@ pub struct Property {
         rename = "DistanceToPhoneServiceUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_phone_service_units: Option<LinearUnits>,
+    pub distance_to_phone_service_units: Option<crate::LinearUnits>,
 
     /// A textual description of the distance to local places of worship.
     ///
@@ -1649,7 +1648,7 @@ pub struct Property {
         rename = "DistanceToPlaceofWorshipUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_placeof_worship_units: Option<LinearUnits>,
+    pub distance_to_placeof_worship_units: Option<crate::LinearUnits>,
 
     /// Distance from the property to the nearest school bus pickup point.
     ///
@@ -1676,7 +1675,7 @@ pub struct Property {
         rename = "DistanceToSchoolBusUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_school_bus_units: Option<LinearUnits>,
+    pub distance_to_school_bus_units: Option<crate::LinearUnits>,
 
     /// A textual description of the distance to local schools.
     ///
@@ -1703,7 +1702,7 @@ pub struct Property {
         rename = "DistanceToSchoolsUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_schools_units: Option<LinearUnits>,
+    pub distance_to_schools_units: Option<crate::LinearUnits>,
 
     /// If the property does not currently have sewer or septic, is sewer service available and if so, what is the distance.
     ///
@@ -1730,7 +1729,7 @@ pub struct Property {
         rename = "DistanceToSewerUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_sewer_units: Option<LinearUnits>,
+    pub distance_to_sewer_units: Option<crate::LinearUnits>,
 
     /// A description of the distance to primary shopping sources such as groceries, gasoline, clothing or department stores.
     ///
@@ -1757,7 +1756,7 @@ pub struct Property {
         rename = "DistanceToShoppingUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_shopping_units: Option<LinearUnits>,
+    pub distance_to_shopping_units: Option<crate::LinearUnits>,
 
     /// If the property does not have a maintained road or street adjacent to the lot, what are the conditions of access and distance to a maintained road.
     ///
@@ -1784,7 +1783,7 @@ pub struct Property {
         rename = "DistanceToStreetUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_street_units: Option<LinearUnits>,
+    pub distance_to_street_units: Option<crate::LinearUnits>,
 
     /// If the property does not currently have water utility, is service available and if so, what is the distance.
     ///
@@ -1811,7 +1810,7 @@ pub struct Property {
         rename = "DistanceToWaterUnits",
         skip_serializing_if = "Option::is_none"
     )]
-    pub distance_to_water_units: Option<LinearUnits>,
+    pub distance_to_water_units: Option<crate::LinearUnits>,
 
     /// A list of the Documents available for the property.  Knowing what documents are available for the property is valuable information.
     ///
@@ -1838,8 +1837,8 @@ pub struct Property {
     ///
     /// [DoorFeatures](https://ddwiki.reso.org/display/DDW17/DoorFeatures+Field)
     #[serde(rename = "DoorFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_door_features_format")]
-    pub door_features: Option<Vec<DoorFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub door_features: Option<Vec<crate::DoorFeatures>>,
 
     /// A commission arrangement in which the seller agrees to pay a specified commission to the listing broker if the property is sold through the efforts of a cooperating broker, but the seller pays the Listing broker a different commission amount if the sale occurs if:1) there is no cooperating broker involved or 2) due to the efforts of the seller directly.
     ///
@@ -1854,8 +1853,8 @@ pub struct Property {
     ///
     /// [Electric](https://ddwiki.reso.org/display/DDW17/Electric+Field)
     #[serde(rename = "Electric", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_electric_format")]
-    pub electric: Option<Vec<Electric>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub electric: Option<Vec<crate::Electric>>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -1897,7 +1896,7 @@ pub struct Property {
     ///
     /// [ElevationUnits](https://ddwiki.reso.org/display/DDW17/ElevationUnits+Field)
     #[serde(rename = "ElevationUnits", skip_serializing_if = "Option::is_none")]
-    pub elevation_units: Option<LinearUnits>,
+    pub elevation_units: Option<crate::LinearUnits>,
 
     /// A numeric field that describes the level within the structure, SFR or a unit in a building, where the main entry to the dwelling is located. When a unit has one floor it is implicit that this is also the level of the unit itself.
     ///
@@ -1921,8 +1920,8 @@ pub struct Property {
     ///
     /// [ExistingLeaseType](https://ddwiki.reso.org/display/DDW17/ExistingLeaseType+Field)
     #[serde(rename = "ExistingLeaseType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_existing_lease_type_format")]
-    pub existing_lease_type: Option<Vec<ExistingLeaseType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub existing_lease_type: Option<Vec<crate::ExistingLeaseType>>,
 
     /// The date when the listing agreement will expire.  This is the date entered by the agent reflecting when the change occurred, or will occur, contractually, not a timestamp of when the change was made in the MLS.  The expiration date of listings, prior to their expiration, cancellation, sale or lease, is confidential information and should be restricted to the agent and their managers, partners or broker.
     ///
@@ -1934,8 +1933,8 @@ pub struct Property {
     ///
     /// [ExteriorFeatures](https://ddwiki.reso.org/display/DDW17/ExteriorFeatures+Field)
     #[serde(rename = "ExteriorFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_exterior_features_format")]
-    pub exterior_features: Option<Vec<ExteriorFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub exterior_features: Option<Vec<crate::ExteriorFeatures>>,
 
     /// Specifies whether or not Farm Credit Service shares are included in the price of the property.
     ///
@@ -1950,20 +1949,20 @@ pub struct Property {
     ///
     /// [FarmLandAreaSource](https://ddwiki.reso.org/display/DDW17/FarmLandAreaSource+Field)
     #[serde(rename = "FarmLandAreaSource", skip_serializing_if = "Option::is_none")]
-    pub farm_land_area_source: Option<AreaSource>,
+    pub farm_land_area_source: Option<crate::AreaSource>,
 
     /// A pick list of the unit of measurement for the area.  i.e. Square Feet, Square Meters, Acres, etc.  This field applies to all farm area fields (Cultivated, Pasture, Range, Wooded)
     ///
     /// [FarmLandAreaUnits](https://ddwiki.reso.org/display/DDW17/FarmLandAreaUnits+Field)
     #[serde(rename = "FarmLandAreaUnits", skip_serializing_if = "Option::is_none")]
-    pub farm_land_area_units: Option<AreaUnits>,
+    pub farm_land_area_units: Option<crate::AreaUnits>,
 
     /// A list of types of fencing found at the property being sold.
     ///
     /// [Fencing](https://ddwiki.reso.org/display/DDW17/Fencing+Field)
     #[serde(rename = "Fencing", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_fencing_format")]
-    pub fencing: Option<Vec<Fencing>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub fencing: Option<Vec<crate::Fencing>>,
 
     /// The source of the Rental information. For example Accountant, Owner, etc.
     ///
@@ -1972,15 +1971,15 @@ pub struct Property {
         rename = "FinancialDataSource",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_financial_data_source_format")]
-    pub financial_data_source: Option<Vec<FinancialDataSource>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub financial_data_source: Option<Vec<crate::FinancialDataSource>>,
 
     /// A list of features or description of the fireplace(s) included in the sale/lease.
     ///
     /// [FireplaceFeatures](https://ddwiki.reso.org/display/DDW17/FireplaceFeatures+Field)
     #[serde(rename = "FireplaceFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_fireplace_features_format")]
-    pub fireplace_features: Option<Vec<FireplaceFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub fireplace_features: Option<Vec<crate::FireplaceFeatures>>,
 
     /// Does the property include a fireplace.
     ///
@@ -1998,8 +1997,8 @@ pub struct Property {
     ///
     /// [Flooring](https://ddwiki.reso.org/display/DDW17/Flooring+Field)
     #[serde(rename = "Flooring", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_flooring_format")]
-    pub flooring: Option<Vec<Flooring>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub flooring: Option<Vec<crate::Flooring>>,
 
     /// The area or dimensions of the footprint of the structure on the lot.
     ///
@@ -2011,8 +2010,8 @@ pub struct Property {
     ///
     /// [FoundationDetails](https://ddwiki.reso.org/display/DDW17/FoundationDetails+Field)
     #[serde(rename = "FoundationDetails", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_foundation_details_format")]
-    pub foundation_details: Option<Vec<FoundationDetails>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub foundation_details: Option<Vec<crate::FoundationDetails>>,
 
     /// Textual description of the length of the frontages selected in the Frontage Type field.
     ///
@@ -2024,8 +2023,8 @@ pub struct Property {
     ///
     /// [FrontageType](https://ddwiki.reso.org/display/DDW17/FrontageType+Field)
     #[serde(rename = "FrontageType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_frontage_type_format")]
-    pub frontage_type: Option<Vec<FrontageType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub frontage_type: Option<Vec<crate::FrontageType>>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -2037,7 +2036,7 @@ pub struct Property {
     ///
     /// [Furnished](https://ddwiki.reso.org/display/DDW17/Furnished+Field)
     #[serde(rename = "Furnished", skip_serializing_if = "Option::is_none")]
-    pub furnished: Option<Furnished>,
+    pub furnished: Option<crate::Furnished>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -2109,8 +2108,8 @@ pub struct Property {
         rename = "GreenBuildingVerificationType",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_building_verification_type_format")]
-    pub green_building_verification_type: Option<Vec<GreenBuildingVerificationType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_building_verification_type: Option<Vec<crate::GreenBuildingVerificationType>>,
 
     /// Pick list of general green attributes such as energy efficient doors, or appliances without naming specific elements with ratings that may wane over time.
     ///
@@ -2119,8 +2118,8 @@ pub struct Property {
         rename = "GreenEnergyEfficient",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_energy_efficient_format")]
-    pub green_energy_efficient: Option<Vec<GreenEnergyEfficient>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_energy_efficient: Option<Vec<crate::GreenEnergyEfficient>>,
 
     /// Methods of generating power that are included in the sale or lease.
     ///
@@ -2129,8 +2128,8 @@ pub struct Property {
         rename = "GreenEnergyGeneration",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_energy_generation_format")]
-    pub green_energy_generation: Option<Vec<GreenEnergyGeneration>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_energy_generation: Option<Vec<crate::GreenEnergyGeneration>>,
 
     /// Pick list of indoor air quality measures without naming specific elements with ratings that may wane over time.
     ///
@@ -2139,8 +2138,8 @@ pub struct Property {
         rename = "GreenIndoorAirQuality",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_indoor_air_quality_format")]
-    pub green_indoor_air_quality: Option<Vec<GreenIndoorAirQuality>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_indoor_air_quality: Option<Vec<crate::GreenIndoorAirQuality>>,
 
     /// Pick list describing efficiencies involved with the property's location such as walkability or transportation proximity without naming specific elements with ratings that may wane over time.
     ///
@@ -2155,8 +2154,8 @@ pub struct Property {
         rename = "GreenSustainability",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_sustainability_format")]
-    pub green_sustainability: Option<Vec<GreenSustainability>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_sustainability: Option<Vec<crate::GreenSustainability>>,
 
     /// Pick list of general water conserving attributes of the property such as landscaping or reclamation without naming specific elements with ratings that may wane over time.
     ///
@@ -2165,8 +2164,8 @@ pub struct Property {
         rename = "GreenWaterConservation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_green_water_conservation_format")]
-    pub green_water_conservation: Option<Vec<GreenWaterConservation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub green_water_conservation: Option<Vec<crate::GreenWaterConservation>>,
 
     /// The actual current income from rent and all other revenue generating sources.
     ///
@@ -2196,8 +2195,8 @@ pub struct Property {
     ///
     /// [Heating](https://ddwiki.reso.org/display/DDW17/Heating+Field)
     #[serde(rename = "Heating", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_heating_format")]
-    pub heating: Option<Vec<Heating>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub heating: Option<Vec<crate::Heating>>,
 
     /// The property has heating.
     ///
@@ -2227,8 +2226,8 @@ pub struct Property {
     ///
     /// [HorseAmenities](https://ddwiki.reso.org/display/DDW17/HorseAmenities+Field)
     #[serde(rename = "HorseAmenities", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_horse_amenities_format")]
-    pub horse_amenities: Option<Vec<HorseAmenities>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub horse_amenities: Option<Vec<crate::HorseAmenities>>,
 
     /// The Property is allowed to raise horses.
     ///
@@ -2243,8 +2242,8 @@ pub struct Property {
         rename = "HoursDaysOfOperation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_hours_days_of_operation_format")]
-    pub hours_days_of_operation: Option<Vec<HoursDaysOfOperation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub hours_days_of_operation: Option<Vec<crate::HoursDaysOfOperation>>,
 
     /// A detailed description of the hours and days the business being sold is open for business. For a specific list of simplified times the business is open, use the HoursDaysOfOperation Field (enumerated).
     ///
@@ -2265,8 +2264,8 @@ pub struct Property {
     ///
     /// [IncomeIncludes](https://ddwiki.reso.org/display/DDW17/IncomeIncludes+Field)
     #[serde(rename = "IncomeIncludes", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_income_includes_format")]
-    pub income_includes: Option<Vec<IncomeIncludes>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub income_includes: Option<Vec<crate::IncomeIncludes>>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -2278,8 +2277,8 @@ pub struct Property {
     ///
     /// [InteriorFeatures](https://ddwiki.reso.org/display/DDW17/InteriorFeatures+Field)
     #[serde(rename = "InteriorFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_interior_or_room_features_format")]
-    pub interior_features: Option<Vec<InteriorOrRoomFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub interior_features: Option<Vec<crate::InteriorOrRoomFeatures>>,
 
     /// A yes/no field that states the seller has allowed the listing address to be displayed on Internet sites.
     ///
@@ -2345,8 +2344,8 @@ pub struct Property {
     ///
     /// [LaborInformation](https://ddwiki.reso.org/display/DDW17/LaborInformation+Field)
     #[serde(rename = "LaborInformation", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_labor_information_format")]
-    pub labor_information: Option<Vec<LaborInformation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub labor_information: Option<Vec<crate::LaborInformation>>,
 
     /// When the land is not included in the sale, but is leased, the amount of the lease.  This is the Space Rent for Mobile homes in a Park.
     ///
@@ -2361,7 +2360,7 @@ pub struct Property {
         rename = "LandLeaseAmountFrequency",
         skip_serializing_if = "Option::is_none"
     )]
-    pub land_lease_amount_frequency: Option<FeeFrequency>,
+    pub land_lease_amount_frequency: Option<crate::FeeFrequency>,
 
     /// When the land is not included in the sale, but is leased, the expiration date of the Land Lease.
     ///
@@ -2388,8 +2387,8 @@ pub struct Property {
     ///
     /// [LaundryFeatures](https://ddwiki.reso.org/display/DDW17/LaundryFeatures+Field)
     #[serde(rename = "LaundryFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_laundry_features_format")]
-    pub laundry_features: Option<Vec<LaundryFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub laundry_features: Option<Vec<crate::LaundryFeatures>>,
 
     /// The area that may be leased within the commercial property.
     ///
@@ -2401,7 +2400,7 @@ pub struct Property {
     ///
     /// [LeasableAreaUnits](https://ddwiki.reso.org/display/DDW17/LeasableAreaUnits+Field)
     #[serde(rename = "LeasableAreaUnits", skip_serializing_if = "Option::is_none")]
-    pub leasable_area_units: Option<AreaUnits>,
+    pub leasable_area_units: Option<crate::AreaUnits>,
 
     /// The amount of any lease the business pays for it's current location.
     ///
@@ -2416,7 +2415,7 @@ pub struct Property {
         rename = "LeaseAmountFrequency",
         skip_serializing_if = "Option::is_none"
     )]
-    pub lease_amount_frequency: Option<FeeFrequency>,
+    pub lease_amount_frequency: Option<crate::FeeFrequency>,
 
     /// Can the lease at the business' current location be assigned to another party.
     ///
@@ -2443,8 +2442,8 @@ pub struct Property {
         rename = "LeaseRenewalCompensation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_lease_renewal_compensation_format")]
-    pub lease_renewal_compensation: Option<Vec<LeaseRenewalCompensation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub lease_renewal_compensation: Option<Vec<crate::LeaseRenewalCompensation>>,
 
     /// Is there an option to renew the lease at the business' current location.
     ///
@@ -2459,14 +2458,14 @@ pub struct Property {
     ///
     /// [LeaseTerm](https://ddwiki.reso.org/display/DDW17/LeaseTerm+Field)
     #[serde(rename = "LeaseTerm", skip_serializing_if = "Option::is_none")]
-    pub lease_term: Option<LeaseTerm>,
+    pub lease_term: Option<crate::LeaseTerm>,
 
     /// The number of levels in the property being sold. For example, One Level, Two Levels, Three or More Levels, <a href="http://ddwiki.reso.org/pages/viewpage.action?pageId=9941240">Multi/Split</a>, Loft. A discreet horizontal plane of interior living space (excluding basements).
     ///
     /// [Levels](https://ddwiki.reso.org/display/DDW17/Levels+Field)
     #[serde(rename = "Levels", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_levels_format")]
-    pub levels: Option<Vec<Levels>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub levels: Option<Vec<crate::Levels>>,
 
     /// License number of the mobile or manufactured home.  Also known as the Department of Housing label/insignia number. For the first or only unit/section use License 1 over License 2 or 3.
     ///
@@ -2511,8 +2510,8 @@ pub struct Property {
         rename = "ListAgentDesignation",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_list_agent_designation_format")]
-    pub list_agent_designation: Option<Vec<ListAgentDesignation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub list_agent_designation: Option<Vec<crate::ListAgentDesignation>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -2794,7 +2793,7 @@ pub struct Property {
     ///
     /// [ListingAgreement](https://ddwiki.reso.org/display/DDW17/ListingAgreement+Field)
     #[serde(rename = "ListingAgreement", skip_serializing_if = "Option::is_none")]
-    pub listing_agreement: Option<ListingAgreement>,
+    pub listing_agreement: Option<crate::ListingAgreement>,
 
     /// The effective date of the agreement between the seller and the seller's broker. This is the date entered by the agent reflecting when the change occurred contractually, not a timestamp of when the change was made in the MLS.
     ///
@@ -2827,14 +2826,14 @@ pub struct Property {
     ///
     /// [ListingService](https://ddwiki.reso.org/display/DDW17/ListingService+Field)
     #[serde(rename = "ListingService", skip_serializing_if = "Option::is_none")]
-    pub listing_service: Option<ListingService>,
+    pub listing_service: Option<crate::ListingService>,
 
     /// Terms of the listing such as Lien Release, Subject to Court Approval or Owner Will Carry. Also may include options that describe the financing terms that are acceptable to the seller, i.e. cash, assumable, FHA loan, etc.
     ///
     /// [ListingTerms](https://ddwiki.reso.org/display/DDW17/ListingTerms+Field)
     #[serde(rename = "ListingTerms", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_listing_terms_format")]
-    pub listing_terms: Option<Vec<ListingTerms>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub listing_terms: Option<Vec<crate::ListingTerms>>,
 
     /// The total livable area within the structure.
     ///
@@ -2846,13 +2845,13 @@ pub struct Property {
     ///
     /// [LivingAreaSource](https://ddwiki.reso.org/display/DDW17/LivingAreaSource+Field)
     #[serde(rename = "LivingAreaSource", skip_serializing_if = "Option::is_none")]
-    pub living_area_source: Option<AreaSource>,
+    pub living_area_source: Option<crate::AreaSource>,
 
     /// A pick list of the unit of measurement for the area.  i.e. Square Feet, Square Meters, Acres, etc.
     ///
     /// [LivingAreaUnits](https://ddwiki.reso.org/display/DDW17/LivingAreaUnits+Field)
     #[serde(rename = "LivingAreaUnits", skip_serializing_if = "Option::is_none")]
-    pub living_area_units: Option<AreaUnits>,
+    pub living_area_units: Option<crate::AreaUnits>,
 
     /// A field describing the location of the lock box.
     ///
@@ -2873,8 +2872,8 @@ pub struct Property {
     ///
     /// [LockBoxType](https://ddwiki.reso.org/display/DDW17/LockBoxType+Field)
     #[serde(rename = "LockBoxType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_lock_box_type_format")]
-    pub lock_box_type: Option<Vec<LockBoxType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub lock_box_type: Option<Vec<crate::LockBoxType>>,
 
     /// The geographic longitude of some reference point on the property, specified in degrees and decimal parts. Positive numbers must not include the plus symbol.
     ///
@@ -2889,14 +2888,14 @@ pub struct Property {
         rename = "LotDimensionsSource",
         skip_serializing_if = "Option::is_none"
     )]
-    pub lot_dimensions_source: Option<LotDimensionsSource>,
+    pub lot_dimensions_source: Option<crate::LotDimensionsSource>,
 
     /// A list of features or description of the lot included in the sale/lease.
     ///
     /// [LotFeatures](https://ddwiki.reso.org/display/DDW17/LotFeatures+Field)
     #[serde(rename = "LotFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_lot_features_format")]
-    pub lot_features: Option<Vec<LotFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub lot_features: Option<Vec<crate::LotFeatures>>,
 
     /// The total Acres of the lot.  This field is related to the Lot Size Area and Lot Size Units and must be in sync with the values represented in those fields.  Lot Size Source also applies to this field when used.
     ///
@@ -2920,7 +2919,7 @@ pub struct Property {
     ///
     /// [LotSizeSource](https://ddwiki.reso.org/display/DDW17/LotSizeSource+Field)
     #[serde(rename = "LotSizeSource", skip_serializing_if = "Option::is_none")]
-    pub lot_size_source: Option<LotSizeSource>,
+    pub lot_size_source: Option<crate::LotSizeSource>,
 
     /// The total square footage of the lot.  This field is related to the Lot Size Area and Lot Size Units and must be in sync with the values represented in those fields.  Lot Size Source also applies to this field when used.
     ///
@@ -2932,7 +2931,7 @@ pub struct Property {
     ///
     /// [LotSizeUnits](https://ddwiki.reso.org/display/DDW17/LotSizeUnits+Field)
     #[serde(rename = "LotSizeUnits", skip_serializing_if = "Option::is_none")]
-    pub lot_size_units: Option<LotSizeUnits>,
+    pub lot_size_units: Option<crate::LotSizeUnits>,
 
     /// The major marketing area name, as defined by the MLS or other non-governmental organization.  If there is only one MLS Area in use, it must be the MLSAreaMajor.
     ///
@@ -2977,7 +2976,7 @@ pub struct Property {
     ///
     /// [MajorChangeType](https://ddwiki.reso.org/display/DDW17/MajorChangeType+Field)
     #[serde(rename = "MajorChangeType", skip_serializing_if = "Option::is_none")]
-    pub major_change_type: Option<ChangeType>,
+    pub major_change_type: Option<crate::ChangeType>,
 
     /// Make of the mobile or manufactured home.
     ///
@@ -3040,7 +3039,7 @@ pub struct Property {
     ///
     /// [MobileDimUnits](https://ddwiki.reso.org/display/DDW17/MobileDimUnits+Field)
     #[serde(rename = "MobileDimUnits", skip_serializing_if = "Option::is_none")]
-    pub mobile_dim_units: Option<LinearUnits>,
+    pub mobile_dim_units: Option<crate::LinearUnits>,
 
     /// Is the mobile home to remain and be included in the sale of the property.
     ///
@@ -3214,7 +3213,7 @@ pub struct Property {
     ///
     /// [OccupantType](https://ddwiki.reso.org/display/DDW17/OccupantType+Field)
     #[serde(rename = "OccupantType", skip_serializing_if = "Option::is_none")]
-    pub occupant_type: Option<OccupantType>,
+    pub occupant_type: Option<crate::OccupantType>,
 
     /// The date the listing was taken off market. Where possible, this date is reflective of the date entered by the agent reflecting when the change occurred contractually, not a timestamp of when the change was made in the MLS.
     ///
@@ -3265,8 +3264,8 @@ pub struct Property {
         rename = "OperatingExpenseIncludes",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_operating_expense_includes_format")]
-    pub operating_expense_includes: Option<Vec<OperatingExpenseIncludes>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub operating_expense_includes: Option<Vec<crate::OperatingExpenseIncludes>>,
 
     /// The transactional timestamp automatically recorded by the MLS system representing the date/time the listing was entered and made visible to members of the MLS.
     ///
@@ -3314,8 +3313,8 @@ pub struct Property {
     ///
     /// [OtherEquipment](https://ddwiki.reso.org/display/DDW17/OtherEquipment+Field)
     #[serde(rename = "OtherEquipment", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_other_equipment_format")]
-    pub other_equipment: Option<Vec<OtherEquipment>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub other_equipment: Option<Vec<crate::OtherEquipment>>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -3333,8 +3332,8 @@ pub struct Property {
     ///
     /// [OtherStructures](https://ddwiki.reso.org/display/DDW17/OtherStructures+Field)
     #[serde(rename = "OtherStructures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_other_structures_format")]
-    pub other_structures: Option<Vec<OtherStructures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub other_structures: Option<Vec<crate::OtherStructures>>,
 
     /// Name of the owner of the property being sold.
     ///
@@ -3346,8 +3345,8 @@ pub struct Property {
     ///
     /// [OwnerPays](https://ddwiki.reso.org/display/DDW17/OwnerPays+Field)
     #[serde(rename = "OwnerPays", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_owner_pays_format")]
-    pub owner_pays: Option<Vec<OwnerPays>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub owner_pays: Option<Vec<crate::OwnerPays>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens).  Other conventions should use the common local standard.  International numbers should be preceded by a plus symbol.
     ///
@@ -3365,7 +3364,7 @@ pub struct Property {
     ///
     /// [OwnershipType](https://ddwiki.reso.org/display/DDW17/OwnershipType+Field)
     #[serde(rename = "OwnershipType", skip_serializing_if = "Option::is_none")]
-    pub ownership_type: Option<OwnershipType>,
+    pub ownership_type: Option<crate::OwnershipType>,
 
     /// A number used to uniquely identify a parcel or lot.  This number is typically issued by the county or county assessor.  The AP number format varies from county to county.  It is recommended that all Parcel Numbers be transmitted without dashes or hyphens.
     ///
@@ -3395,8 +3394,8 @@ pub struct Property {
     ///
     /// [ParkingFeatures](https://ddwiki.reso.org/display/DDW17/ParkingFeatures+Field)
     #[serde(rename = "ParkingFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_parking_features_format")]
-    pub parking_features: Option<Vec<ParkingFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub parking_features: Option<Vec<crate::ParkingFeatures>>,
 
     /// The total number of parking spaces included in the sale.
     ///
@@ -3417,8 +3416,8 @@ pub struct Property {
         rename = "PatioAndPorchFeatures",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_patio_and_porch_features_format")]
-    pub patio_and_porch_features: Option<Vec<PatioAndPorchFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub patio_and_porch_features: Option<Vec<crate::PatioAndPorchFeatures>>,
 
     /// The transactional timestamp automatically recorded by the MLS system representing the most recent date/time the listing's status was set to Pending.
     ///
@@ -3436,8 +3435,8 @@ pub struct Property {
     ///
     /// [PetsAllowed](https://ddwiki.reso.org/display/DDW17/PetsAllowed+Field)
     #[serde(rename = "PetsAllowed", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_pets_allowed_format")]
-    pub pets_allowed: Option<Vec<PetsAllowed>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub pets_allowed: Option<Vec<crate::PetsAllowed>>,
 
     /// System generated timestamp of when the last update or change to the photos for this listing was made.
     ///
@@ -3464,8 +3463,8 @@ pub struct Property {
     ///
     /// [PoolFeatures](https://ddwiki.reso.org/display/DDW17/PoolFeatures+Field)
     #[serde(rename = "PoolFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_pool_features_format")]
-    pub pool_features: Option<Vec<PoolFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub pool_features: Option<Vec<crate::PoolFeatures>>,
 
     /// The property has a privately owned pool that is included in the sale/lease.
     ///
@@ -3477,15 +3476,15 @@ pub struct Property {
     ///
     /// [Possession](https://ddwiki.reso.org/display/DDW17/Possession+Field)
     #[serde(rename = "Possession", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_possession_format")]
-    pub possession: Option<Vec<Possession>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub possession: Option<Vec<crate::Possession>>,
 
     /// A list of the type(s) of possible or best uses of the property. Probable use gives a good indication of what the best use or potential use of the property could be. i.e. Primary, Vacation, Investment, Rental, Retirement
     ///
     /// [PossibleUse](https://ddwiki.reso.org/display/DDW17/PossibleUse+Field)
     #[serde(rename = "PossibleUse", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_possible_use_format")]
-    pub possible_use: Option<Vec<PossibleUse>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub possible_use: Option<Vec<crate::PossibleUse>>,
 
     /// The official city per the USPS.  May be different from the "City".
     ///
@@ -3518,8 +3517,8 @@ pub struct Property {
         rename = "PowerProductionType",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_power_production_type_format")]
-    pub power_production_type: Option<Vec<PowerProductionType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub power_production_type: Option<Vec<crate::PowerProductionType>>,
 
     /// The most recent previous ListPrice of the listing.
     ///
@@ -3570,20 +3569,20 @@ pub struct Property {
     ///
     /// [PropertyCondition](https://ddwiki.reso.org/display/DDW17/PropertyCondition+Field)
     #[serde(rename = "PropertyCondition", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_property_condition_format")]
-    pub property_condition: Option<Vec<PropertyCondition>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub property_condition: Option<Vec<crate::PropertyCondition>>,
 
     /// A list of types of residential and residential lease properties, i.e. SFR, Condo, etc. Or a list of Sub Types for Mobile, such as Expando, Manufactured, Modular, etc.
     ///
     /// [PropertySubType](https://ddwiki.reso.org/display/DDW17/PropertySubType+Field)
     #[serde(rename = "PropertySubType", skip_serializing_if = "Option::is_none")]
-    pub property_sub_type: Option<PropertySubType>,
+    pub property_sub_type: Option<crate::PropertySubType>,
 
     /// A list of types of properties such as Residential, Lease, Income, Land, Mobile, Commercial Sale, etc...
     ///
     /// [PropertyType](https://ddwiki.reso.org/display/DDW17/PropertyType+Field)
     #[serde(rename = "PropertyType", skip_serializing_if = "Option::is_none")]
-    pub property_type: Option<PropertyType>,
+    pub property_type: Option<crate::PropertyType>,
 
     /// Text remarks that may be displayed to the public. In an MLS, it is the field where information is entered for the public. This information is intended to be visible on-line. This is typically information that describes the selling points of the building and/or land for sale. Local conditions and rules will determine what such content can contain. Generally, the following information is excluded: any information pertaining to entry to the property, the seller and/or tenant, listing member contact information. In other systems, these remarks will be determined by local business rules.
     ///
@@ -3649,43 +3648,43 @@ pub struct Property {
     ///
     /// [RentIncludes](https://ddwiki.reso.org/display/DDW17/RentIncludes+Field)
     #[serde(rename = "RentIncludes", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_rent_includes_format")]
-    pub rent_includes: Option<Vec<RentIncludes>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub rent_includes: Option<Vec<crate::RentIncludes>>,
 
     /// Pick list of types of Road frontage. i.e. Freeway frontage, No Road Frontage, etc. The road frontage of the property is an important factor in determining value of the property and it’s appropriateness for intended use.
     ///
     /// [RoadFrontageType](https://ddwiki.reso.org/display/DDW17/RoadFrontageType+Field)
     #[serde(rename = "RoadFrontageType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_road_frontage_type_format")]
-    pub road_frontage_type: Option<Vec<RoadFrontageType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub road_frontage_type: Option<Vec<crate::RoadFrontageType>>,
 
     /// The person or entity responsible for road maintenance (e.g., City, County, Private).
     ///
     /// [RoadResponsibility](https://ddwiki.reso.org/display/DDW17/RoadResponsibility+Field)
     #[serde(rename = "RoadResponsibility", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_road_responsibility_format")]
-    pub road_responsibility: Option<Vec<RoadResponsibility>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub road_responsibility: Option<Vec<crate::RoadResponsibility>>,
 
     /// Pick list of types of surface of the Road to access the property. The surface of the road(s) for access to the property is an important factor in determining value of the property and it’s appropriateness for intended use.
     ///
     /// [RoadSurfaceType](https://ddwiki.reso.org/display/DDW17/RoadSurfaceType+Field)
     #[serde(rename = "RoadSurfaceType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_road_surface_type_format")]
-    pub road_surface_type: Option<Vec<RoadSurfaceType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub road_surface_type: Option<Vec<crate::RoadSurfaceType>>,
 
     /// A list describing the type or style of roof.  For example Spanish Tile, Composite, Shake, etc.
     ///
     /// [Roof](https://ddwiki.reso.org/display/DDW17/Roof+Field)
     #[serde(rename = "Roof", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_roof_format")]
-    pub roof: Option<Vec<Roof>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub roof: Option<Vec<crate::Roof>>,
 
     /// This field is a list of the types used in the rooms repeating elements. The Type is a list of possible room types. i.e. Bedroom, Bathroom, Living Room, Workshop, etc. Each selected are expected to appear as the "[type]" in the related rooms fields in a flattened implementation (RETS 1.x only) of the room fields. A relational implementation of rooms must omit the type from the field name and use RoomType to create a vertical representation of the various rooms. **Note that Garage or Basement should not be added as a room type and are represented by the ParkingFeatures and Basement fields respectively.
     ///
     /// [RoomType](https://ddwiki.reso.org/display/DDW17/RoomType+Field)
     #[serde(rename = "RoomType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_room_type_format")]
-    pub room_type: Option<Vec<RoomType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub room_type: Option<Vec<crate::RoomType>>,
 
     /// A collection of types of rooms and details/features about the given room.
     ///
@@ -3709,8 +3708,8 @@ pub struct Property {
     ///
     /// [SecurityFeatures](https://ddwiki.reso.org/display/DDW17/SecurityFeatures+Field)
     #[serde(rename = "SecurityFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_security_features_format")]
-    pub security_features: Option<Vec<SecurityFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub security_features: Option<Vec<crate::SecurityFeatures>>,
 
     /// The community is a senior community.
     ///
@@ -3740,8 +3739,8 @@ pub struct Property {
     ///
     /// [Sewer](https://ddwiki.reso.org/display/DDW17/Sewer+Field)
     #[serde(rename = "Sewer", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_sewer_format")]
-    pub sewer: Option<Vec<Sewer>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub sewer: Option<Vec<crate::Sewer>>,
 
     /// The hours of advance notice required to schedule a showing.
     ///
@@ -3786,8 +3785,8 @@ pub struct Property {
     ///
     /// [ShowingContactType](https://ddwiki.reso.org/display/DDW17/ShowingContactType+Field)
     #[serde(rename = "ShowingContactType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_showing_contact_type_format")]
-    pub showing_contact_type: Option<Vec<ShowingContactType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub showing_contact_type: Option<Vec<crate::ShowingContactType>>,
 
     /// The days of the week that the property is available for showing.  i.e. Sundays, Mondays, Tuesdays, Wednesdays, Thursdays, Fridays, Saturdays
     ///
@@ -3817,8 +3816,8 @@ pub struct Property {
         rename = "ShowingRequirements",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_showing_requirements_format")]
-    pub showing_requirements: Option<Vec<ShowingRequirements>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub showing_requirements: Option<Vec<crate::ShowingRequirements>>,
 
     /// From the days selected in the ShowingDays field, the start time that the property is available for showing.
     ///
@@ -3836,8 +3835,8 @@ pub struct Property {
     ///
     /// [Skirt](https://ddwiki.reso.org/display/DDW17/Skirt+Field)
     #[serde(rename = "Skirt", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_skirt_format")]
-    pub skirt: Option<Vec<Skirt>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub skirt: Option<Vec<crate::Skirt>>,
 
     /// The RESO OUID's OrganizationUniqueId of the Source record provider. The source system is the system from which the record was directly received. In cases where the source system was not where the record originated (the authoritative system), see the Originating System fields.
     ///
@@ -3861,8 +3860,8 @@ pub struct Property {
     ///
     /// [SpaFeatures](https://ddwiki.reso.org/display/DDW17/SpaFeatures+Field)
     #[serde(rename = "SpaFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_spa_features_format")]
-    pub spa_features: Option<Vec<SpaFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub spa_features: Option<Vec<crate::SpaFeatures>>,
 
     /// The property has a spa.
     ///
@@ -3874,8 +3873,8 @@ pub struct Property {
     ///
     /// [SpecialLicenses](https://ddwiki.reso.org/display/DDW17/SpecialLicenses+Field)
     #[serde(rename = "SpecialLicenses", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_special_licenses_format")]
-    pub special_licenses: Option<Vec<SpecialLicenses>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub special_licenses: Option<Vec<crate::SpecialLicenses>>,
 
     /// A list of options that describe the type of sale.  i.e. Standard, REO, Short Sale, Probate, Auction, NOD, etc., at the time of listing.
     ///
@@ -3884,20 +3883,20 @@ pub struct Property {
         rename = "SpecialListingConditions",
         skip_serializing_if = "Option::is_none"
     )]
-    #[serde(default, with = "option_vec_special_listing_conditions_format")]
-    pub special_listing_conditions: Option<Vec<SpecialListingConditions>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub special_listing_conditions: Option<Vec<crate::SpecialListingConditions>>,
 
     /// The status of the listing as it reflects the state of the contract between the listing agent and seller or an agreement with a buyer (Active, Active Under Contract, Canceled, Closed, Expired, Pending, Withdrawn).  This is a Single Select field.
     ///
     /// [StandardStatus](https://ddwiki.reso.org/display/DDW17/StandardStatus+Field)
     #[serde(rename = "StandardStatus", skip_serializing_if = "Option::is_none")]
-    pub standard_status: Option<StandardStatus>,
+    pub standard_status: Option<crate::StandardStatus>,
 
     /// Text field containing the accepted postal abbreviation for the state or province.
     ///
     /// [StateOrProvince](https://ddwiki.reso.org/display/DDW17/StateOrProvince+Field)
     #[serde(rename = "StateOrProvince", skip_serializing_if = "Option::is_none")]
-    pub state_or_province: Option<StateOrProvince>,
+    pub state_or_province: Option<crate::StateOrProvince>,
 
     /// A sub-section or area of a defined state or province.  Examples would be the Keys in FL or Hudson Valley in NY.
     ///
@@ -3939,13 +3938,13 @@ pub struct Property {
     ///
     /// [StreetDirPrefix](https://ddwiki.reso.org/display/DDW17/StreetDirPrefix+Field)
     #[serde(rename = "StreetDirPrefix", skip_serializing_if = "Option::is_none")]
-    pub street_dir_prefix: Option<StreetDirection>,
+    pub street_dir_prefix: Option<crate::StreetDirection>,
 
     /// The direction indicator that follows a listed property's street address.
     ///
     /// [StreetDirSuffix](https://ddwiki.reso.org/display/DDW17/StreetDirSuffix+Field)
     #[serde(rename = "StreetDirSuffix", skip_serializing_if = "Option::is_none")]
-    pub street_dir_suffix: Option<StreetDirection>,
+    pub street_dir_suffix: Option<crate::StreetDirection>,
 
     /// The street name portion of a listed property's street address.
     ///
@@ -3987,8 +3986,8 @@ pub struct Property {
     ///
     /// [StructureType](https://ddwiki.reso.org/display/DDW17/StructureType+Field)
     #[serde(rename = "StructureType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_structure_type_format")]
-    pub structure_type: Option<Vec<StructureType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub structure_type: Option<Vec<crate::StructureType>>,
 
     /// The total commission to be paid to the Sub Agency, expressed as either a percentage or a constant currency amount.
     ///
@@ -4006,7 +4005,7 @@ pub struct Property {
         rename = "SubAgencyCompensationType",
         skip_serializing_if = "Option::is_none"
     )]
-    pub sub_agency_compensation_type: Option<CompensationType>,
+    pub sub_agency_compensation_type: Option<crate::CompensationType>,
 
     /// A neighborhood, community, complex or builder tract.
     ///
@@ -4024,8 +4023,8 @@ pub struct Property {
     ///
     /// [SyndicateTo](https://ddwiki.reso.org/display/DDW17/SyndicateTo+Field)
     #[serde(rename = "SyndicateTo", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_syndicate_to_format")]
-    pub syndicate_to: Option<Vec<SyndicateTo>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub syndicate_to: Option<Vec<crate::SyndicateTo>>,
 
     /// Becoming more common in the industry, MLS's are hosting a separate "Public Remarks" for syndication purposes.  This field should be defaulted to containing the Public Remarks, but upon broker decision, modified to include contact and other information denied by IDX rules, but allowed under local and national regulations.
     ///
@@ -4097,8 +4096,8 @@ pub struct Property {
     ///
     /// [TaxStatusCurrent](https://ddwiki.reso.org/display/DDW17/TaxStatusCurrent+Field)
     #[serde(rename = "TaxStatusCurrent", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_tax_status_current_format")]
-    pub tax_status_current: Option<Vec<TaxStatusCurrent>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub tax_status_current: Option<Vec<crate::TaxStatusCurrent>>,
 
     /// A type of legal description for land in developed areas where streets or other rights-of-ways delineate large parcels of land referred to as divided into lots on which homes or other types of developments are built.  An example would read "Lot 12 of Block 45 of Tract 3002 of the City of San Dunes, Desert County." Such a description would also reference an official plat filed with the clerk or recorder for that area which shows the location of the block and often the dimensions of the lots therein.
     ///
@@ -4116,8 +4115,8 @@ pub struct Property {
     ///
     /// [TenantPays](https://ddwiki.reso.org/display/DDW17/TenantPays+Field)
     #[serde(rename = "TenantPays", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_tenant_pays_format")]
-    pub tenant_pays: Option<Vec<TenantPays>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub tenant_pays: Option<Vec<crate::TenantPays>>,
 
     /// The state of the surface of the land included with the property.  i.e. flat, rolling, etc.
     ///
@@ -4153,7 +4152,7 @@ pub struct Property {
         rename = "TransactionBrokerCompensationType",
         skip_serializing_if = "Option::is_none"
     )]
-    pub transaction_broker_compensation_type: Option<CompensationType>,
+    pub transaction_broker_compensation_type: Option<crate::CompensationType>,
 
     /// The annual expense that is not paid directly by the tenant and is included in the Operating Expense calculations.
     ///
@@ -4171,8 +4170,8 @@ pub struct Property {
     ///
     /// [UnitTypeType](https://ddwiki.reso.org/display/DDW17/UnitTypeType+Field)
     #[serde(rename = "UnitTypeType", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_unit_type_type_format")]
-    pub unit_type_type: Option<Vec<UnitTypeType>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub unit_type_type: Option<Vec<crate::UnitTypeType>>,
 
     /// A collection of types of units included in the income (multi-family) property. The collection includes a type, beds, baths and other aspects of the type of unit behind described.
     ///
@@ -4184,7 +4183,7 @@ pub struct Property {
     ///
     /// [UnitsFurnished](https://ddwiki.reso.org/display/DDW17/UnitsFurnished+Field)
     #[serde(rename = "UnitsFurnished", skip_serializing_if = "Option::is_none")]
-    pub units_furnished: Option<UnitsFurnished>,
+    pub units_furnished: Option<crate::UnitsFurnished>,
 
     /// The Universal Property Identifier is a unique identifier for all real property in the US and Canada.  It is based on country and local identification methods and is limited to real property.  For cases such as shares of real property, units, and other more granular cases, please utilize the UniversalPropertySubId.
     ///
@@ -4214,8 +4213,8 @@ pub struct Property {
     ///
     /// [Utilities](https://ddwiki.reso.org/display/DDW17/Utilities+Field)
     #[serde(rename = "Utilities", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_utilities_format")]
-    pub utilities: Option<Vec<Utilities>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub utilities: Option<Vec<crate::Utilities>>,
 
     /// An estimate of the amount of rent that may be foregone because of unoccupied units.
     ///
@@ -4236,8 +4235,8 @@ pub struct Property {
     ///
     /// [Vegetation](https://ddwiki.reso.org/display/DDW17/Vegetation+Field)
     #[serde(rename = "Vegetation", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_vegetation_format")]
-    pub vegetation: Option<Vec<Vegetation>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub vegetation: Option<Vec<crate::Vegetation>>,
 
     /// System generated timestamp of when the last update or change to the videos for this listing was made.
     ///
@@ -4258,8 +4257,8 @@ pub struct Property {
     ///
     /// [View](https://ddwiki.reso.org/display/DDW17/View+Field)
     #[serde(rename = "View", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_view_format")]
-    pub view: Option<Vec<View>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub view: Option<Vec<crate::View>>,
 
     /// The property has a view.
     ///
@@ -4307,15 +4306,15 @@ pub struct Property {
     ///
     /// [WaterSource](https://ddwiki.reso.org/display/DDW17/WaterSource+Field)
     #[serde(rename = "WaterSource", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_water_source_format")]
-    pub water_source: Option<Vec<WaterSource>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub water_source: Option<Vec<crate::WaterSource>>,
 
     /// Features of the waterfront on which the property is located.
     ///
     /// [WaterfrontFeatures](https://ddwiki.reso.org/display/DDW17/WaterfrontFeatures+Field)
     #[serde(rename = "WaterfrontFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_waterfront_features_format")]
-    pub waterfront_features: Option<Vec<WaterfrontFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub waterfront_features: Option<Vec<crate::WaterfrontFeatures>>,
 
     /// The property is on the waterfront.
     ///
@@ -4327,8 +4326,8 @@ pub struct Property {
     ///
     /// [WindowFeatures](https://ddwiki.reso.org/display/DDW17/WindowFeatures+Field)
     #[serde(rename = "WindowFeatures", skip_serializing_if = "Option::is_none")]
-    #[serde(default, with = "option_vec_window_features_format")]
-    pub window_features: Option<Vec<WindowFeatures>>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub window_features: Option<Vec<crate::WindowFeatures>>,
 
     /// Date the listing was withdrawn from the market.  This is not when a listing contact was cancelled or closed, but a withdrawal from the market while the contract between the seller and listing agent is still in effect and an offer has not been accepted. This is the date entered by the agent reflecting when the change occurred contractually, not a timestamp of when the change was made in the MLS.
     ///
@@ -4373,7 +4372,7 @@ pub struct Property {
     ///
     /// [YearBuiltSource](https://ddwiki.reso.org/display/DDW17/YearBuiltSource+Field)
     #[serde(rename = "YearBuiltSource", skip_serializing_if = "Option::is_none")]
-    pub year_built_source: Option<YearBuiltSource>,
+    pub year_built_source: Option<crate::YearBuiltSource>,
 
     /// The year the business being sold was established.
     ///

@@ -90,6 +90,439 @@ pub enum CoBuyerAgentDesignation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CoBuyerAgentDesignation {
+    fn from_str(s: &str) -> CoBuyerAgentDesignation {
+        match s {
+            "Accredited Buyer's Representative / ABR" => {
+                CoBuyerAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => {
+                CoBuyerAgentDesignation::AccreditedLandConsultantALC
+            }
+
+            "At Home With Diversity / AHWD" => CoBuyerAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                CoBuyerAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                CoBuyerAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                CoBuyerAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => {
+                CoBuyerAgentDesignation::CertifiedPropertyManagerCPM
+            }
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                CoBuyerAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                CoBuyerAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                CoBuyerAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => CoBuyerAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => CoBuyerAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                CoBuyerAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                CoBuyerAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                CoBuyerAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => CoBuyerAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                CoBuyerAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => CoBuyerAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                CoBuyerAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                CoBuyerAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                CoBuyerAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                CoBuyerAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                CoBuyerAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                CoBuyerAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                CoBuyerAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                CoBuyerAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                CoBuyerAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => CoBuyerAgentDesignation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CoBuyerAgentDesignation {
+        match s.as_ref() {
+            "Accredited Buyer's Representative / ABR" => {
+                CoBuyerAgentDesignation::AccreditedBuyersRepresentativeABR
+            }
+
+            "Accredited Land Consultant / ALC" => {
+                CoBuyerAgentDesignation::AccreditedLandConsultantALC
+            }
+
+            "At Home With Diversity / AHWD" => CoBuyerAgentDesignation::AtHomeWithDiversityAHWD,
+
+            "Certified Commercial Investment Member / CCIM" => {
+                CoBuyerAgentDesignation::CertifiedCommercialInvestmentMemberCCIM
+            }
+
+            "Certified Distressed Property Expert / CDPE" => {
+                CoBuyerAgentDesignation::CertifiedDistressedPropertyExpertCDPE
+            }
+
+            "Certified International Property Specialist / CIPS" => {
+                CoBuyerAgentDesignation::CertifiedInternationalPropertySpecialistCIPS
+            }
+
+            "Certified Property Manager / CPM" => {
+                CoBuyerAgentDesignation::CertifiedPropertyManagerCPM
+            }
+
+            "Certified Real Estate Brokerage Manager / CRB" => {
+                CoBuyerAgentDesignation::CertifiedRealEstateBrokerageManagerCRB
+            }
+
+            "Certified Real Estate Team Specialist / C-RETS" => {
+                CoBuyerAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS
+            }
+
+            "Certified Residential Specialist / CRS" => {
+                CoBuyerAgentDesignation::CertifiedResidentialSpecialistCRS
+            }
+
+            "Counselor of Real Estate / CRE" => CoBuyerAgentDesignation::CounselorofRealEstateCRE,
+
+            "e-PRO" => CoBuyerAgentDesignation::EPRO,
+
+            "General Accredited Appraiser / GAA" => {
+                CoBuyerAgentDesignation::GeneralAccreditedAppraiserGAA
+            }
+
+            "Graduate, REALTOR Institute / GRI" => {
+                CoBuyerAgentDesignation::GraduateREALTORInstituteGRI
+            }
+
+            "Military Relocation Professional / MRP" => {
+                CoBuyerAgentDesignation::MilitaryRelocationProfessionalMRP
+            }
+
+            "NAR's Green Designation / GREEN" => CoBuyerAgentDesignation::NARsGreenDesignationGREEN,
+
+            "Performance Management Network / PMN" => {
+                CoBuyerAgentDesignation::PerformanceManagementNetworkPMN
+            }
+
+            "Pricing Strategy Advisor / PSA" => CoBuyerAgentDesignation::PricingStrategyAdvisorPSA,
+
+            "Real Estate Negotiation Expert / RENE" => {
+                CoBuyerAgentDesignation::RealEstateNegotiationExpertRENE
+            }
+
+            "REALTOR Association Certified Executive / RCE" => {
+                CoBuyerAgentDesignation::REALTORAssociationCertifiedExecutiveRCE
+            }
+
+            "Residential Accredited Appraiser / RAA" => {
+                CoBuyerAgentDesignation::ResidentialAccreditedAppraiserRAA
+            }
+
+            "Resort & Second-Home Property Specialist / RSPS" => {
+                CoBuyerAgentDesignation::ResortSecondHomePropertySpecialistRSPS
+            }
+
+            "Seller Representative Specialist / SRS" => {
+                CoBuyerAgentDesignation::SellerRepresentativeSpecialistSRS
+            }
+
+            "Seniors Real Estate Specialist / SRES" => {
+                CoBuyerAgentDesignation::SeniorsRealEstateSpecialistSRES
+            }
+
+            "Short Sales & Foreclosure Resource / SFR" => {
+                CoBuyerAgentDesignation::ShortSalesForeclosureResourceSFR
+            }
+
+            "Society of Industrial and Office REALTORS / SIOR" => {
+                CoBuyerAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR
+            }
+
+            "Transnational Referral Certification / TRC" => {
+                CoBuyerAgentDesignation::TransnationalReferralCertificationTRC
+            }
+
+            _ => CoBuyerAgentDesignation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CoBuyerAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR"
+            }
+
+            CoBuyerAgentDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC"
+            }
+
+            CoBuyerAgentDesignation::AtHomeWithDiversityAHWD => "At Home With Diversity / AHWD",
+
+            CoBuyerAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM"
+            }
+
+            CoBuyerAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE"
+            }
+
+            CoBuyerAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS"
+            }
+
+            CoBuyerAgentDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM"
+            }
+
+            CoBuyerAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB"
+            }
+
+            CoBuyerAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS"
+            }
+
+            CoBuyerAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS"
+            }
+
+            CoBuyerAgentDesignation::CounselorofRealEstateCRE => "Counselor of Real Estate / CRE",
+
+            CoBuyerAgentDesignation::EPRO => "e-PRO",
+
+            CoBuyerAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA"
+            }
+
+            CoBuyerAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI"
+            }
+
+            CoBuyerAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP"
+            }
+
+            CoBuyerAgentDesignation::NARsGreenDesignationGREEN => "NAR's Green Designation / GREEN",
+
+            CoBuyerAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN"
+            }
+
+            CoBuyerAgentDesignation::PricingStrategyAdvisorPSA => "Pricing Strategy Advisor / PSA",
+
+            CoBuyerAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE"
+            }
+
+            CoBuyerAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE"
+            }
+
+            CoBuyerAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA"
+            }
+
+            CoBuyerAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS"
+            }
+
+            CoBuyerAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS"
+            }
+
+            CoBuyerAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES"
+            }
+
+            CoBuyerAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR"
+            }
+
+            CoBuyerAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR"
+            }
+
+            CoBuyerAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC"
+            }
+
+            CoBuyerAgentDesignation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CoBuyerAgentDesignation::AccreditedBuyersRepresentativeABR => {
+                "Accredited Buyer's Representative / ABR".into()
+            }
+
+            CoBuyerAgentDesignation::AccreditedLandConsultantALC => {
+                "Accredited Land Consultant / ALC".into()
+            }
+
+            CoBuyerAgentDesignation::AtHomeWithDiversityAHWD => {
+                "At Home With Diversity / AHWD".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedCommercialInvestmentMemberCCIM => {
+                "Certified Commercial Investment Member / CCIM".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedDistressedPropertyExpertCDPE => {
+                "Certified Distressed Property Expert / CDPE".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedInternationalPropertySpecialistCIPS => {
+                "Certified International Property Specialist / CIPS".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedPropertyManagerCPM => {
+                "Certified Property Manager / CPM".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedRealEstateBrokerageManagerCRB => {
+                "Certified Real Estate Brokerage Manager / CRB".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedRealEstateTeamSpecialistCRETS => {
+                "Certified Real Estate Team Specialist / C-RETS".into()
+            }
+
+            CoBuyerAgentDesignation::CertifiedResidentialSpecialistCRS => {
+                "Certified Residential Specialist / CRS".into()
+            }
+
+            CoBuyerAgentDesignation::CounselorofRealEstateCRE => {
+                "Counselor of Real Estate / CRE".into()
+            }
+
+            CoBuyerAgentDesignation::EPRO => "e-PRO".into(),
+
+            CoBuyerAgentDesignation::GeneralAccreditedAppraiserGAA => {
+                "General Accredited Appraiser / GAA".into()
+            }
+
+            CoBuyerAgentDesignation::GraduateREALTORInstituteGRI => {
+                "Graduate, REALTOR Institute / GRI".into()
+            }
+
+            CoBuyerAgentDesignation::MilitaryRelocationProfessionalMRP => {
+                "Military Relocation Professional / MRP".into()
+            }
+
+            CoBuyerAgentDesignation::NARsGreenDesignationGREEN => {
+                "NAR's Green Designation / GREEN".into()
+            }
+
+            CoBuyerAgentDesignation::PerformanceManagementNetworkPMN => {
+                "Performance Management Network / PMN".into()
+            }
+
+            CoBuyerAgentDesignation::PricingStrategyAdvisorPSA => {
+                "Pricing Strategy Advisor / PSA".into()
+            }
+
+            CoBuyerAgentDesignation::RealEstateNegotiationExpertRENE => {
+                "Real Estate Negotiation Expert / RENE".into()
+            }
+
+            CoBuyerAgentDesignation::REALTORAssociationCertifiedExecutiveRCE => {
+                "REALTOR Association Certified Executive / RCE".into()
+            }
+
+            CoBuyerAgentDesignation::ResidentialAccreditedAppraiserRAA => {
+                "Residential Accredited Appraiser / RAA".into()
+            }
+
+            CoBuyerAgentDesignation::ResortSecondHomePropertySpecialistRSPS => {
+                "Resort & Second-Home Property Specialist / RSPS".into()
+            }
+
+            CoBuyerAgentDesignation::SellerRepresentativeSpecialistSRS => {
+                "Seller Representative Specialist / SRS".into()
+            }
+
+            CoBuyerAgentDesignation::SeniorsRealEstateSpecialistSRES => {
+                "Seniors Real Estate Specialist / SRES".into()
+            }
+
+            CoBuyerAgentDesignation::ShortSalesForeclosureResourceSFR => {
+                "Short Sales & Foreclosure Resource / SFR".into()
+            }
+
+            CoBuyerAgentDesignation::SocietyofIndustrialandOfficeREALTORSSIOR => {
+                "Society of Industrial and Office REALTORS / SIOR".into()
+            }
+
+            CoBuyerAgentDesignation::TransnationalReferralCertificationTRC => {
+                "Transnational Referral Certification / TRC".into()
+            }
+
+            CoBuyerAgentDesignation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CoBuyerAgentDesignation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CoBuyerAgentDesignation {
     fn from(s: String) -> CoBuyerAgentDesignation {
         match s.as_ref() {
@@ -424,45 +857,5 @@ impl<'de> Deserialize<'de> for CoBuyerAgentDesignation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_co_buyer_agent_designation_format {
-    use super::CoBuyerAgentDesignation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CoBuyerAgentDesignation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<CoBuyerAgentDesignation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

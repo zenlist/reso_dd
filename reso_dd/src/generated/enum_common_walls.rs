@@ -27,6 +27,87 @@ pub enum CommonWalls {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for CommonWalls {
+    fn from_str(s: &str) -> CommonWalls {
+        match s {
+            "1 Common Wall" => CommonWalls::_1CommonWall,
+
+            "2+ Common Walls" => CommonWalls::_2PlusCommonWalls,
+
+            "End Unit" => CommonWalls::EndUnit,
+
+            "No Common Walls" => CommonWalls::NoCommonWalls,
+
+            "No One Above" => CommonWalls::NoOneAbove,
+
+            "No One Below" => CommonWalls::NoOneBelow,
+
+            _ => CommonWalls::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> CommonWalls {
+        match s.as_ref() {
+            "1 Common Wall" => CommonWalls::_1CommonWall,
+
+            "2+ Common Walls" => CommonWalls::_2PlusCommonWalls,
+
+            "End Unit" => CommonWalls::EndUnit,
+
+            "No Common Walls" => CommonWalls::NoCommonWalls,
+
+            "No One Above" => CommonWalls::NoOneAbove,
+
+            "No One Below" => CommonWalls::NoOneBelow,
+
+            _ => CommonWalls::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            CommonWalls::_1CommonWall => "1 Common Wall",
+
+            CommonWalls::_2PlusCommonWalls => "2+ Common Walls",
+
+            CommonWalls::EndUnit => "End Unit",
+
+            CommonWalls::NoCommonWalls => "No Common Walls",
+
+            CommonWalls::NoOneAbove => "No One Above",
+
+            CommonWalls::NoOneBelow => "No One Below",
+
+            CommonWalls::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            CommonWalls::_1CommonWall => "1 Common Wall".into(),
+
+            CommonWalls::_2PlusCommonWalls => "2+ Common Walls".into(),
+
+            CommonWalls::EndUnit => "End Unit".into(),
+
+            CommonWalls::NoCommonWalls => "No Common Walls".into(),
+
+            CommonWalls::NoOneAbove => "No One Above".into(),
+
+            CommonWalls::NoOneBelow => "No One Below".into(),
+
+            CommonWalls::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            CommonWalls::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for CommonWalls {
     fn from(s: String) -> CommonWalls {
         match s.as_ref() {
@@ -103,43 +184,5 @@ impl<'de> Deserialize<'de> for CommonWalls {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_common_walls_format {
-    use super::CommonWalls;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<CommonWalls>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<CommonWalls>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

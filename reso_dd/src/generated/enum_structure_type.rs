@@ -60,6 +60,175 @@ pub enum StructureType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for StructureType {
+    fn from_str(s: &str) -> StructureType {
+        match s {
+            "Cabin" => StructureType::Cabin,
+
+            "Dock" => StructureType::Dock,
+
+            "Duplex" => StructureType::Duplex,
+
+            "Flex" => StructureType::Flex,
+
+            "Hotel/Motel" => StructureType::HotelMotel,
+
+            "House" => StructureType::House,
+
+            "Industrial" => StructureType::Industrial,
+
+            "Manufactured House" => StructureType::ManufacturedHouse,
+
+            "Mixed Use" => StructureType::MixedUse,
+
+            "Multi Family" => StructureType::MultiFamily,
+
+            "None" => StructureType::None,
+
+            "Office" => StructureType::Office,
+
+            "Quadruplex" => StructureType::Quadruplex,
+
+            "Retail" => StructureType::Retail,
+
+            "Townhouse" => StructureType::Townhouse,
+
+            "Triplex" => StructureType::Triplex,
+
+            "Warehouse" => StructureType::Warehouse,
+
+            _ => StructureType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> StructureType {
+        match s.as_ref() {
+            "Cabin" => StructureType::Cabin,
+
+            "Dock" => StructureType::Dock,
+
+            "Duplex" => StructureType::Duplex,
+
+            "Flex" => StructureType::Flex,
+
+            "Hotel/Motel" => StructureType::HotelMotel,
+
+            "House" => StructureType::House,
+
+            "Industrial" => StructureType::Industrial,
+
+            "Manufactured House" => StructureType::ManufacturedHouse,
+
+            "Mixed Use" => StructureType::MixedUse,
+
+            "Multi Family" => StructureType::MultiFamily,
+
+            "None" => StructureType::None,
+
+            "Office" => StructureType::Office,
+
+            "Quadruplex" => StructureType::Quadruplex,
+
+            "Retail" => StructureType::Retail,
+
+            "Townhouse" => StructureType::Townhouse,
+
+            "Triplex" => StructureType::Triplex,
+
+            "Warehouse" => StructureType::Warehouse,
+
+            _ => StructureType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            StructureType::Cabin => "Cabin",
+
+            StructureType::Dock => "Dock",
+
+            StructureType::Duplex => "Duplex",
+
+            StructureType::Flex => "Flex",
+
+            StructureType::HotelMotel => "Hotel/Motel",
+
+            StructureType::House => "House",
+
+            StructureType::Industrial => "Industrial",
+
+            StructureType::ManufacturedHouse => "Manufactured House",
+
+            StructureType::MixedUse => "Mixed Use",
+
+            StructureType::MultiFamily => "Multi Family",
+
+            StructureType::None => "None",
+
+            StructureType::Office => "Office",
+
+            StructureType::Quadruplex => "Quadruplex",
+
+            StructureType::Retail => "Retail",
+
+            StructureType::Townhouse => "Townhouse",
+
+            StructureType::Triplex => "Triplex",
+
+            StructureType::Warehouse => "Warehouse",
+
+            StructureType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            StructureType::Cabin => "Cabin".into(),
+
+            StructureType::Dock => "Dock".into(),
+
+            StructureType::Duplex => "Duplex".into(),
+
+            StructureType::Flex => "Flex".into(),
+
+            StructureType::HotelMotel => "Hotel/Motel".into(),
+
+            StructureType::House => "House".into(),
+
+            StructureType::Industrial => "Industrial".into(),
+
+            StructureType::ManufacturedHouse => "Manufactured House".into(),
+
+            StructureType::MixedUse => "Mixed Use".into(),
+
+            StructureType::MultiFamily => "Multi Family".into(),
+
+            StructureType::None => "None".into(),
+
+            StructureType::Office => "Office".into(),
+
+            StructureType::Quadruplex => "Quadruplex".into(),
+
+            StructureType::Retail => "Retail".into(),
+
+            StructureType::Townhouse => "Townhouse".into(),
+
+            StructureType::Triplex => "Triplex".into(),
+
+            StructureType::Warehouse => "Warehouse".into(),
+
+            StructureType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            StructureType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for StructureType {
     fn from(s: String) -> StructureType {
         match s.as_ref() {
@@ -202,45 +371,5 @@ impl<'de> Deserialize<'de> for StructureType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_structure_type_format {
-    use super::StructureType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<StructureType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<StructureType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

@@ -78,6 +78,223 @@ pub enum Utilities {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Utilities {
+    fn from_str(s: &str) -> Utilities {
+        match s {
+            "Cable Available" => Utilities::CableAvailable,
+
+            "Cable Connected" => Utilities::CableConnected,
+
+            "Cable Not Available" => Utilities::CableNotAvailable,
+
+            "Electricity Available" => Utilities::ElectricityAvailable,
+
+            "Electricity Connected" => Utilities::ElectricityConnected,
+
+            "Electricity Not Available" => Utilities::ElectricityNotAvailable,
+
+            "Natural Gas Available" => Utilities::NaturalGasAvailable,
+
+            "Natural Gas Connected" => Utilities::NaturalGasConnected,
+
+            "Natural Gas Not Available" => Utilities::NaturalGasNotAvailable,
+
+            "None" => Utilities::None,
+
+            "Other" => Utilities::Other,
+
+            "Phone Available" => Utilities::PhoneAvailable,
+
+            "Phone Connected" => Utilities::PhoneConnected,
+
+            "Phone Not Available" => Utilities::PhoneNotAvailable,
+
+            "Propane" => Utilities::Propane,
+
+            "See Remarks" => Utilities::SeeRemarks,
+
+            "Sewer Available" => Utilities::SewerAvailable,
+
+            "Sewer Connected" => Utilities::SewerConnected,
+
+            "Sewer Not Available" => Utilities::SewerNotAvailable,
+
+            "Underground Utilities" => Utilities::UndergroundUtilities,
+
+            "Water Available" => Utilities::WaterAvailable,
+
+            "Water Connected" => Utilities::WaterConnected,
+
+            "Water Not Available" => Utilities::WaterNotAvailable,
+
+            _ => Utilities::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Utilities {
+        match s.as_ref() {
+            "Cable Available" => Utilities::CableAvailable,
+
+            "Cable Connected" => Utilities::CableConnected,
+
+            "Cable Not Available" => Utilities::CableNotAvailable,
+
+            "Electricity Available" => Utilities::ElectricityAvailable,
+
+            "Electricity Connected" => Utilities::ElectricityConnected,
+
+            "Electricity Not Available" => Utilities::ElectricityNotAvailable,
+
+            "Natural Gas Available" => Utilities::NaturalGasAvailable,
+
+            "Natural Gas Connected" => Utilities::NaturalGasConnected,
+
+            "Natural Gas Not Available" => Utilities::NaturalGasNotAvailable,
+
+            "None" => Utilities::None,
+
+            "Other" => Utilities::Other,
+
+            "Phone Available" => Utilities::PhoneAvailable,
+
+            "Phone Connected" => Utilities::PhoneConnected,
+
+            "Phone Not Available" => Utilities::PhoneNotAvailable,
+
+            "Propane" => Utilities::Propane,
+
+            "See Remarks" => Utilities::SeeRemarks,
+
+            "Sewer Available" => Utilities::SewerAvailable,
+
+            "Sewer Connected" => Utilities::SewerConnected,
+
+            "Sewer Not Available" => Utilities::SewerNotAvailable,
+
+            "Underground Utilities" => Utilities::UndergroundUtilities,
+
+            "Water Available" => Utilities::WaterAvailable,
+
+            "Water Connected" => Utilities::WaterConnected,
+
+            "Water Not Available" => Utilities::WaterNotAvailable,
+
+            _ => Utilities::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Utilities::CableAvailable => "Cable Available",
+
+            Utilities::CableConnected => "Cable Connected",
+
+            Utilities::CableNotAvailable => "Cable Not Available",
+
+            Utilities::ElectricityAvailable => "Electricity Available",
+
+            Utilities::ElectricityConnected => "Electricity Connected",
+
+            Utilities::ElectricityNotAvailable => "Electricity Not Available",
+
+            Utilities::NaturalGasAvailable => "Natural Gas Available",
+
+            Utilities::NaturalGasConnected => "Natural Gas Connected",
+
+            Utilities::NaturalGasNotAvailable => "Natural Gas Not Available",
+
+            Utilities::None => "None",
+
+            Utilities::Other => "Other",
+
+            Utilities::PhoneAvailable => "Phone Available",
+
+            Utilities::PhoneConnected => "Phone Connected",
+
+            Utilities::PhoneNotAvailable => "Phone Not Available",
+
+            Utilities::Propane => "Propane",
+
+            Utilities::SeeRemarks => "See Remarks",
+
+            Utilities::SewerAvailable => "Sewer Available",
+
+            Utilities::SewerConnected => "Sewer Connected",
+
+            Utilities::SewerNotAvailable => "Sewer Not Available",
+
+            Utilities::UndergroundUtilities => "Underground Utilities",
+
+            Utilities::WaterAvailable => "Water Available",
+
+            Utilities::WaterConnected => "Water Connected",
+
+            Utilities::WaterNotAvailable => "Water Not Available",
+
+            Utilities::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Utilities::CableAvailable => "Cable Available".into(),
+
+            Utilities::CableConnected => "Cable Connected".into(),
+
+            Utilities::CableNotAvailable => "Cable Not Available".into(),
+
+            Utilities::ElectricityAvailable => "Electricity Available".into(),
+
+            Utilities::ElectricityConnected => "Electricity Connected".into(),
+
+            Utilities::ElectricityNotAvailable => "Electricity Not Available".into(),
+
+            Utilities::NaturalGasAvailable => "Natural Gas Available".into(),
+
+            Utilities::NaturalGasConnected => "Natural Gas Connected".into(),
+
+            Utilities::NaturalGasNotAvailable => "Natural Gas Not Available".into(),
+
+            Utilities::None => "None".into(),
+
+            Utilities::Other => "Other".into(),
+
+            Utilities::PhoneAvailable => "Phone Available".into(),
+
+            Utilities::PhoneConnected => "Phone Connected".into(),
+
+            Utilities::PhoneNotAvailable => "Phone Not Available".into(),
+
+            Utilities::Propane => "Propane".into(),
+
+            Utilities::SeeRemarks => "See Remarks".into(),
+
+            Utilities::SewerAvailable => "Sewer Available".into(),
+
+            Utilities::SewerConnected => "Sewer Connected".into(),
+
+            Utilities::SewerNotAvailable => "Sewer Not Available".into(),
+
+            Utilities::UndergroundUtilities => "Underground Utilities".into(),
+
+            Utilities::WaterAvailable => "Water Available".into(),
+
+            Utilities::WaterConnected => "Water Connected".into(),
+
+            Utilities::WaterNotAvailable => "Water Not Available".into(),
+
+            Utilities::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Utilities::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Utilities {
     fn from(s: String) -> Utilities {
         match s.as_ref() {
@@ -256,43 +473,5 @@ impl<'de> Deserialize<'de> for Utilities {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_utilities_format {
-    use super::Utilities;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Utilities>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Utilities>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

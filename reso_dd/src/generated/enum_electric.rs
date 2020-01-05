@@ -75,6 +75,215 @@ pub enum Electric {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for Electric {
+    fn from_str(s: &str) -> Electric {
+        match s {
+            "100 Amp Service" => Electric::_100AmpService,
+
+            "150 Amp Service" => Electric::_150AmpService,
+
+            "200+ Amp Service" => Electric::_200PlusAmpService,
+
+            "220 Volts" => Electric::_220Volts,
+
+            "220 Volts For Spa" => Electric::_220VoltsForSpa,
+
+            "220 Volts in Garage" => Electric::_220VoltsinGarage,
+
+            "220 Volts in Kitchen" => Electric::_220VoltsinKitchen,
+
+            "220 Volts in Laundry" => Electric::_220VoltsinLaundry,
+
+            "220 Volts in Workshop" => Electric::_220VoltsinWorkshop,
+
+            "440 Volts" => Electric::_440Volts,
+
+            "Circuit Breakers" => Electric::CircuitBreakers,
+
+            "Energy Storage Device" => Electric::EnergyStorageDevice,
+
+            "Fuses" => Electric::Fuses,
+
+            "Generator" => Electric::Generator,
+
+            "Net Meter" => Electric::NetMeter,
+
+            "Photovoltaics Seller Owned" => Electric::PhotovoltaicsSellerOwned,
+
+            "Photovoltaics Third-Party Owned" => Electric::PhotovoltaicsThirdPartyOwned,
+
+            "Pre-Wired for Renewables" => Electric::PreWiredforRenewables,
+
+            "Ready for Renewables" => Electric::ReadyforRenewables,
+
+            "Underground" => Electric::Underground,
+
+            "Wind Turbine Seller Owned" => Electric::WindTurbineSellerOwned,
+
+            "Wind Turbine Third-Party Owned" => Electric::WindTurbineThirdPartyOwned,
+
+            _ => Electric::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> Electric {
+        match s.as_ref() {
+            "100 Amp Service" => Electric::_100AmpService,
+
+            "150 Amp Service" => Electric::_150AmpService,
+
+            "200+ Amp Service" => Electric::_200PlusAmpService,
+
+            "220 Volts" => Electric::_220Volts,
+
+            "220 Volts For Spa" => Electric::_220VoltsForSpa,
+
+            "220 Volts in Garage" => Electric::_220VoltsinGarage,
+
+            "220 Volts in Kitchen" => Electric::_220VoltsinKitchen,
+
+            "220 Volts in Laundry" => Electric::_220VoltsinLaundry,
+
+            "220 Volts in Workshop" => Electric::_220VoltsinWorkshop,
+
+            "440 Volts" => Electric::_440Volts,
+
+            "Circuit Breakers" => Electric::CircuitBreakers,
+
+            "Energy Storage Device" => Electric::EnergyStorageDevice,
+
+            "Fuses" => Electric::Fuses,
+
+            "Generator" => Electric::Generator,
+
+            "Net Meter" => Electric::NetMeter,
+
+            "Photovoltaics Seller Owned" => Electric::PhotovoltaicsSellerOwned,
+
+            "Photovoltaics Third-Party Owned" => Electric::PhotovoltaicsThirdPartyOwned,
+
+            "Pre-Wired for Renewables" => Electric::PreWiredforRenewables,
+
+            "Ready for Renewables" => Electric::ReadyforRenewables,
+
+            "Underground" => Electric::Underground,
+
+            "Wind Turbine Seller Owned" => Electric::WindTurbineSellerOwned,
+
+            "Wind Turbine Third-Party Owned" => Electric::WindTurbineThirdPartyOwned,
+
+            _ => Electric::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            Electric::_100AmpService => "100 Amp Service",
+
+            Electric::_150AmpService => "150 Amp Service",
+
+            Electric::_200PlusAmpService => "200+ Amp Service",
+
+            Electric::_220Volts => "220 Volts",
+
+            Electric::_220VoltsForSpa => "220 Volts For Spa",
+
+            Electric::_220VoltsinGarage => "220 Volts in Garage",
+
+            Electric::_220VoltsinKitchen => "220 Volts in Kitchen",
+
+            Electric::_220VoltsinLaundry => "220 Volts in Laundry",
+
+            Electric::_220VoltsinWorkshop => "220 Volts in Workshop",
+
+            Electric::_440Volts => "440 Volts",
+
+            Electric::CircuitBreakers => "Circuit Breakers",
+
+            Electric::EnergyStorageDevice => "Energy Storage Device",
+
+            Electric::Fuses => "Fuses",
+
+            Electric::Generator => "Generator",
+
+            Electric::NetMeter => "Net Meter",
+
+            Electric::PhotovoltaicsSellerOwned => "Photovoltaics Seller Owned",
+
+            Electric::PhotovoltaicsThirdPartyOwned => "Photovoltaics Third-Party Owned",
+
+            Electric::PreWiredforRenewables => "Pre-Wired for Renewables",
+
+            Electric::ReadyforRenewables => "Ready for Renewables",
+
+            Electric::Underground => "Underground",
+
+            Electric::WindTurbineSellerOwned => "Wind Turbine Seller Owned",
+
+            Electric::WindTurbineThirdPartyOwned => "Wind Turbine Third-Party Owned",
+
+            Electric::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            Electric::_100AmpService => "100 Amp Service".into(),
+
+            Electric::_150AmpService => "150 Amp Service".into(),
+
+            Electric::_200PlusAmpService => "200+ Amp Service".into(),
+
+            Electric::_220Volts => "220 Volts".into(),
+
+            Electric::_220VoltsForSpa => "220 Volts For Spa".into(),
+
+            Electric::_220VoltsinGarage => "220 Volts in Garage".into(),
+
+            Electric::_220VoltsinKitchen => "220 Volts in Kitchen".into(),
+
+            Electric::_220VoltsinLaundry => "220 Volts in Laundry".into(),
+
+            Electric::_220VoltsinWorkshop => "220 Volts in Workshop".into(),
+
+            Electric::_440Volts => "440 Volts".into(),
+
+            Electric::CircuitBreakers => "Circuit Breakers".into(),
+
+            Electric::EnergyStorageDevice => "Energy Storage Device".into(),
+
+            Electric::Fuses => "Fuses".into(),
+
+            Electric::Generator => "Generator".into(),
+
+            Electric::NetMeter => "Net Meter".into(),
+
+            Electric::PhotovoltaicsSellerOwned => "Photovoltaics Seller Owned".into(),
+
+            Electric::PhotovoltaicsThirdPartyOwned => "Photovoltaics Third-Party Owned".into(),
+
+            Electric::PreWiredforRenewables => "Pre-Wired for Renewables".into(),
+
+            Electric::ReadyforRenewables => "Ready for Renewables".into(),
+
+            Electric::Underground => "Underground".into(),
+
+            Electric::WindTurbineSellerOwned => "Wind Turbine Seller Owned".into(),
+
+            Electric::WindTurbineThirdPartyOwned => "Wind Turbine Third-Party Owned".into(),
+
+            Electric::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            Electric::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for Electric {
     fn from(s: String) -> Electric {
         match s.as_ref() {
@@ -247,43 +456,5 @@ impl<'de> Deserialize<'de> for Electric {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_electric_format {
-    use super::Electric;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<Electric>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<Electric>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

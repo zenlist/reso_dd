@@ -36,6 +36,111 @@ pub enum HoursDaysOfOperation {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for HoursDaysOfOperation {
+    fn from_str(s: &str) -> HoursDaysOfOperation {
+        match s {
+            "Evenings Only" => HoursDaysOfOperation::EveningsOnly,
+
+            "Open -8 Hours/Day" => HoursDaysOfOperation::OpenLessThan8HoursDay,
+
+            "Open 24 Hours" => HoursDaysOfOperation::Open24Hours,
+
+            "Open 7 Days" => HoursDaysOfOperation::Open7Days,
+
+            "Open 8 Hours/Day" => HoursDaysOfOperation::Open8HoursDay,
+
+            "Open 8+ Hours/Day" => HoursDaysOfOperation::Open8PlusHoursDay,
+
+            "Open Monday-Friday" => HoursDaysOfOperation::OpenMondayFriday,
+
+            "Open Saturday" => HoursDaysOfOperation::OpenSaturday,
+
+            "Open Sunday" => HoursDaysOfOperation::OpenSunday,
+
+            _ => HoursDaysOfOperation::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> HoursDaysOfOperation {
+        match s.as_ref() {
+            "Evenings Only" => HoursDaysOfOperation::EveningsOnly,
+
+            "Open -8 Hours/Day" => HoursDaysOfOperation::OpenLessThan8HoursDay,
+
+            "Open 24 Hours" => HoursDaysOfOperation::Open24Hours,
+
+            "Open 7 Days" => HoursDaysOfOperation::Open7Days,
+
+            "Open 8 Hours/Day" => HoursDaysOfOperation::Open8HoursDay,
+
+            "Open 8+ Hours/Day" => HoursDaysOfOperation::Open8PlusHoursDay,
+
+            "Open Monday-Friday" => HoursDaysOfOperation::OpenMondayFriday,
+
+            "Open Saturday" => HoursDaysOfOperation::OpenSaturday,
+
+            "Open Sunday" => HoursDaysOfOperation::OpenSunday,
+
+            _ => HoursDaysOfOperation::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            HoursDaysOfOperation::EveningsOnly => "Evenings Only",
+
+            HoursDaysOfOperation::OpenLessThan8HoursDay => "Open -8 Hours/Day",
+
+            HoursDaysOfOperation::Open24Hours => "Open 24 Hours",
+
+            HoursDaysOfOperation::Open7Days => "Open 7 Days",
+
+            HoursDaysOfOperation::Open8HoursDay => "Open 8 Hours/Day",
+
+            HoursDaysOfOperation::Open8PlusHoursDay => "Open 8+ Hours/Day",
+
+            HoursDaysOfOperation::OpenMondayFriday => "Open Monday-Friday",
+
+            HoursDaysOfOperation::OpenSaturday => "Open Saturday",
+
+            HoursDaysOfOperation::OpenSunday => "Open Sunday",
+
+            HoursDaysOfOperation::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            HoursDaysOfOperation::EveningsOnly => "Evenings Only".into(),
+
+            HoursDaysOfOperation::OpenLessThan8HoursDay => "Open -8 Hours/Day".into(),
+
+            HoursDaysOfOperation::Open24Hours => "Open 24 Hours".into(),
+
+            HoursDaysOfOperation::Open7Days => "Open 7 Days".into(),
+
+            HoursDaysOfOperation::Open8HoursDay => "Open 8 Hours/Day".into(),
+
+            HoursDaysOfOperation::Open8PlusHoursDay => "Open 8+ Hours/Day".into(),
+
+            HoursDaysOfOperation::OpenMondayFriday => "Open Monday-Friday".into(),
+
+            HoursDaysOfOperation::OpenSaturday => "Open Saturday".into(),
+
+            HoursDaysOfOperation::OpenSunday => "Open Sunday".into(),
+
+            HoursDaysOfOperation::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            HoursDaysOfOperation::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for HoursDaysOfOperation {
     fn from(s: String) -> HoursDaysOfOperation {
         match s.as_ref() {
@@ -130,45 +235,5 @@ impl<'de> Deserialize<'de> for HoursDaysOfOperation {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_hours_days_of_operation_format {
-    use super::HoursDaysOfOperation;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<HoursDaysOfOperation>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(
-        deserializer: D,
-    ) -> Result<Option<Vec<HoursDaysOfOperation>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }

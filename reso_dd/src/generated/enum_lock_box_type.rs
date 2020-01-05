@@ -33,6 +33,103 @@ pub enum LockBoxType {
     OpenEnumeration(String),
 }
 
+impl crate::ResoEnumeration for LockBoxType {
+    fn from_str(s: &str) -> LockBoxType {
+        match s {
+            "Call Listing Office" => LockBoxType::CallListingOffice,
+
+            "Call Seller Direct" => LockBoxType::CallSellerDirect,
+
+            "Combo" => LockBoxType::Combo,
+
+            "None" => LockBoxType::None,
+
+            "Other" => LockBoxType::Other,
+
+            "See Remarks" => LockBoxType::SeeRemarks,
+
+            "SentriLock" => LockBoxType::SentriLock,
+
+            "Supra" => LockBoxType::Supra,
+
+            _ => LockBoxType::OpenEnumeration(s.into()),
+        }
+    }
+
+    fn from_string(s: String) -> LockBoxType {
+        match s.as_ref() {
+            "Call Listing Office" => LockBoxType::CallListingOffice,
+
+            "Call Seller Direct" => LockBoxType::CallSellerDirect,
+
+            "Combo" => LockBoxType::Combo,
+
+            "None" => LockBoxType::None,
+
+            "Other" => LockBoxType::Other,
+
+            "See Remarks" => LockBoxType::SeeRemarks,
+
+            "SentriLock" => LockBoxType::SentriLock,
+
+            "Supra" => LockBoxType::Supra,
+
+            _ => LockBoxType::OpenEnumeration(s),
+        }
+    }
+
+    fn to_str(&self) -> &str {
+        match self {
+            LockBoxType::CallListingOffice => "Call Listing Office",
+
+            LockBoxType::CallSellerDirect => "Call Seller Direct",
+
+            LockBoxType::Combo => "Combo",
+
+            LockBoxType::None => "None",
+
+            LockBoxType::Other => "Other",
+
+            LockBoxType::SeeRemarks => "See Remarks",
+
+            LockBoxType::SentriLock => "SentriLock",
+
+            LockBoxType::Supra => "Supra",
+
+            LockBoxType::OpenEnumeration(ref s) => s,
+        }
+    }
+
+    fn into_string(self) -> String {
+        match self {
+            LockBoxType::CallListingOffice => "Call Listing Office".into(),
+
+            LockBoxType::CallSellerDirect => "Call Seller Direct".into(),
+
+            LockBoxType::Combo => "Combo".into(),
+
+            LockBoxType::None => "None".into(),
+
+            LockBoxType::Other => "Other".into(),
+
+            LockBoxType::SeeRemarks => "See Remarks".into(),
+
+            LockBoxType::SentriLock => "SentriLock".into(),
+
+            LockBoxType::Supra => "Supra".into(),
+
+            LockBoxType::OpenEnumeration(s) => s,
+        }
+    }
+
+    fn fallback_value(&self) -> Option<&str> {
+        match self {
+            LockBoxType::OpenEnumeration(ref s) => Some(s),
+            _ => None,
+        }
+    }
+}
+
 impl From<String> for LockBoxType {
     fn from(s: String) -> LockBoxType {
         match s.as_ref() {
@@ -121,43 +218,5 @@ impl<'de> Deserialize<'de> for LockBoxType {
     {
         let s = String::deserialize(deserializer)?;
         Ok(From::from(s))
-    }
-}
-
-pub(crate) mod option_vec_lock_box_type_format {
-    use super::LockBoxType;
-    use serde::{Deserialize, Deserializer, Serializer};
-
-    #[allow(dead_code)]
-    pub(crate) fn serialize<S>(
-        items: &Option<Vec<LockBoxType>>,
-        serializer: S,
-    ) -> Result<S::Ok, S::Error>
-    where
-        S: Serializer,
-    {
-        match items {
-            None => return serializer.serialize_none(),
-            Some(ref vec) if vec.len() == 0 => serializer.serialize_str(""),
-            Some(ref vec) => {
-                let items: Vec<&str> = vec.iter().map(|item| item.into()).collect();
-                let joined = items.join(",");
-                serializer.serialize_str(&joined)
-            }
-        }
-    }
-
-    #[allow(dead_code)]
-    pub(crate) fn deserialize<'de, D>(deserializer: D) -> Result<Option<Vec<LockBoxType>>, D::Error>
-    where
-        D: Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        if s == "" {
-            return Ok(Some(vec![]));
-        }
-
-        let items = s.split(",").map(|i| From::<&str>::from(i)).collect();
-        Ok(Some(items))
     }
 }
