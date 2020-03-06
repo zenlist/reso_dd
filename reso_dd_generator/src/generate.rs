@@ -107,12 +107,20 @@ impl Field {
         case::snake_case(&self.standard_name)
     }
 
+    pub fn is_enum(&self) -> bool {
+        match self.page_form.as_str() {
+            "PropResourceField" => true,
+            "OtherResourceField" => true,
+            _ => false,
+        }
+    }
+
     pub fn is_single_enum(&self) -> bool {
-        self.simple_data_type == "String List, Single" && self.page_form == "PropResourceField"
+        self.simple_data_type == "String List, Single" && self.is_enum()
     }
 
     pub fn is_multi_enum(&self) -> bool {
-        self.simple_data_type == "String List, Multi" && self.page_form == "PropResourceField"
+        self.simple_data_type == "String List, Multi" && self.is_enum()
     }
 
     pub fn data_type(&self) -> String {

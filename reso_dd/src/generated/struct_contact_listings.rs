@@ -16,7 +16,7 @@ pub struct ContactListings {
     ///
     /// [ClassName](https://ddwiki.reso.org/pages/viewpage.action?pageId=29246771)
     #[serde(rename = "ClassName", skip_serializing_if = "Option::is_none")]
-    pub class_name: Option<String>,
+    pub class_name: Option<crate::ClassName>,
 
     /// This is the foreign key relating to the Contact resource.  A unique identifier for this record from the immediate source. This is a string that can include URI or other forms.  Alternatively use the ContactKeyNumeric for a numeric only key field.  This is the local key of the system.  When records are received from other systems, a local key is commonly applied.  If conveying the original keys from the source or originating systems, see SourceSystemKey and OriginatingSystemKey variants.
     ///
@@ -37,7 +37,7 @@ pub struct ContactListings {
         rename = "ContactListingPreference",
         skip_serializing_if = "Option::is_none"
     )]
-    pub contact_listing_preference: Option<String>,
+    pub contact_listing_preference: Option<crate::ContactListingPreference>,
 
     /// A system unique identifier. Specifically, in aggregation systems, the Key is the system unique identifier from the system that the record was just retrieved. This may be identical to the related xxxId identifier, but the key is guaranteed unique for this record set..
     ///
@@ -163,5 +163,5 @@ pub struct ContactListings {
     ///
     /// [ResourceName](https://ddwiki.reso.org/display/DDW17/ResourceName+%28ContactListings%29+Field)
     #[serde(rename = "ResourceName", skip_serializing_if = "Option::is_none")]
-    pub resource_name: Option<String>,
+    pub resource_name: Option<crate::ResourceName>,
 }

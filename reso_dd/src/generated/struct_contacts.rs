@@ -88,13 +88,14 @@ pub struct Contacts {
     ///
     /// [ContactStatus](https://ddwiki.reso.org/display/DDW17/ContactStatus+Field)
     #[serde(rename = "ContactStatus", skip_serializing_if = "Option::is_none")]
-    pub contact_status: Option<String>,
+    pub contact_status: Option<crate::ContactStatus>,
 
     /// The type of contact. i.e. Business, Friend, Family, Prospect, Ready to Buy, etc.
     ///
     /// [ContactType](https://ddwiki.reso.org/display/DDW17/ContactType+Field)
     #[serde(rename = "ContactType", skip_serializing_if = "Option::is_none")]
-    pub contact_type: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub contact_type: Option<Vec<crate::ContactType>>,
 
     /// A collection of the types of other phone fields  available for Contacts. The collection includes the type of system and other details pertinent about other phone numbers
     ///
@@ -181,7 +182,7 @@ pub struct Contacts {
     ///
     /// [HomeCountry](https://ddwiki.reso.org/display/DDW17/HomeCountry+Field)
     #[serde(rename = "HomeCountry", skip_serializing_if = "Option::is_none")]
-    pub home_country: Option<String>,
+    pub home_country: Option<crate::Country>,
 
     /// The county or parish in which the contact's home is addressed.
     ///
@@ -223,7 +224,7 @@ pub struct Contacts {
         rename = "HomeStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub home_state_or_province: Option<String>,
+    pub home_state_or_province: Option<crate::StateOrProvince>,
 
     /// The title or position of the contact within their organization.
     ///
@@ -235,7 +236,8 @@ pub struct Contacts {
     ///
     /// [Language](https://ddwiki.reso.org/display/DDW17/Language+Field)
     #[serde(rename = "Language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub language: Option<Vec<crate::Languages>>,
 
     /// The last name of the Contact.
     ///
@@ -370,7 +372,7 @@ pub struct Contacts {
     ///
     /// [OtherCountry](https://ddwiki.reso.org/display/DDW17/OtherCountry+Field)
     #[serde(rename = "OtherCountry", skip_serializing_if = "Option::is_none")]
-    pub other_country: Option<String>,
+    pub other_country: Option<crate::Country>,
 
     /// The other county or parish in which contact is addressed.
     ///
@@ -385,7 +387,7 @@ pub struct Contacts {
     ///
     /// [OtherPhoneType](https://ddwiki.reso.org/display/DDW17/OtherPhoneType+Field)
     #[serde(rename = "OtherPhoneType", skip_serializing_if = "Option::is_none")]
-    pub other_phone_type: Option<String>,
+    pub other_phone_type: Option<crate::OtherPhoneType>,
 
     /// The other postal code of the contact.
     ///
@@ -409,7 +411,7 @@ pub struct Contacts {
         rename = "OtherStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub other_state_or_province: Option<String>,
+    pub other_state_or_province: Option<crate::StateOrProvince>,
 
     /// The local, well-known identifier for the member owning the contact.
     ///
@@ -448,13 +450,13 @@ pub struct Contacts {
     ///
     /// [PreferredAddress](https://ddwiki.reso.org/display/DDW17/PreferredAddress+Field)
     #[serde(rename = "PreferredAddress", skip_serializing_if = "Option::is_none")]
-    pub preferred_address: Option<String>,
+    pub preferred_address: Option<crate::PreferredAddress>,
 
     /// A list of the phone options Office, Mobile, Direct, Voicemail, Other used to determine the phone preferred by the client.
     ///
     /// [PreferredPhone](https://ddwiki.reso.org/display/DDW17/PreferredPhone+Field)
     #[serde(rename = "PreferredPhone", skip_serializing_if = "Option::is_none")]
-    pub preferred_phone: Option<String>,
+    pub preferred_phone: Option<crate::PreferredPhone>,
 
     /// Name of the person who referred the contact.
     ///
@@ -541,7 +543,7 @@ pub struct Contacts {
     ///
     /// [WorkCountry](https://ddwiki.reso.org/display/DDW17/WorkCountry+Field)
     #[serde(rename = "WorkCountry", skip_serializing_if = "Option::is_none")]
-    pub work_country: Option<String>,
+    pub work_country: Option<crate::Country>,
 
     /// The county or parish in which the contact's work is addressed.
     ///
@@ -571,5 +573,5 @@ pub struct Contacts {
         rename = "WorkStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub work_state_or_province: Option<String>,
+    pub work_state_or_province: Option<crate::StateOrProvince>,
 }

@@ -10,7 +10,7 @@ pub struct HistoryTransactional {
     ///
     /// [ChangeType](https://ddwiki.reso.org/display/DDW17/ChangeType+Field)
     #[serde(rename = "ChangeType", skip_serializing_if = "Option::is_none")]
-    pub change_type: Option<String>,
+    pub change_type: Option<crate::ChangeType>,
 
     /// The local, well-know identifier of the member (user) who made the change.
     ///

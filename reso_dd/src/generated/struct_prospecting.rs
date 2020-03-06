@@ -67,7 +67,8 @@ pub struct Prospecting {
     ///
     /// [DailySchedule](https://ddwiki.reso.org/display/DDW17/DailySchedule+Field)
     #[serde(rename = "DailySchedule", skip_serializing_if = "Option::is_none")]
-    pub daily_schedule: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub daily_schedule: Option<Vec<crate::DailySchedule>>,
 
     /// The system ID of the display that has been related, or set as the default, to this saved search.
     ///
@@ -79,7 +80,7 @@ pub struct Prospecting {
     ///
     /// [Language](https://ddwiki.reso.org/display/DDW17/Language+%28Prospecting%29+Field)
     #[serde(rename = "Language", skip_serializing_if = "Option::is_none")]
-    pub language: Option<String>,
+    pub language: Option<crate::Languages>,
 
     /// Timestamp of when the prospector last found new or modified listings for this auto-email.
     ///
@@ -175,7 +176,7 @@ pub struct Prospecting {
         rename = "ReasonActiveOrDisabled",
         skip_serializing_if = "Option::is_none"
     )]
-    pub reason_active_or_disabled: Option<String>,
+    pub reason_active_or_disabled: Option<crate::ReasonActiveOrDisabled>,
 
     /// This is the foreign key relating to the SavedSearch resource. A unique identifier for this record from the immediate source. This is a string that can include URI or other forms. Alternatively use the SavedSearchKeyNumeric for a numeric only key field. This is the local key of the system. When records are received from other systems, a local key is commonly applied. If conveying the original keys from the source or originating systems, see SourceSystemKey and OriginatingSystemKey variants.
     ///
@@ -196,7 +197,7 @@ pub struct Prospecting {
     ///
     /// [ScheduleType](https://ddwiki.reso.org/display/DDW17/ScheduleType+Field)
     #[serde(rename = "ScheduleType", skip_serializing_if = "Option::is_none")]
-    pub schedule_type: Option<String>,
+    pub schedule_type: Option<crate::ScheduleType>,
 
     /// The subject line of the auto email being sent.
     ///

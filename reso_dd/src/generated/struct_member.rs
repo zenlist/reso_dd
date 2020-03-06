@@ -82,7 +82,7 @@ pub struct Member {
     ///
     /// [MemberCountry](https://ddwiki.reso.org/display/DDW17/MemberCountry+Field)
     #[serde(rename = "MemberCountry", skip_serializing_if = "Option::is_none")]
-    pub member_country: Option<String>,
+    pub member_country: Option<crate::Country>,
 
     /// The county or parish in which the member is addressed.
     ///
@@ -97,7 +97,8 @@ pub struct Member {
     ///
     /// [MemberDesignation](https://ddwiki.reso.org/display/DDW17/MemberDesignation+Field)
     #[serde(rename = "MemberDesignation", skip_serializing_if = "Option::is_none")]
-    pub member_designation: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub member_designation: Option<Vec<crate::MemberDesignation>>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -160,7 +161,8 @@ pub struct Member {
     ///
     /// [MemberLanguages](https://ddwiki.reso.org/display/DDW17/MemberLanguages+Field)
     #[serde(rename = "MemberLanguages", skip_serializing_if = "Option::is_none")]
-    pub member_languages: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub member_languages: Option<Vec<crate::Languages>>,
 
     /// The last name of the Member.
     ///
@@ -262,7 +264,7 @@ pub struct Member {
         rename = "MemberOtherPhoneType",
         skip_serializing_if = "Option::is_none"
     )]
-    pub member_other_phone_type: Option<String>,
+    pub member_other_phone_type: Option<crate::MemberOtherPhoneType>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -334,7 +336,7 @@ pub struct Member {
         rename = "MemberStateLicenseState",
         skip_serializing_if = "Option::is_none"
     )]
-    pub member_state_license_state: Option<String>,
+    pub member_state_license_state: Option<crate::StateOrProvince>,
 
     /// The state or province in which the member is addressed.
     ///
@@ -343,13 +345,13 @@ pub struct Member {
         rename = "MemberStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub member_state_or_province: Option<String>,
+    pub member_state_or_province: Option<crate::StateOrProvince>,
 
     /// Is the account active, inactive or under disciplinary action.
     ///
     /// [MemberStatus](https://ddwiki.reso.org/display/DDW17/MemberStatus+Field)
     #[serde(rename = "MemberStatus", skip_serializing_if = "Option::is_none")]
-    pub member_status: Option<String>,
+    pub member_status: Option<crate::MemberStatus>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -364,7 +366,7 @@ pub struct Member {
     ///
     /// [MemberType](https://ddwiki.reso.org/display/DDW17/MemberType+Field)
     #[serde(rename = "MemberType", skip_serializing_if = "Option::is_none")]
-    pub member_type: Option<String>,
+    pub member_type: Option<crate::MemberType>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -451,7 +453,7 @@ pub struct Member {
     ///
     /// [SocialMediaType](https://ddwiki.reso.org/display/DDW17/SocialMediaType+Field)
     #[serde(rename = "SocialMediaType", skip_serializing_if = "Option::is_none")]
-    pub social_media_type: Option<String>,
+    pub social_media_type: Option<crate::SocialMediaType>,
 
     /// The RESO OUID's OrganizationUniqueId of the Source record provider.  The source system is the system from which the record was directly received.  In cases where the source system was not where the record originated (the authoritative system), see the Originating System fields.
     ///

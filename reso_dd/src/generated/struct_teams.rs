@@ -103,7 +103,7 @@ pub struct Teams {
     ///
     /// [TeamCountry](https://ddwiki.reso.org/display/DDW17/TeamCountry+Field)
     #[serde(rename = "TeamCountry", skip_serializing_if = "Option::is_none")]
-    pub team_country: Option<String>,
+    pub team_country: Option<crate::Country>,
 
     /// The county or parish in which the Team is addressed.
     ///
@@ -196,7 +196,7 @@ pub struct Teams {
         rename = "TeamLeadStateLicenseState",
         skip_serializing_if = "Option::is_none"
     )]
-    pub team_lead_state_license_state: Option<String>,
+    pub team_lead_state_license_state: Option<crate::StateOrProvince>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens). Other conventions should use the common local standard. International numbers should be preceded by a plus symbol.
     ///
@@ -259,13 +259,13 @@ pub struct Teams {
         rename = "TeamStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub team_state_or_province: Option<String>,
+    pub team_state_or_province: Option<crate::StateOrProvince>,
 
     /// Is the account active, inactive or under disciplinary action.
     ///
     /// [TeamStatus](https://ddwiki.reso.org/display/DDW17/TeamStatus+Field)
     #[serde(rename = "TeamStatus", skip_serializing_if = "Option::is_none")]
-    pub team_status: Option<String>,
+    pub team_status: Option<crate::TeamStatus>,
 
     /// North American 10 digit phone numbers should be in the format of ###-###-#### (separated by hyphens).  Other conventions should use the common local standard.  International numbers should be preceded by a plus symbol.
     ///

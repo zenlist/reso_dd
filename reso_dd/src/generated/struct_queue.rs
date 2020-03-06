@@ -10,7 +10,7 @@ pub struct Queue {
     ///
     /// [ClassName](https://ddwiki.reso.org/display/DDW17/ClassName+%28Queue%29+Field)
     #[serde(rename = "ClassName", skip_serializing_if = "Option::is_none")]
-    pub class_name: Option<String>,
+    pub class_name: Option<crate::ClassName>,
 
     /// Timestamp of the last major change on the listing (see also MajorChangeType).
     ///
@@ -73,13 +73,13 @@ pub struct Queue {
         rename = "QueueTransactionType",
         skip_serializing_if = "Option::is_none"
     )]
-    pub queue_transaction_type: Option<String>,
+    pub queue_transaction_type: Option<crate::QueueTransactionType>,
 
     /// The name of the resource which this queue record is referencing.
     ///
     /// [ResourceName](https://ddwiki.reso.org/display/DDW17/ResourceName+%28Queue%29+Field)
     #[serde(rename = "ResourceName", skip_serializing_if = "Option::is_none")]
-    pub resource_name: Option<String>,
+    pub resource_name: Option<crate::ResourceName>,
 
     /// The well known identifier of the related record from the source resource. The value may be identical to that of the Listing Key, but the Listing ID is intended to be the value used by a human to retrieve the information about a specific listing. In a multiple originating system or a merged system, this value may not be unique and may require the use of the provider system to create a synthetic unique value.
     ///

@@ -106,7 +106,7 @@ pub struct Office {
     ///
     /// [OfficeBranchType](https://ddwiki.reso.org/display/DDW17/OfficeBranchType+Field)
     #[serde(rename = "OfficeBranchType", skip_serializing_if = "Option::is_none")]
-    pub office_branch_type: Option<String>,
+    pub office_branch_type: Option<crate::OfficeBranchType>,
 
     /// The MemberKey of the responsible/owning broker.  This is a foreign key relating to the Member resource's MemberKey.
     ///
@@ -259,19 +259,19 @@ pub struct Office {
         rename = "OfficeStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub office_state_or_province: Option<String>,
+    pub office_state_or_province: Option<crate::StateOrProvince>,
 
     /// Is the office active, inactive or under disciplinary action.
     ///
     /// [OfficeStatus](https://ddwiki.reso.org/display/DDW17/OfficeStatus+Field)
     #[serde(rename = "OfficeStatus", skip_serializing_if = "Option::is_none")]
-    pub office_status: Option<String>,
+    pub office_status: Option<crate::OfficeStatus>,
 
     /// The type of business conducted by the office.  i.e. Real Estate, Appraiser, etc.
     ///
     /// [OfficeType](https://ddwiki.reso.org/display/DDW17/OfficeType+Field)
     #[serde(rename = "OfficeType", skip_serializing_if = "Option::is_none")]
-    pub office_type: Option<String>,
+    pub office_type: Option<crate::OfficeType>,
 
     /// Date/time the roster (member or office) record was originally input into the source system.
     ///

@@ -49,7 +49,7 @@ pub struct OpenHouse {
         rename = "OpenHouseAttendedBy",
         skip_serializing_if = "Option::is_none"
     )]
-    pub open_house_attended_by: Option<String>,
+    pub open_house_attended_by: Option<crate::Attended>,
 
     /// The date on which the open house will occur.
     ///
@@ -100,13 +100,13 @@ pub struct OpenHouse {
     ///
     /// [OpenHouseStatus](https://ddwiki.reso.org/display/DDW17/OpenHouseStatus+Field)
     #[serde(rename = "OpenHouseStatus", skip_serializing_if = "Option::is_none")]
-    pub open_house_status: Option<String>,
+    pub open_house_status: Option<crate::OpenHouseStatus>,
 
     /// The type of open house.  i.e. Public, Broker, Office, Association, Private (invitation or targeted publication).
     ///
     /// [OpenHouseType](https://ddwiki.reso.org/display/DDW17/OpenHouseType+Field)
     #[serde(rename = "OpenHouseType", skip_serializing_if = "Option::is_none")]
-    pub open_house_type: Option<String>,
+    pub open_house_type: Option<crate::OpenHouseType>,
 
     /// The transactional timestamp automatically recorded by the MLS system representing the date/time the Open House was entered and made visible to members of the MLS.
     ///

@@ -217,7 +217,7 @@ pub struct OUID {
         rename = "OrganizationCountry",
         skip_serializing_if = "Option::is_none"
     )]
-    pub organization_country: Option<String>,
+    pub organization_country: Option<crate::Country>,
 
     /// The county or parish in which the organization is addressed.
     ///
@@ -331,7 +331,7 @@ pub struct OUID {
         rename = "OrganizationStateLicenseState",
         skip_serializing_if = "Option::is_none"
     )]
-    pub organization_state_license_state: Option<String>,
+    pub organization_state_license_state: Option<crate::StateOrProvince>,
 
     /// The state or province in which the organization is addressed.
     ///
@@ -340,7 +340,7 @@ pub struct OUID {
         rename = "OrganizationStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub organization_state_or_province: Option<String>,
+    pub organization_state_or_province: Option<crate::StateOrProvince>,
 
     /// Is the Organization active or inactive. 1 or true is active, 0 or false is inactive. This field is not nullable.
     ///

@@ -10,7 +10,7 @@ pub struct SavedSearch {
     ///
     /// [ClassName](https://ddwiki.reso.org/display/DDW17/ClassName+%28SavedSearch%29+Field)
     #[serde(rename = "ClassName", skip_serializing_if = "Option::is_none")]
-    pub class_name: Option<String>,
+    pub class_name: Option<crate::ClassName>,
 
     /// A system unique identifier. Specifically, in aggregation systems, the MemberKey is the system unique identifier from the system that the record was retrieved. This may be identical to the related xxxId. This is a foreign key relating to the Member resource's MemberKey.
     ///
@@ -97,7 +97,7 @@ pub struct SavedSearch {
     ///
     /// [ResourceName](https://ddwiki.reso.org/display/DDW17/ResourceName+%28SavedSearch%29+Field)
     #[serde(rename = "ResourceName", skip_serializing_if = "Option::is_none")]
-    pub resource_name: Option<String>,
+    pub resource_name: Option<crate::ResourceName>,
 
     /// A textual description of the saved search input by the member who created the saved search.
     ///
@@ -172,7 +172,7 @@ pub struct SavedSearch {
     ///
     /// [SearchQueryType](https://ddwiki.reso.org/display/DDW17/SearchQueryType+Field)
     #[serde(rename = "SearchQueryType", skip_serializing_if = "Option::is_none")]
-    pub search_query_type: Option<String>,
+    pub search_query_type: Option<crate::SearchQueryType>,
 
     /// The RESO OUID's OrganizationUniqueId of the Source record provider.  The source system is the system from which the record was directly received.  In cases where the source system was not where the record originated (the authoritative system), see the Originating System fields.
     ///

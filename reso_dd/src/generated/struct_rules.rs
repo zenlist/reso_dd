@@ -10,7 +10,7 @@ pub struct Rules {
     ///
     /// [ClassName](https://ddwiki.reso.org/display/DDW17/ClassName+%28Rules%29+Field)
     #[serde(rename = "ClassName", skip_serializing_if = "Option::is_none")]
-    pub class_name: Option<String>,
+    pub class_name: Option<crate::ClassName>,
 
     /// The unique identifier of the field to which the Rule applies. This is a foreign key relating to the field found in the resource per the ResourceName.
     ///
@@ -79,7 +79,7 @@ pub struct Rules {
     ///
     /// [ResourceName](https://ddwiki.reso.org/display/DDW17/ResourceName+%28Rules%29+Field)
     #[serde(rename = "ResourceName", skip_serializing_if = "Option::is_none")]
-    pub resource_name: Option<String>,
+    pub resource_name: Option<crate::ResourceName>,
 
     /// The action to be taken when processing the rule.
     ///
@@ -115,7 +115,7 @@ pub struct Rules {
     ///
     /// [RuleFormat](https://ddwiki.reso.org/display/DDW17/RuleFormat+Field)
     #[serde(rename = "RuleFormat", skip_serializing_if = "Option::is_none")]
-    pub rule_format: Option<String>,
+    pub rule_format: Option<crate::RuleFormat>,
 
     /// The text that might be displayed on a form that helps the user fix the rule (e.g. enter phone number in the 10 digit format ###-###-####.)
     ///

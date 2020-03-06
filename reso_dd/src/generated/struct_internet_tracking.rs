@@ -130,13 +130,13 @@ pub struct InternetTracking {
         rename = "ActorStateOrProvince",
         skip_serializing_if = "Option::is_none"
     )]
-    pub actor_state_or_province: Option<String>,
+    pub actor_state_or_province: Option<crate::StateOrProvince>,
 
     /// A list of actor types; where the event was originated. (i.e. Agent, Consumer, Bot)  In implementation this is typically a required field
     ///
     /// [ActorType](https://ddwiki.reso.org/display/DDW17/ActorType+Field)
     #[serde(rename = "ActorType", skip_serializing_if = "Option::is_none")]
-    pub actor_type: Option<String>,
+    pub actor_type: Option<crate::ActorType>,
 
     /// The color depth of the Actor's device display
     ///
@@ -148,7 +148,7 @@ pub struct InternetTracking {
     ///
     /// [DeviceType](https://ddwiki.reso.org/display/DDW17/DeviceType+Field)
     #[serde(rename = "DeviceType", skip_serializing_if = "Option::is_none")]
-    pub device_type: Option<String>,
+    pub device_type: Option<crate::DeviceType>,
 
     /// A description of the event being tracked. (i.e. "the listing was viewed")
     ///
@@ -214,7 +214,7 @@ pub struct InternetTracking {
     ///
     /// [EventTarget](https://ddwiki.reso.org/display/DDW17/EventTarget+Field)
     #[serde(rename = "EventTarget", skip_serializing_if = "Option::is_none")]
-    pub event_target: Option<String>,
+    pub event_target: Option<crate::EventTarget>,
 
     /// A UTC timestamp of when the event being tracked occurred.  In implementation this is typically a required field.
     ///
@@ -226,7 +226,7 @@ pub struct InternetTracking {
     ///
     /// [EventType](https://ddwiki.reso.org/display/DDW17/EventType+Field)
     #[serde(rename = "EventType", skip_serializing_if = "Option::is_none")]
-    pub event_type: Option<String>,
+    pub event_type: Option<crate::EventType>,
 
     /// An ID pertaining to the ObjectType (i.e. the MLS listing id for ObjectType.Listing).  When the ObjectIdType is a property, this should be a PUID.
     ///
@@ -238,7 +238,7 @@ pub struct InternetTracking {
     ///
     /// [ObjectIdType](https://ddwiki.reso.org/display/DDW17/ObjectIdType+Field)
     #[serde(rename = "ObjectIdType", skip_serializing_if = "Option::is_none")]
-    pub object_id_type: Option<String>,
+    pub object_id_type: Option<crate::ObjectIdType>,
 
     /// A unique identifier for this record from the immediate source. This is a string that can include URI or other forms. Alternatively use the MemberKeyNumeric for a numeric only key field. This is the local key of the system. When records are received from other systems, a local key is commonly applied. If conveying the original keys from the source or originating systems, utilize the SourceSystemObjectKey and/or the OriginatingSystemObjectKey.
     ///
@@ -292,7 +292,7 @@ pub struct InternetTracking {
     ///
     /// [ObjectType](https://ddwiki.reso.org/display/DDW17/ObjectType+Field)
     #[serde(rename = "ObjectType", skip_serializing_if = "Option::is_none")]
-    pub object_type: Option<String>,
+    pub object_type: Option<crate::ObjectType>,
 
     /// The URL of the tracked event.
     ///

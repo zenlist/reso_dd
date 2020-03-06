@@ -151,5 +151,5 @@ pub struct TeamMembers {
     ///
     /// [TeamMemberType](https://ddwiki.reso.org/display/DDW17/TeamMemberType+Field)
     #[serde(rename = "TeamMemberType", skip_serializing_if = "Option::is_none")]
-    pub team_member_type: Option<String>,
+    pub team_member_type: Option<crate::TeamMemberType>,
 }

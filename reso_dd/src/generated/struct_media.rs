@@ -31,7 +31,7 @@ pub struct Media {
     ///
     /// [ClassName](https://ddwiki.reso.org/display/DDW17/ClassName+Field)
     #[serde(rename = "ClassName", skip_serializing_if = "Option::is_none")]
-    pub class_name: Option<String>,
+    pub class_name: Option<crate::ClassName>,
 
     /// The height of the image expressed in pixels.
     ///
@@ -43,7 +43,7 @@ pub struct Media {
     ///
     /// [ImageOf](https://ddwiki.reso.org/display/DDW17/ImageOf+Field)
     #[serde(rename = "ImageOf", skip_serializing_if = "Option::is_none")]
-    pub image_of: Option<String>,
+    pub image_of: Option<crate::ImageOf>,
 
     /// A text description of the size of the image.  i.e. Small, Thumbnail, Medium, Large, X-Large.  The largest image must be described as "Largest".  Thumbnail must also be included.  Pick List will remain open/extendable.
     ///
@@ -70,7 +70,7 @@ pub struct Media {
     ///
     /// [MediaCategory](https://ddwiki.reso.org/display/DDW17/MediaCategory+Field)
     #[serde(rename = "MediaCategory", skip_serializing_if = "Option::is_none")]
-    pub media_category: Option<String>,
+    pub media_category: Option<crate::MediaCategory>,
 
     /// The JavaScript or other method to embed a video, image, virtual tour or other media.
     ///
@@ -115,7 +115,7 @@ pub struct Media {
     ///
     /// [MediaType](https://ddwiki.reso.org/display/DDW17/MediaType+Field)
     #[serde(rename = "MediaType", skip_serializing_if = "Option::is_none")]
-    pub media_type: Option<String>,
+    pub media_type: Option<crate::MediaType>,
 
     /// The URI to the media file referenced by this record.
     ///
@@ -169,7 +169,8 @@ pub struct Media {
     ///
     /// [Permission](https://ddwiki.reso.org/display/DDW17/Permission+Field)
     #[serde(rename = "Permission", skip_serializing_if = "Option::is_none")]
-    pub permission: Option<String>,
+    #[serde(default, with = "crate::comma_delimited")]
+    pub permission: Option<Vec<crate::Permission>>,
 
     /// When set to true, the media record in question is the preferred photo.  This will typically mean the photo to be shown when only one of the photos is to be displayed.
     ///
@@ -181,7 +182,7 @@ pub struct Media {
     ///
     /// [ResourceName](https://ddwiki.reso.org/display/DDW17/ResourceName+Field)
     #[serde(rename = "ResourceName", skip_serializing_if = "Option::is_none")]
-    pub resource_name: Option<String>,
+    pub resource_name: Option<crate::ResourceName>,
 
     /// The well known identifier of the related record from the source resource. The value may be identical to that of the Listing Key, but the Listing ID is intended to be the value used by a human to retrieve the information about a specific listing. In a multiple originating system or a merged system, this value may not be unique and may require the use of the provider system to create a synthetic unique value.
     ///
